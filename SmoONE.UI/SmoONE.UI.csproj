@@ -1,0 +1,621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{686D5B4A-5650-4784-ABA8-0ED62F9BE269}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmoONE.UI</RootNamespace>
+    <AssemblyName>SmoONE.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>Dll\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=4.0.4.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.0.4\lib\net40\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Smobiler.Utility" />
+    <Reference Include="Smobiler.Core" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO, Version=2.6.9.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.9\lib\net40\System.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=2.6.9.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.9\lib\net40\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks, Version=2.6.9.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.9\lib\net40\System.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutofacConfig.cs" />
+    <Compile Include="AutomapperConfig.cs" />
+    <Compile Include="CostCenter\frmCostCenter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CostCenter\frmCostCenter.Designer.cs">
+      <DependentUpon>frmCostCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CostCenter\frmCostCenterCreate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CostCenter\frmCostCenterCreate.Designer.cs">
+      <DependentUpon>frmCostCenterCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CostCenter\frmCostTemplet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CostCenter\frmCostTemplet.Designer.cs">
+      <DependentUpon>frmCostTemplet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CostCenter\frmCostTempletCreate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CostCenter\frmCostTempletCreate.Designer.cs">
+      <DependentUpon>frmCostTempletCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CostCenter\frmCostTempletDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CostCenter\frmCostTempletDetail.Designer.cs">
+      <DependentUpon>frmCostTempletDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataCheckPoplist.cs" />
+    <Compile Include="DataGridviewDepbyUser.cs" />
+    <Compile Include="CostCenter\frmRBCostCenter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CostCenter\frmRBCostCenter.Designer.cs">
+      <DependentUpon>frmRBCostCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CostCenter\frmCostCenterDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CostCenter\frmCostCenterDetail.Designer.cs">
+      <DependentUpon>frmCostCenterDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmentMode.cs" />
+    <Compile Include="Department\frmDepAssignUser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Department\frmDepAssignUser.Designer.cs">
+      <DependentUpon>frmDepAssignUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmCCSearchLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmCCSearchLayout.Designer.cs">
+      <DependentUpon>frmCCSearchLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmConsumption1Layout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmConsumption1Layout.Designer.cs">
+      <DependentUpon>frmConsumption1Layout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmConsumptionLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmConsumptionLayout.Designer.cs">
+      <DependentUpon>frmConsumptionLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmCostCenterLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmCostCenterLayout.Designer.cs">
+      <DependentUpon>frmCostCenterLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Department\frmDepartment.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Department\frmDepartment.Designer.cs">
+      <DependentUpon>frmDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Department\frmDepartmentCreate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Department\frmDepartmentCreate.Designer.cs">
+      <DependentUpon>frmDepartmentCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Department\frmDepartmentDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Department\frmDepartmentDetail.Designer.cs">
+      <DependentUpon>frmDepartmentDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EuserInfo.cs" />
+    <Compile Include="Layout\frmCostTempletLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmCostTempletLayout.Designer.cs">
+      <DependentUpon>frmCostTempletLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmDepartmentLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmDepartmentLayout.Designer.cs">
+      <DependentUpon>frmDepartmentLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmDepartmentModeLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmDepartmentModeLayout.Designer.cs">
+      <DependentUpon>frmDepartmentModeLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmDepAssignUserLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmDepAssignUserLayout.Designer.cs">
+      <DependentUpon>frmDepAssignUserLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmDetailFootbarLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmDetailFootbarLayout.Designer.cs">
+      <DependentUpon>frmDetailFootbarLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmLeaveLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmLeaveLayout.Designer.cs">
+      <DependentUpon>frmLeaveLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmRBCreateLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmRBCreateLayout.Designer.cs">
+      <DependentUpon>frmRBCreateLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmRBFootbarLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmRBFootbarLayout.Designer.cs">
+      <DependentUpon>frmRBFootbarLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmRBModelLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmRBModelLayout.Designer.cs">
+      <DependentUpon>frmRBModelLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmRBROWLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmRBROWLayout.Designer.cs">
+      <DependentUpon>frmRBROWLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmRBTypeLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmRBTypeLayout.Designer.cs">
+      <DependentUpon>frmRBTypeLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmRefuseLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmRefuseLayout.Designer.cs">
+      <DependentUpon>frmRefuseLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RB\frmRBCreate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RB\frmRBCreate.Designer.cs">
+      <DependentUpon>frmRBCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RB\frmRBDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RB\frmRBDetail.Designer.cs">
+      <DependentUpon>frmRBDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RB\frmRBEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RB\frmRBEdit.Designer.cs">
+      <DependentUpon>frmRBEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RB\frmRBRows.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RB\frmRBRows.Designer.cs">
+      <DependentUpon>frmRBRows.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RB\frmRowsCreate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RB\frmRowsCreate.Designer.cs">
+      <DependentUpon>frmRowsCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RB\frmRTypeChoose.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RB\frmRTypeChoose.Designer.cs">
+      <DependentUpon>frmRTypeChoose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RB\frmRTypeTempChoose.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RB\frmRTypeTempChoose.Designer.cs">
+      <DependentUpon>frmRTypeTempChoose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RB\frmRTypeTempCreate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RB\frmRTypeTempCreate.Designer.cs">
+      <DependentUpon>frmRTypeTempCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RB\frmRTypeTemplate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RB\frmRTypeTemplate.Designer.cs">
+      <DependentUpon>frmRTypeTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo\frmUser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserInfo\frmUser.Designer.cs">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserSex.cs" />
+    <Compile Include="Work\frmCreated.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Work\frmCreated.Designer.cs">
+      <DependentUpon>frmCreated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work\frmCCTo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Work\frmCCTo.Designer.cs">
+      <DependentUpon>frmCCTo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work\frmCheck.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Work\frmCheck.Designer.cs">
+      <DependentUpon>frmCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leave\frmLeaveDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Leave\frmLeaveDetail.Designer.cs">
+      <DependentUpon>frmLeaveDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo\frmChangePWD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserInfo\frmChangePWD.Designer.cs">
+      <DependentUpon>frmChangePWD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo\frmCheckOrCCTo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserInfo\frmCheckOrCCTo.Designer.cs">
+      <DependentUpon>frmCheckOrCCTo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="frmLogon.Designer.cs">
+      <DependentUpon>frmLogon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetting.Designer.cs">
+      <DependentUpon>frmSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo\frmRegisterTel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserInfo\frmRegisterTel.Designer.cs">
+      <DependentUpon>frmRegisterTel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo\frmRegister.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserInfo\frmRegister.Designer.cs">
+      <DependentUpon>frmRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo\frmUserDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserInfo\frmUserDetail.Designer.cs">
+      <DependentUpon>frmUserDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmUserLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmUserLayout.Designer.cs">
+      <DependentUpon>frmUserLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\EditUserInfoLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\EditUserInfoLayout.Designer.cs">
+      <DependentUpon>EditUserInfoLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Leave\frmLeaveCreate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Leave\frmLeaveCreate.Designer.cs">
+      <DependentUpon>frmLeaveCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo\frmVerificationCode.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserInfo\frmVerificationCode.Designer.cs">
+      <DependentUpon>frmVerificationCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work\frmWork.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Work\frmWork.Designer.cs">
+      <DependentUpon>frmWork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridview.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CostCenter\frmCostCenter.resx">
+      <DependentUpon>frmCostCenter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CostCenter\frmCostCenterCreate.resx">
+      <DependentUpon>frmCostCenterCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CostCenter\frmCostTemplet.resx">
+      <DependentUpon>frmCostTemplet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CostCenter\frmCostTempletCreate.resx">
+      <DependentUpon>frmCostTempletCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CostCenter\frmCostTempletDetail.resx">
+      <DependentUpon>frmCostTempletDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CostCenter\frmRBCostCenter.resx">
+      <DependentUpon>frmRBCostCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CostCenter\frmCostCenterDetail.resx">
+      <DependentUpon>frmCostCenterDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Department\frmDepartment.resx">
+      <DependentUpon>frmDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Department\frmDepartmentCreate.resx">
+      <DependentUpon>frmDepartmentCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Department\frmDepartmentDetail.resx">
+      <DependentUpon>frmDepartmentDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Department\frmDepAssignUser.resx">
+      <DependentUpon>frmDepAssignUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmCCSearchLayout.resx">
+      <DependentUpon>frmCCSearchLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmConsumption1Layout.resx">
+      <DependentUpon>frmConsumption1Layout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmConsumptionLayout.resx">
+      <DependentUpon>frmConsumptionLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmCostCenterLayout.resx">
+      <DependentUpon>frmCostCenterLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmCostTempletLayout.resx">
+      <DependentUpon>frmCostTempletLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmDepartmentLayout.resx">
+      <DependentUpon>frmDepartmentLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmDepartmentModeLayout.resx">
+      <DependentUpon>frmDepartmentModeLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmDepAssignUserLayout.resx">
+      <DependentUpon>frmDepAssignUserLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmDetailFootbarLayout.resx">
+      <DependentUpon>frmDetailFootbarLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmLeaveLayout.resx">
+      <DependentUpon>frmLeaveLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmRBCreateLayout.resx">
+      <DependentUpon>frmRBCreateLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmRBFootbarLayout.resx">
+      <DependentUpon>frmRBFootbarLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmRBModelLayout.resx">
+      <DependentUpon>frmRBModelLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmRBROWLayout.resx">
+      <DependentUpon>frmRBROWLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmRBTypeLayout.resx">
+      <DependentUpon>frmRBTypeLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmRefuseLayout.resx">
+      <DependentUpon>frmRefuseLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RB\frmRBCreate.resx">
+      <DependentUpon>frmRBCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RB\frmRBDetail.resx">
+      <DependentUpon>frmRBDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RB\frmRBEdit.resx">
+      <DependentUpon>frmRBEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RB\frmRBRows.resx">
+      <DependentUpon>frmRBRows.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RB\frmRowsCreate.resx">
+      <DependentUpon>frmRowsCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RB\frmRTypeChoose.resx">
+      <DependentUpon>frmRTypeChoose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RB\frmRTypeTempChoose.resx">
+      <DependentUpon>frmRTypeTempChoose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RB\frmRTypeTempCreate.resx">
+      <DependentUpon>frmRTypeTempCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RB\frmRTypeTemplate.resx">
+      <DependentUpon>frmRTypeTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInfo\frmUser.resx">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work\frmCreated.resx">
+      <DependentUpon>frmCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work\frmCCTo.resx">
+      <DependentUpon>frmCCTo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work\frmCheck.resx">
+      <DependentUpon>frmCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leave\frmLeaveDetail.resx">
+      <DependentUpon>frmLeaveDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInfo\frmChangePWD.resx">
+      <DependentUpon>frmChangePWD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInfo\frmCheckOrCCTo.resx">
+      <DependentUpon>frmCheckOrCCTo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogon.resx">
+      <DependentUpon>frmLogon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leave\frmLeaveCreate.resx">
+      <DependentUpon>frmLeaveCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInfo\frmRegister.resx">
+      <DependentUpon>frmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInfo\frmRegisterTel.resx">
+      <DependentUpon>frmRegisterTel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInfo\frmUserDetail.resx">
+      <DependentUpon>frmUserDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmUserLayout.resx">
+      <DependentUpon>frmUserLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\EditUserInfoLayout.resx">
+      <DependentUpon>EditUserInfoLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInfo\frmVerificationCode.resx">
+      <DependentUpon>frmVerificationCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work\frmWork.resx">
+      <DependentUpon>frmWork.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmoONE.Application\SmoONE.Application.csproj">
+      <Project>{a212cad1-9f7a-4ce5-a9cb-123c506f2fb3}</Project>
+      <Name>SmoONE.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmoONE.CommLib\SmoONE.CommLib.csproj">
+      <Project>{499aee7d-c755-4857-acb9-e9caacbfef44}</Project>
+      <Name>SmoONE.CommLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmoONE.Domain\SmoONE.Domain.csproj">
+      <Project>{7fad9bb7-8154-402c-9826-95cdf53bb770}</Project>
+      <Name>SmoONE.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmoONE.DTOs\SmoONE.DTOs.csproj">
+      <Project>{90658630-baaf-4b33-8189-d6b6de86a974}</Project>
+      <Name>SmoONE.DTOs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmoONE.Infrastructure\SmoONE.Infrastructure.csproj">
+      <Project>{d2858059-4f8b-44d8-8915-843b6f61e962}</Project>
+      <Name>SmoONE.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmoONE.Repository\SmoONE.Repository.csproj">
+      <Project>{8a3e419f-dcc3-47a3-ab4e-6908bb4da896}</Project>
+      <Name>SmoONE.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{90658630-BAAF-4B33-8189-D6B6DE86A974}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmoONE.DTOs</RootNamespace>
+    <AssemblyName>SmoONE.DTOs</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="InputDTO\CCInputDto.cs" />
+    <Compile Include="InputDTO\CCTTInputDto.cs" />
+    <Compile Include="InputDTO\DepInputDto.cs" />
+    <Compile Include="IEntity.cs" />
+    <Compile Include="InputDTO\LeaveInputDto.cs" />
+    <Compile Include="Enum\IsActive.cs" />
+    <Compile Include="Enum\L_Status.cs" />
+    <Compile Include="OutputDTO\CCDetailDto.cs" />
+    <Compile Include="OutputDTO\CCDto.cs" />
+    <Compile Include="OutputDTO\CC_Type_TemplateDto.cs" />
+    <Compile Include="OutputDTO\DepartmentDto.cs" />
+    <Compile Include="OutputDTO\DepDetailDto.cs" />
+    <Compile Include="OutputDTO\LeaveDetailDto.cs" />
+    <Compile Include="OutputDTO\LeaveDto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="OutputDTO\RBDetailDto.cs" />
+    <Compile Include="OutputDTO\RB_RowsDto.cs" />
+    <Compile Include="OutputDTO\RB_RType_TemplateDto.cs" />
+    <Compile Include="OutputDTO\ReimbursementDto.cs" />
+    <Compile Include="OutputDTO\UserDepDto.cs" />
+    <Compile Include="OutputDTO\UserDetailDto.cs" />
+    <Compile Include="OutputDTO\UserDto.cs" />
+    <Compile Include="InputDTO\RBInputDto.cs" />
+    <Compile Include="InputDTO\RBRTTInputDto.cs" />
+    <Compile Include="InputDTO\RB_RowsInputDto.cs" />
+    <Compile Include="InputDTO\UserInputDto.cs" />
+    <Compile Include="Enum\RB_Status.cs" />
+    <Compile Include="Enum\Sex.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

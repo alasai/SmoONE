@@ -86,8 +86,9 @@ namespace SmoONE.UI.Layout
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.lblId,
             this.label1,
-            this.line1,
-            this.imgPortrait});
+            this.imgPortrait,
+             this.line1,
+            });
             this.Size = new System.Drawing.Size(300, 60);
             this.Name = "frmDepartmentLayout";
 

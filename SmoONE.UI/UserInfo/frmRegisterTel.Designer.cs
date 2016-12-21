@@ -93,9 +93,9 @@ namespace SmoONE.UI
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.btnSave,
-            this.line3,
             this.label1,
             this.txtTel,
+              this.line3,
             this.line1});
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
             this.TitleText = "ÐÂÓÃ»§×¢²á";

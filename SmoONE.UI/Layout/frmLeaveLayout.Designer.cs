@@ -45,6 +45,7 @@ namespace SmoONE.UI.Layout
             this.imgPortrait.Size = new System.Drawing.Size(35, 35);
             this.imgPortrait.SizeMode = Smobiler.Core.ImageSizeMode.StretchImage;
             this.imgPortrait.TabIndex = 2;
+            this.imgPortrait.ZIndex = 1;
             // 
             // lblId
             // 
@@ -57,6 +58,7 @@ namespace SmoONE.UI.Layout
             this.lblId.Size = new System.Drawing.Size(246, 30);
             this.lblId.TabIndex = 3;
             this.lblId.VerticalAlignment = Smobiler.Core.VerticalAlignment.Top;
+            this.lblId.ZIndex = 2;
             // 
             // lblType
             // 
@@ -71,6 +73,7 @@ namespace SmoONE.UI.Layout
             this.lblType.TabIndex = 4;
             this.lblType.Text = "µ»¥˝Œ“…Û≈˙";
             this.lblType.VerticalAlignment = Smobiler.Core.VerticalAlignment.Bottom;
+            this.lblType.ZIndex = 3;
             // 
             // line1
             // 
@@ -79,6 +82,7 @@ namespace SmoONE.UI.Layout
             this.line1.Name = "line1";
             this.line1.Size = new System.Drawing.Size(300, 1);
             this.line1.TabIndex = 5;
+            this.line1.ZIndex = 5;
             // 
             // label1
             // 
@@ -93,6 +97,7 @@ namespace SmoONE.UI.Layout
             this.label1.Size = new System.Drawing.Size(113, 30);
             this.label1.TabIndex = 6;
             this.label1.VerticalAlignment = Smobiler.Core.VerticalAlignment.Bottom;
+            this.label1.ZIndex = 4;
             // 
             // frmLeaveLayout
             // 
@@ -101,8 +106,8 @@ namespace SmoONE.UI.Layout
             this.imgPortrait,
             this.lblId,
             this.lblType,
-            this.line1,
-            this.label1});
+            this.label1,
+            this.line1});
             this.Size = new System.Drawing.Size(300, 60);
             this.Name = "frmLeaveLayout";
 

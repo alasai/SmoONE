@@ -227,8 +227,6 @@ namespace SmoONE.UI.CostCenter
             this.popType});
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.btnSave,
-            this.line10,
-            this.line1,
             this.label3,
             this.btnType,
             this.btnType1,
@@ -239,7 +237,10 @@ namespace SmoONE.UI.CostCenter
             this.lblFCheckers,
             this.lblFCheckers1,
             this.lblFCheckers2,
-            this.imgbtnFCheckers});
+            this.imgbtnFCheckers,
+                 this.line10,
+            this.line1,
+            });
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
             this.TitleText = "成本中心类型模板";
             this.Load += new System.EventHandler(this.frmCostTempletCreate_Load);

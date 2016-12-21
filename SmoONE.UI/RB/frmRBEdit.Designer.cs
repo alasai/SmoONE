@@ -223,13 +223,14 @@ namespace SmoONE.UI.RB
             this.btnChoice,
             this.lblNote,
             this.TxtNote,
+            this.gridRBRowData,
             this.line3,
             this.line1,
             this.line2,
             this.line4,
             this.line5,
             this.line6,
-            this.gridRBRowData});
+            });
             this.FooterBarLayout = "frmRBFootbarLayout";
             this.StatusBarStyle = Smobiler.Core.StatusBarStyle.Default;
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);

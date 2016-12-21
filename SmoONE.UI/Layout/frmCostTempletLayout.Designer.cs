@@ -182,7 +182,6 @@ namespace SmoONE.UI.Layout
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.lblID,
             this.lblType,
-            this.line1,
             this.label2,
             this.label3,
             this.label7,
@@ -190,7 +189,9 @@ namespace SmoONE.UI.Layout
             this.lblAEACheckers,
             this.label5,
             this.label4,
-            this.lblFCheckers});
+            this.lblFCheckers,
+             this.line1,
+            });
             this.Size = new System.Drawing.Size(300, 85);
             this.Name = "frmCostTempletLayout";
 

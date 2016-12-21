@@ -241,7 +241,6 @@ namespace SmoONE.UI.RB
             this.lblnote,
             this.lblReason1,
             this.lblReason,
-            this.line1,
             this.imgPortrait,
             this.lblUserName,
             this.lblRBState,
@@ -249,7 +248,9 @@ namespace SmoONE.UI.RB
             this.label1,
             this.lblAmount,
             this.label3,
-            this.lblCreateTime});
+            this.lblCreateTime,
+             this.line1,
+            });
             this.FooterBarLayout = "frmDetailFootbarLayout";
             this.StatusBarStyle = Smobiler.Core.StatusBarStyle.Default;
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);

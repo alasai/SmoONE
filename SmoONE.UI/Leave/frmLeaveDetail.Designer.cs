@@ -215,6 +215,7 @@ namespace SmoONE.UI.Leave
             this.nodeStateDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(244)))));
             this.nodeStateDate.Border = new Smobiler.Core.Border(0, 1, 0, 0);
             this.nodeStateDate.BorderColor = System.Drawing.Color.LightGray;
+            this.nodeStateDate.FontSize = 16F;
             this.nodeStateDate.ItemBackColor = System.Drawing.Color.White;
             this.nodeStateDate.ItemDefaultIcon = "";
             this.nodeStateDate.Location = new System.Drawing.Point(0, 315);
@@ -276,8 +277,9 @@ namespace SmoONE.UI.Leave
             this.nodeStateDate,
             this.label1,
             this.lblLDay,
-            this.line1,
-            this.imgL});
+            this.imgL,
+             this.line1,
+        });
             this.FooterBarLayout = "frmDetailFootbarLayout";
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
             this.TitleText = "ว๋ผู";

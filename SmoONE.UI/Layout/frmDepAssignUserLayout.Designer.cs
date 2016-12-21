@@ -109,9 +109,10 @@ namespace SmoONE.UI.Layout
             this.lblPortrait,
             this.lblUser,
             this.imgPortrait,
-            this.line1,
             this.Check,
-            this.lblDep});
+            this.lblDep,
+             this.line1,
+            });
             this.Size = new System.Drawing.Size(300, 50);
             this.Name = "frmDepAssignUserLayout";
 

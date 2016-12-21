@@ -99,11 +99,12 @@ namespace SmoONE.UI.Layout
             // 
             this.BackColor = System.Drawing.Color.White;
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.line2,
             this.imgType,
             this.lblMoney,
             this.lblnote,
-            this.lbldate});
+            this.lbldate,
+             this.line2,
+            });
             this.Size = new System.Drawing.Size(300, 60);
             this.Name = "frmRBROWLayout";
 

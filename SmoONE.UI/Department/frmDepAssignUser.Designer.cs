@@ -203,14 +203,15 @@ namespace SmoONE.UI.Department
             this.btnSave,
             this.btnAll,
             this.checkAll,
-            this.line9,
-            this.line1,
-            this.line2,
-            this.line3,
             this.label1,
             this.lblLeader,
             this.line4,
-            this.line5});
+             this.line9,
+            this.line1,
+            this.line2,
+            this.line3,
+            this.line5
+            });
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
             this.TitleText = "部门人员维护";
             this.Load += new System.EventHandler(this.frmDepAssignUser_Load);

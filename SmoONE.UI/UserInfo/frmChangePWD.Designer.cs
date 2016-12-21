@@ -152,14 +152,15 @@ namespace SmoONE.UI
             this.BackColor = System.Drawing.Color.White;
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.btnSave,
-            this.line1,
-            this.line2,
             this.label1,
             this.txtPwd1,
             this.imgbtnPwdC1,
             this.label2,
             this.txtPwd2,
-            this.imgbtnPwdC2});
+            this.imgbtnPwdC2,
+             this.line1,
+            this.line2,
+            });
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
             this.TitleText = "…Ë÷√µ«¬º√‹¬Î";
             this.TitleImageClick += new System.EventHandler(this.frmChangePWD_TitleImageClick);

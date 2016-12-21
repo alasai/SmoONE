@@ -162,12 +162,13 @@ namespace COMSSmobilerDemo.Reimbursement.CostCenter.Layout
             this.btnccuser,
             this.btnccuser1,
             this.btncurrentUser,
-            this.Line1,
             this.Label2,
             this.txtCCName,
-            this.Line2,
             this.btnCancel,
-            this.btnOK});
+            this.btnOK,
+            this.Line1,
+            this.Line2,
+            });
             this.Size = new System.Drawing.Size(270, 125);
             this.Name = "frmCCSearchLayout";
 

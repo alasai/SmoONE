@@ -350,22 +350,22 @@ namespace SmoONE.UI.Department
             this.btnLeader,
             this.btnLeader1,
             this.btnSave,
-            this.line9,
-            this.line1,
-            this.line2,
-            this.line3,
-            this.line4,
-            this.line5,
-            this.line6,
             this.btnUp,
             this.Label4,
             this.txtDep_Name,
             this.label5,
             this.label6,
             this.imgPortrait,
+            this.btnAssignUser,
             this.line7,
             this.line8,
-            this.btnAssignUser});
+            this.line9,
+            this.line1,
+            this.line2,
+            this.line3,
+            this.line4,
+            this.line5,
+            this.line6});
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
             this.TitleText = "≤ø√≈";
             this.Load += new System.EventHandler(this.frmDepartmentCreate_Load);

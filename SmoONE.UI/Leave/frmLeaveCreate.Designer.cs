@@ -502,19 +502,7 @@ namespace SmoONE.UI.Leave
             this.popType,
             this.camera1});
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.btnSave,
-            this.line9,
-            this.line1,
-            this.line2,
-            this.line3,
-            this.line4,
-            this.line5,
-            this.line6,
-            this.line7,
-            this.line8,
-            this.line11,
-            this.line12,
-            this.line13,
+            this.btnSave, 
             this.label1,
             this.btnType,
             this.btnType1,
@@ -538,7 +526,20 @@ namespace SmoONE.UI.Leave
             this.lblCCTo,
             this.lblCCTo1,
             this.lblCCTo2,
-            this.imgbtnAddCCTo});
+            this.imgbtnAddCCTo,
+               this.line9,
+            this.line1,
+            this.line2,
+            this.line3,
+            this.line4,
+            this.line5,
+            this.line6,
+            this.line7,
+            this.line8,
+            this.line11,
+            this.line12,
+            this.line13,
+            });
             this.Size = new System.Drawing.Size(300, 600);
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
             this.TitleText = "我的请假";

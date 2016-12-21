@@ -92,7 +92,7 @@ namespace SmoONE.UI.Department
             this.label3.Location = new System.Drawing.Point(0, 135);
             this.label3.Name = "label3";
             this.label3.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.label3.Size = new System.Drawing.Size(66, 35);
+            this.label3.Size = new System.Drawing.Size(101, 35);
             this.label3.TabIndex = 5;
             this.label3.Text = "目标其他人天";
             // 
@@ -137,10 +137,10 @@ namespace SmoONE.UI.Department
             this.lblOtherDay.FontSize = 12F;
             this.lblOtherDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.lblOtherDay.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.lblOtherDay.Location = new System.Drawing.Point(66, 135);
+            this.lblOtherDay.Location = new System.Drawing.Point(101, 135);
             this.lblOtherDay.Name = "lblOtherDay";
             this.lblOtherDay.Padding = new Smobiler.Core.Padding(0F, 0F, 4F, 0F);
-            this.lblOtherDay.Size = new System.Drawing.Size(234, 35);
+            this.lblOtherDay.Size = new System.Drawing.Size(199, 35);
             this.lblOtherDay.TabIndex = 9;
             // 
             // lblLeader
@@ -230,7 +230,7 @@ namespace SmoONE.UI.Department
             // 
             this.label1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.label1.Location = new System.Drawing.Point(0, 56);
+            this.label1.Location = new System.Drawing.Point(0, 55);
             this.label1.Name = "label1";
             this.label1.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
             this.label1.Size = new System.Drawing.Size(66, 35);
@@ -297,18 +297,18 @@ namespace SmoONE.UI.Department
             this.lblOtherDay,
             this.lblLeader,
             this.btnEdit,
+            this.label1,
+            this.label6,
+            this.imgPortrait,
+            this.btnDelete,
+            this.line7,
             this.line9,
             this.line1,
             this.line2,
             this.line3,
             this.line4,
             this.line5,
-            this.line6,
-            this.label1,
-            this.line7,
-            this.label6,
-            this.imgPortrait,
-            this.btnDelete});
+            this.line6});
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
             this.TitleText = "部门";
             this.Load += new System.EventHandler(this.frmDepartmentDetail_Load);

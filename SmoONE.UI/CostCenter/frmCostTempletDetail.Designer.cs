@@ -189,12 +189,13 @@ namespace SmoONE.UI.CostCenter
             this.btnEdit,
             this.lblCTempID,
             this.lblType,
-            this.line10,
+            this.lblAEACheckers2,
+            this.lblFCheckers2,
+             this.line10,
             this.line1,
             this.line2,
             this.line3,
-            this.lblAEACheckers2,
-            this.lblFCheckers2});
+            });
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
             this.TitleText = "成本中心类型模板";
             this.Load += new System.EventHandler(this.frmCostTempletDetail_Load);

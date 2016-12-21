@@ -119,9 +119,10 @@ namespace SmoONE.UI.Layout
             this.Check,
             this.lblMoney,
             this.lbldate,
-            this.Line1,
             this.lblnote,
-            this.imgType});
+            this.imgType,
+            this.Line1,
+            });
             this.Size = new System.Drawing.Size(300, 60);
             this.Name = "frmRBCreateLayout";
 

@@ -141,11 +141,11 @@ namespace SmoONE.UI.Layout
             // 
             this.BackColor = System.Drawing.Color.White;
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.line1,
             this.lblEditInfo,
             this.txtEditInfo,
             this.btnCancel,
             this.btnOK,
+             this.line1,
             this.line2,
             this.line3,
             this.line4,

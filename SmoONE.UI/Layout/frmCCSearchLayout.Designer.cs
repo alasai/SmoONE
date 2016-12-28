@@ -39,6 +39,8 @@ namespace COMSSmobilerDemo.Reimbursement.CostCenter.Layout
             this.Line3 = new Smobiler.Core.Controls.Line();
             this.btnCancel = new Smobiler.Core.Controls.Button();
             this.btnOK = new Smobiler.Core.Controls.Button();
+            this.line4 = new Smobiler.Core.Controls.Line();
+            this.line5 = new Smobiler.Core.Controls.Line();
             // 
             // Label1
             // 
@@ -90,10 +92,10 @@ namespace COMSSmobilerDemo.Reimbursement.CostCenter.Layout
             this.btncurrentUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             this.btncurrentUser.Location = new System.Drawing.Point(235, 0);
             this.btncurrentUser.Name = "btncurrentUser";
+            this.btncurrentUser.Padding = new Smobiler.Core.Padding(2F);
             this.btncurrentUser.ResourceID = "me";
             this.btncurrentUser.Size = new System.Drawing.Size(35, 35);
             this.btncurrentUser.TabIndex = 6;
-            this.btncurrentUser.Text = "Œ“";
             this.btncurrentUser.ZIndex = 5;
             // 
             // txtCCName
@@ -110,7 +112,7 @@ namespace COMSSmobilerDemo.Reimbursement.CostCenter.Layout
             // 
             // Line1
             // 
-            this.Line1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.Line1.BackColor = System.Drawing.Color.LightGray;
             this.Line1.Location = new System.Drawing.Point(0, 35);
             this.Line1.Name = "Line1";
             this.Line1.Size = new System.Drawing.Size(270, 3);
@@ -119,7 +121,7 @@ namespace COMSSmobilerDemo.Reimbursement.CostCenter.Layout
             // 
             // Line2
             // 
-            this.Line2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.Line2.BackColor = System.Drawing.Color.LightGray;
             this.Line2.Location = new System.Drawing.Point(0, 70);
             this.Line2.Name = "Line2";
             this.Line2.Size = new System.Drawing.Size(270, 1);
@@ -154,21 +156,40 @@ namespace COMSSmobilerDemo.Reimbursement.CostCenter.Layout
             this.btnOK.TabIndex = 13;
             this.btnOK.Text = "»∑∂®";
             // 
+            // line4
+            // 
+            this.line4.BackColor = System.Drawing.Color.LightGray;
+            this.line4.Location = new System.Drawing.Point(0, 84);
+            this.line4.Name = "line4";
+            this.line4.Size = new System.Drawing.Size(270, 1);
+            this.line4.TabIndex = 14;
+            this.line4.ZIndex = 8;
+            // 
+            // line5
+            // 
+            this.line5.BackColor = System.Drawing.Color.LightGray;
+            this.line5.Location = new System.Drawing.Point(135, 85);
+            this.line5.Name = "line5";
+            this.line5.Orientation = Smobiler.Core.OrientationAlignment.Vertical;
+            this.line5.Size = new System.Drawing.Size(1, 40);
+            this.line5.TabIndex = 15;
+            // 
             // frmCCSearchLayout
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.btnCancel,
+            this.btnOK,
             this.Line3,
             this.Label1,
             this.btnccuser,
             this.btnccuser1,
             this.btncurrentUser,
+            this.Line1,
             this.Label2,
             this.txtCCName,
-            this.btnCancel,
-            this.btnOK,
-            this.Line1,
             this.Line2,
-            });
+            this.line4,
+            this.line5});
             this.Size = new System.Drawing.Size(270, 125);
             this.Name = "frmCCSearchLayout";
 
@@ -186,5 +207,7 @@ namespace COMSSmobilerDemo.Reimbursement.CostCenter.Layout
         #endregion
         private Smobiler.Core.Controls.Button btnCancel;
         private Smobiler.Core.Controls.Button btnOK;
+        internal Smobiler.Core.Controls.Line line4;
+        private Smobiler.Core.Controls.Line line5;
     }
 }

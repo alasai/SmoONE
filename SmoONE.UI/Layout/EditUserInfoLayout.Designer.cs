@@ -68,7 +68,6 @@ namespace SmoONE.UI.Layout
             this.txtEditInfo.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
             this.txtEditInfo.Size = new System.Drawing.Size(260, 30);
             this.txtEditInfo.TabIndex = 4;
-            this.txtEditInfo.Text = "lincy";
             this.txtEditInfo.WaterMarkText = "£®±ÿ ‰£©";
             // 
             // btnCancel
@@ -93,7 +92,7 @@ namespace SmoONE.UI.Layout
             // 
             // line2
             // 
-            this.line2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.line2.BackColor = System.Drawing.Color.LightGray;
             this.line2.Location = new System.Drawing.Point(0, 95);
             this.line2.Name = "line2";
             this.line2.Size = new System.Drawing.Size(270, 1);
@@ -101,7 +100,7 @@ namespace SmoONE.UI.Layout
             // 
             // line3
             // 
-            this.line3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.line3.BackColor = System.Drawing.Color.LightGray;
             this.line3.Location = new System.Drawing.Point(135, 95);
             this.line3.Name = "line3";
             this.line3.Orientation = Smobiler.Core.OrientationAlignment.Vertical;
@@ -145,7 +144,7 @@ namespace SmoONE.UI.Layout
             this.txtEditInfo,
             this.btnCancel,
             this.btnOK,
-             this.line1,
+            this.line1,
             this.line2,
             this.line3,
             this.line4,

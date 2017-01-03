@@ -22,6 +22,7 @@ namespace SmoONE.Domain.IRepository
         /// </summary>
         /// <param name="PhoneNumber">电话号码</param>
         /// <param name="VCode">验证码</param>
+        /// <param name="Date">时间</param>
         /// <returns>true表示存在，false表示不存在</returns>
         bool IsValidate(string PhoneNumber,string VCode,DateTime Date);
 
@@ -31,5 +32,12 @@ namespace SmoONE.Domain.IRepository
         /// <param name="PhoneNumber">电话号码</param>
         /// <returns>true表示存在，false表示不存在</returns>
         bool IsSendVcode(string PhoneNumber);
+
+        /// <summary>
+        /// 判断该设备ID是否恶意注册
+        /// </summary>
+        /// <param name="DeviceID">设备ID</param>
+        /// <returns>true表示存在，false表示不存在</returns>
+        bool IsMalicious(string DeviceID);
     }
 }

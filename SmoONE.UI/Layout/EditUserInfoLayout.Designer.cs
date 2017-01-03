@@ -68,6 +68,7 @@ namespace SmoONE.UI.Layout
             this.txtEditInfo.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
             this.txtEditInfo.Size = new System.Drawing.Size(260, 30);
             this.txtEditInfo.TabIndex = 4;
+            this.txtEditInfo.Text = "lincy";
             this.txtEditInfo.WaterMarkText = "£®±ÿ ‰£©";
             // 
             // btnCancel

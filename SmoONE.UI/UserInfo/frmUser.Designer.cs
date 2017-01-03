@@ -56,6 +56,9 @@ namespace SmoONE.UI
             this.cameraPortrait = new Smobiler.Core.Controls.Camera();
             this.popSex = new Smobiler.Core.Controls.PopList();
             this.line9 = new Smobiler.Core.Controls.Line();
+            this.btnExit = new Smobiler.Core.Controls.Button();
+            this.line6 = new Smobiler.Core.Controls.Line();
+            this.line10 = new Smobiler.Core.Controls.Line();
             // 
             // Work
             // 
@@ -85,7 +88,6 @@ namespace SmoONE.UI
             // 
             this.imgPortrait.BorderRadius = 10;
             this.imgPortrait.Enlarged = true;
-            this.imgPortrait.ID = "";
             this.imgPortrait.Location = new System.Drawing.Point(224, 12);
             this.imgPortrait.Name = "imgPortrait";
             this.imgPortrait.Size = new System.Drawing.Size(41, 41);
@@ -344,6 +346,34 @@ namespace SmoONE.UI
             this.line9.Size = new System.Drawing.Size(300, 1);
             this.line9.TabIndex = 30;
             // 
+            // btnExit
+            // 
+            this.btnExit.ForeColor = System.Drawing.Color.Red;
+            this.btnExit.HoverBackColor = System.Drawing.Color.White;
+            this.btnExit.HoverForeColor = System.Drawing.Color.Red;
+            this.btnExit.Location = new System.Drawing.Point(0, 290);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(300, 35);
+            this.btnExit.TabIndex = 31;
+            this.btnExit.Text = "ÍË³ö";
+            this.btnExit.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnExit_Click);
+            // 
+            // line6
+            // 
+            this.line6.BackColor = System.Drawing.Color.LightGray;
+            this.line6.Location = new System.Drawing.Point(0, 290);
+            this.line6.Name = "line6";
+            this.line6.Size = new System.Drawing.Size(300, 1);
+            this.line6.TabIndex = 32;
+            // 
+            // line10
+            // 
+            this.line10.BackColor = System.Drawing.Color.LightGray;
+            this.line10.Location = new System.Drawing.Point(0, 325);
+            this.line10.Name = "line10";
+            this.line10.Size = new System.Drawing.Size(300, 1);
+            this.line10.TabIndex = 33;
+            // 
             // frmUser
             // 
             this.ComponentControls.AddRange(new Smobiler.Core.ComponentBase[] {
@@ -366,6 +396,7 @@ namespace SmoONE.UI
             this.btnEmail1,
             this.btnEmail,
             this.btnPwd,
+            this.btnExit,
             this.line1,
             this.line2,
             this.line3,
@@ -373,7 +404,9 @@ namespace SmoONE.UI
             this.line5,
             this.line7,
             this.line8,
-            this.line9});
+            this.line9,
+            this.line6,
+            this.line10});
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
             this.TitleText = "ÎÒµÄ";
             this.Toolbar.AddRange(new Smobiler.Core.Controls.ToolbarItem[] {
@@ -416,5 +449,8 @@ namespace SmoONE.UI
         private Smobiler.Core.Controls.Camera cameraPortrait;
         private Smobiler.Core.Controls.PopList popSex;
         private Smobiler.Core.Controls.Line line9;
+        private Smobiler.Core.Controls.Button btnExit;
+        private Smobiler.Core.Controls.Line line6;
+        private Smobiler.Core.Controls.Line line10;
     }
 }

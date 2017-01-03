@@ -60,6 +60,7 @@ namespace SmoONE.UI
             this.txtPwd1.MaxLength = 12;
             this.txtPwd1.Name = "txtPwd1";
             this.txtPwd1.Padding = new Smobiler.Core.Padding(0F, 0F, 30F, 0F);
+            this.txtPwd1.PasswordChar = '*';
             this.txtPwd1.Size = new System.Drawing.Size(189, 35);
             this.txtPwd1.TabIndex = 3;
             this.txtPwd1.WaterMarkText = "«Î ‰»Î6-12Œª√‹¬Î";
@@ -67,11 +68,10 @@ namespace SmoONE.UI
             // 
             // imgbtnPwdC1
             // 
-            this.imgbtnPwdC1.FontSize = 10F;
             this.imgbtnPwdC1.Location = new System.Drawing.Point(255, 10);
             this.imgbtnPwdC1.Name = "imgbtnPwdC1";
-            this.imgbtnPwdC1.Padding = new Smobiler.Core.Padding(0F, 3F, 0F, 3F);
-            this.imgbtnPwdC1.ResourceID = "!\\ue417043146223";
+            this.imgbtnPwdC1.Padding = new Smobiler.Core.Padding(0F, 5F, 0F, 5F);
+            this.imgbtnPwdC1.ResourceID = "!\\ue8f5192192192";
             this.imgbtnPwdC1.Size = new System.Drawing.Size(40, 35);
             this.imgbtnPwdC1.TabIndex = 4;
             this.imgbtnPwdC1.ZIndex = 3;
@@ -99,6 +99,7 @@ namespace SmoONE.UI
             this.txtPwd2.MaxLength = 12;
             this.txtPwd2.Name = "txtPwd2";
             this.txtPwd2.Padding = new Smobiler.Core.Padding(0F, 0F, 30F, 0F);
+            this.txtPwd2.PasswordChar = '*';
             this.txtPwd2.Size = new System.Drawing.Size(186, 35);
             this.txtPwd2.TabIndex = 6;
             this.txtPwd2.WaterMarkText = "«Î ‰»Î6-12Œª√‹¬Î";
@@ -106,11 +107,10 @@ namespace SmoONE.UI
             // 
             // imgbtnPwdC2
             // 
-            this.imgbtnPwdC2.FontSize = 10F;
             this.imgbtnPwdC2.Location = new System.Drawing.Point(255, 45);
             this.imgbtnPwdC2.Name = "imgbtnPwdC2";
-            this.imgbtnPwdC2.Padding = new Smobiler.Core.Padding(0F, 3F, 0F, 3F);
-            this.imgbtnPwdC2.ResourceID = "!\\ue417043146223";
+            this.imgbtnPwdC2.Padding = new Smobiler.Core.Padding(0F, 5F, 0F, 5F);
+            this.imgbtnPwdC2.ResourceID = "!\\ue8f5192192192";
             this.imgbtnPwdC2.Size = new System.Drawing.Size(40, 35);
             this.imgbtnPwdC2.TabIndex = 7;
             this.imgbtnPwdC2.ZIndex = 6;
@@ -158,9 +158,8 @@ namespace SmoONE.UI
             this.label2,
             this.txtPwd2,
             this.imgbtnPwdC2,
-             this.line1,
-            this.line2,
-            });
+            this.line1,
+            this.line2});
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
             this.TitleText = "…Ë÷√µ«¬º√‹¬Î";
             this.TitleImageClick += new System.EventHandler(this.frmChangePWD_TitleImageClick);

@@ -411,7 +411,8 @@ namespace SmoONE.Application
             Reimbursement rb = _reimbursementRepository.GetByID(entity.RB_ID).FirstOrDefault();
             if (rb != null)
             {
-                if (rb.RB_Status >= 1)
+                Reimbursement rb2 = _reimbursementRepository.GetByID(entity.RB_ID).AsNoTracking().FirstOrDefault();
+                if (rb2.RB_Status >= 1)
                 {
                     RInfo.IsSuccess = false;
                     RInfo.ErrorInfo = "只有新建和已拒绝的才能修改.";
@@ -536,7 +537,8 @@ namespace SmoONE.Application
             {
                 try
                 {
-                    if (entity.RB_Status == (int)RB_Status.财务审批)
+                    Reimbursement entity2 = _reimbursementRepository.GetByID(ID).AsNoTracking().FirstOrDefault();
+                    if (entity2.RB_Status == (int)RB_Status.财务审批)
                     {
                         RInfo.IsSuccess = false;
                         RInfo.ErrorInfo = "财务审批通过后,不能变更状态了!";
@@ -547,19 +549,19 @@ namespace SmoONE.Application
                         entity.RB_UpdateDate = DateTime.Now;
                         if (Status == RB_Status.已拒绝)
                         {
-                            if (entity.RB_Status == (int)RB_Status.责任人审批 || entity.RB_Status == (int)RB_Status.行政审批)
+                            if (entity2.RB_Status == (int)RB_Status.责任人审批 || entity2.RB_Status == (int)RB_Status.行政审批)
                             {
                                 //行政和财务拒绝的时候,成本中心已用金额减少
                                 CostCenter cc = _costCenterRepository.GetByID(entity.CC_ID).FirstOrDefault();
                                 decimal Used = cc.CC_UsedAmount;
                                 cc.CC_UsedAmount = Used - entity.RB_TotalAmount;
                                 _unitOfWork.RegisterDirty(cc);
-                                if (entity.RB_Status == (int)RB_Status.责任人审批)
+                                if (entity2.RB_Status == (int)RB_Status.责任人审批)
                                 {
                                     entity.RB_CurrantLiableMan = UserID;
                                     entity.RB_LiableDate = DateTime.Now;
                                 }
-                                else if (entity.RB_Status == (int)RB_Status.行政审批)
+                                else if (entity2.RB_Status == (int)RB_Status.行政审批)
                                 {
                                     entity.RB_CurrantAEACheck = UserID;
                                     entity.RB_AEADate = DateTime.Now;
@@ -577,7 +579,7 @@ namespace SmoONE.Application
                         }
                         else
                         {
-                            if (entity.RB_Status + 1 == (int)Status)
+                            if (entity2.RB_Status + 1 == (int)Status)
                             {
 
                                 entity.RB_Status = (int)Status;
@@ -707,7 +709,11 @@ namespace SmoONE.Application
                     
                     if (r != null)
                     {
-                        r = Mapper.Map<RB_RowsInputDto, RB_Rows>(entity);
+                        r.R_Amount = entity.R_Amount;
+                        r.R_ConsumeDate = entity.R_ConsumeDate;
+                        r.R_Note = entity.R_Note;
+                        r.R_TypeID = entity.R_TypeID;
+                        r.RB_ID = entity.RB_ID;
                         _unitOfWork.RegisterDirty(r);
                         bool result = _unitOfWork.Commit();
                         RInfo.IsSuccess = result;
@@ -793,12 +799,6 @@ namespace SmoONE.Application
             {
                 try
                 {
-                    //RB_RType_Template r = new RB_RType_Template();
-                    //r.RB_RTT_Amount = entity.RB_RTT_Amount;
-                    //r.RB_RTT_CreateDate = DateTime.Now;
-                    //r.RB_RTT_CreateUser = entity.RB_RTT_CreateUser;
-                    //r.RB_RTT_Note = entity.RB_RTT_Note;
-                    //r.RB_RTT_TypeID = entity.RB_RTT_TypeID;
                     RB_RType_Template r = Mapper.Map<RBRTTInputDto,RB_RType_Template>(entity);
                     r.RB_RTT_CreateDate = DateTime.Now;
                     string MaxID2 = _rbTypeTemplateRepository.GetMaxID();
@@ -839,12 +839,15 @@ namespace SmoONE.Application
             sb.Append(ValidateInfo);
             if (string.IsNullOrEmpty(ValidateInfo))
             {
+                RB_RType_Template r = _rbTypeTemplateRepository.GetByID(entity.RB_RTT_TemplateID).FirstOrDefault();
                 try
                 {
-                    RB_RType_Template r = _rbTypeTemplateRepository.GetByID(entity.RB_RTT_TemplateID).FirstOrDefault();
+                    
                     if (r != null)
                     {
-                        r = Mapper.Map<RBRTTInputDto, RB_RType_Template>(entity);
+                        r.RB_RTT_TypeID = entity.RB_RTT_TypeID;
+                        r.RB_RTT_Note = entity.RB_RTT_Note;
+                        r.RB_RTT_Amount = entity.RB_RTT_Amount;
                         _unitOfWork.RegisterDirty(r);
                         bool result = _unitOfWork.Commit();
                         RInfo.IsSuccess = result;
@@ -861,7 +864,7 @@ namespace SmoONE.Application
                 }
                 catch (Exception ex)
                 {
-                    _unitOfWork.RegisterClean(entity);
+                    _unitOfWork.RegisterClean(r);
                     _unitOfWork.Rollback();
                     sb.Append(ex.Message);
                     RInfo.IsSuccess = false;

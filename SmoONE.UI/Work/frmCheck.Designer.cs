@@ -38,7 +38,6 @@ namespace SmoONE.UI
             // 
             // gridCheckData
             // 
-            this.gridCheckData.AllowSlip = true;
             this.gridCheckData.Layout = "frmLeaveLayout";
             this.gridCheckData.Location = new System.Drawing.Point(0, 75);
             this.gridCheckData.Name = "gridCheckData";
@@ -67,7 +66,6 @@ namespace SmoONE.UI
             // 
             // imgbtnSearch
             // 
-            this.imgbtnSearch.FontSize = 10F;
             this.imgbtnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.imgbtnSearch.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(244)))));
             this.imgbtnSearch.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));

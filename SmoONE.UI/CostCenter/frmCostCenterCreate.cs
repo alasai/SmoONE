@@ -139,11 +139,8 @@ namespace SmoONE.UI.CostCenter
                 else
                 {
                     ShowResult = ShowResult.Yes;
-                    if (string.IsNullOrEmpty(CCID) == true)
-                    {
-                        Close();
-                    }
-                    Toast("成本中心模板保存成功！", ToastLength.SHORT);
+                    Close();
+                    Toast("成本中心提交成功！", ToastLength.SHORT);
                 }
             }
             catch (Exception ex)

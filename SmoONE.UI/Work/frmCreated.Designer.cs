@@ -32,7 +32,6 @@ namespace SmoONE.UI
             // 
             // gridCrateData
             // 
-            this.gridCrateData.AllowSlip = true;
             this.gridCrateData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(244)))));
             this.gridCrateData.Layout = "frmLeaveLayout";
             this.gridCrateData.Name = "gridCrateData";

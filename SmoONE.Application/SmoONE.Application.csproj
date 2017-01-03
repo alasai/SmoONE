@@ -95,9 +95,9 @@
       <Project>{8a3e419f-dcc3-47a3-ab4e-6908bb4da896}</Project>
       <Name>SmoONE.Repository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Submail\Submail.csproj">
-      <Project>{3d61361e-d61d-49a1-94f8-7a019f81deca}</Project>
-      <Name>Submail</Name>
+    <ProjectReference Include="..\TopSdk\TopSdk.csproj">
+      <Project>{9c11cae5-5188-4e71-825b-68fc3135728a}</Project>
+      <Name>TopSdk</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

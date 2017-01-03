@@ -41,11 +41,10 @@ namespace SmoONE.UI
             // 
             // image1
             // 
-            this.image1.ID = "logon1";
-            this.image1.Location = new System.Drawing.Point(106, 15);
+            this.image1.Location = new System.Drawing.Point(100, 5);
             this.image1.Name = "image1";
             this.image1.ResourceID = "logon1";
-            this.image1.Size = new System.Drawing.Size(80, 80);
+            this.image1.Size = new System.Drawing.Size(100, 100);
             this.image1.TabIndex = 2;
             // 
             // txtTel
@@ -156,11 +155,11 @@ namespace SmoONE.UI
             this.label1,
             this.label2,
             this.txtPwd,
-            this.line1,
-            this.line2,
             this.btnLogon,
             this.btnRegister,
-            this.btnVerify});
+            this.btnVerify,
+            this.line1,
+            this.line2});
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("", System.Drawing.Color.White, System.Drawing.Color.White);
             this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmLogon_KeyDown);
             this.Name = "frmLogon";

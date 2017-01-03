@@ -91,7 +91,6 @@ namespace SmoONE.UI.Layout
             // 
             this.imgType.BorderRadius = 10;
             this.imgType.DisplayMember = "RBROW_TYPE";
-            this.imgType.FontSize = 10F;
             this.imgType.Location = new System.Drawing.Point(5, 7);
             this.imgType.Name = "imgType";
             this.imgType.Size = new System.Drawing.Size(45, 45);

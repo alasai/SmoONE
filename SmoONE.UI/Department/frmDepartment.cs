@@ -65,14 +65,18 @@ namespace SmoONE.UI.Department
                 {
                     case DepartmentMode.列表:
                         gridDepData.Rows.Clear();//清空部门列表数据
+                        tMode.Text = DepartmentMode.层级 +"展示";
                         break;
                     case DepartmentMode.层级:
                         treeDepData.Nodes.Clear();//清空部门层级数据
+                        tMode.Text = DepartmentMode.列表 + "展示";
                         break;
                 }
 
                 if (listDep.Count > 0)
                 {
+                    tMode.Visible = true;
+                ;
                     lblInfor.Visible = false ;
                     foreach (DepartmentDto dep in listDep)
                     {
@@ -139,11 +143,13 @@ namespace SmoONE.UI.Department
                             }
                             break;
                     }
-                    
+                   
                 }
                 else
                 {
+                    tMode.Visible = false ;
                     lblInfor.Visible = true;
+                
                 }
             }
             catch (Exception ex)
@@ -203,7 +209,14 @@ namespace SmoONE.UI.Department
                 case (int)TreeMode.dep:
                     frmDepartmentDetail frm = new frmDepartmentDetail();
                     frm.D_ID = ID.Split(',')[1];
-                    Redirect(frm );
+                    Redirect(frm, (MobileForm form, object args) =>
+                    {
+                        if (frm.ShowResult == ShowResult.Yes)
+                        {
+                            Mode = DepartmentMode.层级;
+                            Bind();
+                        }
+                    });
                     break;
                 case (int)TreeMode.user:
                     frmUserDetail frmUserDetail = new frmUserDetail();
@@ -213,12 +226,13 @@ namespace SmoONE.UI.Department
             }
            
         }
+  
         /// <summary>
         /// 部门显示模式
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void frmDepartment_FooterBarLayoutItemClick(object sender, MobileFormLayoutItemEventArgs e)
+        private void frmDepartment_ToolbarItemClick(object sender, ToolbarClickEventArgs e)
         {
             switch (Mode)
             {

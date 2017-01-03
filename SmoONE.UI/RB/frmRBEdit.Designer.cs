@@ -192,13 +192,11 @@ namespace SmoONE.UI.RB
             // 
             this.GridView1.Layout = "";
             this.GridView1.Name = "GridView1";
-            this.GridView1.Size = new System.Drawing.Size(200, 200);
             // 
             // gridView2
             // 
             this.gridView2.Layout = "";
             this.gridView2.Name = "gridView2";
-            this.gridView2.Size = new System.Drawing.Size(200, 200);
             // 
             // gridRBRowData
             // 
@@ -211,6 +209,7 @@ namespace SmoONE.UI.RB
             this.gridRBRowData.Size = new System.Drawing.Size(300, 288);
             this.gridRBRowData.TabIndex = 21;
             this.gridRBRowData.ZIndex = 1;
+            this.gridRBRowData.CellClick += new Smobiler.Core.Controls.GridViewCellClickEventHandler(this.gridRBRowData_CellClick);
             this.gridRBRowData.ItemClick += new Smobiler.Core.Controls.GridViewItemClickEventHandler(this.gridRBRowData_ItemClick);
             // 
             // frmRBEdit
@@ -229,8 +228,7 @@ namespace SmoONE.UI.RB
             this.line2,
             this.line4,
             this.line5,
-            this.line6,
-            });
+            this.line6});
             this.FooterBarLayout = "frmRBFootbarLayout";
             this.StatusBarStyle = Smobiler.Core.StatusBarStyle.Default;
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);

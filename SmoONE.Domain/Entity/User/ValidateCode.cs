@@ -54,6 +54,12 @@ namespace SmoONE.Domain
         [DisplayName("更新时间")]
         public DateTime V_UpdateDate { get; set; }
 
-
+        /// <summary>
+        /// 设备ID
+        /// </summary>
+        [Required]
+        [StringLength(maximumLength: 50, ErrorMessage = "长度不能超过50")]
+        [DisplayName("设备ID")]
+        public string V_DeviceID { get; set; }
     }
 }

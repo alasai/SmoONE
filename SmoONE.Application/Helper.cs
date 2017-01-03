@@ -253,7 +253,7 @@ namespace SmoONE.Application
             {
                 sb.Append("目标其他/人天不能为负!");
             }
-            if (!Regex.IsMatch(entity.Dep_OtherDay.ToString(), @"^(?!0+(?:\.0+)?$)(?:[1-9]\d*|0)(?:\.\d{1})?$"))
+            if (!Regex.IsMatch(entity.Dep_OtherDay.ToString(), @"/^0$|^[0-9]\d{0,15}$|^[0-9]\d{0,15}\.{1}\d{1,1}$|^0\.{1}\d{1,1}$/g"))
             {
                 sb.Append("目标其他/人天格式错误,至多1位小数!");
             }
@@ -261,7 +261,7 @@ namespace SmoONE.Application
             {
                 sb.Append("目标项目/人天不能为负!");
             }
-            if (!Regex.IsMatch(entity.Dep_ProDay.ToString(), @"^(?!0+(?:\.0+)?$)(?:[1-9]\d*|0)(?:\.\d{1})?$"))
+            if (!Regex.IsMatch(entity.Dep_ProDay.ToString(), @"/^0$|^[0-9]\d{0,15}$|^[0-9]\d{0,15}\.{1}\d{1,1}$|^0\.{1}\d{1,1}$/g"))
             {
                 sb.Append("目标其他/人天格式错误,至多1位小数!");
             }

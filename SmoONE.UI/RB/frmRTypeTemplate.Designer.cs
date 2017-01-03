@@ -36,7 +36,6 @@ namespace SmoONE.UI.RB
             // 
             // gridRBModelData
             // 
-            this.gridRBModelData.AllowSlip = true;
             this.gridRBModelData.Layout = "frmRBModelLayout";
             this.gridRBModelData.Location = new System.Drawing.Point(0, 63);
             this.gridRBModelData.Name = "gridRBModelData";

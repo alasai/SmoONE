@@ -43,15 +43,29 @@ namespace SmoONE.UI
                 if (Tel != null)
                 {              
                     lblTel.Text = "验证码已发送至手机：" + Tel;
-                    //发送短信验证码
-                    ReturnInfo result = AutofacConfig.userService.SimulateSendVCode(Tel);
-                    //发送手机验证码，返回true，表示发送成功，否则发送失败，并抛出错误
-                    //ReturnInfo result = AutofacConfig.userService.SendVCode(Tel);
-                    if (result .IsSuccess ==false )
+                    if (isVerifyLogon==true )
                     {
-                        throw new Exception(result.ErrorInfo);
+                        lblHint.Visible = true;
+                        lblHint.Top = txtVcode1.Top + txtVcode1.Height;
+                        btnSave.Top = lblHint.Top + lblHint.Height;
+                        //模拟发送短信验证码,返回验证码1234
+                        ReturnInfo result = AutofacConfig.userService.SimulateSendVCode(Tel);
+                        if (result.IsSuccess == false)
+                        {
+                            throw new Exception(result.ErrorInfo);
+                        }
                     }
-                  
+                    else 
+                    {
+                        lblHint.Visible = false ;
+                        btnSave.Top = txtVcode1.Top + txtVcode1.Height+10;
+                        //发送手机验证码，返回true，表示发送成功，否则发送失败，并抛出错误
+                        ReturnInfo result = AutofacConfig.userService.SendVCode(Tel,Client .DeviceID);
+                        if (result .IsSuccess ==false )
+                        {
+                            throw new Exception(result.ErrorInfo);
+                        }
+                    }
                 }
                 else
                 {
@@ -61,7 +75,7 @@ namespace SmoONE.UI
             }
             catch (Exception ex)
             {
-                Toast(ex.Message, ToastLength.SHORT);
+                MessageBox.Show (ex.Message);
             }
 
         }
@@ -96,6 +110,7 @@ namespace SmoONE.UI
                 }
                 else
                 {
+                    Close();
                     frmRegister frmRegister = new frmRegister();
                     frmRegister.Tel = Tel;
                     frmRegister.VCode = code;
@@ -113,7 +128,7 @@ namespace SmoONE.UI
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void frmVerificationCode_TitleImageClick(object sender, EventArgs e)
-        {
+         {
             Close();
         }
       

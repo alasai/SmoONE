@@ -3,8 +3,6 @@ using SmoONE.Domain;
 using SmoONE.Domain.IRepository;
 using SmoONE.DTOs;
 using SmoONE.Infrastructure;
-using Submail.AppConfig;
-using Submail.Lib;
 using System;
 using System.Collections.Generic;
 using System.IO;

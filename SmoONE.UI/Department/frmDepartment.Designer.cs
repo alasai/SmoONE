@@ -32,10 +32,11 @@ namespace SmoONE.UI.Department
             this.btnCreate = new Smobiler.Core.Controls.Button();
             this.lblInfor = new Smobiler.Core.Controls.Label();
             this.treeDepData = new Smobiler.Core.Controls.TreeView();
+            this.tMode = new Smobiler.Core.Controls.ToolbarItem();
             // 
             // gridDepData
             // 
-            this.gridDepData.AllowSlip = true;
+            this.gridDepData.AutoHeight = true;
             this.gridDepData.Layout = "frmDepartmentLayout";
             this.gridDepData.Location = new System.Drawing.Point(0, 55);
             this.gridDepData.Name = "gridDepData";
@@ -76,6 +77,7 @@ namespace SmoONE.UI.Department
             // 
             // treeDepData
             // 
+            this.treeDepData.AutoHeight = true;
             this.treeDepData.ExpandAll = true;
             this.treeDepData.FontSize = 15F;
             this.treeDepData.Location = new System.Drawing.Point(0, 55);
@@ -84,10 +86,15 @@ namespace SmoONE.UI.Department
             this.treeDepData.NodeExpandIcon = "!\\ue313045045045";
             this.treeDepData.NodeHeight = 45F;
             this.treeDepData.SelectBackColor = System.Drawing.Color.WhiteSmoke;
-            this.treeDepData.Size = new System.Drawing.Size(300, 270);
+            this.treeDepData.Size = new System.Drawing.Size(300, 413);
             this.treeDepData.TabIndex = 5;
             this.treeDepData.ZIndex = 3;
             this.treeDepData.NodeSelected += new System.EventHandler(this.treeDepData_NodeSelected);
+            // 
+            // tMode
+            // 
+            this.tMode.Name = "tMode";
+            this.tMode.Text = "层级展示";
             // 
             // frmDepartment
             // 
@@ -96,11 +103,13 @@ namespace SmoONE.UI.Department
             this.gridDepData,
             this.treeDepData,
             this.lblInfor});
-            this.FooterBarLayout = "frmDepartmentModeLayout";
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
             this.TitleText = "部门";
-            this.FooterBarLayoutItemClick += new Smobiler.Core.MobileFormLayoutItemClickEventHandler(this.frmDepartment_FooterBarLayoutItemClick);
+            this.Toolbar.AddRange(new Smobiler.Core.Controls.ToolbarItem[] {
+            this.tMode});
+            this.ToolbarStyle = new Smobiler.Core.ToolBarSytle(Smobiler.Core.ToolbarSelectStyle.Select, System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223))))), System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223))))));
             this.Load += new System.EventHandler(this.frmDepartment_Load);
+            this.ToolbarItemClick += new Smobiler.Core.ToolbarItemClickEventHandler(this.frmDepartment_ToolbarItemClick);
             this.TitleImageClick += new System.EventHandler(this.frmDepartment_TitleImageClick);
             this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmDepartment_KeyDown);
             this.Name = "frmDepartment";
@@ -112,5 +121,6 @@ namespace SmoONE.UI.Department
         private Smobiler.Core.Controls.Button btnCreate;
         private Smobiler.Core.Controls.Label lblInfor;
         private Smobiler.Core.Controls.TreeView treeDepData;
+        private Smobiler.Core.Controls.ToolbarItem tMode;
     }
 }

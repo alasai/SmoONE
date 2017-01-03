@@ -28,29 +28,30 @@ namespace SmoONE.UI.Layout
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.btnDLayout = new Smobiler.Core.Controls.Button();
+            this.btnDMode = new Smobiler.Core.Controls.Button();
             // 
-            // btnDLayout
+            // btnDMode
             // 
-            this.btnDLayout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnDLayout.HoverBackColor = System.Drawing.Color.White;
-            this.btnDLayout.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnDLayout.Name = "btnDLayout";
-            this.btnDLayout.Size = new System.Drawing.Size(300, 35);
-            this.btnDLayout.TabIndex = 2;
-            this.btnDLayout.Text = "层级展示";
-            this.btnDLayout.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnDLayout_Click);
+            this.btnDMode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnDMode.HoverBackColor = System.Drawing.Color.White;
+            this.btnDMode.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnDMode.Name = "btnDMode";
+            this.btnDMode.Size = new System.Drawing.Size(300, 35);
+            this.btnDMode.TabIndex = 2;
+            this.btnDMode.Text = "层级展示";
+            this.btnDMode.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnDLayout_Click);
             // 
             // frmDepartmentModeLayout
             // 
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.btnDLayout});
+            this.btnDMode});
             this.Size = new System.Drawing.Size(300, 35);
             this.Name = "frmDepartmentModeLayout";
 
         }
         #endregion
 
-        private Smobiler.Core.Controls.Button btnDLayout;
+        private Smobiler.Core.Controls.Button btnDMode;
     }
 }

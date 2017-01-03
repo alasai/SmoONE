@@ -32,7 +32,6 @@ namespace SmoONE.UI
             // 
             // gridCCData
             // 
-            this.gridCCData.AllowSlip = true;
             this.gridCCData.Layout = "frmLeaveLayout";
             this.gridCCData.Name = "gridCCData";
             this.gridCCData.PageSize = 8;

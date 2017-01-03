@@ -28,9 +28,9 @@ namespace SmoONE.UI
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Smobiler.Core.Controls.ImageTabBarItem imageTabBarItem1 = new Smobiler.Core.Controls.ImageTabBarItem();
-            Smobiler.Core.Controls.ImageTabBarItem imageTabBarItem2 = new Smobiler.Core.Controls.ImageTabBarItem();
-            Smobiler.Core.Controls.ImageTabBarItem imageTabBarItem3 = new Smobiler.Core.Controls.ImageTabBarItem();
+            Smobiler.Core.Controls.ImageTabBarItem imageTabBarItem4 = new Smobiler.Core.Controls.ImageTabBarItem();
+            Smobiler.Core.Controls.ImageTabBarItem imageTabBarItem5 = new Smobiler.Core.Controls.ImageTabBarItem();
+            Smobiler.Core.Controls.ImageTabBarItem imageTabBarItem6 = new Smobiler.Core.Controls.ImageTabBarItem();
             this.iconMenuData = new Smobiler.Core.Controls.IconMenuView();
             this.imageTabBar1 = new Smobiler.Core.Controls.ImageTabBar();
             this.line1 = new Smobiler.Core.Controls.Line();
@@ -40,6 +40,7 @@ namespace SmoONE.UI
             // 
             // iconMenuData
             // 
+            this.iconMenuData.AutoHeight = true;
             this.iconMenuData.BorderColor = System.Drawing.Color.Gray;
             this.iconMenuData.ForeColor = System.Drawing.Color.Gray;
             this.iconMenuData.GridLines = true;
@@ -54,22 +55,21 @@ namespace SmoONE.UI
             // 
             this.imageTabBar1.BackColor = System.Drawing.Color.White;
             this.imageTabBar1.ForeColor = System.Drawing.Color.Gray;
-            imageTabBarItem1.ImageResourceID = "shenpi";
-            imageTabBarItem1.SelectImageResourceID = "shenpi";
-            imageTabBarItem1.Text = "待我审批";
-            imageTabBarItem2.ImageResourceID = "wofaqi";
-            imageTabBarItem2.SelectImageResourceID = "wofaqi";
-            imageTabBarItem2.Text = "我发起的";
-            imageTabBarItem3.ImageResourceID = "chaosong";
-            imageTabBarItem3.SelectImageResourceID = "chaosong";
-            imageTabBarItem3.Text = "抄送我的";
+            imageTabBarItem4.ImageResourceID = "shenpi";
+            imageTabBarItem4.SelectImageResourceID = "shenpi";
+            imageTabBarItem4.Text = "待我审批";
+            imageTabBarItem5.ImageResourceID = "wofaqi";
+            imageTabBarItem5.SelectImageResourceID = "wofaqi";
+            imageTabBarItem5.Text = "我发起的";
+            imageTabBarItem6.ImageResourceID = "chaosong";
+            imageTabBarItem6.SelectImageResourceID = "chaosong";
+            imageTabBarItem6.Text = "抄送我的";
             this.imageTabBar1.Items.AddRange(new Smobiler.Core.Controls.ImageTabBarItem[] {
-            imageTabBarItem1,
-            imageTabBarItem2,
-            imageTabBarItem3});
+            imageTabBarItem4,
+            imageTabBarItem5,
+            imageTabBarItem6});
             this.imageTabBar1.Name = "imageTabBar1";
             this.imageTabBar1.SelectForeColor = System.Drawing.Color.Gray;
-            this.imageTabBar1.Size = new System.Drawing.Size(300, 80);
             this.imageTabBar1.TabIndex = 3;
             this.imageTabBar1.ItemClick += new Smobiler.Core.Controls.TabBarItemClickEventHandler(this.imageTabBar1_ItemClick);
             // 

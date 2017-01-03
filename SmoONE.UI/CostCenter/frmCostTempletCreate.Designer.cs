@@ -158,7 +158,6 @@ namespace SmoONE.UI.CostCenter
             // 
             // imgbtnAEACheckers
             // 
-            this.imgbtnAEACheckers.FontSize = 10F;
             this.imgbtnAEACheckers.HoverBackColor = System.Drawing.Color.White;
             this.imgbtnAEACheckers.Location = new System.Drawing.Point(65, 90);
             this.imgbtnAEACheckers.Name = "imgbtnAEACheckers";
@@ -176,7 +175,6 @@ namespace SmoONE.UI.CostCenter
             // 
             // imgbtnFCheckers
             // 
-            this.imgbtnFCheckers.FontSize = 10F;
             this.imgbtnFCheckers.HoverBackColor = System.Drawing.Color.White;
             this.imgbtnFCheckers.Location = new System.Drawing.Point(65, 190);
             this.imgbtnFCheckers.Name = "imgbtnFCheckers";
@@ -238,9 +236,8 @@ namespace SmoONE.UI.CostCenter
             this.lblFCheckers1,
             this.lblFCheckers2,
             this.imgbtnFCheckers,
-                 this.line10,
-            this.line1,
-            });
+            this.line10,
+            this.line1});
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
             this.TitleText = "成本中心类型模板";
             this.Load += new System.EventHandler(this.frmCostTempletCreate_Load);

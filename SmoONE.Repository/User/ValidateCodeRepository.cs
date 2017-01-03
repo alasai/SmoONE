@@ -51,5 +51,24 @@ namespace SmoONE.Repository
         {
             return _entities.Any(x => x.V_PhoneNumber == PhoneNumber);
         }
+
+        /// <summary>
+        /// 判断该设备ID是否恶意注册
+        /// </summary>
+        /// <param name="DeviceID">设备ID</param>
+        /// <returns>true表示存在，false表示不存在</returns>
+        public bool IsMalicious(string DeviceID)
+        {
+            int Count = _entities.Count(x => x.V_DeviceID == DeviceID);
+            if (Count >= 3)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            //return _entities.Any(x => x.V_DeviceID.Count()>3&&x.V_DeviceID==DeviceID);
+        }
     }
 }

@@ -10,12 +10,6 @@ using System.Text;
 
 namespace SmoONE.UI
 {
-    // ******************************************************************
-    // 文件版本： SmoONE 1.0
-    // Copyright  (c)  2016-2017 Smobiler
-    // 创建时间： 2016/11
-    // 主要内容：  Autofac配置类,用于在需要调用Service的时候控制反转,产生IXXService
-    // ******************************************************************
     /// <summary>
     /// Autofac配置类
     /// </summary>
@@ -104,3 +98,4 @@ namespace SmoONE.UI
         }
     }
 }
+

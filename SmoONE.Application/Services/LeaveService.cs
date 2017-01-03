@@ -220,7 +220,8 @@ namespace SmoONE.Application
                 Leave lv = _leaveRepository.GetByID(entity.L_ID).FirstOrDefault();
                 if (lv != null)
                 {
-                    if (lv.L_Status >= (int)L_Status.已审批)
+                    Leave lv2 = _leaveRepository.GetByID(entity.L_ID).AsNoTracking().FirstOrDefault();
+                    if (lv2.L_Status >= (int)L_Status.已审批)
                     {
                         RInfo.IsSuccess = false;
                         RInfo.ErrorInfo = "只有新建和已拒绝的才能修改!";
@@ -352,7 +353,8 @@ namespace SmoONE.Application
             Leave entity = _leaveRepository.GetByID(ID).FirstOrDefault();
             if (entity != null)
             {
-                if (entity.L_Status == (int)L_Status.已审批)
+                Leave entity2 = _leaveRepository.GetByID(entity.L_ID).AsNoTracking().FirstOrDefault();
+                if (entity2.L_Status == (int)L_Status.已审批)
                 {
                     RInfo.IsSuccess = false;
                     RInfo.ErrorInfo = "审核通过的不能继续审核!";
@@ -360,7 +362,7 @@ namespace SmoONE.Application
                 }
                 else
                 {
-                    if (entity.L_Status + 1 == (int)Status || Status == L_Status.已拒绝)
+                    if (entity2.L_Status + 1 == (int)Status || Status == L_Status.已拒绝)
                     {
                         try
                         {

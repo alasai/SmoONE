@@ -112,6 +112,7 @@ namespace SmoONE.UI.Leave
                                 else
                                 {
                                     FooterBarLayoutData.Items["Line1"].Visible = false;
+                                    FooterBarLayoutForm.Close();
                                 }
                             }
                           
@@ -190,7 +191,14 @@ namespace SmoONE.UI.Leave
             {
                 nodeItem.Image = createUser.U_Portrait;
             }
-            nodeItem.Text = "我";
+            if (Client.Session["U_ID"].Equals(leave.L_CreateUser))
+            {
+                nodeItem.Text = "我";
+            }
+            else
+            {
+                nodeItem.Text = createUser.U_Name;
+            }          
             nodeItem.SubText = "发起申请";
             nodeItem.Date = leave.L_CreateDate;
             nodeItem.TextColor = System.Drawing.Color.FromArgb(45,45,45);
@@ -314,6 +322,7 @@ namespace SmoONE.UI.Leave
                     break;
             }
         }
+
         /// <summary>
         /// 手机自带回退按钮事件
         /// </summary>
@@ -386,10 +395,10 @@ namespace SmoONE.UI.Leave
         {
             if (e.CellItem .Name  == "btnAgreed")
             {
-                MessageBox.Show("是否确定同意审批？", "请假审批", MessageBoxButtons.YesNo, (Object s, MessageBoxHandlerArgs args) =>
-                {
-                    if (args.Result == Smobiler.Core.ShowResult.Yes)
-                    {
+                //MessageBox.Show("是否确定同意审批？", "请假审批", MessageBoxButtons.YesNo, (Object s, MessageBoxHandlerArgs args) =>
+                //{
+                //    if (args.Result == Smobiler.Core.ShowResult.Yes)
+                //    {
                         //审批人同意请假
                         ReturnInfo result = AutofacConfig.leaveService.UpdateLeaveStatus(lID, L_Status.已审批, Client.Session["U_ID"].ToString(), "");
                         //如果返回true则审批成功，否则失败并抛出错误
@@ -403,9 +412,9 @@ namespace SmoONE.UI.Leave
                         {
                             Toast(result.ErrorInfo, ToastLength.SHORT);
                         }
-                    }
-                }
-                      );
+                //    }
+                //}
+                //      );
 
             }
             if (e.CellItem.Name == "btnRefuse")

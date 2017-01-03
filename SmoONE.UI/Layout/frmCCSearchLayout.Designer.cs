@@ -92,7 +92,7 @@ namespace COMSSmobilerDemo.Reimbursement.CostCenter.Layout
             this.btncurrentUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             this.btncurrentUser.Location = new System.Drawing.Point(235, 0);
             this.btncurrentUser.Name = "btncurrentUser";
-            this.btncurrentUser.Padding = new Smobiler.Core.Padding(2F);
+            this.btncurrentUser.Padding = new Smobiler.Core.Padding(0F, 2F, 0F, 2F);
             this.btncurrentUser.ResourceID = "me";
             this.btncurrentUser.Size = new System.Drawing.Size(35, 35);
             this.btncurrentUser.TabIndex = 6;
@@ -159,11 +159,11 @@ namespace COMSSmobilerDemo.Reimbursement.CostCenter.Layout
             // line4
             // 
             this.line4.BackColor = System.Drawing.Color.LightGray;
-            this.line4.Location = new System.Drawing.Point(0, 84);
+            this.line4.Location = new System.Drawing.Point(0, 85);
             this.line4.Name = "line4";
-            this.line4.Size = new System.Drawing.Size(270, 1);
+            this.line4.Size = new System.Drawing.Size(270, 3);
             this.line4.TabIndex = 14;
-            this.line4.ZIndex = 8;
+            this.line4.ZIndex = 6;
             // 
             // line5
             // 

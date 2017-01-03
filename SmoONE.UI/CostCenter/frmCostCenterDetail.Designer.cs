@@ -64,6 +64,9 @@ namespace SmoONE.UI.CostCenter
             this.line14 = new Smobiler.Core.Controls.Line();
             this.line15 = new Smobiler.Core.Controls.Line();
             this.line16 = new Smobiler.Core.Controls.Line();
+            this.label8 = new Smobiler.Core.Controls.Label();
+            this.lblRBAmount = new Smobiler.Core.Controls.Label();
+            this.line17 = new Smobiler.Core.Controls.Line();
             // 
             // Label4
             // 
@@ -166,7 +169,7 @@ namespace SmoONE.UI.CostCenter
             this.label5.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
             this.label5.Size = new System.Drawing.Size(66, 35);
             this.label5.TabIndex = 11;
-            this.label5.Text = "金额";
+            this.label5.Text = "预算金额";
             // 
             // lblAmount
             // 
@@ -183,7 +186,7 @@ namespace SmoONE.UI.CostCenter
             // 
             this.label6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.label6.Location = new System.Drawing.Point(0, 225);
+            this.label6.Location = new System.Drawing.Point(0, 260);
             this.label6.Name = "label6";
             this.label6.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
             this.label6.Size = new System.Drawing.Size(66, 35);
@@ -194,7 +197,7 @@ namespace SmoONE.UI.CostCenter
             // 
             this.label7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.label7.Location = new System.Drawing.Point(0, 305);
+            this.label7.Location = new System.Drawing.Point(0, 340);
             this.label7.Name = "label7";
             this.label7.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
             this.label7.Size = new System.Drawing.Size(112, 35);
@@ -207,7 +210,7 @@ namespace SmoONE.UI.CostCenter
             this.lblLiableMan.FontSize = 12F;
             this.lblLiableMan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.lblLiableMan.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.lblLiableMan.Location = new System.Drawing.Point(66, 225);
+            this.lblLiableMan.Location = new System.Drawing.Point(66, 260);
             this.lblLiableMan.Name = "lblLiableMan";
             this.lblLiableMan.Padding = new Smobiler.Core.Padding(0F, 0F, 4F, 0F);
             this.lblLiableMan.Size = new System.Drawing.Size(234, 35);
@@ -221,7 +224,7 @@ namespace SmoONE.UI.CostCenter
             this.btnEdit.ForeColor = System.Drawing.Color.White;
             this.btnEdit.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(135)))), ((int)(((byte)(209)))));
             this.btnEdit.HoverForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(10, 395);
+            this.btnEdit.Location = new System.Drawing.Point(10, 430);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(134, 35);
             this.btnEdit.TabIndex = 19;
@@ -234,7 +237,7 @@ namespace SmoONE.UI.CostCenter
             this.lblTemplate.FontSize = 12F;
             this.lblTemplate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.lblTemplate.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.lblTemplate.Location = new System.Drawing.Point(112, 305);
+            this.lblTemplate.Location = new System.Drawing.Point(112, 340);
             this.lblTemplate.Name = "lblTemplate";
             this.lblTemplate.Padding = new Smobiler.Core.Padding(0F, 0F, 4F, 0F);
             this.lblTemplate.Size = new System.Drawing.Size(188, 35);
@@ -246,7 +249,7 @@ namespace SmoONE.UI.CostCenter
             this.lblDep.FontSize = 12F;
             this.lblDep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.lblDep.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.lblDep.Location = new System.Drawing.Point(66, 260);
+            this.lblDep.Location = new System.Drawing.Point(66, 295);
             this.lblDep.Name = "lblDep";
             this.lblDep.Padding = new Smobiler.Core.Padding(0F, 0F, 4F, 0F);
             this.lblDep.Size = new System.Drawing.Size(234, 35);
@@ -256,7 +259,7 @@ namespace SmoONE.UI.CostCenter
             // 
             this.label9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.label9.Location = new System.Drawing.Point(0, 260);
+            this.label9.Location = new System.Drawing.Point(0, 295);
             this.label9.Name = "label9";
             this.label9.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
             this.label9.Size = new System.Drawing.Size(66, 35);
@@ -271,7 +274,7 @@ namespace SmoONE.UI.CostCenter
             this.btnActive.ForeColor = System.Drawing.Color.White;
             this.btnActive.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(135)))), ((int)(((byte)(209)))));
             this.btnActive.HoverForeColor = System.Drawing.Color.White;
-            this.btnActive.Location = new System.Drawing.Point(156, 395);
+            this.btnActive.Location = new System.Drawing.Point(156, 430);
             this.btnActive.Name = "btnActive";
             this.btnActive.Size = new System.Drawing.Size(134, 35);
             this.btnActive.TabIndex = 23;
@@ -284,7 +287,7 @@ namespace SmoONE.UI.CostCenter
             this.lblActive.FontSize = 12F;
             this.lblActive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.lblActive.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.lblActive.Location = new System.Drawing.Point(66, 350);
+            this.lblActive.Location = new System.Drawing.Point(66, 385);
             this.lblActive.Name = "lblActive";
             this.lblActive.Padding = new Smobiler.Core.Padding(0F, 0F, 4F, 0F);
             this.lblActive.Size = new System.Drawing.Size(234, 35);
@@ -294,7 +297,7 @@ namespace SmoONE.UI.CostCenter
             // 
             this.label10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.label10.Location = new System.Drawing.Point(0, 350);
+            this.label10.Location = new System.Drawing.Point(0, 385);
             this.label10.Name = "label10";
             this.label10.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
             this.label10.Size = new System.Drawing.Size(66, 35);
@@ -376,7 +379,7 @@ namespace SmoONE.UI.CostCenter
             // line9
             // 
             this.line9.BackColor = System.Drawing.Color.LightGray;
-            this.line9.Location = new System.Drawing.Point(0, 225);
+            this.line9.Location = new System.Drawing.Point(0, 260);
             this.line9.Name = "line9";
             this.line9.Size = new System.Drawing.Size(300, 1);
             this.line9.TabIndex = 35;
@@ -384,7 +387,7 @@ namespace SmoONE.UI.CostCenter
             // line11
             // 
             this.line11.BackColor = System.Drawing.Color.LightGray;
-            this.line11.Location = new System.Drawing.Point(0, 260);
+            this.line11.Location = new System.Drawing.Point(0, 295);
             this.line11.Name = "line11";
             this.line11.Size = new System.Drawing.Size(300, 1);
             this.line11.TabIndex = 36;
@@ -392,7 +395,7 @@ namespace SmoONE.UI.CostCenter
             // line12
             // 
             this.line12.BackColor = System.Drawing.Color.LightGray;
-            this.line12.Location = new System.Drawing.Point(0, 295);
+            this.line12.Location = new System.Drawing.Point(0, 330);
             this.line12.Name = "line12";
             this.line12.Size = new System.Drawing.Size(300, 1);
             this.line12.TabIndex = 37;
@@ -400,7 +403,7 @@ namespace SmoONE.UI.CostCenter
             // line13
             // 
             this.line13.BackColor = System.Drawing.Color.LightGray;
-            this.line13.Location = new System.Drawing.Point(0, 305);
+            this.line13.Location = new System.Drawing.Point(0, 340);
             this.line13.Name = "line13";
             this.line13.Size = new System.Drawing.Size(300, 1);
             this.line13.TabIndex = 38;
@@ -408,7 +411,7 @@ namespace SmoONE.UI.CostCenter
             // line14
             // 
             this.line14.BackColor = System.Drawing.Color.LightGray;
-            this.line14.Location = new System.Drawing.Point(0, 340);
+            this.line14.Location = new System.Drawing.Point(0, 375);
             this.line14.Name = "line14";
             this.line14.Size = new System.Drawing.Size(300, 1);
             this.line14.TabIndex = 39;
@@ -416,7 +419,7 @@ namespace SmoONE.UI.CostCenter
             // line15
             // 
             this.line15.BackColor = System.Drawing.Color.LightGray;
-            this.line15.Location = new System.Drawing.Point(0, 350);
+            this.line15.Location = new System.Drawing.Point(0, 385);
             this.line15.Name = "line15";
             this.line15.Size = new System.Drawing.Size(300, 1);
             this.line15.TabIndex = 40;
@@ -424,10 +427,40 @@ namespace SmoONE.UI.CostCenter
             // line16
             // 
             this.line16.BackColor = System.Drawing.Color.LightGray;
-            this.line16.Location = new System.Drawing.Point(0, 385);
+            this.line16.Location = new System.Drawing.Point(0, 420);
             this.line16.Name = "line16";
             this.line16.Size = new System.Drawing.Size(300, 1);
             this.line16.TabIndex = 41;
+            // 
+            // label8
+            // 
+            this.label8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.label8.Location = new System.Drawing.Point(0, 215);
+            this.label8.Name = "label8";
+            this.label8.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
+            this.label8.Size = new System.Drawing.Size(79, 35);
+            this.label8.TabIndex = 42;
+            this.label8.Text = "已报销金额";
+            // 
+            // lblRBAmount
+            // 
+            this.lblRBAmount.FontSize = 12F;
+            this.lblRBAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.lblRBAmount.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
+            this.lblRBAmount.Location = new System.Drawing.Point(79, 215);
+            this.lblRBAmount.Name = "lblRBAmount";
+            this.lblRBAmount.Padding = new Smobiler.Core.Padding(0F, 0F, 4F, 0F);
+            this.lblRBAmount.Size = new System.Drawing.Size(221, 35);
+            this.lblRBAmount.TabIndex = 43;
+            // 
+            // line17
+            // 
+            this.line17.BackColor = System.Drawing.Color.LightGray;
+            this.line17.Location = new System.Drawing.Point(0, 250);
+            this.line17.Name = "line17";
+            this.line17.Size = new System.Drawing.Size(300, 1);
+            this.line17.TabIndex = 44;
             // 
             // frmCostCenterDetail
             // 
@@ -452,6 +485,8 @@ namespace SmoONE.UI.CostCenter
             this.btnActive,
             this.lblActive,
             this.label10,
+            this.label8,
+            this.lblRBAmount,
             this.line10,
             this.line1,
             this.line2,
@@ -467,7 +502,8 @@ namespace SmoONE.UI.CostCenter
             this.line13,
             this.line14,
             this.line15,
-            this.line16});
+            this.line16,
+            this.line17});
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
             this.TitleText = "成本中心";
             this.Load += new System.EventHandler(this.frmCostCenterDetail_Load);
@@ -514,5 +550,8 @@ namespace SmoONE.UI.CostCenter
         private Smobiler.Core.Controls.Line line14;
         private Smobiler.Core.Controls.Line line15;
         private Smobiler.Core.Controls.Line line16;
+        internal Smobiler.Core.Controls.Label label8;
+        private Smobiler.Core.Controls.Label lblRBAmount;
+        private Smobiler.Core.Controls.Line line17;
     }
 }

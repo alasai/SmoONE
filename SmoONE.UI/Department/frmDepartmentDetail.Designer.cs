@@ -30,19 +30,13 @@ namespace SmoONE.UI.Department
         {
             this.Label4 = new Smobiler.Core.Controls.Label();
             this.lblName = new Smobiler.Core.Controls.Label();
-            this.label2 = new Smobiler.Core.Controls.Label();
-            this.label3 = new Smobiler.Core.Controls.Label();
             this.label5 = new Smobiler.Core.Controls.Label();
             this.gridUserData = new Smobiler.Core.Controls.GridView();
-            this.lblProDay = new Smobiler.Core.Controls.Label();
-            this.lblOtherDay = new Smobiler.Core.Controls.Label();
             this.lblLeader = new Smobiler.Core.Controls.Label();
             this.btnEdit = new Smobiler.Core.Controls.Button();
             this.line9 = new Smobiler.Core.Controls.Line();
             this.line1 = new Smobiler.Core.Controls.Line();
             this.line2 = new Smobiler.Core.Controls.Line();
-            this.line3 = new Smobiler.Core.Controls.Line();
-            this.line4 = new Smobiler.Core.Controls.Line();
             this.line5 = new Smobiler.Core.Controls.Line();
             this.line6 = new Smobiler.Core.Controls.Line();
             this.label1 = new Smobiler.Core.Controls.Label();
@@ -74,33 +68,11 @@ namespace SmoONE.UI.Department
             this.lblName.Size = new System.Drawing.Size(234, 35);
             this.lblName.TabIndex = 3;
             // 
-            // label2
-            // 
-            this.label2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.label2.Location = new System.Drawing.Point(0, 100);
-            this.label2.Name = "label2";
-            this.label2.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.label2.Size = new System.Drawing.Size(66, 35);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "目标人天";
-            // 
-            // label3
-            // 
-            this.label3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.label3.Location = new System.Drawing.Point(0, 135);
-            this.label3.Name = "label3";
-            this.label3.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.label3.Size = new System.Drawing.Size(101, 35);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "目标其他人天";
-            // 
             // label5
             // 
             this.label5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.label5.Location = new System.Drawing.Point(0, 180);
+            this.label5.Location = new System.Drawing.Point(0, 100);
             this.label5.Name = "label5";
             this.label5.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
             this.label5.Size = new System.Drawing.Size(66, 35);
@@ -110,38 +82,13 @@ namespace SmoONE.UI.Department
             // gridUserData
             // 
             this.gridUserData.AllowSlip = true;
-            this.gridUserData.AutoHeight = false;
             this.gridUserData.Layout = "frmUserLayout";
-            this.gridUserData.Location = new System.Drawing.Point(0, 215);
+            this.gridUserData.Location = new System.Drawing.Point(0, 135);
             this.gridUserData.Name = "gridUserData";
             this.gridUserData.PageSize = 8;
             this.gridUserData.ShowGridLines = false;
-            this.gridUserData.Size = new System.Drawing.Size(300, 185);
+            this.gridUserData.Size = new System.Drawing.Size(300, 265);
             this.gridUserData.TabIndex = 7;
-            // 
-            // lblProDay
-            // 
-            this.lblProDay.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.lblProDay.FontSize = 12F;
-            this.lblProDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.lblProDay.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.lblProDay.Location = new System.Drawing.Point(66, 100);
-            this.lblProDay.Name = "lblProDay";
-            this.lblProDay.Padding = new Smobiler.Core.Padding(0F, 0F, 4F, 0F);
-            this.lblProDay.Size = new System.Drawing.Size(234, 35);
-            this.lblProDay.TabIndex = 8;
-            // 
-            // lblOtherDay
-            // 
-            this.lblOtherDay.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.lblOtherDay.FontSize = 12F;
-            this.lblOtherDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.lblOtherDay.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.lblOtherDay.Location = new System.Drawing.Point(101, 135);
-            this.lblOtherDay.Name = "lblOtherDay";
-            this.lblOtherDay.Padding = new Smobiler.Core.Padding(0F, 0F, 4F, 0F);
-            this.lblOtherDay.Size = new System.Drawing.Size(199, 35);
-            this.lblOtherDay.TabIndex = 9;
             // 
             // lblLeader
             // 
@@ -149,7 +96,7 @@ namespace SmoONE.UI.Department
             this.lblLeader.FontSize = 12F;
             this.lblLeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.lblLeader.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.lblLeader.Location = new System.Drawing.Point(66, 180);
+            this.lblLeader.Location = new System.Drawing.Point(66, 100);
             this.lblLeader.Name = "lblLeader";
             this.lblLeader.Padding = new Smobiler.Core.Padding(0F, 0F, 4F, 0F);
             this.lblLeader.Size = new System.Drawing.Size(234, 35);
@@ -194,26 +141,10 @@ namespace SmoONE.UI.Department
             this.line2.Size = new System.Drawing.Size(300, 1);
             this.line2.TabIndex = 14;
             // 
-            // line3
-            // 
-            this.line3.BackColor = System.Drawing.Color.LightGray;
-            this.line3.Location = new System.Drawing.Point(0, 135);
-            this.line3.Name = "line3";
-            this.line3.Size = new System.Drawing.Size(300, 1);
-            this.line3.TabIndex = 15;
-            // 
-            // line4
-            // 
-            this.line4.BackColor = System.Drawing.Color.LightGray;
-            this.line4.Location = new System.Drawing.Point(0, 170);
-            this.line4.Name = "line4";
-            this.line4.Size = new System.Drawing.Size(300, 1);
-            this.line4.TabIndex = 16;
-            // 
             // line5
             // 
             this.line5.BackColor = System.Drawing.Color.LightGray;
-            this.line5.Location = new System.Drawing.Point(0, 180);
+            this.line5.Location = new System.Drawing.Point(0, 100);
             this.line5.Name = "line5";
             this.line5.Size = new System.Drawing.Size(300, 1);
             this.line5.TabIndex = 17;
@@ -221,7 +152,7 @@ namespace SmoONE.UI.Department
             // line6
             // 
             this.line6.BackColor = System.Drawing.Color.LightGray;
-            this.line6.Location = new System.Drawing.Point(0, 215);
+            this.line6.Location = new System.Drawing.Point(0, 135);
             this.line6.Name = "line6";
             this.line6.Size = new System.Drawing.Size(300, 1);
             this.line6.TabIndex = 18;
@@ -260,7 +191,6 @@ namespace SmoONE.UI.Department
             // 
             this.imgPortrait.BorderRadius = 10;
             this.imgPortrait.Enlarged = true;
-            this.imgPortrait.ID = "bumenicon";
             this.imgPortrait.Location = new System.Drawing.Point(260, 57);
             this.imgPortrait.Name = "imgPortrait";
             this.imgPortrait.ResourceID = "bumenicon";
@@ -289,12 +219,8 @@ namespace SmoONE.UI.Department
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.Label4,
             this.lblName,
-            this.label2,
-            this.label3,
             this.label5,
             this.gridUserData,
-            this.lblProDay,
-            this.lblOtherDay,
             this.lblLeader,
             this.btnEdit,
             this.label1,
@@ -305,8 +231,6 @@ namespace SmoONE.UI.Department
             this.line9,
             this.line1,
             this.line2,
-            this.line3,
-            this.line4,
             this.line5,
             this.line6});
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
@@ -321,19 +245,13 @@ namespace SmoONE.UI.Department
 
         internal Smobiler.Core.Controls.Label Label4;
         internal Smobiler.Core.Controls.Label lblName;
-        internal Smobiler.Core.Controls.Label label2;
-        internal Smobiler.Core.Controls.Label label3;
         internal Smobiler.Core.Controls.Label label5;
         private Smobiler.Core.Controls.GridView gridUserData;
-        internal Smobiler.Core.Controls.Label lblProDay;
-        internal Smobiler.Core.Controls.Label lblOtherDay;
         internal Smobiler.Core.Controls.Label lblLeader;
         private Smobiler.Core.Controls.Button btnEdit;
         private Smobiler.Core.Controls.Line line9;
         private Smobiler.Core.Controls.Line line1;
         private Smobiler.Core.Controls.Line line2;
-        private Smobiler.Core.Controls.Line line3;
-        private Smobiler.Core.Controls.Line line4;
         private Smobiler.Core.Controls.Line line5;
         private Smobiler.Core.Controls.Line line6;
         internal Smobiler.Core.Controls.Label label1;

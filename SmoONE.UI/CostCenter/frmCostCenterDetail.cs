@@ -65,6 +65,7 @@ namespace SmoONE.UI.CostCenter
                     lblStartDate.Text = cc.CC_StartDate.ToString("yyyy/MM/dd");
                     lblEndDate.Text = cc.CC_EndDate.ToString("yyyy/MM/dd");
                     lblAmount.Text = cc.CC_Amount.ToString();
+                    lblRBAmount.Text = cc.CC_UsedAmount.ToString();
                     UserDetailDto user = AutofacConfig.userService.GetUserByUserID(cc.CC_LiableMan);
                     lblLiableMan.Text = user.U_Name;
                     lblDep.Text = cc.CC_DepName;

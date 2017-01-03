@@ -273,7 +273,23 @@ namespace SmoONE.UI
                 {
                     DataGridview dataGItem = new DataGridview();
                     dataGItem.ID = leave.L_ID;
-                    dataGItem.U_Portrait = leave.U_Portrait;
+                    if (string.IsNullOrEmpty(leave.U_Portrait) == true)
+                    {
+                        UserDetailDto user = AutofacConfig.userService.GetUserByUserID(leave.U_ID);
+                        switch (user.U_Sex)
+                        {
+                            case (int)Sex.男:
+                                dataGItem.U_Portrait = "boy";
+                                break;
+                            case (int)Sex.女:
+                                dataGItem.U_Portrait = "girl";
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        dataGItem.U_Portrait = leave.U_Portrait;
+                    }
                     dataGItem.Name = leave.U_Name + "的" + DataGridviewType.请假;
                     dataGItem.Type = ((int )Enum.Parse(typeof(DataGridviewType), DataGridviewType.请假.ToString())).ToString();
                     switch (leave.L_Status)
@@ -299,7 +315,23 @@ namespace SmoONE.UI
                 {
                     DataGridview dataGItem = new DataGridview();
                     dataGItem.ID = reimbursement.RB_ID;
-                    dataGItem.U_Portrait = reimbursement.U_Portrait;
+                    if (string.IsNullOrEmpty(reimbursement.U_Portrait) == true)
+                    {
+                        UserDetailDto user = AutofacConfig.userService.GetUserByUserID(reimbursement.U_ID);
+                        switch (user.U_Sex)
+                        {
+                            case (int)Sex.男:
+                                dataGItem.U_Portrait = "boy";
+                                break;
+                            case (int)Sex.女:
+                                dataGItem.U_Portrait = "girl";
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        dataGItem.U_Portrait = reimbursement.U_Portrait;
+                    }
                     dataGItem.Name = reimbursement.U_Name + "的" + DataGridviewType.报销;
                     dataGItem.Type = ((int )Enum.Parse(typeof(DataGridviewType), DataGridviewType.报销.ToString())).ToString();
                     switch (reimbursement.RB_Status)
@@ -408,6 +440,7 @@ namespace SmoONE.UI
                     });
                     break;
             }
+           
         }
         /// <summary>
         /// 筛选

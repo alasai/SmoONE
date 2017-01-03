@@ -86,7 +86,7 @@ namespace SmoONE.UI.Leave
                         }
                     }
                     //获取抄送人
-                    if (leave.L_CCTo != null)
+                    if (string.IsNullOrEmpty(leave.L_CCTo)==false )
                     {
                         string[] CCToUsers = leave.L_CCTo.Split(',');
                         foreach (string ccToUser in CCToUsers)
@@ -275,10 +275,7 @@ namespace SmoONE.UI.Leave
                 if (result.IsSuccess == true)
                 {
                     ShowResult = ShowResult.Yes;
-                    if (string.IsNullOrEmpty(LID) == true)
-                    {
                         Close();
-                    }
                     Toast("您的请假条已成功提交！", ToastLength.SHORT);
                    
                 }

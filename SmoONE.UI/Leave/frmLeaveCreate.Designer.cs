@@ -132,7 +132,6 @@ namespace SmoONE.UI.Leave
             this.dpkStartDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.dpkStartDate.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
             this.dpkStartDate.Location = new System.Drawing.Point(66, 55);
-            this.dpkStartDate.Mode = Smobiler.Core.DatePickerMode.DateAndTime;
             this.dpkStartDate.Name = "dpkStartDate";
             this.dpkStartDate.Padding = new Smobiler.Core.Padding(0F, 0F, 30F, 0F);
             this.dpkStartDate.Size = new System.Drawing.Size(234, 35);
@@ -158,7 +157,6 @@ namespace SmoONE.UI.Leave
             this.dpkEndDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.dpkEndDate.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
             this.dpkEndDate.Location = new System.Drawing.Point(66, 90);
-            this.dpkEndDate.Mode = Smobiler.Core.DatePickerMode.DateAndTime;
             this.dpkEndDate.Name = "dpkEndDate";
             this.dpkEndDate.Padding = new Smobiler.Core.Padding(0F, 0F, 30F, 0F);
             this.dpkEndDate.Size = new System.Drawing.Size(234, 35);
@@ -259,7 +257,6 @@ namespace SmoONE.UI.Leave
             // 
             // imgbtnAddCheck
             // 
-            this.imgbtnAddCheck.FontSize = 10F;
             this.imgbtnAddCheck.Location = new System.Drawing.Point(65, 395);
             this.imgbtnAddCheck.Name = "imgbtnAddCheck";
             this.imgbtnAddCheck.ResourceID = "add";
@@ -317,7 +314,6 @@ namespace SmoONE.UI.Leave
             // 
             // imgbtnAddCCTo
             // 
-            this.imgbtnAddCCTo.FontSize = 10F;
             this.imgbtnAddCCTo.Location = new System.Drawing.Point(65, 495);
             this.imgbtnAddCCTo.Name = "imgbtnAddCCTo";
             this.imgbtnAddCCTo.ResourceID = "add";
@@ -331,7 +327,6 @@ namespace SmoONE.UI.Leave
             // 
             this.imgL.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.imgL.Enlarged = true;
-            this.imgL.ID = "";
             this.imgL.Location = new System.Drawing.Point(66, 270);
             this.imgL.Name = "imgL";
             this.imgL.Padding = new Smobiler.Core.Padding(0F, 2F, 0F, 0F);
@@ -502,7 +497,7 @@ namespace SmoONE.UI.Leave
             this.popType,
             this.camera1});
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.btnSave, 
+            this.btnSave,
             this.label1,
             this.btnType,
             this.btnType1,
@@ -527,7 +522,7 @@ namespace SmoONE.UI.Leave
             this.lblCCTo1,
             this.lblCCTo2,
             this.imgbtnAddCCTo,
-               this.line9,
+            this.line9,
             this.line1,
             this.line2,
             this.line3,
@@ -538,8 +533,7 @@ namespace SmoONE.UI.Leave
             this.line8,
             this.line11,
             this.line12,
-            this.line13,
-            });
+            this.line13});
             this.Size = new System.Drawing.Size(300, 600);
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
             this.TitleText = "我的请假";

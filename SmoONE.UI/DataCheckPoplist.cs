@@ -52,7 +52,7 @@ namespace SmoONE.UI
             dr1["PopItemID"] = nrow;
             dr1["PopItemName"] = "待审批";
             dr1["ParentID"] = (int)Enum.Parse(typeof(DataGridviewType), DataGridviewType.请假.ToString());
-            dr1["Status"] = L_Status.新建;
+            dr1["Status"] = (int)Enum.Parse(typeof(L_Status), L_Status.新建.ToString());
             table.Rows.Add(dr1);
 
             DataRow dr2 = table.NewRow();
@@ -60,7 +60,7 @@ namespace SmoONE.UI
             dr2["PopItemID"] = nrow;
             dr2["PopItemName"] = "待责任人审批";
             dr2["ParentID"] = (int)Enum.Parse(typeof(DataGridviewType), DataGridviewType.报销.ToString());
-            dr2["Status"] = RB_Status.新建;
+            dr2["Status"] = (int)Enum.Parse(typeof(RB_Status), RB_Status.新建.ToString());
             table.Rows.Add(dr2);
 
             DataRow dr3 = table.NewRow();
@@ -68,7 +68,7 @@ namespace SmoONE.UI
             dr3["PopItemID"] = nrow;
             dr3["PopItemName"] = "待行政人审批";
             dr3["ParentID"] = (int)Enum.Parse(typeof(DataGridviewType), DataGridviewType.报销.ToString());
-            dr3["Status"] = RB_Status.责任人审批;
+            dr3["Status"] =  (int)Enum.Parse(typeof(RB_Status), RB_Status.责任人审批.ToString());
             table.Rows.Add(dr3);
 
             DataRow dr4 = table.NewRow();
@@ -76,7 +76,7 @@ namespace SmoONE.UI
             dr4["PopItemID"] = nrow;
             dr4["PopItemName"] = "待财务人审批";
             dr4["ParentID"] = (int)Enum.Parse(typeof(DataGridviewType), DataGridviewType.报销.ToString());
-            dr4["Status"] = RB_Status.行政审批;
+            dr4["Status"] =  (int)Enum.Parse(typeof(RB_Status), RB_Status.行政审批.ToString());
             table.Rows.Add(dr4);
             return table;
         }
@@ -98,7 +98,7 @@ namespace SmoONE.UI
             dr1["PopItemID"] = nrow;
            dr1["PopItemName"] = "已审批";
            dr1["ParentID"] = (int)Enum.Parse(typeof(DataGridviewType), DataGridviewType.请假.ToString());
-           dr1["Status"] = L_Status.已审批;
+           dr1["Status"] = (int)Enum.Parse(typeof(L_Status), L_Status.已审批.ToString());
            table.Rows.Add(dr1);
 
            DataRow dr2= table.NewRow();
@@ -106,7 +106,7 @@ namespace SmoONE.UI
             dr2["PopItemID"] = nrow;
             dr2["PopItemName"] = "已拒绝";
             dr2["ParentID"] = (int)Enum.Parse(typeof(DataGridviewType), DataGridviewType.请假.ToString());
-            dr2["Status"] = L_Status.已拒绝;
+            dr2["Status"] = (int)Enum.Parse(typeof(L_Status), L_Status.已拒绝.ToString());
             table.Rows.Add(dr2);
 
             DataRow dr3 = table.NewRow();
@@ -114,7 +114,7 @@ namespace SmoONE.UI
             dr3["PopItemID"] = nrow;
             dr3["PopItemName"] = "责任人已审批";
             dr3["ParentID"] = (int)Enum.Parse(typeof(DataGridviewType), DataGridviewType.报销.ToString());
-            dr3["Status"] = RB_Status.责任人审批;
+            dr3["Status"] = (int)Enum.Parse(typeof(RB_Status), RB_Status.责任人审批.ToString());
             table.Rows.Add(dr3);
 
             DataRow dr4 = table.NewRow();
@@ -122,7 +122,7 @@ namespace SmoONE.UI
             dr4["PopItemID"] = nrow;
             dr4["PopItemName"] = "行政人已审批";
             dr4["ParentID"] = (int)Enum.Parse(typeof(DataGridviewType), DataGridviewType.报销.ToString());
-            dr4["Status"] = RB_Status.行政审批;
+            dr4["Status"] = (int)Enum.Parse(typeof(RB_Status), RB_Status.行政审批.ToString());
             table.Rows.Add(dr4);
 
             DataRow dr5 = table.NewRow();
@@ -130,7 +130,7 @@ namespace SmoONE.UI
             dr5["PopItemID"] = nrow;
             dr5["PopItemName"] = "财务人已审批";
             dr5["ParentID"] = (int)Enum.Parse(typeof(DataGridviewType), DataGridviewType.报销.ToString());
-            dr5["Status"] = RB_Status.财务审批;
+            dr5["Status"] = (int)Enum.Parse(typeof(RB_Status), RB_Status.财务审批.ToString());
             table.Rows.Add(dr5);
 
             DataRow dr6 = table.NewRow();
@@ -138,7 +138,7 @@ namespace SmoONE.UI
             dr6["PopItemID"] = nrow;
             dr6["PopItemName"] = "已拒绝";
             dr6["ParentID"] = (int)Enum.Parse(typeof(DataGridviewType), DataGridviewType.报销.ToString());
-            dr6["Status"] = L_Status.已拒绝;
+            dr6["Status"] = (int)Enum.Parse(typeof(RB_Status), RB_Status.已拒绝.ToString());
             table.Rows.Add(dr6);
             return table;
         }

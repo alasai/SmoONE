@@ -31,6 +31,7 @@ namespace SmoONE.UI
             this.lblTel = new Smobiler.Core.Controls.Label();
             this.btnSave = new Smobiler.Core.Controls.Button();
             this.txtVcode1 = new Smobiler.Core.Controls.TextBox();
+            this.lblHint = new Smobiler.Core.Controls.Label();
             // 
             // lblTel
             // 
@@ -48,7 +49,7 @@ namespace SmoONE.UI
             this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.btnSave.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             this.btnSave.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.btnSave.Location = new System.Drawing.Point(10, 105);
+            this.btnSave.Location = new System.Drawing.Point(10, 125);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(280, 35);
             this.btnSave.TabIndex = 3;
@@ -69,13 +70,25 @@ namespace SmoONE.UI
             this.txtVcode1.TabIndex = 4;
             this.txtVcode1.WaterMarkText = "请输入验证码";
             // 
+            // lblHint
+            // 
+            this.lblHint.ForeColor = System.Drawing.Color.Red;
+            this.lblHint.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
+            this.lblHint.Location = new System.Drawing.Point(20, 95);
+            this.lblHint.Name = "lblHint";
+            this.lblHint.Size = new System.Drawing.Size(260, 30);
+            this.lblHint.TabIndex = 5;
+            this.lblHint.Text = "使用验证码登录：1234";
+            this.lblHint.Visible = false;
+            // 
             // frmVerificationCode
             // 
             this.BackColor = System.Drawing.Color.White;
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.lblTel,
             this.btnSave,
-            this.txtVcode1});
+            this.txtVcode1,
+            this.lblHint});
             this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
             this.TitleText = "填写验证码";
             this.Load += new System.EventHandler(this.frmVerificationCode_Load);
@@ -89,5 +102,6 @@ namespace SmoONE.UI
         private Smobiler.Core.Controls.Label lblTel;
         private Smobiler.Core.Controls.Button btnSave;
         private Smobiler.Core.Controls.TextBox txtVcode1;
+        private Smobiler.Core.Controls.Label lblHint;
     }
 }

@@ -298,7 +298,18 @@ namespace SmoONE.UI.RB
                 switch (e.CellItem.Name )
                 {
                     case "btnAgreed":
-                        Status += 1;       //更改报销单状态
+                        switch (Status)
+                        {
+                            case RB_Status.新建:
+                                Status = RB_Status.责任人审批;
+                                break;
+                            case RB_Status.责任人审批:
+                                Status = RB_Status.行政审批;
+                                break;
+                            case RB_Status.行政审批:
+                                Status = RB_Status.财务审批;
+                                break;
+                        }
                         ReturnInfo r = AutofacConfig.rBService.UpdateRBStatus(ID, Status, UserID, "");           //保存报销单
                         if (r.IsSuccess == true)
                         {

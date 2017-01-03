@@ -139,7 +139,7 @@ namespace SmoONE.UI.RB
                         {
                             this.ShowResult = Smobiler.Core.ShowResult.Yes;
                             this.Close();
-                            Toast("消费模板创建成功");
+                            Toast("消费模板提交成功！");
                         }
                         else
                         {

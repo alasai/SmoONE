@@ -3,8 +3,6 @@ using SmoONE.Domain;
 using SmoONE.Domain.IRepository;
 using SmoONE.DTOs;
 using SmoONE.Infrastructure;
-using Submail.AppConfig;
-using Submail.Lib;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +15,9 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Data.Entity;
 using AutoMapper;
+using Top.Api;
+using Top.Api.Request;
+using Top.Api.Response;
 
 namespace SmoONE.Application
 {
@@ -435,48 +436,30 @@ namespace SmoONE.Application
         {
             return _userRepository.IsExists(UserID);
         }
+
+        /// <summary>
+        /// 判断该设备ID是否恶意注册
+        /// </summary>
+        /// <param name="DeviceID">设备ID</param>
+        /// <returns>true表示存在，false表示不存在</returns>
+        public bool IsMalicious(string DeviceID)
+        {
+            return _validateCodeRepository.IsMalicious(DeviceID);
+        }
+
+        /// <summary>
+        /// 判断当前用户的原密码是否正确
+        /// </summary>
+        /// <param name="UserID">用户ID</param>
+        /// <param name="Pwd">原密码</param>
+        /// <returns>true表示存在，false表示不存在</returns>
+        public bool IsPwd(string UserID,string Pwd)
+        {
+            return _userRepository.GetAll().Any(u=>(u.U_ID==UserID&&u.U_Pwd==Pwd));
+        }
         #endregion
 
         #region 增删改操作
-        ///// <summary>
-        ///// 注册用户
-        ///// </summary>
-        ///// <param name="entity">用户对象</param>
-        //public ReturnInfo Register(User entity)
-        //{
-        //    ReturnInfo RInfo = new ReturnInfo();
-        //    StringBuilder sb = new StringBuilder();
-        //    entity.U_CreateDate = DateTime.Now;
-        //    entity.U_IsCC = 1;
-        //    entity.U_IsCheck = 1;
-        //    string ValidateInfo = Helper.ValidateUser(entity);
-        //    sb.Append(ValidateInfo);
-        //    if (string.IsNullOrEmpty(ValidateInfo))
-        //    {
-        //        try
-        //        {
-        //            _unitOfWork.RegisterNew(entity);
-        //            bool result = _unitOfWork.Commit();
-        //            RInfo.IsSuccess = result;
-        //            RInfo.ErrorInfo = sb.ToString();
-        //            return RInfo;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            _unitOfWork.Rollback();
-        //            sb.Append(ex.Message);
-        //            RInfo.IsSuccess = false;
-        //            RInfo.ErrorInfo = sb.ToString();
-        //            return RInfo;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        RInfo.IsSuccess = false;
-        //        RInfo.ErrorInfo = sb.ToString();
-        //        return RInfo;
-        //    }
-        //}
 
         /// <summary>
         /// 通过验证码注册用户
@@ -690,10 +673,15 @@ namespace SmoONE.Application
         /// <param name="NewPwd">加密后的新密码</param>
         public ReturnInfo ChangePwd(string UserID, string OldPwd, string NewPwd)
         {
-            ReturnInfo RInfo = Login(UserID, OldPwd);
+            ReturnInfo RInfo=new ReturnInfo();
             StringBuilder sb = new StringBuilder();
-            sb.Append(RInfo.ErrorInfo);
-            if (RInfo.IsSuccess)
+            if (OldPwd == NewPwd)
+            {
+                RInfo.IsSuccess = false;
+                sb.Append("新密码与旧密码相同.");
+                return RInfo;
+            }
+            if (IsPwd(UserID, OldPwd))
             {
                 if (string.IsNullOrEmpty(NewPwd))
                 {
@@ -735,8 +723,10 @@ namespace SmoONE.Application
             }
             else
             {
-                return RInfo;
+                RInfo.IsSuccess = false;
+                sb.Append("用户名和旧密码中存在错误.");
             }
+            return RInfo;
         }
 
         /// <summary>
@@ -832,7 +822,8 @@ namespace SmoONE.Application
         /// 发送验证码
         /// </summary>
         /// <param name="PhoneNumber">发送的手机号</param>
-        public ReturnInfo SendVCode(string PhoneNumber)
+        /// <param name="DeviceID">设备ID</param>
+        public ReturnInfo SendVCode(string PhoneNumber,string DeviceID)
         {
             ReturnInfo RInfo = new ReturnInfo();
             StringBuilder sb = new StringBuilder();
@@ -842,27 +833,29 @@ namespace SmoONE.Application
                 {
                     Random rad = new Random();//实例化随机数产生器rad；
                     int value = rad.Next(1000, 10000);//用rad生成大于等于1000，小于等于9999的随机数；
-                    //appld为你在SubMail上申请的AppId,appkey为对应的appkey(此处以****代替)
-                    IAppConfig appConfig = new MessageConfig("12420", "****");
-                    MessageXSend messageXSend = new MessageXSend(appConfig);
-                    messageXSend.AddTo(PhoneNumber);
-                    //project参数为短信模板名(我的是6位)
-                    messageXSend.SetProject("u0TnO2");
-                    //var为你短信模板中的@code,@time等字段
-                    messageXSend.AddVar("code", value.ToString());
-                    messageXSend.AddVar("time", "15分钟");
-                    string returnMessage = string.Empty;
-                    if (messageXSend.XSend(out returnMessage) == false)
-                    {
-                        RInfo.IsSuccess = false;
-                        sb.Append("发送验证码失败.");
-                    }
-                    else
+                    //appkey为你在http://www.alidayu.com/上申请的Appkey(此处以****代替),appSecret为对应的appSecret(此处以****代替)
+                    ITopClient client = new DefaultTopClient("http://gw.api.taobao.com/router/rest", "****", "****");
+                    AlibabaAliqinFcSmsNumSendRequest req = new AlibabaAliqinFcSmsNumSendRequest();
+                    //回传参数
+                    req.Extend = "123456";
+                    //短信状态,一般为normal
+                    req.SmsType = "normal";
+                    //短信签名
+                    req.SmsFreeSignName = "注册验证";
+                    //短信模板中的字段对应值
+                    req.SmsParam = "{\"code\":\"" + value.ToString() + "\",\"product\":\"SmoONE\"}";
+                    //发送的号码
+                    req.RecNum = PhoneNumber;
+                    //短信模板ID
+                    req.SmsTemplateCode = "****";
+                    AlibabaAliqinFcSmsNumSendResponse rsp = client.Execute(req);                    
+                    if (rsp.IsError==false)
                     {
                         ValidateCode entity = new ValidateCode();
                         entity.V_PhoneNumber = PhoneNumber;
                         entity.V_UpdateDate = DateTime.Now;
                         entity.V_VCode = value.ToString();
+                        entity.V_DeviceID = DeviceID;
                         _unitOfWork.RegisterNew(entity);
                         bool result = _unitOfWork.Commit();
                         if (result)
@@ -871,10 +864,30 @@ namespace SmoONE.Application
                         }
                         else
                         {
-                            RInfo.IsSuccess = false;
+                            RInfo.IsSuccess = false;                            
                             sb.Append("短信发送成功,但是入库失败.");
                         }
                     }
+                    else
+                    {
+                        RInfo.IsSuccess = false;
+                        if (rsp.SubErrMsg == "触发业务流控限制")
+                        {
+                            sb.Append("对同一个手机号码允许每分钟发送1条短信验证码，累计每小时7条,允许每天50条.");
+                        }
+                        else if (rsp.SubErrMsg == "业务停机")
+                        {
+                            sb.Append("业务停机,请登陆www.alidayu.com充值.");
+                        }
+                        else if (rsp.SubErrMsg == "余额不足")
+                        {
+                            sb.Append("余额不足未能发送成功，请登录阿里云管理中心充值后重新发送.");
+                        }
+                        else
+                        {
+                            sb.Append("发送验证码失败.");
+                        }
+                    };
                 }
                 catch (Exception ex)
                 {
@@ -906,16 +919,18 @@ namespace SmoONE.Application
             {
                 try
                 {
-                    int value = 5555;
+                    int value = 1234;
                     ValidateCode entity = new ValidateCode();
                     entity.V_PhoneNumber = PhoneNumber;
                     entity.V_UpdateDate = DateTime.Now;
                     entity.V_VCode = value.ToString();
+                    entity.V_DeviceID = "使用验证码登录";
                     _unitOfWork.RegisterNew(entity);
                     bool result = _unitOfWork.Commit();
                     if (result)
                     {
                         RInfo.IsSuccess=true;
+                        sb.Append(value.ToString());
                     }
                     else
                     {

@@ -20,8 +20,8 @@ namespace SmoONE.UI.UserInfo
         #region "definition"
         public string Tel;//电话号码
         public string VCode;//验证码
-        bool isPwdC1 = false; //新密码是否显示密码字符变量
-        bool isPwdC2 = false;//确认密码是否显示密码字符变量
+        bool isPwdC1 = true ; //新密码是否显示密码字符变量
+        bool isPwdC2 = true ;//确认密码是否显示密码字符变量
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
         #endregion
         /// <summary>
@@ -34,7 +34,7 @@ namespace SmoONE.UI.UserInfo
             if (isPwdC1 == false)
             {
                 txtPwd1.PasswordChar = '*';//设置textbox为密码字符
-                imgbtnPwdC1.ResourceID = "!\\ue417043146223";
+                imgbtnPwdC1.ResourceID = "!\\ue8f5192192192";
                 imgbtnPwdC1.Refresh();
                 isPwdC1 = true;
 
@@ -42,7 +42,7 @@ namespace SmoONE.UI.UserInfo
             else
             {
                 txtPwd1.PasswordChar = ' ';//textbox密码字符为空时，显示明文
-                imgbtnPwdC1.ResourceID = "!\\ue8f5192192192";
+                imgbtnPwdC1.ResourceID = "!\\ue417043146223";
                 imgbtnPwdC1.Refresh();
                 isPwdC1 = false;
             }
@@ -57,7 +57,7 @@ namespace SmoONE.UI.UserInfo
             if (isPwdC2 == false)
             {
                 txtPwd2.PasswordChar = '*';//设置textbox为密码字符
-                imgbtnPwdC2.ResourceID = "!\\ue417043146223";
+                imgbtnPwdC2.ResourceID = "!\\ue8f5192192192";
                 imgbtnPwdC2.Refresh();
                 isPwdC2 = true;
 
@@ -65,7 +65,7 @@ namespace SmoONE.UI.UserInfo
             else
             {
                 txtPwd2.PasswordChar = ' ';//textbox密码字符为空时，显示明文
-                imgbtnPwdC2.ResourceID = "!\\ue8f5192192192";
+                imgbtnPwdC2.ResourceID = "!\\ue417043146223";
                 imgbtnPwdC2.Refresh();
                 isPwdC2 = false;
             }

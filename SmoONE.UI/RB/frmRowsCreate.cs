@@ -226,7 +226,7 @@ namespace SmoONE.UI.RB
                         {
                             this.ShowResult = Smobiler.Core.ShowResult.Yes;
                             this.Close();
-                            Toast("消费记录创建成功");
+                            Toast("消费记录提交成功！");
                         }
                         else
                         {

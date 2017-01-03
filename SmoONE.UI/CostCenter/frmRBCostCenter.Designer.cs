@@ -36,7 +36,7 @@ namespace SmoONE.UI.CostCenter
             // 
             // gridCCData
             // 
-            this.gridCCData.AllowSlip = true;
+            this.gridCCData.AutoHeight = true;
             this.gridCCData.Layout = "frmCostCenterLayout";
             this.gridCCData.Location = new System.Drawing.Point(0, 31);
             this.gridCCData.Name = "gridCCData";
@@ -48,7 +48,6 @@ namespace SmoONE.UI.CostCenter
             // 
             // imgbtnSearch
             // 
-            this.imgbtnSearch.FontSize = 10F;
             this.imgbtnSearch.Location = new System.Drawing.Point(250, 0);
             this.imgbtnSearch.Name = "imgbtnSearch";
             this.imgbtnSearch.ResourceID = "search";

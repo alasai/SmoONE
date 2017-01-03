@@ -27,6 +27,15 @@ namespace SmoONE.DTOs
         /// </summary>
         public string CC_Name { get; set; }
 
+        /// <summary>
+        /// 成本中心金额
+        /// </summary>
+        public decimal CC_Amount { get; set; }
+
+        /// <summary>
+        /// 成本中心已使用金额
+        /// </summary>
+        public decimal CC_UsedAmount { get; set; }
 
         /// <summary>
         /// 成本中心责任人

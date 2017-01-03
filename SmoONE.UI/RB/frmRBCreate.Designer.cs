@@ -118,6 +118,7 @@ namespace SmoONE.UI.RB
             this.gridRBRowData.ShowGridLines = false;
             this.gridRBRowData.Size = new System.Drawing.Size(300, 335);
             this.gridRBRowData.TabIndex = 7;
+            this.gridRBRowData.CellClick += new Smobiler.Core.Controls.GridViewCellClickEventHandler(this.gridRBRowData_CellClick);
             this.gridRBRowData.ItemClick += new Smobiler.Core.Controls.GridViewItemClickEventHandler(this.gridRBRowData_ItemClick);
             // 
             // line1

@@ -120,15 +120,24 @@ namespace SmoONE.Application
         /// <param name="UserID">用户ID</param>
         /// <returns>true表示存在，false表示不存在</returns>
         bool IsExists(string UserID);
+
+        /// <summary>
+        /// 判断该设备ID是否恶意注册
+        /// </summary>
+        /// <param name="DeviceID">设备ID</param>
+        /// <returns>true表示存在，false表示不存在</returns>
+        bool IsMalicious(string DeviceID);
+
+        /// <summary>
+        /// 判断当前用户的原密码是否正确
+        /// </summary>
+        /// <param name="UserID">用户ID</param>
+        /// <param name="Pwd">原密码</param>
+        /// <returns>true表示存在，false表示不存在</returns>
+        bool IsPwd(string UserID, string Pwd);
         #endregion
 
         #region 增删改操作
-        ///// <summary>
-        ///// 注册用户
-        ///// </summary>
-        ///// <param name="entity">用户对象</param>
-        //ReturnInfo Register(User entity);
-
         /// <summary>
         /// 通过验证码注册用户
         /// </summary>
@@ -173,14 +182,14 @@ namespace SmoONE.Application
         /// 发送验证码
         /// </summary>
         /// <param name="PhoneNumber">发送的手机号</param>
-        ReturnInfo SendVCode(string PhoneNumber);
+        /// <param name="DeviceID">设备ID</param>
+        ReturnInfo SendVCode(string PhoneNumber,string DeviceID);
 
         /// <summary>
         /// 模拟发送验证码
         /// </summary>
         /// <param name="PhoneNumber">发送的手机号</param>
         ReturnInfo SimulateSendVCode(string PhoneNumber);
-
 
         /// <summary>
         /// 加密密码

@@ -62,11 +62,12 @@ namespace SmoONE.UI
                         {
                             //判断用户密码是否正确
                             string Pwd = e.Cell.Items["txtEditInfo"].Text.Trim();
-                            string encryptPwd = AutofacConfig.userService.Encrypt(DateTime.Now.ToString("yyyyMMddHHmmss") + Pwd);
-                            ReturnInfo result = AutofacConfig.userService.Login(Client.Session["U_ID"].ToString(), encryptPwd);
-                            if (result.IsSuccess == false)
+                            string encryptPwd = AutofacConfig.userService.Encrypt(Pwd);
+                            bool  result = AutofacConfig.userService.IsPwd(Client.Session["U_ID"].ToString(), encryptPwd);
+                            if (result== false)
                             {
-                                throw new Exception(result.ErrorInfo);
+                                e.Cell.Items["txtEditInfo"].Text="";
+                                throw new Exception("你输入的原密码不正确，请重新输入！");
                             }
                             else
                             {
@@ -393,6 +394,33 @@ namespace SmoONE.UI
             }
             popSex.ShowDialog();
     }
+        /// <summary>
+        /// 退出登录
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("是否退出当前系统？", MessageBoxButtons.YesNo, (object o, MessageBoxHandlerArgs args) =>
+            {
+                try
+                {
+                    if (args.Result == Smobiler.Core.ShowResult.Yes)
+                    {
+
+                        this.Close();
+                        frmLogon frmLogon = new frmLogon();
+                       Redirect(frmLogon);
+                        //退出客户端
+                        //this.Client.Exit();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Toast(ex.Message, ToastLength.SHORT);
+                }
+            });
+        }
        
     }
     

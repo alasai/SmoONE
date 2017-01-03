@@ -144,6 +144,7 @@ namespace SmoONE.UI.CostCenter
                     case "btnOK":
                         string ccname = layoutDialog1.LayoutData.Items["txtCCName"].DefaultValue.ToString();
                         GetCC(ccname,liableMan);
+                        layoutDialog1.Close();
                         break;
                 }
             }

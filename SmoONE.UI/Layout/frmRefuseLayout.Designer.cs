@@ -75,7 +75,7 @@ namespace SmoONE.UI.Layout
             // 
             // Line2
             // 
-            this.Line2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.Line2.BackColor = System.Drawing.Color.LightGray;
             this.Line2.Location = new System.Drawing.Point(0, 90);
             this.Line2.Name = "Line2";
             this.Line2.Size = new System.Drawing.Size(300, 1);

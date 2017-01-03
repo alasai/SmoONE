@@ -21,8 +21,8 @@ namespace SmoONE.UI
     {
         #region "definition"
         public string oldPwd;//修改密码
-        bool isPwdC1 = false; //新密码是否显示密码字符变量
-        bool isPwdC2 = false;//确认密码是否显示密码字符变量
+        bool isPwdC1 = true ; //新密码是否显示密码字符变量
+        bool isPwdC2 = true ;//确认密码是否显示密码字符变量
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
         #endregion
         /// <summary>
@@ -35,7 +35,7 @@ namespace SmoONE.UI
             if (isPwdC1 == false)
             {
                 txtPwd1.PasswordChar = '*';//设置textbox为密码字符
-                imgbtnPwdC1.ResourceID = "!\\ue417043146223";
+                imgbtnPwdC1.ResourceID = "!\\ue8f5192192192";
                 imgbtnPwdC1.Refresh();
                 isPwdC1 = true;
                
@@ -43,7 +43,7 @@ namespace SmoONE.UI
             else
             {
                 txtPwd1.PasswordChar = ' ';//textbox密码字符为空时，显示明文
-                imgbtnPwdC1.ResourceID = "!\\ue8f5192192192";
+                imgbtnPwdC1.ResourceID = "!\\ue417043146223";
                 imgbtnPwdC1.Refresh();
                 isPwdC1 = false;
             }
@@ -58,7 +58,7 @@ namespace SmoONE.UI
             if (isPwdC2 == false)
             {
                 txtPwd2.PasswordChar = '*';//设置textbox为密码字符
-                imgbtnPwdC2.ResourceID = "!\\ue417043146223";
+                imgbtnPwdC2.ResourceID = "!\\ue8f5192192192";
                 imgbtnPwdC2.Refresh();
                 isPwdC2 = true;
 
@@ -66,7 +66,7 @@ namespace SmoONE.UI
             else
             {
                 txtPwd2.PasswordChar = ' ';//textbox密码字符为空时，显示明文
-                imgbtnPwdC2.ResourceID = "!\\ue8f5192192192";
+                imgbtnPwdC2.ResourceID = "!\\ue417043146223";
                 imgbtnPwdC2.Refresh();
                 isPwdC2 = false;
             }
@@ -82,10 +82,15 @@ namespace SmoONE.UI
             {
                 string pwd1 = txtPwd1.Text.Trim();
                 string pwd2 = txtPwd2.Text.Trim();
+                if (string.IsNullOrEmpty(oldPwd) == false)
+                {
+                    throw new Exception("请输入原密码！");
+                }
                 if (pwd1.Length <= 0)
                 {
                     throw new Exception("请输入新密码！");
                 }
+               
                 if (pwd2.Length <= 0)
                 {
                     throw new Exception("请输入确认密码！");
@@ -102,10 +107,14 @@ namespace SmoONE.UI
                 {
                     throw new Exception("新密码必须为6-12位！");
                 }
+                if (oldPwd.Equals(pwd2))
+                {
+                    throw new Exception("您输入新密码和原密码密码一致，请重新输入！");
+                }
                 if (oldPwd != null)
                 {
                     //新密码处理,经过加密
-                    string encryptPwd = AutofacConfig.userService.Encrypt(DateTime.Now.ToString("yyyyMMddHHmmss") + pwd2);
+                    string encryptPwd = AutofacConfig.userService.Encrypt(pwd2);
                     //更改密码
                     ReturnInfo result = AutofacConfig.userService.ChangePwd(Client .Session ["U_ID"].ToString (), oldPwd, encryptPwd);
                    //如果返回true则修改成功，否则弹出错误
@@ -119,6 +128,7 @@ namespace SmoONE.UI
                         throw new Exception(result.ErrorInfo);
                     }
                 }
+              
             }
             catch(Exception ex)
             {

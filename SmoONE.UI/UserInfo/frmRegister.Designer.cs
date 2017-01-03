@@ -96,17 +96,17 @@ namespace SmoONE.UI.UserInfo
             this.txtPwd1.MaxLength = 12;
             this.txtPwd1.Name = "txtPwd1";
             this.txtPwd1.Padding = new Smobiler.Core.Padding(0F, 0F, 30F, 0F);
+            this.txtPwd1.PasswordChar = '*';
             this.txtPwd1.Size = new System.Drawing.Size(234, 35);
             this.txtPwd1.TabIndex = 6;
             this.txtPwd1.WaterMarkText = "«Î ‰»Î6-12Œª√‹¬Î";
             // 
             // imgbtnPwdC1
             // 
-            this.imgbtnPwdC1.FontSize = 10F;
             this.imgbtnPwdC1.Location = new System.Drawing.Point(260, 48);
             this.imgbtnPwdC1.Name = "imgbtnPwdC1";
-            this.imgbtnPwdC1.Padding = new Smobiler.Core.Padding(0F, 3F, 0F, 3F);
-            this.imgbtnPwdC1.ResourceID = "!\\ue417043146223";
+            this.imgbtnPwdC1.Padding = new Smobiler.Core.Padding(0F, 5F, 0F, 5F);
+            this.imgbtnPwdC1.ResourceID = "!\\ue8f5192192192";
             this.imgbtnPwdC1.Size = new System.Drawing.Size(40, 35);
             this.imgbtnPwdC1.TabIndex = 7;
             this.imgbtnPwdC1.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.imgbtnPwdC1_Click);
@@ -140,17 +140,17 @@ namespace SmoONE.UI.UserInfo
             this.txtPwd2.MaxLength = 12;
             this.txtPwd2.Name = "txtPwd2";
             this.txtPwd2.Padding = new Smobiler.Core.Padding(0F, 0F, 30F, 0F);
+            this.txtPwd2.PasswordChar = '*';
             this.txtPwd2.Size = new System.Drawing.Size(231, 35);
             this.txtPwd2.TabIndex = 10;
             this.txtPwd2.WaterMarkText = "«Î ‰»Î6-12Œª√‹¬Î";
             // 
             // imgbtnPwdC2
             // 
-            this.imgbtnPwdC2.FontSize = 10F;
             this.imgbtnPwdC2.Location = new System.Drawing.Point(260, 80);
             this.imgbtnPwdC2.Name = "imgbtnPwdC2";
-            this.imgbtnPwdC2.Padding = new Smobiler.Core.Padding(0F, 3F, 0F, 3F);
-            this.imgbtnPwdC2.ResourceID = "!\\ue417043146223";
+            this.imgbtnPwdC2.Padding = new Smobiler.Core.Padding(0F, 5F, 0F, 5F);
+            this.imgbtnPwdC2.ResourceID = "!\\ue8f5192192192";
             this.imgbtnPwdC2.Size = new System.Drawing.Size(40, 35);
             this.imgbtnPwdC2.TabIndex = 11;
             this.imgbtnPwdC2.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.imgbtnPwdC2_Click);
@@ -180,7 +180,6 @@ namespace SmoONE.UI.UserInfo
             // 
             // radioGroup1
             // 
-            this.radioGroup1.AutoHeight = false;
             this.radioGroup1.FontSize = 12F;
             this.radioGroup1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.radioGroup1.Location = new System.Drawing.Point(0, 150);

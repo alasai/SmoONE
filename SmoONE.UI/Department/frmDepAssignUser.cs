@@ -241,7 +241,7 @@ namespace SmoONE.UI.Department
                     {
                         gridUserData.DataSource = listUser; //绑定gridView数据
                         gridUserData.DataBind();
-
+                        upCheckState();
                     }
                    
                 }
@@ -354,24 +354,37 @@ namespace SmoONE.UI.Department
                 {
                     throw new Exception(depLeader+"已是部门责任人，请先解散部门！");
                 }
-                bool isUPdateDep = false; //是否更新部门人员
+                ReturnInfo result;
                 if (string.IsNullOrEmpty(assignUser) == false)
                 {
                     MessageBox.Show(assignUser+"已分配部门是否更新部门？", "分配人员", MessageBoxButtons.YesNo, (Object s, MessageBoxHandlerArgs args) =>
                     {
                         if (args.Result == Smobiler.Core.ShowResult.Yes)
                         {
-                            isUPdateDep = true;
+                            department.UserIDs = listUser;
+                            if (department.Dep_ID != null)
+                            {
+                                result = AutofacConfig.departmentService.UpdateDepartment(department);
+                            }
+                            else
+                            {
+                                ShowResult = ShowResult.Yes;
+                                result = AutofacConfig.departmentService.AddDepartment(department);
+                            }
+                            if (result.IsSuccess == false)
+                            {
+                                throw new Exception(result.ErrorInfo);
+                            }
+                            else
+                            {
+
+                                Toast("部门人员分配成功！", ToastLength.SHORT);
+                            }
                         }
                     }
                       );
                 }
                 else
-                {
-                    isUPdateDep = true;
-                }
-                ReturnInfo result ;
-                if (isUPdateDep == true)
                 {
                     department.UserIDs = listUser;
                     if (department.Dep_ID != null)
@@ -380,6 +393,7 @@ namespace SmoONE.UI.Department
                     }
                     else
                     {
+                        ShowResult = ShowResult.Yes;
                         result = AutofacConfig.departmentService.AddDepartment(department);
                     }
                     if (result.IsSuccess == false)
@@ -456,6 +470,15 @@ namespace SmoONE.UI.Department
         /// <param name="e"></param>
         private void gridView1_CellClick(object sender, GridViewCellEventArgs e)
         {
+            switch (Convert .ToBoolean (e.Cell.Items["Check"].DefaultValue))
+            {
+                case true :
+                    e.Cell.Items["Check"].DefaultValue = false;
+                    break;
+                case false :
+                    e.Cell.Items["Check"].DefaultValue = true;
+                    break;
+            }
             upCheckState();
         }
     }

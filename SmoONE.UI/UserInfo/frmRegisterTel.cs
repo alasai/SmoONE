@@ -18,6 +18,11 @@ namespace SmoONE.UI
         #region "definition"
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
         #endregion
+        /// <summary>
+        /// 下一步
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -37,16 +42,20 @@ namespace SmoONE.UI
                 }
                 //验证电话号码是否已经注册，当返回值为true时，表示已注册
                bool isRegister= AutofacConfig.userService.IsExists(txtTel.Text.Trim());
-               if (isRegister == true)
+                  if (isRegister == true)
                {
                    throw new Exception("电话号码" + txtTel.Text.Trim()+"已注册！");
                }
-               else
-               {
-                   frmVerificationCode frmVerificationCode = new frmVerificationCode();
-                   frmVerificationCode.Tel = txtTel.Text.Trim();
-                   Redirect(frmVerificationCode);
-               }
+               //判断设备是否恶意注册，当返回值为true时，表示已恶意注册
+              bool isMalicious= AutofacConfig.userService.IsMalicious(Client.DeviceID);
+              if (isMalicious == true)
+              {
+                  throw new Exception("不能恶意注册！");
+              }
+                frmVerificationCode frmVerificationCode = new frmVerificationCode();
+                frmVerificationCode.Tel = txtTel.Text.Trim();
+                Redirect(frmVerificationCode);
+              
             }
             catch(Exception ex)
             {

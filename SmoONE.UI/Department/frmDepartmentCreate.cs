@@ -45,37 +45,6 @@ namespace SmoONE.UI.Department
                 }
                 DepInputDto department = new DepInputDto();
                 department.Dep_Name = txtDep_Name.Text;
-                if (txtProDay.Text.Trim().Length > 0)
-                {
-                    if (System.Text.RegularExpressions.Regex.IsMatch(txtProDay.Text.Trim(), @"^(?!0+(?:\.0+)?$)(?:[1-9]\d*|0)(?:\.\d{1,2})?$") == false)
-                    {
-                        throw new Exception("项目人天必须为大于0的数字！");
-                    }
-
-                    else
-                    {
-                        department.Dep_ProDay = Convert.ToDecimal(txtProDay.Text);
-                    }
-                }
-                else
-                {
-                    department.Dep_ProDay = 0;
-                }
-                if (txtOtherDay.Text.Trim().Length > 0)
-                {
-                    if (System.Text.RegularExpressions.Regex.IsMatch(txtProDay.Text.Trim(), @"^(?!0+(?:\.0+)?$)(?:[1-9]\d*|0)(?:\.\d{1,2})?$") == false)
-                    {
-                        throw new Exception("项目其他人天必须为大于0的数字！");
-                    }
-                    else
-                    {
-                        department.Dep_OtherDay = Convert.ToDecimal(txtOtherDay.Text);
-                    }
-                }
-                else
-                {
-                    department.Dep_OtherDay = 0;
-                }
                 department.Dep_UpdateUser = Client.Session["U_ID"].ToString();
                 department.Dep_Leader = leader;
                 if (string.IsNullOrEmpty(D_Portrait) == false)
@@ -104,14 +73,22 @@ namespace SmoONE.UI.Department
                     else
                     {
                         ShowResult = ShowResult.Yes;
-                        Toast("部门保存成功！", ToastLength.SHORT);
+                        Close();
+                        Toast("部门提交成功！", ToastLength.SHORT);
                     }
                 }
                 else
                 {
+                  
                     frmDepAssignUser frmDepAssignUser = new frmDepAssignUser();
                     frmDepAssignUser.department = department;
-                    Redirect(frmDepAssignUser);
+                    Redirect(frmDepAssignUser ,(MobileForm form, object args) =>
+                        {
+                            if (frmDepAssignUser.ShowResult ==ShowResult .Yes )
+                            {
+                                ShowResult =ShowResult .Yes ;
+                            }
+                        });
                 }
                 
             }
@@ -145,7 +122,11 @@ namespace SmoONE.UI.Department
             }
             popLeader.Show();
         }
-
+        /// <summary>
+        /// 初始化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmDepartmentCreate_Load(object sender, EventArgs e)
         {
             Bind();
@@ -166,8 +147,6 @@ namespace SmoONE.UI.Department
                         throw new Exception("部门" + D_ID + "不存在，请检查！");
                     }
                     txtDep_Name.Text = dep.Dep_Name;
-                    txtProDay.Text = dep.Dep_ProDay.ToString();
-                    txtOtherDay.Text = dep.Dep_OtherDay.ToString();
                     leader = dep.Dep_Leader;
                     if (string.IsNullOrEmpty(dep.Dep_Icon) == false)
                     {
@@ -182,12 +161,12 @@ namespace SmoONE.UI.Department
                     btnLeader.Text = userinfo.U_Name;
                     btnSave.Text = "提交";
                     btnAssignUser.Visible = true;
-                    btnSave.Top = 270;
+                    btnSave.Top = 190;
                 }
                 else
                 {
                     btnAssignUser.Visible =false ;
-                    btnSave.Top = 225;
+                    btnSave.Top = 145;
                 }
             }
                 catch (Exception ex)
@@ -202,17 +181,42 @@ namespace SmoONE.UI.Department
         /// <param name="e"></param>
         private void popLeader_Selected(object sender, EventArgs e)
         {
-            if (popLeader.Selection != null)
+            try
             {
-                if (AutofacConfig.departmentService.IsLeader(popLeader.Selection.Value) == false)
+                if (popLeader.Selection != null)
                 {
-                    leader = popLeader.Selection.Value;
-                    btnLeader.Text = popLeader.Selection.Text;
+                    //查询该选中的用户是否已经是部门责任人
+                    bool isLeader=AutofacConfig.departmentService.IsLeader(popLeader.Selection.Value);
+                    //如果该选中责任人已是部门责任人，则报错
+                    if (isLeader == true )
+                    {
+                        throw new Exception (popLeader.Selection.Text + "已是部门责任人，请先解散部门！");
+                    }
+                    //
+                  UserDepDto userdep=  AutofacConfig.userService.GetUseDepByUserID(popLeader.Selection.Value);
+                  //如果选中用户已是部门成员且不是部门责任人，则进行选择是否确认为部门责任人，若确认则为该部门负责人
+                    if ( userdep !=null & string.IsNullOrEmpty (userdep.Dep_ID)==false & isLeader== false )
+                        MessageBox.Show(popLeader.Selection.Text+"已是部门成员，是否确定为该部门责任人？", MessageBoxButtons.YesNo, (Object s1, MessageBoxHandlerArgs args) =>
+                        {
+                            //此委托为异步委托事件
+                            if (args.Result == Smobiler.Core.ShowResult.Yes)
+                            {
+                                leader = popLeader.Selection.Value;
+                                btnLeader.Text = popLeader.Selection.Text;
+                            }
+                        });
+                  
+                    //如果选中用户不是部门责任人且不是部门成员，则为该部门负责人
+                   if (isLeader == false & userdep != null & string.IsNullOrEmpty(userdep.Dep_ID) == true )
+                   {
+                       leader = popLeader.Selection.Value;
+                       btnLeader.Text = popLeader.Selection.Text;
+                   }
                 }
-                else
-                {
-                    Toast(popLeader.Selection.Text+"已是部门责任人，请先解散部门！");
-                }
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message, ToastLength.SHORT);
             }
         }
         /// <summary>

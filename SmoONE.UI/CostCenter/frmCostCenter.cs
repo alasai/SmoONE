@@ -63,6 +63,7 @@ namespace SmoONE.UI.CostCenter
               {
                   UserDetailDto user = AutofacConfig.userService.GetUserByUserID(cc.CC_LiableMan);
                   cc.CC_LiableMan = user.U_Name;
+               
               }
               lblInfor.Visible = false;
               gridCCData.DataSource = listCC;

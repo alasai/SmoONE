@@ -272,7 +272,7 @@ namespace SmoONE.UI.RB
                         {
                             this.ShowResult = Smobiler.Core.ShowResult.Yes;
                             this.Close();
-                            Toast("报销修改保存成功！");
+                            Toast("报销提交成功！");
                         }
                         else
                         {
@@ -308,6 +308,35 @@ namespace SmoONE.UI.RB
         private void frmRBEdit_TitleImageClick(object sender, EventArgs e)
         {
             this.Close();            //关闭当前页面
+        }
+
+        /// <summary>
+        /// gridRBRowData不可触发按钮点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="cell"></param>
+        /// <param name="cellItem"></param>
+        private void gridRBRowData_CellClick(object sender, GridViewCellEventArgs e)
+        {
+            try
+            {
+                switch (Convert.ToBoolean(e.Cell.Items["Check"].DefaultValue))
+                {
+                    case true:
+                        e.Cell.Items["Check"].DefaultValue = false;
+                        break;
+                    case false:
+                        e.Cell.Items["Check"].DefaultValue = true;
+                        break;
+                }
+                upCheckState();    //更新tooblar全选框状态
+                getAmount();         //计算当前选中行项总金额    
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message);
+            }
+
         }
     }
 }

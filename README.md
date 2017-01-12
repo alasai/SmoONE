@@ -1,4 +1,4 @@
-# SmoONE
+# SmoONE 1.0
 # 办公管理系统
 > SmoONE是通过Smobiler开发的一款办公管理系统
 

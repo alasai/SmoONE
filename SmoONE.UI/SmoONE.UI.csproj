@@ -111,7 +111,6 @@
       <DependentUpon>frmCostTempletDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="DataCheckPoplist.cs" />
-    <Compile Include="DataGridviewDepbyUser.cs" />
     <Compile Include="CostCenter\frmRBCostCenter.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -124,6 +123,7 @@
     <Compile Include="CostCenter\frmCostCenterDetail.Designer.cs">
       <DependentUpon>frmCostCenterDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataGridviewbyUser.cs" />
     <Compile Include="DepartmentMode.cs" />
     <Compile Include="Department\frmDepAssignUser.cs">
       <SubType>Component</SubType>

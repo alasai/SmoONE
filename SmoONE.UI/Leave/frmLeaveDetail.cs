@@ -112,7 +112,7 @@ namespace SmoONE.UI.Leave
                                 else
                                 {
                                     FooterBarLayoutData.Items["Line1"].Visible = false;
-                                    FooterBarLayoutForm.Close();
+                                   
                                 }
                             }
                           

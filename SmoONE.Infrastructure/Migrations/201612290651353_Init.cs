@@ -2,12 +2,7 @@ namespace SmoONE.Infrastructure.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
-    // ******************************************************************
-    // 文件版本： SmoONE 1.0
-    // Copyright  (c)  2016-2017 Smobiler
-    // 创建时间： 2016/11
-    // 主要内容：  通过Entity Framework产生的数据库迁移文件
-    // ******************************************************************
+    
     public partial class Init : DbMigration
     {
         public override void Up()
@@ -261,6 +256,7 @@ namespace SmoONE.Infrastructure.Migrations
                         V_PhoneNumber = c.String(nullable: false, maxLength: 20),
                         V_VCode = c.String(nullable: false, maxLength: 20),
                         V_UpdateDate = c.DateTime(nullable: false, storeType: "datetime2"),
+                        V_DeviceID = c.String(nullable: false, maxLength: 50),
                     })
                 .PrimaryKey(t => t.V_CodeID);
             

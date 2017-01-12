@@ -11,7 +11,7 @@ namespace SmoONE.UI
     // 创建时间： 2016/11
     // 主要内容： 部门分配人员列表属性
     // ******************************************************************
-    class DataGridviewDepbyUser : SmoONE.DTOs.UserDto
+    class DataGridviewbyUser : SmoONE.DTOs.UserDto
     {
         /// <summary>
         /// 是否选中

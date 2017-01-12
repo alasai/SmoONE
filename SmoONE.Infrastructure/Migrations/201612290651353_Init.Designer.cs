@@ -11,7 +11,7 @@ namespace SmoONE.Infrastructure.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201612010336435_Init"; }
+            get { return "201612290651353_Init"; }
         }
         
         string IMigrationMetadata.Source

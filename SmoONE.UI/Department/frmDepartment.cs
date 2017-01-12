@@ -194,6 +194,7 @@ namespace SmoONE.UI.Department
                         Bind();
                     }
                 });
+         
         }
 
         /// <summary>

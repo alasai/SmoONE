@@ -93,10 +93,6 @@ namespace SmoONE.UI.Department
                                            break;
                                    }
                                }
-                               //else
-                               //{
-                               //    userinfo.U_Portrait = userinfo.U_Portrait;
-                               //}
                            }
                    }
                    gridUserData.DataSource = listDepUser;
@@ -147,6 +143,7 @@ namespace SmoONE.UI.Department
                     Bind();
                 }
             });
+     
         }
         /// <summary>
         /// 删除部门
@@ -155,7 +152,7 @@ namespace SmoONE.UI.Department
         /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //MessageBox中委托事件为异步委托
+          
             MessageBox.Show("是否确定删除部门？", "部门", MessageBoxButtons.YesNo, (Object s1, MessageBoxHandlerArgs args1) =>
                {
                    if (args1.Result == Smobiler.Core.ShowResult.Yes)
@@ -167,6 +164,7 @@ namespace SmoONE.UI.Department
                            {
                                if (args.Result == Smobiler.Core.ShowResult.Yes)
                                {
+
                                    try
                                    {
                                        ReturnInfo result = AutofacConfig.departmentService.DeleteDepartment(D_ID);
@@ -202,7 +200,6 @@ namespace SmoONE.UI.Department
                                Toast(result.ErrorInfo, ToastLength.SHORT);
                            }
                        }
-                      
                    }
                });
         }

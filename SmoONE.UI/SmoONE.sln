@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmoONE.DTOs", "..\SmoONE.DT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmoONE.Repository", "..\SmoONE.Repository\SmoONE.Repository.csproj", "{8A3E419F-DCC3-47A3-AB4E-6908BB4DA896}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Submail", "..\Submail\Submail.csproj", "{3D61361E-D61D-49A1-94F8-7A019F81DECA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopSdk", "..\TopSdk\TopSdk.csproj", "{9C11CAE5-5188-4E71-825B-68FC3135728A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +51,10 @@ Global
 		{8A3E419F-DCC3-47A3-AB4E-6908BB4DA896}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A3E419F-DCC3-47A3-AB4E-6908BB4DA896}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A3E419F-DCC3-47A3-AB4E-6908BB4DA896}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3D61361E-D61D-49A1-94F8-7A019F81DECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D61361E-D61D-49A1-94F8-7A019F81DECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D61361E-D61D-49A1-94F8-7A019F81DECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D61361E-D61D-49A1-94F8-7A019F81DECA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C11CAE5-5188-4E71-825B-68FC3135728A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C11CAE5-5188-4E71-825B-68FC3135728A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C11CAE5-5188-4E71-825B-68FC3135728A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C11CAE5-5188-4E71-825B-68FC3135728A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

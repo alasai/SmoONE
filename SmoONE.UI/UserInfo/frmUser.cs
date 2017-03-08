@@ -275,45 +275,69 @@ namespace SmoONE.UI
         {
             try
             {
-                UserDetailDto user = AutofacConfig.userService.GetUserByUserID(Client.Session["U_ID"].ToString());
-                if (user != null)
-                {
-                    if (string.IsNullOrEmpty(user.U_Portrait) == true)
-                    {
-                        switch (user.U_Sex)
-                        {
-                            case (int)Sex.男:
-                                imgPortrait.ResourceID = "boy";
-                                break;
-                            case (int)Sex.女:
-                                imgPortrait.ResourceID = "girl";
-                                break;
-                        }
-                    }
-                    else
-                    {
+                    UserDetails userDetails = new UserDetails();
+                    UserDetailDto user = userDetails.getUser(Client.Session["U_ID"].ToString());
+                    if (user !=null )
+                     {
                         imgPortrait.ResourceID = user.U_Portrait;
-                    }
-                    btnName.Text = user.U_Name;
-                    sex = (Sex)user.U_Sex;
-                    switch (sex)
-                    {
-                        case Sex.男:
-                            btnSex.Text = "男";
-                            break;
-                        case Sex.女:
-                            btnSex.Text = "女";
-                            break;
+                        btnName.Text = user.U_Name;
+                        sex = (Sex)user.U_Sex;
+                        switch (sex)
+                        {
+                            case Sex.男:
+                                btnSex.Text = "男";
+                                break;
+                            case Sex.女:
+                                btnSex.Text = "女";
+                                break;
 
-                    }
-
-                    dpkBirthday.CurrentDate = user.U_Birthday;
-                    btnEmail.Text = user.U_Email;
+                        }
+                        dpkBirthday.CurrentDate = user.U_Birthday;
+                        btnEmail.Text = user.U_Email;
                 }
                 else
                 {
                     throw new Exception("用户" + Client.Session["U_ID"].ToString() + "不存在，请检查！");
                 }
+                //UserDetailDto user = AutofacConfig.userService.GetUserByUserID(Client.Session["U_ID"].ToString());
+                //if (user != null)
+                //{
+                //    if (string.IsNullOrEmpty(user.U_Portrait) == true)
+                //    {
+                //        switch (user.U_Sex)
+                //        {
+                //            case (int)Sex.男:
+                //                imgPortrait.ResourceID = "boy";
+                //                break;
+                //            case (int)Sex.女:
+                //                imgPortrait.ResourceID = "girl";
+                //                break;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        imgPortrait.ResourceID = user.U_Portrait;
+                //    }
+                //    btnName.Text = user.U_Name;
+                //    sex = (Sex)user.U_Sex;
+                //    switch (sex)
+                //    {
+                //        case Sex.男:
+                //            btnSex.Text = "男";
+                //            break;
+                //        case Sex.女:
+                //            btnSex.Text = "女";
+                //            break;
+
+                //    }
+
+                //    dpkBirthday.CurrentDate = user.U_Birthday;
+                //    btnEmail.Text = user.U_Email;
+                //}
+                //else
+                //{
+                //    throw new Exception("用户" + Client.Session["U_ID"].ToString() + "不存在，请检查！");
+                //}
             }
             catch (Exception ex)
             {

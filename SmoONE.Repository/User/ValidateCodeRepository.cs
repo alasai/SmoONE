@@ -68,7 +68,6 @@ namespace SmoONE.Repository
             {
                 return false;
             }
-            //return _entities.Any(x => x.V_DeviceID.Count()>3&&x.V_DeviceID==DeviceID);
         }
     }
 }

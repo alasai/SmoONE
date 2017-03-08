@@ -83,8 +83,16 @@ namespace SmoONE.Domain
         /// <summary>
         /// 部门头像
         /// </summary>
-        [StringLength(maximumLength: 50, ErrorMessage = "路径长度不能超过50")]
+        [StringLength(maximumLength: 50, ErrorMessage = "长度不能超过50")]
         [DisplayName("部门头像")]
         public string Dep_Icon { get; set; }
+
+        ////新增加的
+        ///// <summary>
+        ///// 部门考勤模板
+        ///// </summary>
+        //[StringLength(maximumLength: 20, ErrorMessage = "长度不能超过20")]
+        //[DisplayName("考勤模板")]
+        //public string Dep_ATID { get; set; }
     }
 }

@@ -43,13 +43,17 @@
     <Reference Include="Autofac">
       <HintPath>Dll\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="AutoMapper, Version=4.0.4.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.4.0.4\lib\net40\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net40\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Smobiler.Utility" />
@@ -57,18 +61,17 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.IO, Version=2.6.9.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.1.1.9\lib\net40\System.IO.dll</HintPath>
+    <Reference Include="System.IO, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.IO.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Runtime, Version=2.6.9.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.1.1.9\lib\net40\System.Runtime.dll</HintPath>
+    <Reference Include="System.Runtime, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Threading.Tasks, Version=2.6.9.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.1.1.9\lib\net40\System.Threading.Tasks.dll</HintPath>
+    <Reference Include="System.Threading.Tasks, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.Threading.Tasks.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Windows.Forms" />
@@ -78,6 +81,101 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ATMainPicture.cs" />
+    <Compile Include="ATMainState.cs" />
+    <Compile Include="ATStatSelfDetail.cs" />
+    <Compile Include="AttendanceManager.cs" />
+    <Compile Include="AttendanceWorkDate.cs" />
+    <Compile Include="Attendance\frmAttendanceCalendarSetting.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceCalendarSetting.Designer.cs">
+      <DependentUpon>frmAttendanceCalendarSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceCreate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceCreate.Designer.cs">
+      <DependentUpon>frmAttendanceCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceDate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceDate.Designer.cs">
+      <DependentUpon>frmAttendanceDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceMainReason.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceMainReason.Designer.cs">
+      <DependentUpon>frmAttendanceMainReason.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceManager.Designer.cs">
+      <DependentUpon>frmAttendanceManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatDay.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatDay.Designer.cs">
+      <DependentUpon>frmAttendanceStatDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatistics.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatistics.Designer.cs">
+      <DependentUpon>frmAttendanceStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatMan.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatMan.Designer.cs">
+      <DependentUpon>frmAttendanceStatMan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatMonth.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatMonth.Designer.cs">
+      <DependentUpon>frmAttendanceStatMonth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatMonthTypeDay.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatMonthTypeDay.Designer.cs">
+      <DependentUpon>frmAttendanceStatMonthTypeDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatSelf.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatSelf.Designer.cs">
+      <DependentUpon>frmAttendanceStatSelf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatSelfDay.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatSelfDay.Designer.cs">
+      <DependentUpon>frmAttendanceStatSelfDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatSelfDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatSelfDetail.Designer.cs">
+      <DependentUpon>frmAttendanceStatSelfDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatUser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceStatUser.Designer.cs">
+      <DependentUpon>frmAttendanceStatUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\frmATUser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmATUser.Designer.cs">
+      <DependentUpon>frmATUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="AutofacConfig.cs" />
     <Compile Include="AutomapperConfig.cs" />
     <Compile Include="CostCenter\frmCostCenter.cs">
@@ -111,6 +209,7 @@
       <DependentUpon>frmCostTempletDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="DataCheckPoplist.cs" />
+    <Compile Include="DataGridviewbyUser.cs" />
     <Compile Include="CostCenter\frmRBCostCenter.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -123,13 +222,103 @@
     <Compile Include="CostCenter\frmCostCenterDetail.Designer.cs">
       <DependentUpon>frmCostCenterDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataGridviewbyUser.cs" />
     <Compile Include="DepartmentMode.cs" />
     <Compile Include="Department\frmDepAssignUser.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Department\frmDepAssignUser.Designer.cs">
       <DependentUpon>frmDepAssignUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ATAddressDistance.cs" />
+    <Compile Include="Attendance\frmAttendanceMain.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceMain.Designer.cs">
+      <DependentUpon>frmAttendanceMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmATFootLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmATFootLayout.Designer.cs">
+      <DependentUpon>frmATFootLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmATStatisticsDayLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmATStatisticsDayLayout.Designer.cs">
+      <DependentUpon>frmATStatisticsDayLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmATStatSelfDetailDayLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmATStatSelfDetailDayLayout.Designer.cs">
+      <DependentUpon>frmATStatSelfDetailDayLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmATStatSelfDetailTypeLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmATStatSelfDetailTypeLayout.Designer.cs">
+      <DependentUpon>frmATStatSelfDetailTypeLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmAttendanceMainDetailLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmAttendanceMainDetailLayout.Designer.cs">
+      <DependentUpon>frmAttendanceMainDetailLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmAttendanceMainLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmAttendanceMainLayout.Designer.cs">
+      <DependentUpon>frmAttendanceMainLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmAttendanceMainLayoutDialog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmAttendanceMainLayoutDialog.Designer.cs">
+      <DependentUpon>frmAttendanceMainLayoutDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmAttendanceManagerLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmAttendanceManagerLayout.Designer.cs">
+      <DependentUpon>frmAttendanceManagerLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmAttendanceRecordLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmAttendanceRecordLayout.Designer.cs">
+      <DependentUpon>frmAttendanceRecordLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmAttendanceStatDayLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmAttendanceStatDayLayout.Designer.cs">
+      <DependentUpon>frmAttendanceStatDayLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmAttendanceStatisticsLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmAttendanceStatisticsLayout.Designer.cs">
+      <DependentUpon>frmAttendanceStatisticsLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmAttendanceStatSelfLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmAttendanceStatSelfLayout.Designer.cs">
+      <DependentUpon>frmAttendanceStatSelfLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmATUserLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmATUserLayout.Designer.cs">
+      <DependentUpon>frmATUserLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmATWorkRecordLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmATWorkRecordLayout.Designer.cs">
+      <DependentUpon>frmATWorkRecordLayout.cs</DependentUpon>
     </Compile>
     <Compile Include="Layout\frmCCSearchLayout.cs">
       <SubType>Component</SubType>
@@ -300,6 +489,7 @@
     <Compile Include="RB\frmRTypeTemplate.Designer.cs">
       <DependentUpon>frmRTypeTemplate.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserDetails.cs" />
     <Compile Include="UserInfo\frmUser.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -414,6 +604,51 @@
     <Compile Include="DataGridview.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Attendance\frmAttendanceCalendarSetting.resx">
+      <DependentUpon>frmAttendanceCalendarSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\frmAttendanceCreate.resx">
+      <DependentUpon>frmAttendanceCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\frmAttendanceDate.resx">
+      <DependentUpon>frmAttendanceDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\frmAttendanceMainReason.resx">
+      <DependentUpon>frmAttendanceMainReason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\frmAttendanceManager.resx">
+      <DependentUpon>frmAttendanceManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\frmAttendanceStatDay.resx">
+      <DependentUpon>frmAttendanceStatDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\frmAttendanceStatistics.resx">
+      <DependentUpon>frmAttendanceStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\frmAttendanceStatMan.resx">
+      <DependentUpon>frmAttendanceStatMan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\frmAttendanceStatMonth.resx">
+      <DependentUpon>frmAttendanceStatMonth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\frmAttendanceStatMonthTypeDay.resx">
+      <DependentUpon>frmAttendanceStatMonthTypeDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\frmAttendanceStatSelf.resx">
+      <DependentUpon>frmAttendanceStatSelf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\frmAttendanceStatSelfDay.resx">
+      <DependentUpon>frmAttendanceStatSelfDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\frmAttendanceStatSelfDetail.resx">
+      <DependentUpon>frmAttendanceStatSelfDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\frmAttendanceStatUser.resx">
+      <DependentUpon>frmAttendanceStatUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\frmATUser.resx">
+      <DependentUpon>frmATUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CostCenter\frmCostCenter.resx">
       <DependentUpon>frmCostCenter.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -447,6 +682,51 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Department\frmDepAssignUser.resx">
       <DependentUpon>frmDepAssignUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\frmAttendanceMain.resx">
+      <DependentUpon>frmAttendanceMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmATFootLayout.resx">
+      <DependentUpon>frmATFootLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmATStatisticsDayLayout.resx">
+      <DependentUpon>frmATStatisticsDayLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmATStatSelfDetailDayLayout.resx">
+      <DependentUpon>frmATStatSelfDetailDayLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmATStatSelfDetailTypeLayout.resx">
+      <DependentUpon>frmATStatSelfDetailTypeLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmAttendanceMainDetailLayout.resx">
+      <DependentUpon>frmAttendanceMainDetailLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmAttendanceMainLayout.resx">
+      <DependentUpon>frmAttendanceMainLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmAttendanceMainLayoutDialog.resx">
+      <DependentUpon>frmAttendanceMainLayoutDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmAttendanceManagerLayout.resx">
+      <DependentUpon>frmAttendanceManagerLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmAttendanceRecordLayout.resx">
+      <DependentUpon>frmAttendanceRecordLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmAttendanceStatDayLayout.resx">
+      <DependentUpon>frmAttendanceStatDayLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmAttendanceStatisticsLayout.resx">
+      <DependentUpon>frmAttendanceStatisticsLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmAttendanceStatSelfLayout.resx">
+      <DependentUpon>frmAttendanceStatSelfLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmATUserLayout.resx">
+      <DependentUpon>frmATUserLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmATWorkRecordLayout.resx">
+      <DependentUpon>frmATWorkRecordLayout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\frmCCSearchLayout.resx">
       <DependentUpon>frmCCSearchLayout.cs</DependentUpon>
@@ -604,6 +884,9 @@
       <Project>{8a3e419f-dcc3-47a3-ab4e-6908bb4da896}</Project>
       <Name>SmoONE.Repository</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

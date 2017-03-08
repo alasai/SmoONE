@@ -29,10 +29,15 @@ namespace SmoONE.Infrastructure
         public SmoONEDbContext()
             : base("default")
         {
-            Database.SetInitializer<SmoONEDbContext>(
-                    new DropCreateDatabaseIfModelChanges<SmoONEDbContext>());
-            //    Database.SetInitializer<SmoONEDbContext>(
-            //new CreateDatabaseIfNotExists<SmoONEDbContext>());
+            //手动创建了数据库和表,不用产生系统表
+            if (!Database.Exists("default"))
+            {
+                Database.SetInitializer<SmoONEDbContext>(
+                        new DropCreateDatabaseIfModelChanges<SmoONEDbContext>());
+            }
+            //自动创建更新数据库和表,产生系统表
+            //Database.SetInitializer<SmoONEDbContext>(
+            //        new DropCreateDatabaseIfModelChanges<SmoONEDbContext>());
             this.Configuration.LazyLoadingEnabled = false; 
 
         }
@@ -84,6 +89,24 @@ namespace SmoONE.Infrastructure
         public DbSet<ValidateCode> ValidateCodes { get; set; }
 
         public DbSet<RoleMenu> RoleMenus { get; set; }
+
+        //新增的,考勤相关
+        public DbSet<AT_CustomDate> AT_CustomDates { get; set; }
+
+        public DbSet<AttendanceLog> AttendanceLogs { get; set; }
+
+        public DbSet<AttendanceTemplate> AttendanceTemplates { get; set; }
+
+        public DbSet<AttendanceScheduling> AttendanceSchedulings { get; set; }
+
+        public DbSet<DailyStatistics> DailyStatistics { get; set; }
+
+        public DbSet<MonthlyStatistics> MonthlyStatistics { get; set; }
+
+        public DbSet<AT_UserLog> AT_UserLogs { get; set; }
+
+        public DbSet<MonthlyResult> MonthlyResults { get; set; }
+
         #endregion
 
         /// <summary>
@@ -103,6 +126,9 @@ namespace SmoONE.Infrastructure
             modelBuilder.Configurations.Add(new CostCenterConfiguration());
             modelBuilder.Configurations.Add(new DepartmentConfiguration());
             modelBuilder.Configurations.Add(new RB_Type_TemplateConfiguration());
+            //新增加的
+            modelBuilder.Configurations.Add(new AttendanceTemplateConfiguration());
+            modelBuilder.Configurations.Add(new AttendanceSchedulingConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -35,12 +35,6 @@ namespace SmoONE.DTOs
         [DisplayName("部门名称")]
         public string Dep_Name { get; set; }
 
-        ///// <summary>
-        ///// 是否激活
-        ///// </summary>
-        //[DisplayName("激活状态")]
-        //public int Dep_IsActive { get; set; }
-
         /// <summary>
         /// 负责人
         /// </summary>

@@ -60,23 +60,10 @@ namespace SmoONE.DTOs
         /// <summary>
         /// 电话
         /// </summary>
-        [RegularExpression(@"^1(3[0-9]|5[0-35-9]|8[025-9])\d{8}$", ErrorMessage = "格式不正确")]
+        [RegularExpression(@"^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])\d{8}$", ErrorMessage = "格式不正确")]
         [StringLength(maximumLength: 20, ErrorMessage = "长度不能超过20")]
         [DisplayName("电话号码")]
         public string U_Tel { get; set; }
-
-
-        ///// <summary>
-        ///// 是否审批人
-        ///// </summary>
-        //[DisplayName("是否审批人")]
-        //public int U_IsCheck { get; set; }
-
-        ///// <summary>
-        ///// 是否抄送人
-        ///// </summary>
-        //[DisplayName("是否抄送人")]
-        //public int U_IsCC { get; set; }
 
         /// <summary>
         /// 出生日期

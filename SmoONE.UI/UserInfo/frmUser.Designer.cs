@@ -170,7 +170,6 @@ namespace SmoONE.UI
             this.btnName.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
             this.btnName.Size = new System.Drawing.Size(265, 25);
             this.btnName.TabIndex = 10;
-            this.btnName.Text = "lincy";
             this.btnName.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnName_Click);
             // 
             // line2

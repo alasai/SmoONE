@@ -29,8 +29,9 @@ namespace SmoONE.UI
         {
             try
             {
-                string userID=txtTel.Text.Trim();
-                string pwd =txtPwd.Text.Trim();
+                //RedirectUrl("http://app.xianjiansoft.com/zhifubao/alipaycharge.aspx?orderno=20170105170558886");
+                string userID = txtTel.Text.Trim();
+                string pwd = txtPwd.Text.Trim();
                 if (userID.Length <= 0)
                 {
                     throw new Exception("请输入手机号码！");
@@ -43,18 +44,18 @@ namespace SmoONE.UI
                 {
                     throw new Exception("密码必须为6-12位！");
                 }
-              
+               
                 //密码处理,经过加密
                 string encryptPwd = AutofacConfig.userService.Encrypt(DateTime.Now.ToString("yyyyMMddHHmmss") + pwd);
                 ReturnInfo result = AutofacConfig.userService.Login(userID, encryptPwd);
-            
+
                 if (result.IsSuccess == true)
                 {
                     List<Role> role = AutofacConfig.userService.GetRoleByUserID(userID);
                     Client.Session["U_ID"] = userID;
                     Client.Session["Roler"] = role;
-                  frmWork frmWork = new frmWork();
-                  Redirect(frmWork);
+                    frmWork frmWork = new frmWork();
+                    Redirect(frmWork);
                 }
                 else
                 {

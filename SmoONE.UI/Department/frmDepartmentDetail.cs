@@ -93,6 +93,10 @@ namespace SmoONE.UI.Department
                                            break;
                                    }
                                }
+                               //else
+                               //{
+                               //    userinfo.U_Portrait = userinfo.U_Portrait;
+                               //}
                            }
                    }
                    gridUserData.DataSource = listDepUser;
@@ -153,6 +157,7 @@ namespace SmoONE.UI.Department
         private void btnDelete_Click(object sender, EventArgs e)
         {
           
+            //bool isDelDep = false;//是否删除部门
             MessageBox.Show("是否确定删除部门？", "部门", MessageBoxButtons.YesNo, (Object s1, MessageBoxHandlerArgs args1) =>
                {
                    if (args1.Result == Smobiler.Core.ShowResult.Yes)
@@ -165,6 +170,7 @@ namespace SmoONE.UI.Department
                                if (args.Result == Smobiler.Core.ShowResult.Yes)
                                {
 
+                                   //isDelDep = true;
                                    try
                                    {
                                        ReturnInfo result = AutofacConfig.departmentService.DeleteDepartment(D_ID);
@@ -188,6 +194,7 @@ namespace SmoONE.UI.Department
                        }
                        else
                        {
+                           //isDelDep = true;
                            ReturnInfo result = AutofacConfig.departmentService.DeleteDepartment(D_ID);
                            if (result.IsSuccess == true)
                            {
@@ -200,6 +207,20 @@ namespace SmoONE.UI.Department
                                Toast(result.ErrorInfo, ToastLength.SHORT);
                            }
                        }
+                       //if (isDelDep == true)
+                       //{
+                       //    ReturnInfo result = AutofacConfig.departmentService.DeleteDepartment(D_ID);
+                       //    if (result.IsSuccess == true)
+                       //    {
+                       //        ShowResult = ShowResult.Yes;
+                       //        Close();
+                       //        Toast("部门已删除！", ToastLength.SHORT);
+                       //    }
+                       //    else
+                       //    {
+                       //        throw new Exception(result.ErrorInfo);
+                       //    }
+                       //}
                    }
                });
         }

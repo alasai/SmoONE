@@ -501,7 +501,7 @@ namespace SmoONE.Application
             }
             else
             {
-                if (PhoneNumber.Length == 11 && (Regex.IsMatch(PhoneNumber, @"^1(3[0-9]|5[0-35-9]|8[025-9])\d{8}$")))
+                if (PhoneNumber.Length == 11 && (Regex.IsMatch(PhoneNumber, @"^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])\d{8}$")))
                 {
                     bool IsSend = _validateCodeRepository.IsSendVcode(PhoneNumber);
                     if (IsSend)
@@ -827,7 +827,7 @@ namespace SmoONE.Application
         {
             ReturnInfo RInfo = new ReturnInfo();
             StringBuilder sb = new StringBuilder();
-            if (PhoneNumber.Length == 11 && (Regex.IsMatch(PhoneNumber, @"^1(3[0-9]|5[0-35-9]|8[025-9])\d{8}$")))
+            if (PhoneNumber.Length == 11 && (Regex.IsMatch(PhoneNumber, @"^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])\d{8}$")))
             {
                 try
                 {
@@ -843,11 +843,12 @@ namespace SmoONE.Application
                     //短信签名
                     req.SmsFreeSignName = "注册验证";
                     //短信模板中的字段对应值
-                    req.SmsParam = "{\"code\":\"" + value.ToString() + "\",\"product\":\"SmoONE\"}";
+                    req.SmsParam = "{\"code\":\""+value.ToString()+"\",\"product\":\"SmoONE\"}";
                     //发送的号码
                     req.RecNum = PhoneNumber;
-                    //短信模板ID
+                    //短信模板ID(此处以****代替)
                     req.SmsTemplateCode = "****";
+                    //服务器返回的执行结果
                     AlibabaAliqinFcSmsNumSendResponse rsp = client.Execute(req);                    
                     if (rsp.IsError==false)
                     {
@@ -915,7 +916,7 @@ namespace SmoONE.Application
         {
             ReturnInfo RInfo = new ReturnInfo();
             StringBuilder sb = new StringBuilder();
-            if (PhoneNumber.Length == 11 && (Regex.IsMatch(PhoneNumber, @"^1(3[0-9]|5[0-35-9]|8[025-9])\d{8}$")))
+            if (PhoneNumber.Length == 11 && (Regex.IsMatch(PhoneNumber, @"^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])\d{8}$")))
             {
                 try
                 {

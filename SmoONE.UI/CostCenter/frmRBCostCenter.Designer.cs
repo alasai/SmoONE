@@ -36,6 +36,7 @@ namespace SmoONE.UI.CostCenter
             // 
             // gridCCData
             // 
+            this.gridCCData.AllowSlip = true;
             this.gridCCData.AutoHeight = true;
             this.gridCCData.Layout = "frmCostCenterLayout";
             this.gridCCData.Location = new System.Drawing.Point(0, 31);

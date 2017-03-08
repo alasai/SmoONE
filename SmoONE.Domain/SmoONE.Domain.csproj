@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7FAD9BB7-8154-402C-9826-95CDF53BB770}</ProjectGuid>
+    <ProjectGuid>{46CFEC3A-CECE-4CF3-9A9D-75DAFB5168EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SmoONE.Domain</RootNamespace>
@@ -30,8 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -45,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Attendance\AT_UserLog.cs" />
+    <Compile Include="Entity\Attendance\DailyStatistics.cs" />
+    <Compile Include="Entity\Attendance\AttendanceScheduling.cs" />
+    <Compile Include="Entity\Attendance\AttendanceLog.cs" />
+    <Compile Include="Entity\Attendance\AttendanceTemplate.cs" />
+    <Compile Include="Entity\Attendance\AT_CustomDate.cs" />
     <Compile Include="Entity\CostCenter\CC_Type_Template.cs" />
     <Compile Include="Entity\CostCenter\CostCenter.cs" />
     <Compile Include="Entity\CostCenter\CostCenter_Type.cs" />
@@ -58,31 +68,41 @@
     <Compile Include="Entity\User\Log.cs" />
     <Compile Include="Entity\User\Menu.cs" />
     <Compile Include="Entity\User\Role.cs" />
+    <Compile Include="Entity\User\RoleMenu.cs" />
     <Compile Include="Entity\User\User.cs" />
     <Compile Include="Entity\User\UserRole.cs" />
     <Compile Include="Entity\User\ValidateCode.cs" />
     <Compile Include="IAggregateRoot.cs" />
     <Compile Include="IEntity.cs" />
+    <Compile Include="IRepository\IAttendanceLogRepository.cs" />
+    <Compile Include="IRepository\IAttendanceSchedulingRepository.cs" />
+    <Compile Include="IRepository\IAttendanceTemplateRepository.cs" />
+    <Compile Include="IRepository\IAT_CustomDateRepository.cs" />
+    <Compile Include="IRepository\IAT_UserLogRepository.cs" />
     <Compile Include="IRepository\ICC_Type_TemplateRepository.cs" />
     <Compile Include="IRepository\ICostCenterRepository.cs" />
     <Compile Include="IRepository\ICostCenter_TypeRepository.cs" />
+    <Compile Include="IRepository\IDailyStatisticsRepository.cs" />
     <Compile Include="IRepository\IDepartmentRepository.cs" />
     <Compile Include="IRepository\ILeaveRepository.cs" />
     <Compile Include="IRepository\ILeaveTypeRepository.cs" />
     <Compile Include="IRepository\ILogRepository.cs" />
     <Compile Include="IRepository\IMenuRepository.cs" />
+    <Compile Include="IRepository\IMonthlyResultRepository.cs" />
+    <Compile Include="IRepository\IMonthlyStatisticsRepository.cs" />
     <Compile Include="IRepository\IRB_RowsRepository.cs" />
     <Compile Include="IRepository\IRB_TypeRepository.cs" />
     <Compile Include="IRepository\IRB_Type_TemplateRepository.cs" />
     <Compile Include="IRepository\IReimbursementRepository.cs" />
     <Compile Include="IRepository\IRepository.cs" />
+    <Compile Include="IRepository\IRoleMenuRepository.cs" />
     <Compile Include="IRepository\IRoleRepository.cs" />
     <Compile Include="IRepository\IUserRepository.cs" />
     <Compile Include="IRepository\IUserRoleRepository.cs" />
     <Compile Include="IRepository\IValidateCodeRepository.cs" />
-    <Compile Include="IRepository\IRoleMenuRepository.cs" />
+    <Compile Include="Entity\Attendance\MonthlyStatistics.cs" />
+    <Compile Include="Entity\Attendance\MonthlyResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entity\User\RoleMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -90,7 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmoONE.DTOs\SmoONE.DTOs.csproj">
-      <Project>{90658630-baaf-4b33-8189-d6b6de86a974}</Project>
+      <Project>{2a78fa6d-c3dc-4a69-8b4c-c9271a42c8e0}</Project>
       <Name>SmoONE.DTOs</Name>
     </ProjectReference>
   </ItemGroup>

@@ -140,13 +140,6 @@ namespace SmoONE.DTOs
         [DisplayName("抄送人")]
         public string L_CCTo { get; set; }
 
-        ///// <summary>
-        ///// 拒绝理由
-        ///// </summary>
-        //[StringLength(maximumLength: 500, ErrorMessage = "长度不能超过500")]
-        //[DisplayName("拒绝理由")]
-        //public string L_RejectionReason { get; set; }
-
         /// <summary>
         /// 创建者（请假人）
         /// </summary>

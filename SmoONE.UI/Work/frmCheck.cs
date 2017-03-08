@@ -84,7 +84,7 @@ namespace SmoONE.UI
                         break;
                 }
                 List<DataGridview> listCheck = new List<DataGridview>();//审批数据
-              
+               UserDetails userDetails = new UserDetails();
                 //如果待我审批或我审批的请假数据条数大于0，则添加到审批数据                
                 if (listLeaveDto.Count > 0)
                 {
@@ -94,15 +94,21 @@ namespace SmoONE.UI
                         dataGItem.ID = leave.L_ID;
                         if (string.IsNullOrEmpty(leave.U_Portrait) == true)
                         {
-                            UserDetailDto user = AutofacConfig.userService.GetUserByUserID(leave.U_ID);
-                            switch (user.U_Sex)
+                            //UserDetailDto user = AutofacConfig.userService.GetUserByUserID(leave.U_ID);
+                            //switch (user.U_Sex)
+                            //{
+                            //    case (int)Sex.男:
+                            //        dataGItem.U_Portrait = "boy";
+                            //        break;
+                            //    case (int)Sex.女:
+                            //        dataGItem.U_Portrait = "girl";
+                            //        break;
+                            //}
+                           
+                            UserDetailDto user = userDetails.getUser(leave.U_ID);
+                            if (user != null)
                             {
-                                case (int)Sex.男:
-                                    dataGItem.U_Portrait = "boy";
-                                    break;
-                                case (int)Sex.女:
-                                    dataGItem.U_Portrait = "girl";
-                                    break;
+                                dataGItem.U_Portrait = user.U_Portrait;
                             }
                         }
                         else
@@ -144,16 +150,21 @@ namespace SmoONE.UI
                         dataGItem.ID = reimbursement.RB_ID;
                         if (string.IsNullOrEmpty(reimbursement.U_Portrait) == true)
                         {
-                            UserDetailDto user = AutofacConfig.userService.GetUserByUserID(reimbursement.U_ID);
-                            switch (user.U_Sex)
+                            UserDetailDto user = userDetails.getUser(reimbursement.U_ID);
+                            if (user != null)
                             {
-                                case (int)Sex.男:
-                                    dataGItem.U_Portrait = "boy";
-                                    break;
-                                case (int)Sex.女:
-                                    dataGItem.U_Portrait = "girl";
-                                    break;
+                                dataGItem.U_Portrait = user.U_Portrait;
                             }
+                            //UserDetailDto user = AutofacConfig.userService.GetUserByUserID(reimbursement.U_ID);
+                            //switch (user.U_Sex)
+                            //{
+                            //    case (int)Sex.男:
+                            //        dataGItem.U_Portrait = "boy";
+                            //        break;
+                            //    case (int)Sex.女:
+                            //        dataGItem.U_Portrait = "girl";
+                            //        break;
+                            //}
                         }
                         else
                         {

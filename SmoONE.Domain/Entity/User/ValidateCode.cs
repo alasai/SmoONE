@@ -34,7 +34,7 @@ namespace SmoONE.Domain
         /// </summary>
         [Required]
         [StringLength(maximumLength: 20,ErrorMessage="长度不能超过20")]
-        [RegularExpression(@"^1(3[0-9]|5[0-35-9]|8[025-9])\d{8}$", ErrorMessage = "格式不正确")]
+        [RegularExpression(@"^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])\d{8}$", ErrorMessage = "格式不正确")]
         [DisplayName("手机号")]
         public string V_PhoneNumber { get; set; }
 

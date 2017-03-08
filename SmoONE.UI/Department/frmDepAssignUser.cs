@@ -299,6 +299,20 @@ namespace SmoONE.UI.Department
                 string depLeader = "";//部门责任人用户
                 department.Dep_Name = txtDepName.Text.Trim();
                 listUser.Add(department.Dep_Leader);//添加当前部门负责人
+                
+               // //获取责任人的部门
+               // UserDetailDto leader = AutofacConfig.userService.GetUserByUserID(department.Dep_Leader);
+               ////如果部门编号不为空且不等于当前部门时，将当前责任人添加到当前部门的已分配部门人员中
+               // if (string.IsNullOrEmpty(leader.U_DepID) == false)
+               // {   
+               //     if (string.IsNullOrEmpty(department.Dep_ID) == false)
+               //     {
+               //         if (!department.Dep_ID.Equals(leader.U_DepID))
+               //         {
+               //             assignUser = btnLeader.Text.Trim();
+               //         }
+               //     }
+               // }
                 string depuser = null;//选中用户中且已分配部门的用户
                 List<string > listselectuserdep =new List<string> ();//获取选中用户的且是已分配部门中，用户的部门
                 foreach (GridViewRow rows in gridUserData.Rows)
@@ -330,6 +344,41 @@ namespace SmoONE.UI.Department
                                 }
                             }
                         }
+                           
+                          
+                            //    //if (string.IsNullOrEmpty(department.Dep_ID) == false & !department.Dep_ID.Equals(rows.Cell.Items["lblDep"].Value.ToString()))
+                            //    //{
+                            //    //    if (!department.Dep_ID.Equals(rows.Cell.Items["lblDep"].Value.ToString()))
+                            //    //    {
+                            //            //如果是部门责任人，则添加到部门责任人用户depLeader中，否则添加到已分配部门用户assignUser中
+                            //            if (AutofacConfig.departmentService.IsLeader(rows.Cell.Items["lblUser"].Value.ToString()) == true)
+                            //            {
+                            //                if (string.IsNullOrEmpty(depLeader) == true)
+                            //                {
+                            //                    depLeader = rows.Cell.Items["lblUser"].Text;
+                            //                }
+                            //                else
+                            //                {
+                            //                    depLeader += "," + rows.Cell.Items["lblUser"].Text;
+                            //                }
+
+                            //            }
+                            //            else
+                            //            {
+                            //                if (string.IsNullOrEmpty(assignUser) == true)
+                            //                {
+                            //                    assignUser = rows.Cell.Items["lblUser"].Text;
+                            //                }
+                            //                else
+                            //                {
+                            //                    assignUser += "," + rows.Cell.Items["lblUser"].Text;
+                            //                }
+                            //            }
+
+                            //    //    }
+                            //    //}
+                            ////}
+                        //}
                     }
                 }
                 //如果已分配部门的用户不为空时
@@ -448,6 +497,7 @@ namespace SmoONE.UI.Department
                 {
                     throw new Exception(depLeader+"已是部门责任人，请先解散部门！");
                 }
+                //bool isUPdateDep = false; //是否更新部门人员
                 ReturnInfo result;
                 if (string.IsNullOrEmpty(assignUser) == false)
                 {
@@ -455,6 +505,7 @@ namespace SmoONE.UI.Department
                     {
                         if (args.Result == Smobiler.Core.ShowResult.Yes)
                         {
+                            //isUPdateDep = true;
                             department.UserIDs = listUser;
                             if (department.Dep_ID != null)
                             {
@@ -512,6 +563,164 @@ namespace SmoONE.UI.Department
                 Toast(ex.Message, ToastLength.SHORT);
             }
         }
+        ///// <summary>
+        ///// 分配部门人员
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void btnSave_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        List<string> listUser = new List<string>(); //用户集合
+        //        string assignUser = "";//已分配部门用户
+        //        string depLeader = "";//部门责任人用户
+        //        department.Dep_Name = txtDepName.Text.Trim();
+        //        listUser.Add(department.Dep_Leader);//添加部门负责人
+        //        //获取责任人的部门
+        //        UserDetailDto leader = AutofacConfig.userService.GetUserByUserID(department.Dep_Leader);
+        //        //如果部门编号不为空且不等于当前部门时，将责任人添加到已分配部门人员中
+        //        if (string.IsNullOrEmpty(leader.U_DepID) == false)
+        //        {
+        //            if (string.IsNullOrEmpty(department.Dep_ID) == false)
+        //            {
+        //                if (!department.Dep_ID.Equals(leader.U_DepID))
+        //                {
+        //                    assignUser = btnLeader.Text.Trim();
+        //                }
+        //            }
+        //        }
+        //        foreach (GridViewRow rows in gridUserData.Rows)
+        //        {
+
+        //            if ((Convert.ToBoolean(rows.Cell.Items["Check"].DefaultValue) == true) & (!department.Dep_Leader.Equals(rows.Cell.Items["lblUser"].Value.ToString())))
+        //            {
+        //                string user = rows.Cell.Items["lblUser"].Value.ToString();
+        //                listUser.Add(user);
+        //                //获取已分配且不等于当前部门的用户
+        //                if (string.IsNullOrEmpty(rows.Cell.Items["lblDep"].Value.ToString()) == false)
+        //                {
+        //                    if (string.IsNullOrEmpty(department.Dep_ID) == false)
+        //                    {
+        //                        if (!department.Dep_ID.Equals(rows.Cell.Items["lblDep"].Value.ToString()))
+        //                        {
+        //                            //如果是部门责任人，则添加到部门责任人用户depLeader中，否则添加到已分配部门用户assignUser中
+        //                            if (AutofacConfig.departmentService.IsLeader(rows.Cell.Items["lblUser"].Value.ToString()) == true)
+        //                            {
+        //                                if (string.IsNullOrEmpty(depLeader) == true)
+        //                                {
+        //                                    depLeader = rows.Cell.Items["lblUser"].Text;
+        //                                }
+        //                                else
+        //                                {
+        //                                    depLeader += "," + rows.Cell.Items["lblUser"].Text;
+        //                                }
+
+        //                            }
+        //                            else
+        //                            {
+        //                                if (string.IsNullOrEmpty(assignUser) == true)
+        //                                {
+        //                                    assignUser = rows.Cell.Items["lblUser"].Text;
+        //                                }
+        //                                else
+        //                                {
+        //                                    assignUser += "," + rows.Cell.Items["lblUser"].Text;
+        //                                }
+        //                            }
+
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        if (string.IsNullOrEmpty(depLeader) == false)
+        //        {
+        //            throw new Exception(depLeader + "已是部门责任人，请先解散部门！");
+        //        }
+        //        //bool isUPdateDep = false; //是否更新部门人员
+        //        ReturnInfo result;
+        //        if (string.IsNullOrEmpty(assignUser) == false)
+        //        {
+        //            MessageBox.Show(assignUser + "已分配部门是否更新部门？", "分配人员", MessageBoxButtons.YesNo, (Object s, MessageBoxHandlerArgs args) =>
+        //            {
+        //                if (args.Result == Smobiler.Core.ShowResult.Yes)
+        //                {
+        //                    //isUPdateDep = true;
+        //                    department.UserIDs = listUser;
+        //                    if (department.Dep_ID != null)
+        //                    {
+        //                        result = AutofacConfig.departmentService.UpdateDepartment(department);
+        //                    }
+        //                    else
+        //                    {
+        //                        ShowResult = ShowResult.Yes;
+        //                        result = AutofacConfig.departmentService.AddDepartment(department);
+        //                    }
+        //                    if (result.IsSuccess == false)
+        //                    {
+        //                        throw new Exception(result.ErrorInfo);
+        //                    }
+        //                    else
+        //                    {
+        //                        Close();
+        //                        Toast("部门人员分配成功！", ToastLength.SHORT);
+        //                    }
+        //                }
+        //            }
+        //              );
+        //        }
+        //        else
+        //        {
+        //            //isUPdateDep = true;
+        //            department.UserIDs = listUser;
+        //            if (department.Dep_ID != null)
+        //            {
+        //                result = AutofacConfig.departmentService.UpdateDepartment(department);
+        //            }
+        //            else
+        //            {
+        //                ShowResult = ShowResult.Yes;
+        //                result = AutofacConfig.departmentService.AddDepartment(department);
+        //            }
+        //            if (result.IsSuccess == false)
+        //            {
+        //                throw new Exception(result.ErrorInfo);
+        //            }
+        //            else
+        //            {
+        //                Close();
+        //                Toast("部门人员分配成功！", ToastLength.SHORT);
+        //            }
+        //        }
+        //        //ReturnInfo result ;
+        //        //if (isUPdateDep == true)
+        //        //{
+        //        //    department.UserIDs = listUser;
+        //        //    if (department.Dep_ID != null)
+        //        //    {
+        //        //        result = AutofacConfig.departmentService.UpdateDepartment(department);
+        //        //    }
+        //        //    else
+        //        //    {
+        //        //        result = AutofacConfig.departmentService.AddDepartment(department);
+        //        //    }
+        //        //    if (result.IsSuccess == false)
+        //        //    {
+        //        //        throw new Exception(result.ErrorInfo);
+        //        //    }
+        //        //    else
+        //        //    {
+
+        //        //        Toast("部门人员分配成功！", ToastLength.SHORT);
+        //        //    }
+        //        //}
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Toast(ex.Message, ToastLength.SHORT);
+        //    }
+        //}
         /// <summary>
         /// 全选
         /// </summary>

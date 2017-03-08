@@ -48,7 +48,7 @@ namespace SmoONE.UI
                         lblHint.Visible = true;
                         lblHint.Top = txtVcode1.Top + txtVcode1.Height;
                         btnSave.Top = lblHint.Top + lblHint.Height;
-                        //模拟发送短信验证码,返回验证码1234
+                        //模拟发送短信验证码
                         ReturnInfo result = AutofacConfig.userService.SimulateSendVCode(Tel);
                         if (result.IsSuccess == false)
                         {

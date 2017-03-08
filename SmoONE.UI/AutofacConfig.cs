@@ -41,6 +41,11 @@ namespace SmoONE.UI
         public IUserService userService;
 
         /// <summary>
+        /// 考勤相关服务的接口
+        /// </summary>
+        public IAttendanceService attendanceService;
+
+        /// <summary>
         /// Ioc容器
         /// </summary>
         private ContainerBuilder containerBuilder;
@@ -72,11 +77,21 @@ namespace SmoONE.UI
             containerBuilder.RegisterType<UserRoleRepository>().As<IUserRoleRepository>().InstancePerDependency();
             containerBuilder.RegisterType<ValidateCodeRepository>().As<IValidateCodeRepository>().InstancePerDependency();
 
+            containerBuilder.RegisterType<AT_CustomDateRepository>().As<IAT_CustomDateRepository>().InstancePerDependency();
+            containerBuilder.RegisterType<AttendanceLogRepository>().As<IAttendanceLogRepository>().InstancePerDependency();
+            containerBuilder.RegisterType<AttendanceTemplateRepository>().As<IAttendanceTemplateRepository>().InstancePerDependency();
+            containerBuilder.RegisterType<AttendanceSchedulingRepository>().As<IAttendanceSchedulingRepository>().InstancePerDependency();
+            containerBuilder.RegisterType<DailyStatisticsRepository>().As<IDailyStatisticsRepository>().InstancePerDependency();
+            containerBuilder.RegisterType<MonthlyStatisticsRepository>().As<IMonthlyStatisticsRepository>().InstancePerDependency();
+            containerBuilder.RegisterType<AT_UserLogRepository>().As<IAT_UserLogRepository>().InstancePerDependency();
+            containerBuilder.RegisterType<MonthlyResultRepository>().As<IMonthlyResultRepository>().InstancePerDependency();
+
             containerBuilder.RegisterType<CostCenterService>().As<ICostCenterService>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<DepartmentService>().As<IDepartmentService>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<LeaveService>().As<ILeaveService>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<ReimbursementService>().As<IReimbursementService>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
+            containerBuilder.RegisterType<AttendanceService>().As<IAttendanceService>().InstancePerLifetimeScope();
         }
 
         /// <summary>
@@ -95,6 +110,7 @@ namespace SmoONE.UI
             this.leaveService = container.Resolve<ILeaveService>();
             this.rBService = container.Resolve<IReimbursementService>();
             this.userService = container.Resolve<IUserService>();
+            this.attendanceService = container.Resolve<IAttendanceService>();
         }
     }
 }

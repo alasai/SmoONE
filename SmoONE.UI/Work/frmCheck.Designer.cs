@@ -38,6 +38,7 @@ namespace SmoONE.UI
             // 
             // gridCheckData
             // 
+            this.gridCheckData.AllowSlip = true;
             this.gridCheckData.Layout = "frmLeaveLayout";
             this.gridCheckData.Location = new System.Drawing.Point(0, 75);
             this.gridCheckData.Name = "gridCheckData";

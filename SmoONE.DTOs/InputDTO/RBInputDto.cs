@@ -105,14 +105,6 @@ namespace SmoONE.DTOs
         [DisplayName("图片9")]
         public string RB_Img9 { get; set; }
 
-
-        ///// <summary>
-        ///// 拒绝缘由
-        ///// </summary>
-        //[StringLength(maximumLength: 500, ErrorMessage = "长度不能超过500")]
-        //[DisplayName("拒绝理由")]
-        //public string RB_RejectionReason { get; set; }
-
         /// <summary>
         /// 创建者（报销人）
         /// </summary>

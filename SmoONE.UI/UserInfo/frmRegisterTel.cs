@@ -34,7 +34,7 @@ namespace SmoONE.UI
                 }
                 else
                 {
-                    System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^[1][3-8]\d{9}$");
+                    System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])\d{8}$");
                     if (regex.IsMatch(txtTel.Text.Trim())==false )
                     {
                         throw new Exception("手机号码格式不正确！");

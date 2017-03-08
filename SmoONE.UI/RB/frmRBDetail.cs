@@ -310,6 +310,7 @@ namespace SmoONE.UI.RB
                                 Status = RB_Status.财务审批;
                                 break;
                         }
+                        //Status += 1;       //更改报销单状态
                         ReturnInfo r = AutofacConfig.rBService.UpdateRBStatus(ID, Status, UserID, "");           //保存报销单
                         if (r.IsSuccess == true)
                         {

@@ -79,8 +79,11 @@ namespace SmoONE.UI.Department
                 }
                 else
                 {
+                    //ShowResult = ShowResult.Yes;
+                  
                     frmDepAssignUser frmDepAssignUser = new frmDepAssignUser();
                     frmDepAssignUser.department = department;
+                    //Redirect(frmDepAssignUser);
                     Redirect(frmDepAssignUser, (MobileForm form, object args) =>
                         {
                             if (frmDepAssignUser.ShowResult == ShowResult.Yes)
@@ -192,10 +195,12 @@ namespace SmoONE.UI.Department
                     {
                         throw new Exception (popLeader.Selection.Text + "已是部门责任人，请先解散部门！");
                     }
+                    //
                   UserDepDto userdep=  AutofacConfig.userService.GetUseDepByUserID(popLeader.Selection.Value);
                   //如果选中用户已是部门成员且不是部门责任人，则进行选择是否确认为部门责任人，若确认则为该部门负责人
                     if ( userdep !=null & string.IsNullOrEmpty (userdep.Dep_ID)==false & isLeader== false )
-                    
+                    //if (AutofacConfig.userService.GetAllUsers().Count > 0 & isLeader== false)
+                    //{
                         MessageBox.Show(popLeader.Selection.Text+"已是部门成员，是否确定为该部门责任人？", MessageBoxButtons.YesNo, (Object s1, MessageBoxHandlerArgs args) =>
                         {
                             //此委托为异步委托事件
@@ -205,6 +210,7 @@ namespace SmoONE.UI.Department
                                 btnLeader.Text = popLeader.Selection.Text;
                             }
                         });
+                    //}
                     //如果选中用户不是部门责任人且不是部门成员，则为该部门负责人
                    if (isLeader == false & userdep != null & string.IsNullOrEmpty(userdep.Dep_ID) == true )
                    {

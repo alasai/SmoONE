@@ -70,7 +70,7 @@ namespace SmoONE.Domain
         /// <summary>
         /// 电话
         /// </summary>
-        [RegularExpression(@"^1(3[0-9]|5[0-35-9]|8[025-9])\d{8}$", ErrorMessage = "格式不正确")]
+        [RegularExpression(@"^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])\d{8}$", ErrorMessage = "格式不正确")]
         [StringLength(maximumLength: 20, ErrorMessage = "长度不能超过20")]
         [DisplayName("电话号码")]
         public string U_Tel { get; set; }
@@ -109,6 +109,14 @@ namespace SmoONE.Domain
         [Column(TypeName = "datetime2")]
         [DisplayName("创建时间")]
         public DateTime U_CreateDate { get; set; }
+
+
+        ////新增加的字段
+        ///// <summary>
+        ///// 是否考勤例外
+        ///// </summary>
+        //[DisplayName("是否不参与考勤")]
+        //public bool U_IsExcept { get; set; }
     }
 }
 

@@ -90,14 +90,6 @@ namespace SmoONE.DTOs
         [DisplayName("成本中心模板")]
         public string CC_TemplateID { get; set; }
 
-
-        ///// <summary>
-        ///// 成本中心是否激活
-        ///// </summary>
-        //[Required]
-        //[DisplayName("激活状态")]
-        //public IsActive? CC_IsActive { get; set; }
-
         /// <summary>
         /// 创建者
         /// </summary>

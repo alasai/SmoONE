@@ -131,7 +131,10 @@ namespace SmoONE.UI.CostCenter
                if (result.IsSuccess == true)
                {
                    ShowResult = ShowResult.Yes;
-                   Close();
+                   //if (string.IsNullOrEmpty(CTempID) == true)
+                   //{
+                       Close();
+                   //}
                    Toast("成本中心类型模板提交成功！", ToastLength.SHORT);
                }
                else
@@ -249,24 +252,36 @@ namespace SmoONE.UI.CostCenter
                     listAEAChecks.Add(addAEACheck.Split(',')[0]);
                     int imgCheckWSize = 35;
                     ImageButton imgbtn = new ImageButton();
+                    //if (string.IsNullOrEmpty(addAEACheck.Split(',')[2]) == true)
+                    //{
+                    //    UserDetailDto user = AutofacConfig.userService.GetUserByUserID(addAEACheck.Split(',')[0]);
+                    //    switch (user.U_Sex)
+                    //    {
+                    //        case (int)Sex.男:
+                    //            imgbtn.ResourceID = "boy";
+                    //            break;
+                    //        case (int)Sex.女:
+                    //            imgbtn.ResourceID = "girl";
+                    //            break;
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    imgbtn.ResourceID = addAEACheck.Split(',')[2];
+                    //}
                     if (string.IsNullOrEmpty(addAEACheck.Split(',')[2]) == true)
                     {
-                        UserDetailDto user = AutofacConfig.userService.GetUserByUserID(addAEACheck.Split(',')[0]);
-                        switch (user.U_Sex)
+                        UserDetails userDetails = new UserDetails();
+                        UserDetailDto user = userDetails.getUser (addAEACheck.Split(',')[0]);
+                        if (user !=null )
                         {
-                            case (int)Sex.男:
-                                imgbtn.ResourceID = "boy";
-                                break;
-                            case (int)Sex.女:
-                                imgbtn.ResourceID = "girl";
-                                break;
+                            imgbtn.ResourceID = user.U_Portrait;
                         }
                     }
                     else
                     {
                         imgbtn.ResourceID = addAEACheck.Split(',')[2];
                     }
-                   
 
                     imgbtn.Width = imgCheckWSize;
                     imgbtn.Height = imgCheckWSize;
@@ -314,17 +329,30 @@ namespace SmoONE.UI.CostCenter
                     listFCheckers.Add(addFCheck.Split(',')[0]);
                     int imgFCWSize = 35;
                     ImageButton imgbtn = new ImageButton();
+                    //if (string.IsNullOrEmpty(addFCheck.Split(',')[2]) == true)
+                    //{
+                    //    UserDetailDto user = AutofacConfig.userService.GetUserByUserID(addFCheck.Split(',')[0]);
+                    //    switch (user.U_Sex)
+                    //    {
+                    //        case (int)Sex.男:
+                    //            imgbtn.ResourceID = "boy";
+                    //            break;
+                    //        case (int)Sex.女:
+                    //            imgbtn.ResourceID = "girl";
+                    //            break;
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    imgbtn.ResourceID = addFCheck.Split(',')[2];
+                    //}
                     if (string.IsNullOrEmpty(addFCheck.Split(',')[2]) == true)
                     {
-                        UserDetailDto user = AutofacConfig.userService.GetUserByUserID(addFCheck.Split(',')[0]);
-                        switch (user.U_Sex)
+                        UserDetails userDetails = new UserDetails();
+                        UserDetailDto user = userDetails.getUser(addFCheck.Split(',')[0]);
+                        if (user != null)
                         {
-                            case (int)Sex.男:
-                                imgbtn.ResourceID = "boy";
-                                break;
-                            case (int)Sex.女:
-                                imgbtn.ResourceID = "girl";
-                                break;
+                            imgbtn.ResourceID = user.U_Portrait;
                         }
                     }
                     else

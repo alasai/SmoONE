@@ -30,6 +30,14 @@ namespace SmoONE.CommLib
             {
                 foreach (var validationAttribute in propertyDescriptor.Attributes.OfType<ValidationAttribute>())
                 {
+                    //原来的
+                    //if (!validationAttribute.IsValid(propertyDescriptor.GetValue(o)))
+                    //{
+                    //    yield return new ModelValidationError() { FieldName = propertyDescriptor.DisplayName, Message = validationAttribute.FormatErrorMessage(propertyDescriptor.Name) };
+                    //}
+                    //新修改的
+                    
+
                     if (!validationAttribute.IsValid(propertyDescriptor.GetValue(o)))
                     {
                         yield return new ModelValidationError() { FieldName = propertyDescriptor.DisplayName, Message = validationAttribute.FormatErrorMessage(propertyDescriptor.Name) };

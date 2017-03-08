@@ -28,10 +28,11 @@ namespace SmoONE.UI
         {
             try
             {
-                //获取抄送给当前用户的请假数据
-                List<LeaveDto> listLeaveDto = AutofacConfig.leaveService.GetByCCTo(Client.Session["U_ID"].ToString());
+              
                 List<DataGridview> listCCTo = new List<DataGridview>();//抄送我的数据
-               
+
+                 //获取抄送给当前用户的请假数据
+                List<LeaveDto> listLeaveDto = AutofacConfig.leaveService.GetByCCTo(Client.Session["U_ID"].ToString());
                 //如果请假数据条数大于0，则添加到抄送我的数据
                 if (listLeaveDto.Count > 0)
                 {
@@ -41,16 +42,22 @@ namespace SmoONE.UI
                         dataGItem.ID = leave.L_ID;
                         if (string.IsNullOrEmpty(leave.U_Portrait) == true)
                         {
-                            UserDetailDto user = AutofacConfig.userService.GetUserByUserID(leave.U_ID);
-                            switch (user.U_Sex)
+                             UserDetails userDetails = new UserDetails();
+                             UserDetailDto user = userDetails.getUser(leave.U_ID);
+                             if (user != null)
                             {
-                                case (int)Sex.男:
-                                    dataGItem.U_Portrait = "boy";
-                                    break;
-                                case (int)Sex.女:
-                                    dataGItem.U_Portrait = "girl";
-                                    break;
+                                dataGItem.U_Portrait = user.U_Portrait;
                             }
+                            //UserDetailDto user = AutofacConfig.userService.GetUserByUserID(leave.U_ID);
+                            //switch (user.U_Sex)
+                            //{
+                            //    case (int)Sex.男:
+                            //        dataGItem.U_Portrait = "boy";
+                            //        break;
+                            //    case (int)Sex.女:
+                            //        dataGItem.U_Portrait = "girl";
+                            //        break;
+                            //}
                         }
                         else
                         {

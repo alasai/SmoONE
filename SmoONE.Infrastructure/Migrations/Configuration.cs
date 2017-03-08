@@ -93,9 +93,12 @@ namespace SmoONE.Infrastructure.Migrations
                 new Menu { M_MenuID = "RB_RType_Template", M_Description = "消费模板", M_Sort = 1, M_IsActive = 1, M_ParentID = "RB", M_UpdateDate = DateTime.Now, M_Portrait = "xiaofeimuban" },
                 new Menu { M_MenuID = "Reimbursement", M_Description = "报销单", M_Sort = 3, M_IsActive = 1, M_ParentID = "RB", M_UpdateDate = DateTime.Now, M_Portrait = "baoxiaodan" },
                 new Menu { M_MenuID = "CC_Type_Template", M_Description = "模板", M_Sort = 1, M_IsActive = 1, M_ParentID = "CC", M_UpdateDate = DateTime.Now, M_Portrait = "ccmuban" },
-                new Menu { M_MenuID = "CostCenter", M_Description = "成本中心", M_Sort = 2, M_IsActive = 1, M_ParentID = "CC", M_UpdateDate = DateTime.Now, M_Portrait = "chengbeng" }
-                //new Menu { M_MenuID = "DepInfo", M_Description = "部门", M_Sort = 1, M_IsActive = 1, M_ParentID = "Department", M_UpdateDate = DateTime.Now, M_Portrait = "bumen" },
-                //new Menu { M_MenuID = "AssignUser", M_Description = "人员分配", M_Sort = 2, M_IsActive = 1, M_ParentID = "Department", M_UpdateDate = DateTime.Now, M_Portrait = "renyuanfenpei" }
+                new Menu { M_MenuID = "CostCenter", M_Description = "成本中心", M_Sort = 2, M_IsActive = 1, M_ParentID = "CC", M_UpdateDate = DateTime.Now, M_Portrait = "chengbeng" },
+                new Menu { M_MenuID = "Attendance", M_Description = "考勤", M_Sort = 1, M_IsActive = 1, M_ParentID = "", M_UpdateDate = DateTime.Now, M_Portrait = "Attendance" },
+                new Menu { M_MenuID = "AttendanceManagement", M_Description = "考勤管理", M_Sort = 1, M_IsActive = 1, M_ParentID = "Attendance", M_UpdateDate = DateTime.Now, M_Portrait = "kaoqinguanli" },
+                new Menu { M_MenuID = "AttendanceInfo", M_Description = "考勤", M_Sort = 2, M_IsActive = 1, M_ParentID = "Attendance", M_UpdateDate = DateTime.Now, M_Portrait = "kaoqin" },
+                new Menu { M_MenuID = "MyAttendanceHistory", M_Description = "我的考勤", M_Sort = 3, M_IsActive = 1, M_ParentID = "Attendance", M_UpdateDate = DateTime.Now, M_Portrait = "wodekaoqinlishi" },
+                new Menu { M_MenuID = "AttendanceStatistics", M_Description = "考勤统计", M_Sort = 4, M_IsActive = 1, M_ParentID = "Attendance", M_UpdateDate = DateTime.Now, M_Portrait = "kaoqintongji" }
                 );
             //在RoleMenu表中添加默认数据
             context.RoleMenus.AddOrUpdate(
@@ -112,9 +115,16 @@ namespace SmoONE.Infrastructure.Migrations
                 new RoleMenu { RM_ID = 11, RM_RoleID = "Employee", RM_MenuID = "Leave" },
                 new RoleMenu { RM_ID = 12, RM_RoleID = "Employee", RM_MenuID = "RB_Rows" },
                 new RoleMenu { RM_ID = 13, RM_RoleID = "Employee", RM_MenuID = "RB_RType_Template" },
-                new RoleMenu { RM_ID = 14, RM_RoleID = "Employee", RM_MenuID = "Reimbursement" }
-                //new RoleMenu { RM_ID = 15, RM_RoleID = "Administrator", RM_MenuID = "DepInfo" },
-                //new RoleMenu { RM_ID = 16, RM_RoleID = "Administrator", RM_MenuID = "AssignUser" }
+                new RoleMenu { RM_ID = 14, RM_RoleID = "Employee", RM_MenuID = "Reimbursement" },
+                new RoleMenu { RM_ID = 15, RM_RoleID = "Administrator", RM_MenuID = "Attendance" },
+                new RoleMenu { RM_ID = 16, RM_RoleID = "Administrator", RM_MenuID = "AttendanceManagement" },
+                new RoleMenu { RM_ID = 17, RM_RoleID = "Administrator", RM_MenuID = "AttendanceInfo" },
+                new RoleMenu { RM_ID = 18, RM_RoleID = "Administrator", RM_MenuID = "MyAttendanceHistory" },
+                new RoleMenu { RM_ID = 19, RM_RoleID = "Administrator", RM_MenuID = "AttendanceStatistics" },
+                new RoleMenu { RM_ID = 20, RM_RoleID = "Employee", RM_MenuID = "Attendance" },
+                new RoleMenu { RM_ID = 21, RM_RoleID = "Employee", RM_MenuID = "AttendanceInfo" },
+                new RoleMenu { RM_ID = 22, RM_RoleID = "Employee", RM_MenuID = "MyAttendanceHistory" },
+                new RoleMenu { RM_ID = 23, RM_RoleID = "Employee", RM_MenuID = "AttendanceStatistics" }
                 );
             //在Department表中添加默认数据
             //context.Departments.AddOrUpdate(

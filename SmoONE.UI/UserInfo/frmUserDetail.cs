@@ -38,31 +38,17 @@ namespace SmoONE.UI.UserInfo
                     throw new Exception("请输入电话号码！");
 
                 }
-                UserDetailDto user = AutofacConfig.userService.GetUserByUserID(U_ID);
+                UserDetails userDetails = new UserDetails();
+                UserDetailDto user = userDetails.getUser(U_ID);
                 if (user != null)
                 {
-                    if (string.IsNullOrEmpty(user.U_Portrait) == true)
-                    {
-                        switch (user.U_Sex)
-                        {
-                            case (int)Sex.男:
-                                imgPortrait.ResourceID = "boy";
-                                break;
-                            case (int)Sex.女:
-                                imgPortrait.ResourceID = "girl";
-                                break;
-                        }
-                    }
-                    else
-                    {
-                        imgPortrait.ResourceID = user.U_Portrait;
-                    }
+                    imgPortrait.ResourceID = user.U_Portrait;
                     string name = user.U_Name;
                     sex = (Sex)user.U_Sex;
                     switch (sex)
                     {
                         case Sex.男:
-                            lblName.Text = name+"  男";
+                            lblName.Text = name + "  男";
                             break;
                         case Sex.女:
                             lblName.Text = name + "  女";
@@ -70,7 +56,7 @@ namespace SmoONE.UI.UserInfo
 
                     }
                     lblTel.Text = U_ID;
-                    lblBirthday.Text = user.U_Birthday.ToString ("yyyy/MM/dd");
+                    lblBirthday.Text = user.U_Birthday.ToString("yyyy/MM/dd");
                     email = user.U_Email;
                     lblEmail.Text = user.U_Email;
                 }
@@ -78,6 +64,46 @@ namespace SmoONE.UI.UserInfo
                 {
                     throw new Exception("用户" + U_ID + "不存在，请检查！");
                 }
+                //UserDetailDto user = AutofacConfig.userService.GetUserByUserID(U_ID);
+                //if (user != null)
+                //{
+                //    if (string.IsNullOrEmpty(user.U_Portrait) == true)
+                //    {
+                //        switch (user.U_Sex)
+                //        {
+                //            case (int)Sex.男:
+                //                imgPortrait.ResourceID = "boy";
+                //                break;
+                //            case (int)Sex.女:
+                //                imgPortrait.ResourceID = "girl";
+                //                break;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        imgPortrait.ResourceID = user.U_Portrait;
+                //    }
+                //    string name = user.U_Name;
+                //    sex = (Sex)user.U_Sex;
+                //    switch (sex)
+                //    {
+                //        case Sex.男:
+                //            lblName.Text = name+"  男";
+                //            break;
+                //        case Sex.女:
+                //            lblName.Text = name + "  女";
+                //            break;
+
+                //    }
+                //    lblTel.Text = U_ID;
+                //    lblBirthday.Text = user.U_Birthday.ToString ("yyyy/MM/dd");
+                //    email = user.U_Email;
+                //    lblEmail.Text = user.U_Email;
+                //}
+                //else
+                //{
+                //    throw new Exception("用户" + U_ID + "不存在，请检查！");
+                //}
             }
             catch (Exception ex)
             {

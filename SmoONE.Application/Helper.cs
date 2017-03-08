@@ -356,6 +356,117 @@ namespace SmoONE.Application
         }
 
         /// <summary>
+        /// 考勤模板验证
+        /// </summary>
+        /// <param name="entity">考勤模板对象</param>
+        public static string ValidateATInputDto(ATInputDto entity)
+        {
+            //基础验证
+            StringBuilder sb = BasicValidate<ATInputDto>(entity);
+            //额外验证(自定义日期的字段判断,不同的上下班类型,均存在不能为空的时间字段)
+            if (entity.CustomDates!=null)
+            {
+                foreach (AT_CDInputDto ac in entity.CustomDates)
+                {
+                    sb.Append(ValidateAT_CDInputDto(ac));
+                }
+            }
+            if (entity.AT_CommutingType == WorkTimeType.一天一上下班)
+            {
+                if (entity.AT_StartTime == null)
+                {
+                    sb.Append("上班时间不能为空.");
+                }
+                if (entity.AT_EndTime == null)
+                {
+                    sb.Append("下班时间不能为空.");
+                }
+            }
+            else if (entity.AT_CommutingType == WorkTimeType.一天二上下班)
+            {
+                if (entity.AT_AMStartTime == null)
+                {
+                    sb.Append("上午上班时间不能为空.");
+                }
+                if (entity.AT_AMEndTime == null)
+                {
+                    sb.Append("上午下班时间不能为空.");
+                }
+                if (entity.AT_PMStartTime == null)
+                {
+                    sb.Append("下午上班时间不能为空.");
+                }
+                if (entity.AT_PMEndTime == null)
+                {
+                    sb.Append("下午下班时间不能为空.");
+                }
+            }
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// 考勤日志验证
+        /// </summary>
+        /// <param name="entity">考勤日志对象</param>
+        public static string ValidateALInputDto(ALInputDto entity)
+        {
+            //基础验证
+            StringBuilder sb = BasicValidate<ALInputDto>(entity);
+
+
+            return sb.ToString();
+        }
+
+
+        /// <summary>
+        /// 自定义日期验证
+        /// </summary>
+        /// <param name="entity">自定义日期对象</param>
+        public static string ValidateAT_CDInputDto(AT_CDInputDto entity)
+        {
+            //基础验证
+            StringBuilder sb = BasicValidate<AT_CDInputDto>(entity);
+            //额外验证(自定义为上班,则不同的上下班类型,部分字段不能为空)
+            if (entity.AT_CD_CDType ==WorkOrRest.上班)
+            {
+                if (entity.AT_CD_CommutingType == WorkTimeType.一天一上下班)
+                {
+                    if (entity.AT_CD_StartTime == null)
+                    {
+                        sb.Append("上班时间不能为空.");
+                    }
+                    if (entity.AT_CD_EndTime == null)
+                    {
+                        sb.Append("下班时间不能为空.");
+                    }
+                }
+                else if (entity.AT_CD_CommutingType == WorkTimeType.一天二上下班)
+                {
+                    if (entity.AT_CD_AMStartTime == null)
+                    {
+                        sb.Append("上午上班时间不能为空.");
+                    }
+                    if (entity.AT_CD_AMEndTime == null)
+                    {
+                        sb.Append("上午下班时间不能为空.");
+                    }
+                    if (entity.AT_CD_PMStartTime == null)
+                    {
+                        sb.Append("下午上班时间不能为空.");
+                    }
+                    if (entity.AT_CD_PMEndTime == null)
+                    {
+                        sb.Append("下午下班时间不能为空.");
+                    }
+                }
+            
+            }
+            
+
+            return sb.ToString();
+        }
+
+        /// <summary>
         /// 基础验证
         /// </summary>
         /// <param name="entity">继承自IEntity的泛型对象</param>
@@ -410,6 +521,12 @@ namespace SmoONE.Application
                     return "部门";
                 case "UserInputDto":
                     return "用户";
+                case "ALInputDto":
+                    return "考勤记录";
+                case "AT_CDInputDto":
+                    return "自定义日期";
+                case "ATInputDto":
+                    return "考勤模板";
                 default:
                     return "";
             }

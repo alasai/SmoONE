@@ -160,35 +160,64 @@ namespace SmoONE.UI
             {
                 switch (id)
                 {
-
+                        //创建请假
                     case "Leave":
                             Leave.frmLeaveCreate frmLeaveCreate = new Leave.frmLeaveCreate();
                             Redirect(frmLeaveCreate);
                             break;
+                        //创建报销
                     case "Reimbursement":
                             RB.frmRBCreate frmRBCreate = new RB.frmRBCreate();
                             Redirect(frmRBCreate);
                             break;
+                        //创建消费记录
                     case "RB_Rows":
                             RB.frmRBRows frmRBRows = new RB.frmRBRows();
                             Redirect(frmRBRows);
                             break;
+                    //创建消费记录模板
                     case "RB_RType_Template":
                             RB.frmRTypeTemplate frmRTypeTemplate = new RB.frmRTypeTemplate();
                             Redirect(frmRTypeTemplate);
                             break;
+                    //创建部门
                     case "Department":
                             Department.frmDepartment frmDepartment = new Department.frmDepartment();
                             Redirect(frmDepartment);
                             break;
+                    //创建成本中心
                     case "CostCenter":
                             CostCenter.frmCostCenter frmCostCenter = new CostCenter.frmCostCenter();
                             Redirect(frmCostCenter);
                             break;
+                    //创建成本中心模板
                     case "CC_Type_Template":
                             CostCenter.frmCostTemplet frmCostTemplet = new CostCenter.frmCostTemplet();
                             Redirect(frmCostTemplet);
+                       
                             break;
+                    //考勤管理模板
+                    case "AttendanceManagement":
+                            Attendance.frmAttendanceManager frmAttendanceManager = new Attendance.frmAttendanceManager();
+                            Redirect(frmAttendanceManager);
+                            break;
+                    //考勤
+                    case "AttendanceInfo":
+                            Attendance.frmAttendanceMain frmAttendanceMain = new Attendance.frmAttendanceMain();
+                            frmAttendanceMain.enter = (int)Enum.Parse(typeof(ATMainState), ATMainState.考勤签到.ToString());
+                            Redirect(frmAttendanceMain);
+                            break;
+                    //我的考勤历史
+                    case "MyAttendanceHistory":
+                            Attendance.frmAttendanceStatSelfDay frmAttendanceStatSelfDay = new Attendance.frmAttendanceStatSelfDay();
+                            Redirect(frmAttendanceStatSelfDay);
+                            break;
+                    //考勤统计
+                    case "AttendanceStatistics":
+                            Attendance.frmAttendanceStatistics frmAttendanceStatistics = new Attendance.frmAttendanceStatistics();
+                            Redirect(frmAttendanceStatistics);
+                            break;
+                 
                 }
 		    }
         }

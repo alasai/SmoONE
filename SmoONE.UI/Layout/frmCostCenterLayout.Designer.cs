@@ -99,6 +99,7 @@ namespace SmoONE.UI.Layout
             this.label2.DataMember = "CC_UsedAmount";
             this.label2.DisplayMember = "CC_UsedAmount";
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
+            this.label2.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
             this.label2.Location = new System.Drawing.Point(225, 40);
             this.label2.Name = "label2";
             this.label2.Padding = new Smobiler.Core.Padding(2F, 0F, 10F, 0F);
@@ -139,7 +140,8 @@ namespace SmoONE.UI.Layout
             this.label2,
             this.lblCC_Name,
             this.label4,
-            this.line1});
+            this.line1,
+            });
             this.Size = new System.Drawing.Size(300, 60);
             this.Name = "frmCostCenterLayout";
 

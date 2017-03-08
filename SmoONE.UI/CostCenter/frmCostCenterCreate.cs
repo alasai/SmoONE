@@ -19,6 +19,7 @@ namespace SmoONE.UI.CostCenter
     partial class frmCostCenterCreate : Smobiler.Core.MobileForm
     {
         #region "definition"
+        public string ATNO;//考勤模板编号
         public string CCID ;//成本中心编号
         string type = "";//类型
         string CTempID = "";//类型模板编号
@@ -139,7 +140,10 @@ namespace SmoONE.UI.CostCenter
                 else
                 {
                     ShowResult = ShowResult.Yes;
-                    Close();
+                    //if (string.IsNullOrEmpty(CCID) == true)
+                    //{
+                        Close();
+                    //}
                     Toast("成本中心提交成功！", ToastLength.SHORT);
                 }
             }

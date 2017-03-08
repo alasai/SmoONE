@@ -275,7 +275,10 @@ namespace SmoONE.UI.Leave
                 if (result.IsSuccess == true)
                 {
                     ShowResult = ShowResult.Yes;
+                    //if (string.IsNullOrEmpty(LID) == true)
+                    //{
                         Close();
+                    //}
                     Toast("您的请假条已成功提交！", ToastLength.SHORT);
                    
                 }

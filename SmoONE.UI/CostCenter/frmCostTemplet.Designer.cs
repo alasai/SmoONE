@@ -36,7 +36,7 @@ namespace SmoONE.UI.CostCenter
             // 
             this.gridCCTempletData.AutoHeight = true;
             this.gridCCTempletData.Layout = "frmCostTempletLayout";
-            this.gridCCTempletData.Location = new System.Drawing.Point(0, 56);
+            this.gridCCTempletData.Location = new System.Drawing.Point(0, 55);
             this.gridCCTempletData.Name = "gridCCTempletData";
             this.gridCCTempletData.PageSize = 8;
             this.gridCCTempletData.ShowGridLines = false;

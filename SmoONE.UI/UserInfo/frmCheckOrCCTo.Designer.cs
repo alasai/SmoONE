@@ -55,7 +55,7 @@ namespace SmoONE.UI
             // 
             // gridUserData
             // 
-            this.gridUserData.AutoHeight = true;
+            this.gridUserData.AllowSlip = true;
             this.gridUserData.Layout = "frmUserLayout";
             this.gridUserData.Location = new System.Drawing.Point(0, 65);
             this.gridUserData.Name = "gridUserData";

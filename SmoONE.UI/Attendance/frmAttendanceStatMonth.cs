@@ -14,7 +14,7 @@ namespace SmoONE.UI.Attendance
     // 创建时间： 2017/2
     // 主要内容： 考勤报表统计(按月统计)
     // ******************************************************************
-    partial class frmAttendanceStatMonth : Smobiler.Core.MobileForm
+    partial class frmAttendanceStatMonth : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         public string Year;               //年份
@@ -250,7 +250,7 @@ namespace SmoONE.UI.Attendance
                     {
                         frm.atTypeUser = atTypeUser[i];
                     }
-                    Redirect(frm);
+                    Show(frm);
                 }
             }
             catch (Exception ex)

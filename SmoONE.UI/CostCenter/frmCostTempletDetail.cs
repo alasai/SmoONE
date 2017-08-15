@@ -15,7 +15,7 @@ namespace SmoONE.UI.CostCenter
     // 创建时间： 2016/11
     // 主要内容：  成本中心详情界面
     // ******************************************************************
-    partial class frmCostTempletDetail : Smobiler.Core.MobileForm
+    partial class frmCostTempletDetail : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         public string CTempID;//模板编号
@@ -70,9 +70,9 @@ namespace SmoONE.UI.CostCenter
                     imgAEACheckP.Width = imgCheckWSize;
                     imgAEACheckP.Height = imgCheckWSize;
                     imgAEACheckP.ZIndex = (Controls.Count + 1);
-                    imgAEACheckP.BorderRadius = 10;
+                    imgAEACheckP.BorderRadius = 13;
                     imgAEACheckP.Name = "imgAEACheck" + addAEACheck.Split(',')[0];
-                    imgAEACheckP.SizeMode = Smobiler.Core.ImageSizeMode.StretchImage;
+                    imgAEACheckP.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Stretch;
                     imgAEACheckP.Left = imgFCheckLeft;
                     Controls.Add(imgAEACheckP);//界面添加行政审批人头像控件
                     listimgAEAChecksP.Add(imgAEACheckP);//添加行政审批人头像控件
@@ -131,9 +131,9 @@ namespace SmoONE.UI.CostCenter
                     imgFCheckP.Width = imgFCWSize;
                     imgFCheckP.Height = imgFCWSize;
                     imgFCheckP.ZIndex = (Controls.Count + 1);
-                    imgFCheckP.BorderRadius = 10;
+                    imgFCheckP.BorderRadius = 13;
                     imgFCheckP.Name = "imgFCheck" + addFCheck.Split(',')[0];
-                    imgFCheckP.SizeMode = Smobiler.Core.ImageSizeMode.StretchImage;
+                    imgFCheckP.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Stretch;
                     Controls.Add(imgFCheckP);//界面添加财务审批人头像控件
                     listimgFCheckersP.Add(imgFCheckP);//添加财务审批人头像控件
 
@@ -350,7 +350,7 @@ namespace SmoONE.UI.CostCenter
         {
             frmCostTempletCreate frm = new frmCostTempletCreate();
             frm.CTempID = CTempID;
-            Redirect(frm, (MobileForm form, object args) =>
+            Show(frm, (MobileForm form, object args) =>
             {
                 if (frm.ShowResult == ShowResult.Yes)
                 {

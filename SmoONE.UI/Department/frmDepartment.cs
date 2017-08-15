@@ -1,4 +1,4 @@
-using System;
+                                                                                                                                                               using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,32 +16,13 @@ namespace SmoONE.UI.Department
     // 创建时间： 2016/11
     // 主要内容：  部门列表界面
     // ******************************************************************
-    partial class frmDepartment : Smobiler.Core.MobileForm
+    partial class frmDepartment : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
-        private DepartmentMode Mode; //客户展示模式
+        public  DepartmentMode Mode; //客户展示模式
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
         #endregion
-        /// <summary>
-        /// gridDepData点击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridDepData_CellClick(object sender, GridViewCellEventArgs e)
-        {
-            string D_ID = e.Cell.Items["lblId"].Value.ToString();
-            //跳转到部门详细界面
-            frmDepartmentDetail frm = new frmDepartmentDetail();
-            frm.D_ID = D_ID;
-            Redirect(frm, (MobileForm form, object args) =>
-            {
-                if (frm.ShowResult == ShowResult.Yes)
-                {
-                    Mode = DepartmentMode.列表;
-                    Bind();
-                }
-            });
-        }
+      
         /// <summary>
         /// 初始化事件
         /// </summary>
@@ -55,7 +36,7 @@ namespace SmoONE.UI.Department
         /// <summary>
         /// 初始化数据
         /// </summary>
-        private void Bind()
+        public  void Bind()
         {
             try
             {
@@ -65,18 +46,18 @@ namespace SmoONE.UI.Department
                 {
                     case DepartmentMode.列表:
                         gridDepData.Rows.Clear();//清空部门列表数据
-                        tMode.Text = DepartmentMode.层级 +"展示";
+                        btnDMode.Text = DepartmentMode.层级 + "展示";
                         break;
                     case DepartmentMode.层级:
                         treeDepData.Nodes.Clear();//清空部门层级数据
-                        tMode.Text = DepartmentMode.列表 + "展示";
+                        btnDMode.Text = DepartmentMode.列表 + "展示";
                         break;
                 }
 
                 if (listDep.Count > 0)
                 {
-                    tMode.Visible = true;
-                ;
+                    btnDMode.Visible = true;
+             
                     lblInfor.Visible = false ;
                     foreach (DepartmentDto dep in listDep)
                     {
@@ -99,8 +80,8 @@ namespace SmoONE.UI.Department
                             treeDepData.Visible = true;
                             foreach (DepartmentDto dep in listDep)
                             {
-                                TreeViewNode node = new TreeViewNode(dep.Dep_Name, null, dep.Dep_Icon, (int)TreeMode.dep+","+dep.Dep_ID);
-                                node.TextColor = System.Drawing.Color.FromArgb(45,45,45);
+                                TreeViewNode node = new TreeViewNode(dep.Dep_Name, null, dep.Dep_Icon, (int)TreeMode.dep + "," + dep.Dep_ID);
+                               node.TextColor = System.Drawing.Color.FromArgb(45,45,45);
                                 List<UserDto> listDepUser = AutofacConfig.userService.GetUserByDepID(dep.Dep_ID);
                                 if (listDepUser.Count > 0)
                                 {
@@ -132,9 +113,8 @@ namespace SmoONE.UI.Department
                                         {
                                             portrait = user.U_Portrait;
                                         }
-                                        TreeViewNode node1 = new TreeViewNode(Name, null, portrait, (int)TreeMode.user+","+user.U_ID);
-                                        node1.TextColor = System.Drawing.Color.FromArgb(145,145,145);
-                                       
+                                        TreeViewNode node1 = new TreeViewNode(Name, null, portrait, (int)TreeMode.user + "," + user.U_ID);
+                                       node1.TextColor = System.Drawing.Color.FromArgb(145,145,145);
                                         node.Nodes.Add(node1);
                                     }
                                   
@@ -147,7 +127,7 @@ namespace SmoONE.UI.Department
                 }
                 else
                 {
-                    tMode.Visible = false ;
+                   // btnDMode.Visible = false;
                     lblInfor.Visible = true;
                 
                 }
@@ -187,7 +167,7 @@ namespace SmoONE.UI.Department
         private void btnCreate_Click(object sender, EventArgs e)
         {
             frmDepartmentCreate frm = new frmDepartmentCreate();
-            Redirect(frm, (MobileForm form, object args) =>
+            Show(frm, (MobileForm form, object args) =>
                 {
                     if (frm.ShowResult == ShowResult.Yes)
                     {
@@ -202,15 +182,17 @@ namespace SmoONE.UI.Department
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void treeDepData_NodeSelected(object sender, EventArgs e)
+        private void treeDepData_NodeSelected(object sender, TreeViewClickEventArgs e)
         {
-            string ID = treeDepData.SelectedNode.Value;
-            switch (Convert .ToInt32 (ID.Split(',')[0]))
+           
+           // string ID = treeDepData.SelectedNode.Value;
+            string ID = e.Value;
+            switch (Convert.ToInt32(ID.Split(',')[0]))
             {
                 case (int)TreeMode.dep:
                     frmDepartmentDetail frm = new frmDepartmentDetail();
                     frm.D_ID = ID.Split(',')[1];
-                    Redirect(frm, (MobileForm form, object args) =>
+                    Show(frm, (MobileForm form, object args) =>
                     {
                         if (frm.ShowResult == ShowResult.Yes)
                         {
@@ -222,7 +204,7 @@ namespace SmoONE.UI.Department
                 case (int)TreeMode.user:
                     frmUserDetail frmUserDetail = new frmUserDetail();
                     frmUserDetail.U_ID = ID.Split(',')[1];
-                    Redirect(frmUserDetail);
+                    Show(frmUserDetail);
                     break;
             }
            
@@ -233,7 +215,7 @@ namespace SmoONE.UI.Department
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void frmDepartment_ToolbarItemClick(object sender, ToolbarClickEventArgs e)
+        private void btnDLayout_Click(object sender, EventArgs e)
         {
             switch (Mode)
             {

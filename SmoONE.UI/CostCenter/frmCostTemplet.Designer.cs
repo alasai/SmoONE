@@ -2,7 +2,7 @@ using System;
 using Smobiler.Core;
 namespace SmoONE.UI.CostCenter
 {
-    partial class frmCostTemplet : Smobiler.Core.MobileForm
+    partial class frmCostTemplet : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,67 +28,76 @@ namespace SmoONE.UI.CostCenter
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.gridCCTempletData = new Smobiler.Core.Controls.GridView();
-            this.btnCreate = new Smobiler.Core.Controls.Button();
+            this.gridCCTempletData = new Smobiler.Core.Controls.ListView();
             this.lblInfor = new Smobiler.Core.Controls.Label();
+            this.title1 = new SmoONE.UI.Layout.Title();
+            this.btnCreate = new Smobiler.Core.Controls.Button();
             // 
             // gridCCTempletData
             // 
-            this.gridCCTempletData.AutoHeight = true;
-            this.gridCCTempletData.Layout = "frmCostTempletLayout";
-            this.gridCCTempletData.Location = new System.Drawing.Point(0, 55);
+            this.gridCCTempletData.BackColor = System.Drawing.Color.White;
+            this.gridCCTempletData.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gridCCTempletData.FooterControlName = null;
+            this.gridCCTempletData.HeaderControlName = null;
+            this.gridCCTempletData.Location = new System.Drawing.Point(0, 105);
+            this.gridCCTempletData.Margin = new Smobiler.Core.Controls.Margin(0F, 20F, 0F, 0F);
             this.gridCCTempletData.Name = "gridCCTempletData";
-            this.gridCCTempletData.PageSize = 8;
-            this.gridCCTempletData.ShowGridLines = false;
-            this.gridCCTempletData.Size = new System.Drawing.Size(300, 432);
-            this.gridCCTempletData.TabIndex = 2;
-            this.gridCCTempletData.CellClick += new Smobiler.Core.Controls.GridViewCellClickEventHandler(this.gridCCTempletData_CellClick);
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnCreate.BorderRadius = 2;
-            this.btnCreate.FontSize = 17F;
-            this.btnCreate.ForeColor = System.Drawing.Color.White;
-            this.btnCreate.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(135)))), ((int)(((byte)(209)))));
-            this.btnCreate.HoverForeColor = System.Drawing.Color.White;
-            this.btnCreate.Location = new System.Drawing.Point(10, 10);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(280, 35);
-            this.btnCreate.TabIndex = 3;
-            this.btnCreate.Text = "创建模板";
-            this.btnCreate.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnCreate_Click);
+            this.gridCCTempletData.Size = new System.Drawing.Size(300, 395);
+            this.gridCCTempletData.TemplateControlName = "frmCostTempletLayout";
             // 
             // lblInfor
             // 
             this.lblInfor.ForeColor = System.Drawing.Color.Silver;
-            this.lblInfor.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Center;
-            this.lblInfor.Location = new System.Drawing.Point(0, 180);
+            this.lblInfor.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
+            this.lblInfor.Location = new System.Drawing.Point(0, 210);
             this.lblInfor.Name = "lblInfor";
             this.lblInfor.Size = new System.Drawing.Size(300, 30);
-            this.lblInfor.TabIndex = 4;
             this.lblInfor.Text = "当前暂无成本中心模板，请创建！";
             this.lblInfor.Visible = false;
+            // 
+            // title1
+            // 
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.FontSize = 15F;
+            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.title1.Location = new System.Drawing.Point(111, 36);
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
+            this.title1.TitleText = "成本中心类型模板";
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnCreate.BorderRadius = 4;
+            this.btnCreate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCreate.FontSize = 17F;
+            this.btnCreate.Location = new System.Drawing.Point(10, 60);
+            this.btnCreate.Margin = new Smobiler.Core.Controls.Margin(10F, 10F, 10F, 0F);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(280, 35);
+            this.btnCreate.Text = "创建模板";
+            this.btnCreate.Press += new System.EventHandler(this.btnCreate_Click);
             // 
             // frmCostTemplet
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.gridCCTempletData,
+            this.title1,
             this.btnCreate,
+            this.gridCCTempletData,
             this.lblInfor});
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
-            this.TitleText = "成本中心类型模板";
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmCostTemplet_KeyDown);
             this.Load += new System.EventHandler(this.frmCostTemplet_Load);
-            this.TitleImageClick += new System.EventHandler(this.frmCostTemplet_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmCostTemplet_KeyDown);
             this.Name = "frmCostTemplet";
 
         }
         #endregion
 
-        private Smobiler.Core.Controls.GridView gridCCTempletData;
-        private Smobiler.Core.Controls.Button btnCreate;
+        private Smobiler.Core.Controls.ListView gridCCTempletData;
         private Smobiler.Core.Controls.Label lblInfor;
+        private SmoONE.UI.Layout.Title title1;
+        private Smobiler.Core.Controls.Button btnCreate;
 
     }
 }

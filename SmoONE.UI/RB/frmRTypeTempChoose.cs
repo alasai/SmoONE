@@ -1,8 +1,5 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Smobiler.Core;
 using Smobiler.Core.Controls;
 using System.Data;
 using SmoONE.DTOs;
@@ -10,66 +7,46 @@ using SmoONE.DTOs;
 namespace SmoONE.UI.RB
 {
     // ******************************************************************
-    // æ–‡ä»¶ç‰ˆæœ¬ï¼š SmoONE 1.0
-    // Copyright  (c)  2016-2017 Smobiler 
-    // åˆ›å»ºæ—¶é—´ï¼š 2016/11
-    // ä¸»è¦å†…å®¹ï¼š  æ¶ˆè´¹æ¨¡æ¿é€‰æ‹©ç•Œé¢
+    // ÎÄ¼ş°æ±¾£º SmoONE 2.0
+    // Copyright  (c)  2017-2018 Smobiler 
+    // ´´½¨Ê±¼ä£º 2017/07
+    // Ö÷ÒªÄÚÈİ£º  Ïû·ÑÄ£°åÑ¡Ôñ½çÃæ
     // ******************************************************************
-    partial class frmRTypeTempChoose : Smobiler.Core.MobileForm
+    partial class frmRTypeTempChoose : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
-        internal string RTTemplaetID;           //æ¨¡æ¿ç¼–å·
-        AutofacConfig AutofacConfig = new AutofacConfig();//è°ƒç”¨é…ç½®ç±»
+        internal string RTTemplaetID;           //Ä£°å±àºÅ
+        AutofacConfig AutofacConfig = new AutofacConfig();//µ÷ÓÃÅäÖÃÀà
         #endregion
         /// <summary>
-        /// gridRBModelç‚¹å‡»äº‹ä»¶,é€‰ä¸­æ¨¡æ¿
+        /// ÊÖ»ú×Ô´ø·µ»Ø²Ù×÷
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void gridRBModel_CellClick(object sender, GridViewCellEventArgs e)
-        {
-            try
-            {
-                //é€‰ä¸­æŸä¸ªæ¨¡æ¿åï¼Œå°†é€‰ä¸­æ¨¡æ¿çš„ç¼–å·ä¼ é€’åˆ°ä¸Šä¸€ä¸ªé¡µé¢
-                RTTemplaetID = e.Cell.Items["lblRT_Money"].Value.ToString();
-                this.ShowResult = Smobiler.Core.ShowResult.Yes;
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-        }
-        /// <summary>
-        /// TitleImageç‚¹å‡»äº‹ä»¶ï¼Œå·¦ä¸Šè§’æŒ‰é’®
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void femRBRowModel_TitleImageClick(object sender, EventArgs e)
-        {
-            this.Close();         //å…³é—­å½“å‰é¡µé¢
-        }
-        /// <summary>
-        /// æ‰‹æœºè‡ªå¸¦è¿”å›æ“ä½œ
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void femRBRowModel_KeyDown(object sender, KeyDownEventArgs e)
+        private void frmRTypeTempChoose_KeyDown(object sender, KeyDownEventArgs e)
         {
             if (e.KeyCode == KeyCode.Back)
             {
-                this.Close();         //å…³é—­å½“å‰é¡µé¢
+                this.Close();         //¹Ø±Õµ±Ç°Ò³Ãæ
             }
         }
-   
         /// <summary>
-        /// åˆå§‹åŒ–æ–¹æ³•ï¼ŒåŠ è½½æ•°æ®
+        /// ³õÊ¼»¯Ò³Ãæ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmRTypeTempChoose_Load(object sender, EventArgs e)
+        {
+            Bind();                   //¼ÓÔØÏû·ÑÄ£°åÊı¾İ
+        }
+        /// <summary>
+        /// ³õÊ¼»¯·½·¨£¬¼ÓÔØÊı¾İ
         /// </summary>
         private void Bind()
         {
             try
             {
-                List<RB_RType_TemplateDto> RBRTypeTemplate = AutofacConfig.rBService.GetTemplateByCreateUser(Client.Session["U_ID"].ToString());    //Stevençš„ç”¨æˆ·ID
+                List<RB_RType_TemplateDto> RBRTypeTemplate = AutofacConfig.rBService.GetTemplateByCreateUser(Client.Session["U_ID"].ToString());    //StevenµÄÓÃ»§ID
                 DataTable table = new DataTable();
                 table.Columns.Add("RB_RTT_TemplateID");
                 table.Columns.Add("RB_RTT_TypeID");
@@ -81,32 +58,15 @@ namespace SmoONE.UI.RB
                     String TypeName = AutofacConfig.rBService.GetTypeNameByID(row.RB_RTT_TypeID);
                     table.Rows.Add(row.RB_RTT_TemplateID, row.RB_RTT_TypeID, TypeName, row.RB_RTT_Amount, row.RB_RTT_Note);
                 }
-                gridRBModel.Rows.Clear(); //æ¸…ç©ºæ¶ˆè´¹æ¨¡æ¿é€‰æ‹©åˆ—è¡¨æ•°æ®
+                listRBModel.Rows.Clear(); //Çå¿ÕÏû·ÑÄ£°åÑ¡ÔñÁĞ±íÊı¾İ
                 if (table.Rows.Count > 0)
                 {
                     this.lblInfor.Visible = false;
                     this.btnCreate.Visible = false;
-                    this.gridRBModel.DataSource = table;
-                    this.gridRBModel.DataBind();
+                    this.listRBModel.DataSource = table;
+                    this.listRBModel.DataBind();
                 }
-               
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-        }
 
-        /// <summary>
-        /// åˆå§‹åŒ–é¡µé¢
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void femRBRowModel_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                Bind();                   //åŠ è½½æ¶ˆè´¹æ¨¡æ¿æ•°æ®
             }
             catch (Exception ex)
             {
@@ -114,20 +74,25 @@ namespace SmoONE.UI.RB
             }
         }
         /// <summary>
-        /// ç‚¹å‡»åˆ›å»ºæŒ‰é’®ï¼Œè·³è½¬åˆ°åˆ›å»ºæ¨¡æ¿é¡µé¢
+        /// µã»÷´´½¨°´Å¥£¬Ìø×ªµ½´´½¨Ä£°å½çÃæ
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnCreate_Click(object sender, EventArgs e)
+        private void btnCreate_Press(object sender, EventArgs e)
         {
-            frmRTypeTempCreate frm = new frmRTypeTempCreate();         //è¿›å…¥æ¨¡æ¿åˆ›å»ºé¡µé¢
-            this.Redirect(frm, (MobileForm from, object args) =>
+            frmRTypeTempCreate frm = new frmRTypeTempCreate();         //½øÈëÄ£°å´´½¨Ò³Ãæ
+            this.Show(frm, (MobileForm from, object args) =>
             {
-                if (frm.ShowResult == Smobiler.Core.ShowResult.Yes)
+                if (frm.ShowResult == ShowResult.Yes)
                 {
                     Bind();
                 }
             });
-        }       
+        }
+
+        private void title1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

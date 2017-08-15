@@ -9,6 +9,8 @@ using SmoONE.Application;
 using SmoONE.Domain ;
 using SmoONE.CommLib;
 using SmoONE.DTOs;
+using SmoONE.UI.Layout;
+using SmoONE.UI.UserInfo;
 
 namespace SmoONE.UI.Leave
 {
@@ -18,25 +20,23 @@ namespace SmoONE.UI.Leave
     // 创建时间： 2016/11
     // 主要内容：  请假创建或编辑界面
     // ******************************************************************
-    partial class frmLeaveCreate : Smobiler.Core.MobileForm
+    partial class frmLeaveCreate : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         public string LID;//请假编号
         private string type=""; //请假类别
 
-        private int checkTop = 0;//审阅人top
+        //private int checkTop = 0;//审阅人top
         private int imgCheckLeft = 0;
         private string addCheckUser = "";//添加审批人
         private List<string> listCheckUsers = new List<string>(); //审阅人
-        private List<ImageButton> listbtnCheckUsersP = new List<ImageButton>();//审阅人头像控件
-        private List<Button> listbtnCheckUsers = new List<Button>();//审阅人名称控件
+        private List<Panel> listplCheckUsersP = new List<Panel>();//审阅人头像控件
 
         private int ccTop=0;//抄送人top
         private int imgCCLeft = 0;
         private string addCCUser = "";//添加抄送人
         private List<string> listCCToUsers = new List<string>(); //抄送人
-        private List<ImageButton> listbtnCCToUsersP = new List<ImageButton>();//抄送人头像控件
-        private List<Button> listbtnCCToUsers = new List<Button>();//抄送人名称控件
+        private List<Panel> listplCCToUsersP = new List<Panel>();//抄送人头像控件
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
         #endregion
 
@@ -47,8 +47,9 @@ namespace SmoONE.UI.Leave
         /// <param name="e"></param>
         private void frmLeaveCreate_Load(object sender, EventArgs e)
         {
-            checkTop = lblCheck.Top + lblCheck.Height ;
-            ccTop = lblCCTo.Top + lblCCTo.Height;
+            //checkTop = lblCheck.Top + lblCheck.Height ;
+            //ccTop = lblCCTo.Top + lblCCTo.Height;
+
             Bind();
         }
         /// <summary>
@@ -65,8 +66,8 @@ namespace SmoONE.UI.Leave
                     LeaveDetailDto leave = AutofacConfig.leaveService.GetByID(LID);
                     type = leave.L_TypeID;
                     btnType.Text = AutofacConfig.leaveService.GetTypeNameByID(leave.L_TypeID);
-                    dpkStartDate.CurrentDate = leave.L_StartDate;
-                    dpkEndDate.CurrentDate = leave.L_EndDate;
+                    dpkStartDate.Value = leave.L_StartDate;
+                    dpkEndDate.Value = leave.L_EndDate;
                     txtLday.Text = leave.L_LDay.ToString();
                     txtReason.Text = leave.L_Reason;
                     //获取图片
@@ -114,12 +115,12 @@ namespace SmoONE.UI.Leave
             popType.Groups.Clear();
             PopListGroup poli = new PopListGroup();
             popType.Groups.Add(poli);
-            poli.Text = "类别选择";
+            poli.Title = "类别选择";
             //获取类别，并绑定poplist数据
             List <LeaveType >  listLType= AutofacConfig.leaveService.GetAllType ();
             foreach (LeaveType leaveType in listLType)
             {
-                poli.Items.Add( leaveType.L_T_Name , leaveType .L_T_ID );
+                poli.AddListItem( leaveType.L_T_Name , leaveType .L_T_ID );
                 if (type.Trim().Length > 0)
                 {
                     if (type.Trim().Equals(leaveType.L_T_ID))
@@ -185,7 +186,7 @@ namespace SmoONE.UI.Leave
                 {
                     throw new Exception("请输入请假类别！");
                 }
-                if (dpkStartDate.CurrentDate > dpkEndDate.CurrentDate)
+                if (dpkStartDate.Value > dpkEndDate.Value)
                 {
                     throw new Exception("开始时间必须小于结束时间！");
                 }
@@ -212,8 +213,8 @@ namespace SmoONE.UI.Leave
                //赋值请假信息
                 LeaveInputDto leave = new LeaveInputDto();
                 leave.L_TypeID = type;
-                leave.L_StartDate = dpkStartDate.CurrentDate;
-                leave.L_EndDate = dpkEndDate.CurrentDate;
+                leave.L_StartDate = dpkStartDate.Value;
+                leave.L_EndDate = dpkEndDate.Value;
                 leave.L_LDay =  Convert .ToDecimal (txtLday.Text .Trim());
                 leave.L_Reason = txtReason.Text.Trim();
                 if (imgL.ResourceID.Trim().Length > 0)
@@ -309,9 +310,9 @@ namespace SmoONE.UI.Leave
             {
                 frmCheckOrCCTo frm = new frmCheckOrCCTo();
                 frm.isCheck = true;
-                Redirect(frm, (MobileForm form, object args) =>
+                this.Show(frm, (MobileForm form, object args) =>
                     {
-                        if (frm.ShowResult == Smobiler.Core.ShowResult.Yes)
+                        if (frm.ShowResult == Smobiler.Core.Controls .ShowResult.Yes)
                         {
                             if (string.IsNullOrWhiteSpace(frm.userInfo) == false)
                             {
@@ -325,6 +326,8 @@ namespace SmoONE.UI.Leave
 
                                     addCheckUser = Check;
                                     addCheckusers();
+                                    pCheck2.Controls.Remove(imgbtnAddCheck);
+                                    pCheck2.Controls.Add(imgbtnAddCheck);
                                 }
                             }
                         }
@@ -344,11 +347,11 @@ namespace SmoONE.UI.Leave
             }
             else
             {
-                frmCheckOrCCTo frm = new frmCheckOrCCTo();
+                SmoONE.UI.UserInfo.frmCheckOrCCTo frm = new SmoONE.UI.UserInfo.frmCheckOrCCTo();
                 frm.isCCTO = true;
-                Redirect(frm, (MobileForm form, object args) =>
+                Show(frm, (MobileForm form, object args) =>
                 {
-                    if (frm.ShowResult == Smobiler.Core.ShowResult.Yes)
+                    if (frm.ShowResult == Smobiler.Core.Controls .ShowResult.Yes)
                     {
                         if (string.IsNullOrWhiteSpace(frm.userInfo) == false)
                         {
@@ -361,6 +364,8 @@ namespace SmoONE.UI.Leave
                             {
                                 addCCUser = CCToUser;
                                 addCCTousers();
+                                pCCTo2.Controls.Remove(imgbtnAddCCTo);
+                                pCCTo2.Controls.Add(imgbtnAddCCTo);
                             }
                         }
                     }
@@ -371,60 +376,60 @@ namespace SmoONE.UI.Leave
         //添加审批人
         private void addCheckusers()
         {
+            Panel plCheckMan = new Panel();
+            plCheckMan.Touchable = true;
+            plCheckMan.Width = 35;
+            plCheckMan.Height = 55;
+            plCheckMan.Margin = new Margin(0,0,10,0);
+            Image img = new Image();
+            img.Height = 35;
+            img.Width = 35;
+            img.Left = 0;
+            img.Top = 0;
+            Label lbl = new Label();
+            lbl.Height = 20;
+            lbl.Width = 35;
+            lbl.Left = 0;
+            lbl.Top = 35;
+            plCheckMan.Controls.AddRange(new MobileControl[] { img,lbl});
+
             if (addCheckUser.Trim().Length > 0 & listCheckUsers.Count <= 4)
             {
                 if (listCheckUsers.Contains(addCheckUser) == false)
                 {
                     listCheckUsers.Add(addCheckUser.Split(',')[0]);
-                    int imgCheckWSize = 35;
-                    ImageButton imgbtn = new ImageButton();
                     if (string.IsNullOrEmpty(addCheckUser.Split(',')[2]) == true)
                     {
                         UserDetailDto user = AutofacConfig.userService.GetUserByUserID(addCheckUser.Split(',')[0]);
                         switch (user.U_Sex)
                         {
                             case (int)Sex.男:
-                                imgbtn.ResourceID = "boy";
+                                img.ResourceID = "boy";
                                 break;
                             case (int)Sex.女:
-                                imgbtn.ResourceID = "girl";
+                                img.ResourceID = "girl";
                                 break;
                         }
                     }
                     else
                     {
-                        imgbtn.ResourceID = addCheckUser.Split(',')[2];
+                        img.ResourceID = addCheckUser.Split(',')[2];
                     }
-
-                    imgbtn.Width = imgCheckWSize;
-                    imgbtn.Height = imgCheckWSize;
-                    imgbtn.ZIndex = (Controls.Count + 1);
-                    imgbtn.BorderRadius = 10;
-                    imgbtn.Name = "imgbtnCheck" + addCheckUser.Split(',')[0];
-                    imgbtn.SizeMode = Smobiler.Core.ImageSizeMode.StretchImage;
-                    imgbtn.Tag = addCheckUser.Split(',')[0];
-                    Controls.Add(imgbtn);//界面添加审批人头像控件
-                    listbtnCheckUsersP.Add(imgbtn);//添加审批人头像控件
-                    imgbtn.Click += btnDelCheckClick;//删除审批人事件
-
-                    Button btn = new Button();
-                    btn.Text = addCheckUser.Split(',')[1];
-                    btn.Name = "btnCheck" + addCheckUser.Split(',')[0];
-                    btn.Width = imgCheckWSize;
-                    btn.Height = 20;
-                    btn.BackColor = System.Drawing.Color.White;
-                    btn.ForeColor = System.Drawing.Color.FromArgb(44, 44, 44);
-                    btn.FontSize = 10;
-                    btn.Tag = addCheckUser.Split(',')[0];
-                    btn.ZIndex = (Controls.Count + 1);
-                    Controls.Add(btn);//界面添加审批人名称控件
-                    listbtnCheckUsers.Add(btn);//添加审批人名称控件
-                    btn.Click += btnDelCheckClick;//删除审批人事件
-
+                    plCheckMan.Name= "plCheckMan" + addCheckUser.Split(',')[0];
+                    img.BorderRadius = 12;
+                    img.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Stretch;
+                    
+                    lbl.Text = addCheckUser.Split(',')[1];
+                    lbl.HorizontalAlignment = HorizontalAlignment.Center;
+                    lbl.BackColor = System.Drawing.Color.White;
+                    lbl.ForeColor = System.Drawing.Color.FromArgb(44, 44, 44);
+                    lbl.FontSize = 10;
+                    plCheckMan.Tag = addCheckUser.Split(',')[0];
+                    listplCheckUsersP.Add(plCheckMan);//添加审批人名称控件
+                    plCheckMan.Press += btnDelCheckClick;//删除审批人事件
+                    pCheck2.Controls.Add(plCheckMan);                 
                 }
-
                 addCheckUser = "";
-
             }
             CheckusersSort();
         }
@@ -433,57 +438,59 @@ namespace SmoONE.UI.Leave
         /// </summary>
         private void addCCTousers()
         {
+            Panel plCCToMan = new Panel();
+            plCCToMan.Touchable = true;
+            plCCToMan.Width = 35;
+            plCCToMan.Height = 55;
+            plCCToMan.Margin = new Margin(0, 0, 10, 0);
+            Image img = new Image();
+            img.Height = 35;
+            img.Width = 35;
+            img.Left = 0;
+            img.Top = 0;
+            Label lbl = new Label();
+            lbl.Height = 20;
+            lbl.Width = 35;
+            lbl.Left = 0;
+            lbl.Top = 35;
+            plCCToMan.Controls.AddRange(new MobileControl[] { img, lbl });
 
             if (addCCUser.Trim().Length > 0 & listCCToUsers.Count <= 4)
             {
                 if (listCCToUsers.Contains(addCCUser) == false)
                 {
                     listCCToUsers.Add(addCCUser.Split(',')[0]);
-                    int imgCCWSize = 35;
-                    ImageButton imgbtn = new ImageButton();
                     if (string.IsNullOrEmpty(addCCUser.Split(',')[2]) == true)
                     {
                         UserDetailDto user = AutofacConfig.userService.GetUserByUserID(addCCUser.Split(',')[0]);
                         switch (user.U_Sex)
                         {
                             case (int)Sex.男:
-                                imgbtn.ResourceID = "boy";
+                                img.ResourceID = "boy";
                                 break;
                             case (int)Sex.女:
-                                imgbtn.ResourceID = "girl";
+                                img.ResourceID = "girl";
                                 break;
                         }
                     }
                     else
                     {
-                        imgbtn.ResourceID = addCCUser.Split(',')[2];
+                        img.ResourceID = addCCUser.Split(',')[2];
                     }
-                   
+                    plCCToMan.Name= "plCCToMan" + addCCUser.Split(',')[0];
+                    img.BorderRadius = 12;
+                    img.SizeMode =ImageSizeMode.Stretch;
 
-                    imgbtn.Width = imgCCWSize;
-                    imgbtn.Height = imgCCWSize;
-                    imgbtn.ZIndex = (Controls.Count + 1);
-                    imgbtn.BorderRadius = 10;
-                    imgbtn.Name = "imgbtnCC" + addCCUser.Split(',')[0];
-                    imgbtn.SizeMode = Smobiler.Core.ImageSizeMode.StretchImage;
-                    imgbtn.Tag = addCCUser.Split(',')[0];
-                    Controls.Add(imgbtn);//界面添加抄送人头像控件
-                    listbtnCCToUsersP.Add(imgbtn);//添加抄送人头像控件
-                    imgbtn.Click += btnDelCCToClick;//删除抄送人事件
-
-                    Button btn = new Button();
-                    btn.Text = addCCUser.Split(',')[1];
-                    btn.Name = "btnCC" + addCCUser.Split(',')[0];
-                    btn.Width = imgCCWSize;
-                    btn.Height = 20;
-                    btn.BackColor = System.Drawing.Color.White;
-                    btn.ForeColor = System.Drawing.Color.FromArgb(44, 44, 44);
-                    btn.FontSize = 10;
-                    btn.Tag = addCCUser.Split(',')[0];
-                    btn.ZIndex = (Controls.Count + 1);
-                    Controls.Add(btn);//界面添加抄送人名称控件
-                    listbtnCCToUsers.Add(btn);//添加抄送人名称控件
-                    btn.Click += btnDelCCToClick;//删除抄送人事件
+                    lbl.HorizontalAlignment = HorizontalAlignment.Center;
+                    lbl.Text = addCCUser.Split(',')[1];
+                    lbl.Height = 20;
+                    lbl.BackColor = System.Drawing.Color.White;
+                    lbl.ForeColor = System.Drawing.Color.FromArgb(44, 44, 44);
+                    lbl.FontSize = 10;
+                    plCCToMan.Tag = addCCUser.Split(',')[0];
+                    plCCToMan.Press += btnDelCCToClick;//删除抄送人事件
+                    listplCCToUsersP.Add(plCCToMan);//添加抄送人名称控件
+                    pCCTo2.Controls.Add(plCCToMan);                 
                 }
 
                 addCCUser = "";
@@ -506,27 +513,18 @@ namespace SmoONE.UI.Leave
                 if (checkUser != null)
                 {
                     listCheckUsers.Remove(checkUser.ToString());//删除财务审批人
-                    foreach (ImageButton imgbtnCheck in listbtnCheckUsersP)
+                    foreach (Panel plCheckMan in listplCheckUsersP)
                     {
-                        if (imgbtnCheck.Name.Equals("imgbtnCheck" + checkUser))
+                        if (plCheckMan.Name.Equals("plCheckMan" + checkUser))
                         {
-                            listbtnCheckUsersP.Remove(imgbtnCheck);//删除财务审批头像控件
-                            Controls.Remove((MobileControl)imgbtnCheck);//删除界面中财务审批头像控件
+                            listplCheckUsersP.Remove(plCheckMan);//删除财务审批头像控件
+                            pCheck2.Controls.Remove((MobileControl)plCheckMan);//删除界面中财务审批头像控件
                             break;
                         }
 
                     }
-                    foreach (Button btnCheck in listbtnCheckUsers)
-                    {
-                        if (btnCheck.Name.Equals("btnCheck" + checkUser))
-                        {
-                            listbtnCheckUsers.Remove(btnCheck);//删除财务审批名称控件
-                            Controls.Remove((MobileControl)btnCheck);//删除界面中财务审批名称控件
-                            break;
-                        }
-                    }
 
-                    checkTop = lblCheck.Top + lblCheck.Height;
+                    //checkTop = lblCheck.Top + lblCheck.Height;
                     CheckusersSort();//审批人相关控件排序
                     checkUser = null;
                 }
@@ -552,27 +550,16 @@ namespace SmoONE.UI.Leave
                 if (CCUser != null)
                 {
                     listCCToUsers.Remove(CCUser.ToString());//删除抄送人
-                    foreach (ImageButton imgbtnFChecker in listbtnCCToUsersP)
+                    foreach (Panel plCCToMan in listplCCToUsersP)
                     {
-                        if (imgbtnFChecker.Name.Equals("imgbtnCC" + CCUser))
+                        if (plCCToMan.Name.Equals("plCCToMan" + CCUser))
                         {
-                            listbtnCCToUsersP.Remove(imgbtnFChecker);//删除抄送人头像控件
-                            Controls.Remove((MobileControl)imgbtnFChecker);//删除界面中抄送人头像控件
+                            listplCCToUsersP.Remove(plCCToMan);//删除抄送人头像控件
+                            pCCTo2.Controls.Remove((MobileControl)plCCToMan);//删除界面中抄送人头像控件
                             break;
                         }
 
                     }
-                    foreach (Button btnFChecker in listbtnCCToUsers)
-                    {
-                        if (btnFChecker.Name.Equals("btnCC" + CCUser))
-                        {
-                            listbtnCCToUsers.Remove(btnFChecker);//删除抄送人名称控件
-                            Controls.Remove((MobileControl)btnFChecker);//删除界面中抄送人名称控件
-                            break;
-                        }
-                    }
-
-                    ccTop = lblCCTo.Top + lblCCTo.Height;
                     CCToUsersSort();//抄送人相关控件排序
                     CCUser = null;
                 }
@@ -590,9 +577,6 @@ namespace SmoONE.UI.Leave
         /// </summary>
         private void CheckusersSort()
         {
-            int imgCheckWSize = 35;
-            int imgCheckHSize = 55;
-            imgCheckLeft = 65;
             if (listCheckUsers.Count > 0 & listCheckUsers.Count <= 4)
             {
                 //如果已经添加了4位审批人，则隐藏添加抄送人控件，否则显示
@@ -604,48 +588,7 @@ namespace SmoONE.UI.Leave
                 {
                     imgbtnAddCheck.Visible = true;
                 }
-                foreach (string checkuser in listCheckUsers)
-                {
-                    foreach (Button btnCheckUser in listbtnCheckUsers)
-                    {
-                        if (btnCheckUser.Name.Equals("btnCheck" + checkuser))
-                        {
-                                if ((imgCheckLeft + imgCheckWSize) > 300)
-                                {
-                                    imgCheckLeft = 0;
-                                    checkTop = checkTop + imgCheckHSize;
-                                    if (checkTop > Height)
-                                    {
-                                        Height = Height + imgCheckHSize;
-                                    }
-                                }
-
-                                foreach (ImageButton imgbtnCheckUser in listbtnCheckUsersP)
-                                {
-                                    if (imgbtnCheckUser.Name.Equals("imgbtnCheck" + checkuser))
-                                    {
-                                        imgbtnCheckUser.Left = imgCheckLeft;
-                                        imgbtnCheckUser.Top = checkTop;
-
-                                        btnCheckUser.Left = imgCheckLeft;
-                                        btnCheckUser.Top = imgbtnCheckUser.Top + imgbtnCheckUser.Height;
-                                        imgCheckLeft += (imgCheckWSize + 10);
-                                        break;
-                                    }
-                                }
-                            continue;
-                        }
-                    }
-                }
             }
-            imgbtnAddCheck.Top = checkTop;
-            imgbtnAddCheck.Left = imgCheckLeft;
-            lblCCTo.Top = lblCheck2.Top + lblCheck2.Height + 10;
-            lblCCTo1.Top = lblCCTo.Top;
-            ccTop = lblCCTo.Top + lblCCTo.Height;
-            lblCCTo2.Top = ccTop;
-            imgbtnAddCCTo.Top = ccTop;
-            CCToUsersSort();
         }
 
         /// <summary>
@@ -653,9 +596,6 @@ namespace SmoONE.UI.Leave
         /// </summary>
         private void CCToUsersSort()
         {
-            int imgCCWSize = 35;
-            int imgCCHSize = 55;
-            imgCCLeft = 65;
             if (listCCToUsers.Count > 0 & listCCToUsers.Count <= 4)
             {
                 //如果已经添加了4位抄送人，则隐藏添加抄送人控件，否则显示
@@ -668,50 +608,7 @@ namespace SmoONE.UI.Leave
                 {
                     imgbtnAddCCTo.Visible = true;
                 }
-                foreach (string ccToUser in listCCToUsers)
-                {
-                    foreach (Button btnCCUser in listbtnCCToUsers)
-                    {
-                        if (btnCCUser.Name.Equals("btnCC" + ccToUser))
-                        {
-                          
-                                if ((imgCCLeft + imgCCWSize) > 300)
-                                {
-                                    imgCCLeft = 0;
-                                    ccTop = ccTop + imgCCHSize;
-                                    if (ccTop > Height)
-                                    {
-                                        Height = Height + imgCCHSize;
-                                    }
-                                }
-                              
-                                foreach (ImageButton imgbtnCC in listbtnCCToUsersP)
-                                {
-                                    if (imgbtnCC.Name.Equals("imgbtnCC" + ccToUser))
-                                    {
-                                        imgbtnCC.Left = imgCCLeft;
-                                        imgbtnCC.Top = ccTop;
-
-                                        btnCCUser.Left = imgCCLeft;
-                                        btnCCUser.Top = imgbtnCC.Top + imgbtnCC.Height;
-                                        imgCCLeft += (imgCCWSize + 10);
-                                        break;
-                                    }
-                                }
-                            continue;
-                      }
-                    }
-                }
             }
-            imgbtnAddCCTo.Top = ccTop;
-            lblCCTo2.Height = imgCCHSize;
-            imgbtnAddCCTo.Left = imgCCLeft;
-            btnSave.Top = lblCCTo2.Top + lblCCTo2.Height + 10;
-            if (Height < (btnSave.Top + btnSave.Height))
-            {
-                Height = btnSave.Top + btnSave.Height + 10;
-            }
-
         }
         
         /// <summary>
@@ -734,7 +631,7 @@ namespace SmoONE.UI.Leave
             {
                 MessageBox.Show("是否确定删除图片？", "删除", MessageBoxButtons.YesNo, (Object s, MessageBoxHandlerArgs args) =>
                 {
-                    if (args.Result == Smobiler.Core.ShowResult.Yes)
+                    if (args.Result == Smobiler.Core.Controls .ShowResult.Yes)
                     {
                         imgL.ResourceID = "";
                         imgL.Refresh();
@@ -752,9 +649,9 @@ namespace SmoONE.UI.Leave
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void camera1_ImageCaptured(object sender, BinaryData e)
+        private void camera1_ImageCaptured(object sender, BinaryResultArgs e)
         {
-            if (string.IsNullOrEmpty(e.ErrorInfo))
+            if (string.IsNullOrEmpty(e.error ))
             {
 
                 if (imgL.ResourceID.Trim().Length > 0)

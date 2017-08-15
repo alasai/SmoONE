@@ -15,10 +15,10 @@ namespace SmoONE.UI.Attendance
     // 创建时间： 2017/2
     // 主要内容： 考勤统计查看界面
     // ******************************************************************
-    partial class frmAttendanceStatistics : Smobiler.Core.MobileForm
+    partial class frmAttendanceStatistics : Smobiler.Core.Controls.MobileForm
     {       
         #region "definition"
-        private int btnMode;             //选择显示模板
+        public  int btnMode;             //选择显示模板
         internal string UserID;          //用户ID
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
         #endregion
@@ -56,30 +56,35 @@ namespace SmoONE.UI.Attendance
                 switch (btnMode)
                 {
                     case 1:
-                        this.gridATdata.Layout = "frmAttendanceStatisticsLayout";
-                        //获取某月考勤用户数据
-                        List<string> Users = AutofacConfig.attendanceService.GetUserNameByPeriod(Convert.ToDateTime(Year[0] + Month[0]).AddDays(-DateTime.Now.Day + 1), Convert.ToDateTime(Year[0] + Month[0]).AddDays(1 - DateTime.Now.Day).AddMonths(1));
-                        if (Users.Count > 0)
+                  //  this.gridATdata.TemplateControlName = "frmAttendanceStatisticsLayout";
+                    //获取某月考勤用户数据
+                    List<string> Users = AutofacConfig.attendanceService.GetUserNameByPeriod(Convert.ToDateTime(Year[0] + Month[0]).AddDays(-DateTime.Now.Day + 1), Convert.ToDateTime(Year[0] + Month[0]).AddDays(1 - DateTime.Now.Day).AddMonths(1));
+                    if (Users.Count > 0)
+                    {
+                        table.Columns.Add("ID");                //用户ID
+                        table.Columns.Add("Pict");              //用户头像
+                        table.Columns.Add("Name");              //用户名称
+                        table.Columns.Add("Total");             //应签到次数
+                        table.Columns.Add("Al");                //准时签到次数
+                        table.Columns.Add("Late");              //迟到次数
+                        table.Columns.Add("Early");             //早退次数
+                        table.Columns.Add("No");                //未签次数
+                        foreach (string Row in Users)
                         {
-                            table.Columns.Add("ID");                //用户ID
-                            table.Columns.Add("Pict");              //用户头像
-                            table.Columns.Add("Name");              //用户名称
-                            table.Columns.Add("Total");             //应签到次数
-                            table.Columns.Add("Al");                //准时签到次数
-                            table.Columns.Add("Late");              //迟到次数
-                            table.Columns.Add("Early");             //早退次数
-                            table.Columns.Add("No");                //未签次数
-                            foreach (string Row in Users)
-                            {
-                                MonthlyStatisticsDto Stat = AutofacConfig.attendanceService.GetUserMonthlyStatistics(Row, Convert.ToDateTime(Year[0] + Month[0]));
-                                UserDetails UserDetail = new UserDetails();
-                                UserDetailDto User = UserDetail.getUser(Row);
-                                table.Rows.Add(User.U_ID, User.U_Portrait, User.U_Name, Stat.MS_AllCount, Stat.MS_InTimeCount, Stat.MS_ComeLateCount, Stat.MS_LeaveEarlyCount, Stat.MS_NoSignInCount + Stat.MS_NoSignOutCount);
-                            }
+                            MonthlyStatisticsDto Stat = AutofacConfig.attendanceService.GetUserMonthlyStatistics(Row, Convert.ToDateTime(Year[0] + Month[0]));
+                            UserDetails UserDetail = new UserDetails();
+                            UserDetailDto User = UserDetail.getUser(Row);
+                            table.Rows.Add(User.U_ID, User.U_Portrait, User.U_Name, Stat.MS_AllCount, Stat.MS_InTimeCount, Stat.MS_ComeLateCount, Stat.MS_LeaveEarlyCount, Stat.MS_NoSignInCount + Stat.MS_NoSignOutCount);
                         }
-                        break;
+                        gridATdata.Rows.Clear();    //清除考勤统计列表数据
+                        this.gridATdata.DataSource = table;
+                        this.gridATdata.DataBind();
+                    }
+                      
+                    break;
                     case 2:
-                        this.gridATdata.Layout = "frmAttendanceStatDayLayout";
+
+                      //  this.gridATdata.TemplateControlName = "frmAttendanceStatDayLayout";
                         //获取某月考勤日期
                         List<DateTime> listDate = AutofacConfig.attendanceService.GetDayOfMonthlyStatistics(UserID, Convert.ToDateTime(Year[0] + Month[0]));
                         if (listDate.Count > 0)
@@ -90,15 +95,14 @@ namespace SmoONE.UI.Attendance
                                 string Time = Row.ToString("yyyy年M月d日    dddd", new System.Globalization.CultureInfo("zh-CN"));
                                 table.Rows.Add(Time);
                             }
+                            gridATdata1.Rows.Clear();    //清除考勤统计列表数据
+                            this.gridATdata1.DataSource = table;
+                            this.gridATdata1.DataBind();
+                            
                         }
                         break;
                 }
-                gridATdata.Rows.Clear();    //清除考勤统计列表数据
-                if (table.Rows.Count > 0)
-                {
-                    this.gridATdata.DataSource = table;
-                    this.gridATdata.DataBind();
-                }
+                
             }
             catch (Exception ex)
             {
@@ -121,7 +125,7 @@ namespace SmoONE.UI.Attendance
                 {
                     PopListItem YearItem = new PopListItem();
                     YearItem.Text = i.ToString();
-                    popListYear.Groups.FindByText("请选择年份").AddListItem(YearItem);
+                   // popListYear.Groups.FindByText("请选择年份").AddListItem(YearItem);
                     if (i == DateTime.Now.Year)
                     {
                         popListYear.SetSelections(YearItem);
@@ -129,7 +133,9 @@ namespace SmoONE.UI.Attendance
                 }
                 popListMonth.SetSelections(popListMonth.Groups[0].Items[(DateTime.Now.Month - 1)]);
                 btnMode = 1;
-                 
+                tabPageView1.Controls.Add(gridATdata);
+                tabPageView1.Controls.Add(gridATdata1);
+
                 Bind();
             }
             catch (Exception ex)
@@ -137,72 +143,10 @@ namespace SmoONE.UI.Attendance
                 Toast(ex.Message);
             }
         }
-        /// <summary>
-        /// 根据相应选择，在页面上显示相应内容
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridATdata_CellClick(object sender, GridViewCellEventArgs e)
-        {
-            try
-            {
-                switch (btnMode)                    //页面显示模式
-                {
-                    case 1:
-                        string[] Year = this.btnYear.Text.Split('▼');      //年份
-                        string[] Month = this.btnMonth.Text.Split('▼');       //月份
-                        frmAttendanceStatDay frmDay = new frmAttendanceStatDay();
-                        frmDay.UserID = e.Cell.Items["image1"].Value.ToString();
-                        frmDay.DayTime = Year[0] + Month[0];         //将年月信息传递到下个页面
-                        this.Redirect(frmDay);
-                        break;
-                    case 2:
-                        frmAttendanceStatMan frmMan = new frmAttendanceStatMan();
-                        frmMan.DayTime = e.Cell.Items["lblDay"].Text;    //将选择日期，传递到下个页面
-                        this.Redirect(frmMan);
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-        }
-        /// <summary>
-        /// 模式选择，用来控制GradView显示模板和数据
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void textTabBar1_ItemClick(object sender, TabBarItemClickEventArgs e)
-        {
-            try
-            {
-                this.btnYear.Text = DateTime.Now.Year.ToString() + "年▼";          //年份
-                this.btnMonth.Text = DateTime.Now.Month.ToString() + "月▼";        //月份
-                popListYear.ClearSelections();
-                popListYear.SetSelections(popListYear.Groups[0].Items[0]);
-                popListMonth.ClearSelections();
-                popListMonth.SetSelections(popListMonth.Groups[0].Items[(DateTime.Now.Month - 1)]);
-                switch (e.Item.Value)
-                {
-                    case "Men":
-                        btnMode = 1;
-                        this.btnCheck.Text = "";
-                        btnCheck.Enabled = false;
-                        break;
-                    case "Day":
-                        btnMode = 2;
-                        this.btnCheck.Text = ">";
-                        btnCheck.Enabled = true;
-                        break;
-                }
-                Bind();
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-        }
+    
+     
+
+
         /// <summary>
         /// 选择年份
         /// </summary>
@@ -270,16 +214,70 @@ namespace SmoONE.UI.Attendance
         {
             try
             {
-                frmAttendanceStatMonth frmMonth = new frmAttendanceStatMonth();
-                string[] Year = this.btnYear.Text.Split('年');
-                frmMonth.Year = Year[0];                 //年份
-                string[] Month = this.btnMonth.Text.Split('月');
-                frmMonth.month = Month[0];          //月份
-                this.Redirect(frmMonth);
+                if (btnMode == 2)
+                {
+                    frmAttendanceStatMonth frmMonth = new frmAttendanceStatMonth();
+                    string[] Year = this.btnYear.Text.Split('年');
+                    frmMonth.Year = Year[0];                 //年份
+                    string[] Month = this.btnMonth.Text.Split('月');
+                    frmMonth.month = Month[0];          //月份
+                    this.Show(frmMonth);
+                }
             }
             catch(Exception ex)
             {
                 Toast(ex.Message);
+            }
+        }
+        /// <summary>
+        /// 模式选择，用来控制GradView显示模板和数据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textTabBar1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                this.btnYear.Text = DateTime.Now.Year.ToString() + "年▼";          //年份
+                this.btnMonth.Text = DateTime.Now.Month.ToString() + "月▼";        //月份
+              // popListYear.ClearSelections();
+               // popListYear.SetSelections(popListYear.Groups[0].Items[0]);
+                //popListMonth.ClearSelections();
+                //popListMonth.SetSelections(popListMonth.Groups[0].Items[(DateTime.Now.Month - 1)]);
+                switch (textTabBar1.SelectedIndex)
+                {
+                    case 0:
+                        tabPageView1.PageIndex = 0;
+                        btnMode = 1;
+                        this.btnCheck.Text = "";
+                       // btnCheck.Enabled = false;
+                        break;
+                    case  1:
+                        tabPageView1.PageIndex = 1;
+                        btnMode = 2;
+                        this.btnCheck.Text = ">";
+                       // btnCheck.Enabled = true;
+                        break;
+                }
+                Bind();
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message);
+            }
+        }
+
+        private void tabPageView1_PageIndexChanged(object sender, EventArgs e)
+        {
+            switch (tabPageView1 .PageIndex)
+            {
+                case 0:
+                    textTabBar1.SelectedIndex = 0;
+                    break;
+                case 1:
+                    textTabBar1.SelectedIndex = 1;
+
+                    break;
             }
         }
     }

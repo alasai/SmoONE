@@ -1,8 +1,10 @@
 using System;
 using Smobiler.Core;
-namespace SmoONE.UI
+using SmoONE.UI.Layout;
+
+namespace SmoONE.UI.Work
 {
-    partial class frmCCTo : Smobiler.Core.MobileForm
+    partial class frmCCTo : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,32 +30,46 @@ namespace SmoONE.UI
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.gridCCData = new Smobiler.Core.Controls.GridView();
+            this.title1 = new SmoONE.UI.Layout.Title();
+            this.listCCData = new Smobiler.Core.Controls.ListView();
             // 
-            // gridCCData
+            // title1
             // 
-            this.gridCCData.Layout = "frmLeaveLayout";
-            this.gridCCData.Name = "gridCCData";
-            this.gridCCData.PageSize = 8;
-            this.gridCCData.ShowGridLines = false;
-            this.gridCCData.Size = new System.Drawing.Size(300, 480);
-            this.gridCCData.TabIndex = 2;
-            this.gridCCData.CellClick += new Smobiler.Core.Controls.GridViewCellClickEventHandler(this.gridCCData_CellClick);
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.FontSize = 15F;
+            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.title1.Location = new System.Drawing.Point(113, 59);
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
+            this.title1.TitleText = "抄送我的";
+            // 
+            // listCCData
+            // 
+            this.listCCData.BackColor = System.Drawing.Color.White;
+            this.listCCData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listCCData.FooterControlName = null;
+            this.listCCData.Location = new System.Drawing.Point(82, 144);
+            this.listCCData.Name = "listCCData";
+            this.listCCData.ShowSplitLine = true;
+            this.listCCData.Size = new System.Drawing.Size(100, 30);
+            this.listCCData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.listCCData.TemplateControlName = "frmLeaveLayout";
             // 
             // frmCCTo
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.gridCCData});
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
-            this.TitleText = "抄送我的";
+            this.title1,
+            this.listCCData});
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmCCTo_KeyDown);
             this.Load += new System.EventHandler(this.frmCCTo_Load);
-            this.TitleImageClick += new System.EventHandler(this.frmCCTo_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmCCTo_KeyDown);
             this.Name = "frmCCTo";
 
         }
         #endregion
 
-        private Smobiler.Core.Controls.GridView gridCCData;
+        private Title title1;
+        private Smobiler.Core.Controls.ListView listCCData;
     }
 }

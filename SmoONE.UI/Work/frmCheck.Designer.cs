@@ -1,8 +1,10 @@
 using System;
 using Smobiler.Core;
-namespace SmoONE.UI
+using SmoONE.UI.Layout;
+
+namespace SmoONE.UI.Work
 {
-    partial class frmCheck : Smobiler.Core.MobileForm
+    partial class frmCheck : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,92 +30,105 @@ namespace SmoONE.UI
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Smobiler.Core.Controls.TextTabBarItem textTabBarItem1 = new Smobiler.Core.Controls.TextTabBarItem();
-            Smobiler.Core.Controls.TextTabBarItem textTabBarItem2 = new Smobiler.Core.Controls.TextTabBarItem();
-            this.gridCheckData = new Smobiler.Core.Controls.GridView();
-            this.textTabBar1 = new Smobiler.Core.Controls.TextTabBar();
-            this.imgbtnSearch = new Smobiler.Core.Controls.ImageButton();
+            this.segmentedControl1 = new Smobiler.Core.Controls.SegmentedControl();
+            this.title1 = new SmoONE.UI.Layout.Title();
+            this.spContent = new Smobiler.Core.Controls.Panel();
+            this.tpSearch = new Smobiler.Core.Controls.Panel();
+            this.imgSearch = new Smobiler.Core.Controls.Image();
+            this.listCheckData = new Smobiler.Core.Controls.ListView();
             this.popList1 = new Smobiler.Core.Controls.PopList();
-            this.line9 = new Smobiler.Core.Controls.Line();
             // 
-            // gridCheckData
+            // segmentedControl1
             // 
-            this.gridCheckData.AllowSlip = true;
-            this.gridCheckData.Layout = "frmLeaveLayout";
-            this.gridCheckData.Location = new System.Drawing.Point(0, 75);
-            this.gridCheckData.Name = "gridCheckData";
-            this.gridCheckData.PageSize = 8;
-            this.gridCheckData.ShowGridLines = false;
-            this.gridCheckData.Size = new System.Drawing.Size(300, 474);
-            this.gridCheckData.TabIndex = 2;
-            this.gridCheckData.CellClick += new Smobiler.Core.Controls.GridViewCellClickEventHandler(this.gridCheckData_CellClick);
+            this.segmentedControl1.Items = new string[] {
+        "待我审批的",
+        "我已审批的"};
+            this.segmentedControl1.Location = new System.Drawing.Point(10, 10);
+            this.segmentedControl1.Name = "segmentedControl1";
+            this.segmentedControl1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.segmentedControl1.Size = new System.Drawing.Size(280, 35);
+            this.segmentedControl1.UnSelectedColor = System.Drawing.Color.White;
+            this.segmentedControl1.SelectedIndexChanged += new System.EventHandler(this.segmentedControl1_SelectedIndexChanged);
             // 
-            // textTabBar1
+            // title1
             // 
-            this.textTabBar1.BackColor = System.Drawing.Color.White;
-            this.textTabBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            textTabBarItem1.Text = "待我审批的";
-            textTabBarItem1.Value = "0";
-            textTabBarItem2.Text = "我已审批的";
-            textTabBarItem2.Value = "1";
-            this.textTabBar1.Items.AddRange(new Smobiler.Core.Controls.TextTabBarItem[] {
-            textTabBarItem1,
-            textTabBarItem2});
-            this.textTabBar1.Location = new System.Drawing.Point(10, 0);
-            this.textTabBar1.Name = "textTabBar1";
-            this.textTabBar1.Size = new System.Drawing.Size(280, 35);
-            this.textTabBar1.TabIndex = 3;
-            this.textTabBar1.ItemClick += new Smobiler.Core.Controls.TabBarItemClickEventHandler(this.textTabBar1_ItemClick);
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.FontSize = 15F;
+            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.title1.Location = new System.Drawing.Point(108, 12);
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
+            this.title1.TitleText = "我审批的";
             // 
-            // imgbtnSearch
+            // spContent
             // 
-            this.imgbtnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.imgbtnSearch.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(244)))));
-            this.imgbtnSearch.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.imgbtnSearch.Location = new System.Drawing.Point(250, 46);
-            this.imgbtnSearch.Name = "imgbtnSearch";
-            this.imgbtnSearch.ResourceID = "search";
-            this.imgbtnSearch.Size = new System.Drawing.Size(40, 30);
-            this.imgbtnSearch.TabIndex = 4;
-            this.imgbtnSearch.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.imgbtnSearch_Click);
+            this.spContent.BackColor = System.Drawing.Color.White;
+            this.spContent.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.segmentedControl1,
+            this.tpSearch,
+            this.listCheckData});
+            this.spContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spContent.Flex = 10000;
+            this.spContent.Location = new System.Drawing.Point(72, 202);
+            this.spContent.Name = "spContent";
+            this.spContent.Scrollable = true;
+            this.spContent.Size = new System.Drawing.Size(100, 30);
+            // 
+            // tpSearch
+            // 
+            this.tpSearch.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.imgSearch});
+            this.tpSearch.Location = new System.Drawing.Point(250, 55);
+            this.tpSearch.Name = "tpSearch";
+            this.tpSearch.Size = new System.Drawing.Size(40, 30);
+            this.tpSearch.Touchable = true;
+            this.tpSearch.Press += new System.EventHandler(this.tpSearch_Press);
+            // 
+            // imgSearch
+            // 
+            this.imgSearch.Name = "imgSearch";
+            this.imgSearch.ResourceID = "search";
+            this.imgSearch.Size = new System.Drawing.Size(40, 30);
+            // 
+            // listCheckData
+            // 
+            this.listCheckData.BackColor = System.Drawing.Color.White;
+            this.listCheckData.FooterControlName = null;
+            this.listCheckData.HeaderControlName = null;
+            this.listCheckData.Location = new System.Drawing.Point(0, 85);
+            this.listCheckData.Name = "listCheckData";
+            this.listCheckData.ShowSplitLine = true;
+            this.listCheckData.Size = new System.Drawing.Size(300, 415);
+            this.listCheckData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.listCheckData.TemplateControlName = "frmLeaveLayout";
             // 
             // popList1
             // 
             this.popList1.Name = "popList1";
             this.popList1.Selected += new System.EventHandler(this.popList1_Selected);
             // 
-            // line9
-            // 
-            this.line9.BackColor = System.Drawing.Color.LightGray;
-            this.line9.Location = new System.Drawing.Point(0, 76);
-            this.line9.Name = "line9";
-            this.line9.Size = new System.Drawing.Size(300, 1);
-            this.line9.TabIndex = 5;
-            // 
             // frmCheck
             // 
-            this.BackColor = System.Drawing.Color.White;
-            this.ComponentControls.AddRange(new Smobiler.Core.ComponentBase[] {
+            this.Components.AddRange(new Smobiler.Core.Controls.MobileComponent[] {
             this.popList1});
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.gridCheckData,
-            this.textTabBar1,
-            this.imgbtnSearch,
-            this.line9});
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
-            this.TitleText = "我审批的";
+            this.title1,
+            this.spContent});
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmCheck_KeyDown);
             this.Load += new System.EventHandler(this.frmCheck_Load);
-            this.TitleImageClick += new System.EventHandler(this.frmCheck_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmCheck_KeyDown);
             this.Name = "frmCheck";
 
         }
         #endregion
 
-        private Smobiler.Core.Controls.GridView gridCheckData;
-        private Smobiler.Core.Controls.TextTabBar textTabBar1;
-        private Smobiler.Core.Controls.ImageButton imgbtnSearch;
+        private Title title1;
+        private Smobiler.Core.Controls.Panel spContent;
+        private Smobiler.Core.Controls.SegmentedControl segmentedControl1;
+        private Smobiler.Core.Controls.Panel tpSearch;
+        private Smobiler.Core.Controls.Image imgSearch;
+        private Smobiler.Core.Controls.ListView listCheckData;
         private Smobiler.Core.Controls.PopList popList1;
-        private Smobiler.Core.Controls.Line line9;
     }
 }

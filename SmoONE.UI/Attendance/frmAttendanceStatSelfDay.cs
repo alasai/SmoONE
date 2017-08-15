@@ -14,7 +14,7 @@ namespace SmoONE.UI.Attendance
     // 创建时间： 2017/2
     // 主要内容： 个人考勤按月统计页面
     // ******************************************************************
-    partial class frmAttendanceStatSelfDay : Smobiler.Core.MobileForm
+    partial class frmAttendanceStatSelfDay : Smobiler.Core.Controls.MobileForm
     {
 
         #region "definition"
@@ -54,11 +54,14 @@ namespace SmoONE.UI.Attendance
                 UserID = Client.Session["U_ID"].ToString();                //用户ID
                 this.btnYear.Text = DateTime.Now.Year.ToString() + "年▼";          //年份显示
                 this.btnMonth.Text = DateTime.Now.Month.ToString() + "月▼";        //月份显示
+                PopListGroup popYearG = new PopListGroup();
+                popYearG.Title = "请选择年份";
+                popListYear.Groups.Add(popYearG);
                 for (int i = DateTime.Now.Year; DateTime.Now.Year - i <10; i--)        //添加年份选择范围
                 {
                     PopListItem YearItem = new PopListItem();
                     YearItem.Text = i.ToString();
-                    popListYear.Groups.FindByText("请选择年份").AddListItem(YearItem);
+                    popYearG.Items.Add(YearItem);
                     if (i == DateTime.Now.Year)
                     {
                         popListYear.SetSelections(YearItem);
@@ -133,33 +136,33 @@ namespace SmoONE.UI.Attendance
                 string[] Month = this.btnMonth.Text.Split('▼');
                 newFrm.UserID = UserID;          //用户ID传递到下个页面
                 newFrm.Daytime = Year[0] + Month[0];       //将年月传递到下个页面
-                this.Redirect(newFrm);
+                this.Show(newFrm);
             }
             catch (Exception ex)
             {
                 Toast(ex.Message);
             }
         }
-        /// <summary>
-        /// 进入查看考勤详情页面
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridATdata_CellClick(object sender, GridViewCellEventArgs e)
-        {
-            try
-            {
-                frmAttendanceMain frmMain = new frmAttendanceMain();
-                frmMain.DayTime = e.Cell.Items["lblDay"].Text;         //将选中时间传递到下个页面
-                frmMain.enter = (int)Enum.Parse(typeof(ATMainState), ATMainState.统计查看.ToString());
-                frmMain.UserID = UserID;
-                this.Redirect(frmMain);
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-        }
+        /////// <summary>
+        /////// 进入查看考勤详情页面
+        /////// </summary>
+        /////// <param name="sender"></param>
+        /////// <param name="e"></param>
+        ////private void gridATdata_CellClick(object sender, GridViewCellEventArgs e)
+        ////{
+        ////    try
+        ////    {
+        ////        frmAttendanceMain frmMain = new frmAttendanceMain();
+        ////        frmMain.DayTime = e.Cell.Items["lblDay"].Text;         //将选中时间传递到下个页面
+        ////        frmMain.enter = (int)Enum.Parse(typeof(ATMainState), ATMainState.统计查看.ToString());
+        ////        frmMain.UserID = UserID;
+        ////        this.Show(frmMain);
+        ////    }
+        ////    catch (Exception ex)
+        ////    {
+        ////        Toast(ex.Message);
+        ////    }
+        ////}
         /// <summary>
         ///  选择年份
         /// </summary>

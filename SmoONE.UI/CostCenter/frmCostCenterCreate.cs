@@ -16,7 +16,7 @@ namespace SmoONE.UI.CostCenter
     // 创建时间： 2016/11
     // 主要内容：  成本中心创建编辑界面
     // ******************************************************************
-    partial class frmCostCenterCreate : Smobiler.Core.MobileForm
+    partial class frmCostCenterCreate : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         public string ATNO;//考勤模板编号
@@ -37,12 +37,12 @@ namespace SmoONE.UI.CostCenter
             popType.Groups.Clear();
             PopListGroup poli = new PopListGroup();
             popType.Groups.Add(poli);
-            poli.Text = "类型选择";
+            poli.Title = "类型选择";
             //获取成本中心类型，并赋值poplist数据
             List<CostCenter_Type>  listCCType=  AutofacConfig.costCenterService.GetAllCCType();
             foreach (CostCenter_Type ccType in listCCType)
             {
-                poli.Items.Add(ccType.CC_T_Description, ccType.CC_T_TypeID);
+                poli.AddListItem(ccType.CC_T_Description, ccType.CC_T_TypeID);
                 if (type.Trim().Length > 0)
                 {
                     if (type.Trim().Equals(ccType.CC_T_TypeID))
@@ -112,8 +112,8 @@ namespace SmoONE.UI.CostCenter
                 CCInputDto cc = new CCInputDto();
                 cc.CC_Name = txtCC_Name.Text.Trim();
                 cc.CC_TypeID = type;
-                cc.CC_StartDate = dpkStartDate.CurrentDate;
-                cc.CC_EndDate = dpkEndDate.CurrentDate;
+                cc.CC_StartDate = dpkStartDate.Value;
+                cc.CC_EndDate = dpkEndDate.Value;
                 cc.CC_Amount = Convert.ToDecimal(txtAmount.Text.Trim());
                 cc.CC_LiableMan = liableMan;
                 cc.CC_DepartmentID = D_ID;
@@ -176,8 +176,8 @@ namespace SmoONE.UI.CostCenter
                     txtCC_Name.Text = cc.CC_Name;
                     type = cc.CC_TypeID;
                     btnType.Text = cc.CC_TypeName;
-                    dpkStartDate.CurrentDate = cc.CC_StartDate;
-                    dpkEndDate.CurrentDate = cc.CC_EndDate;
+                    dpkStartDate.Value = cc.CC_StartDate;
+                    dpkEndDate.Value = cc.CC_EndDate;
                     txtAmount.Text = cc.CC_Amount.ToString();
                     liableMan = cc.CC_LiableMan;
                     UserDetailDto user = AutofacConfig.userService.GetUserByUserID(cc.CC_LiableMan);
@@ -190,7 +190,7 @@ namespace SmoONE.UI.CostCenter
                 else
                 {
                     DateTime t = DateTime.Now;
-                    dpkEndDate.CurrentDate = t.AddYears(1);
+                    dpkEndDate.Value = t.AddYears(1);
                 }
             }
             catch (Exception ex)
@@ -208,9 +208,9 @@ namespace SmoONE.UI.CostCenter
             //跳转到模板界面
             frmCostTemplet frm = new frmCostTemplet();
             frm.IsSelectCTemPlet = true;
-            Redirect(frm, (MobileForm form, object args) =>
+            Show(frm, (MobileForm form, object args) =>
                {
-                   if (frm.ShowResult == Smobiler.Core.ShowResult.Yes)
+                   if (frm.ShowResult == Smobiler.Core.Controls .ShowResult.Yes)
                    {
                        CTempID = frm.CTempID;
                        btnTemplate.Text = frm.CTempID;
@@ -227,12 +227,12 @@ namespace SmoONE.UI.CostCenter
             popLiable.Groups.Clear();
             PopListGroup poli = new PopListGroup();
             popLiable.Groups.Add(poli);
-            poli.Text = "责任人选择";
+            poli.Title = "责任人选择";
             //获取责任人数据，并赋值poplist数据
             List<UserDto> listuser = AutofacConfig.userService.GetAllUsers();
             foreach (UserDto user in listuser)
             {
-                poli.Items.Add(user.U_Name, user.U_ID);
+                poli.AddListItem(user.U_Name, user.U_ID);
                 if (liableMan.Trim().Length > 0)
                 {
                     if (liableMan.Trim().Equals(user.U_ID))

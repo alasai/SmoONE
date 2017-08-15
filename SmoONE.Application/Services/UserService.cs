@@ -834,7 +834,7 @@ namespace SmoONE.Application
                     Random rad = new Random();//实例化随机数产生器rad；
                     int value = rad.Next(1000, 10000);//用rad生成大于等于1000，小于等于9999的随机数；
                     //appkey为你在http://www.alidayu.com/上申请的Appkey(此处以****代替),appSecret为对应的appSecret(此处以****代替)
-                    ITopClient client = new DefaultTopClient("http://gw.api.taobao.com/router/rest", "****", "****");
+                    ITopClient client = new DefaultTopClient("http://gw.api.taobao.com/router/rest", "23287226", "f41c923da1decddb333b007be662ba13");
                     AlibabaAliqinFcSmsNumSendRequest req = new AlibabaAliqinFcSmsNumSendRequest();
                     //回传参数
                     req.Extend = "123456";
@@ -846,8 +846,8 @@ namespace SmoONE.Application
                     req.SmsParam = "{\"code\":\""+value.ToString()+"\",\"product\":\"SmoONE\"}";
                     //发送的号码
                     req.RecNum = PhoneNumber;
-                    //短信模板ID(此处以****代替)
-                    req.SmsTemplateCode = "****";
+                    //短信模板ID
+                    req.SmsTemplateCode = "SMS_3545338";
                     //服务器返回的执行结果
                     AlibabaAliqinFcSmsNumSendResponse rsp = client.Execute(req);                    
                     if (rsp.IsError==false)

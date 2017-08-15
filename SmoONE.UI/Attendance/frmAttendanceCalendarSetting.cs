@@ -14,7 +14,7 @@ namespace SmoONE.UI.Attendance
     // 创建时间： 2017/2
     // 主要内容： 考勤模板自定义日期界面
     // ******************************************************************
-    partial class frmAttendanceCalendarSetting : Smobiler.Core.MobileForm
+    partial class frmAttendanceCalendarSetting : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         public string ATNo;//考勤模板编号
@@ -25,46 +25,8 @@ namespace SmoONE.UI.Attendance
         private AT_CDInputDto atcdInput ;//自定义考勤
         public string weekdays;//考勤日期
         #endregion
-      
-        /// <summary>
-        /// 日历日期点击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void calendar1_DatePicked(object sender, CalendarEventArgs e)
-        {
-            try
-            {
-                int selectday = (int)Enum.Parse(typeof(Week), calendar1.CurrentDate.DayOfWeek.ToString());//获取选中日期是某个星期的第几天
-               //如果当前选中日期在考勤工作日期中，则自定义日期类型为上班，否则为休息
-                if (weekdays.Split(',').Contains(selectday.ToString()) == true)
-                {
-                    workType = WorkOrRest.上班;
-                }
-                else
-                {
-                    workType = WorkOrRest.休息;
-                }
-                //如果当前选中日期已在考勤自定义集合中且自定义类型等于考勤类型，则赋值自定义日期类型
-                if (IsCATSettingDay(e.PickedDate.Date) == true )
-                {
-                    foreach (AT_CDInputDto atcdInputDto in listatcdInput)
-                    {
-                        if (atcdInputDto.AT_CD_Date.Date.Equals(calendar1.CurrentDate.Date) & atcdInputDto.AT_CD_CommutingType == atWorkDate.AT_Type)
-                        {
-                            workType = atcdInputDto.AT_CD_CDType;
-                            break;
-                        }
-                    }
-                }
-                upSettingDateType();
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message, ToastLength.SHORT);
-            }
-           
-        }
+    
+    
         /// <summary>
         /// 自定义考勤
         /// </summary>
@@ -75,7 +37,7 @@ namespace SmoONE.UI.Attendance
             try
             {
                 //如果自定义考勤（休息或考勤状态）选中日期是当前日期或当前日期前日期，则不可以自定义考勤
-                if (calendar1.CurrentDate.Date < DateTime.Now.AddDays(+1).Date)
+                if (calendar1.SelectDate.Date < DateTime.Now.AddDays(+1).Date)
                 {
                     throw new Exception("当前日期不可自定义考勤！");
                 }
@@ -127,7 +89,7 @@ namespace SmoONE.UI.Attendance
             if (string.IsNullOrEmpty(ATNo) == true)
             {
                 //创建考勤时，日历选中日期大于现在日期，若模板存在自定义，则显示自定义状态
-                if (calendar1.CurrentDate.Date >= DateTime.Now.AddDays(+1).Date)
+                if (calendar1.SelectDate.Date >= DateTime.Now.AddDays(+1).Date)
                 {
                     string startTime = null; //上班时间
                     string endTime = null;//下班时间
@@ -138,7 +100,7 @@ namespace SmoONE.UI.Attendance
 
                     atcdInput = new AT_CDInputDto();
                     //考勤自定义日期
-                    atcdInput.AT_CD_Date = calendar1.CurrentDate.Date;
+                    atcdInput.AT_CD_Date = calendar1.SelectDate.Date;
                     //考勤上下班类型
                     atcdInput.AT_CD_CommutingType = atWorkDate.AT_Type;
 
@@ -250,9 +212,9 @@ namespace SmoONE.UI.Attendance
             else
             {
                 //编辑考勤时，日历选中日期小于等于现在日期，若模板存在自定义，则显示自定义状态
-                if (calendar1.CurrentDate.Date < DateTime.Now.AddDays(+1).Date)
+                if (calendar1.SelectDate.Date < DateTime.Now.AddDays(+1).Date)
                 {
-                    WorkTimeDto atcd = AutofacConfig.attendanceService.GetASByATIDAndDate(ATNo, calendar1.CurrentDate.Date);
+                    WorkTimeDto atcd = AutofacConfig.attendanceService.GetASByATIDAndDate(ATNo, calendar1.SelectDate.Date);
                     if (atcd != null)
                     {
                         switch ((WorkOrRest)Enum.Parse(typeof(WorkOrRest), atcd.AT_ASType))
@@ -264,33 +226,33 @@ namespace SmoONE.UI.Attendance
 
                                         if (atcd.AT_StartTime != null)
                                         {
-                                            dpStartWork.CurrentDate = Convert.ToDateTime(atcd.AT_StartTime);
+                                            dpStartWork.Value = Convert.ToDateTime(atcd.AT_StartTime);
                                         }
 
                                         if (atcd.AT_EndTime != null)
                                         {
-                                            dpEndWork.CurrentDate = Convert.ToDateTime(atcd.AT_EndTime);
+                                            dpEndWork.Value = Convert.ToDateTime(atcd.AT_EndTime);
                                         }
                                         break;
                                     case WorkTimeType.一天二上下班:
                                         if (atcd.AT_AMStartTime != null)
                                         {
-                                            dpAMStartWork.CurrentDate = Convert.ToDateTime(atcd.AT_AMStartTime);
+                                            dpAMStartWork.Value = Convert.ToDateTime(atcd.AT_AMStartTime);
                                         }
 
                                         if (atcd.AT_AMEndTime != null)
                                         {
-                                            dpAMEndWork.CurrentDate = Convert.ToDateTime(atcd.AT_AMEndTime);
+                                            dpAMEndWork.Value = Convert.ToDateTime(atcd.AT_AMEndTime);
                                         }
 
                                         if (atcd.AT_PMStartTime != null)
                                         {
-                                            dpPMStartWork.CurrentDate = Convert.ToDateTime(atcd.AT_PMStartTime);
+                                            dpPMStartWork.Value = Convert.ToDateTime(atcd.AT_PMStartTime);
                                         }
 
                                         if (atcd.AT_PMEndTime != null)
                                         {
-                                            dpPMEndWork.CurrentDate = Convert.ToDateTime(atcd.AT_PMEndTime);
+                                            dpPMEndWork.Value = Convert.ToDateTime(atcd.AT_PMEndTime);
                                         }
 
                                         break;
@@ -299,7 +261,7 @@ namespace SmoONE.UI.Attendance
                         }
                     }
                 }
-                if (calendar1.CurrentDate.Date >= DateTime.Now.AddDays(+1).Date)
+                if (calendar1.SelectDate.Date >= DateTime.Now.AddDays(+1).Date)
                 {
                     string startTime = null; //上班时间
                     string endTime = null;//下班时间
@@ -310,7 +272,7 @@ namespace SmoONE.UI.Attendance
 
                     atcdInput = new AT_CDInputDto();
                     //考勤自定义日期
-                    atcdInput.AT_CD_Date = calendar1.CurrentDate.Date;
+                    atcdInput.AT_CD_Date = calendar1.SelectDate.Date;
                     //考勤上下班类型
                     atcdInput.AT_CD_CommutingType = atWorkDate.AT_Type;
                     //编辑考勤时，现日期之后的选中日期如果已自定义且考勤模式相等，则将自定义日期日期赋值给当前自定义日期控件
@@ -382,7 +344,7 @@ namespace SmoONE.UI.Attendance
                     else
                     {
                         //获取当前选中日期考勤的自定义
-                        WorkTimeDto atcd = AutofacConfig.attendanceService.GetASByATIDAndDate(ATNo, calendar1.CurrentDate.Date);
+                        WorkTimeDto atcd = AutofacConfig.attendanceService.GetASByATIDAndDate(ATNo, calendar1.SelectDate.Date);
                         //如果考勤存在自定义日期且自定义类型与考勤类型一致时，获取考勤上班时间
                         if (atcd != null)
                         {
@@ -553,253 +515,77 @@ namespace SmoONE.UI.Attendance
         /// 更新日期自定义类型控件
         /// </summary>
         private void upSettingDateTypeControl()
-        {         
-                if (calendar1.CurrentDate.Date < DateTime.Now.AddDays(+1).Date)
+        {
+            if (calendar1.SelectDate.Date < DateTime.Now.AddDays(+1).Date)
+            {
+                //创建考勤时，当前选中日期小于现日期时，自定义日期考勤控件不显示
+                if (string.IsNullOrEmpty(ATNo) == true)
                 {
-                    //创建考勤时，当前选中日期小于现日期时，自定义日期考勤控件不显示
-                    if (string.IsNullOrEmpty(ATNo) == true)
+                    lblRest.Visible = false;
+                    dpStartWork.Visible = false;
+                    dpEndWork.Visible = false;
+                    lblPMEndWork.Visible = false;
+                    lblPMStartWork.Visible = false;
+                    dpAMStartWork.Visible = false;
+                    dpAMEndWork.Visible = false;
+                    dpPMStartWork.Visible = false;
+                    dpPMEndWork.Visible = false;
+                    lblStartWork.Visible = false; ;
+                    lblEndWork.Visible = false;
+                    btnCDType.Visible = false;
+                }
+                else
+                {
+                    //编辑考勤时，日历选中日期小于等于现在日期，若模板存在自定义，则显示自定义状态
+                    WorkTimeDto atcd = AutofacConfig.attendanceService.GetASByATIDAndDate(ATNo, calendar1.SelectDate .Date);
+                    if (atcd != null)
                     {
-                            lblRest.Visible = false;
-                            line1.Visible = false;
-                            line2.Visible = false;
-                            dpStartWork.Visible = false;
-                            dpEndWork.Visible = false;
-                            lblPMEndWork.Visible = false;
-                            lblPMStartWork.Visible = false;
-                            dpAMStartWork.Visible = false;
-                            dpAMEndWork.Visible = false;
-                            dpPMStartWork.Visible = false;
-                            dpPMEndWork.Visible = false;
-                            lineEndWork.Visible = false;
-                            linePMStartWork.Visible = false;
-                            linePMEndWork.Visible = false;
-                            lblStartWork.Visible = false; ;
-                            lblEndWork.Visible = false;
-                            btnCDType.Visible = false;
-                            lineType.Visible = false;
-                    }
-                    else 
-                    {
-                        //编辑考勤时，日历选中日期小于等于现在日期，若模板存在自定义，则显示自定义状态
-                        WorkTimeDto atcd = AutofacConfig.attendanceService.GetASByATIDAndDate(ATNo, calendar1.CurrentDate.Date);
-                        if (atcd != null)
-                        {
-                            switch ((WorkOrRest)Enum.Parse(typeof(WorkOrRest), atcd.AT_ASType))
-                            {
-                                case WorkOrRest.上班:
-                                    switch ((WorkTimeType)Enum.Parse(typeof(WorkTimeType), atcd.AT_CommutingType))
-                                    {
-                                        case WorkTimeType.一天一上下班:
-
-                                            if (atcd.AT_StartTime != null)
-                                            {
-                                                dpStartWork.CurrentDate = Convert.ToDateTime(atcd.AT_StartTime);
-                                            }
-
-                                            if (atcd.AT_EndTime != null)
-                                            {
-                                                dpEndWork.CurrentDate = Convert.ToDateTime(atcd.AT_EndTime);
-                                            }
-                                            break;
-                                        case WorkTimeType.一天二上下班:
-                                            if (atcd.AT_AMStartTime != null)
-                                            {
-                                                dpAMStartWork.CurrentDate = Convert.ToDateTime(atcd.AT_AMStartTime);
-                                            }
-
-                                            if (atcd.AT_AMEndTime != null)
-                                            {
-                                                dpAMEndWork.CurrentDate = Convert.ToDateTime(atcd.AT_AMEndTime);
-                                            }
-
-                                            if (atcd.AT_PMStartTime != null)
-                                            {
-                                                dpPMStartWork.CurrentDate = Convert.ToDateTime(atcd.AT_PMStartTime);
-                                            }
-
-                                            if (atcd.AT_PMEndTime != null)
-                                            {
-                                                dpPMEndWork.CurrentDate = Convert.ToDateTime(atcd.AT_PMEndTime);
-                                            }
-
-                                            break;
-                                    }
-                                    break;
-                            }
-                            switch ((WorkOrRest)Enum.Parse(typeof(WorkOrRest), atcd.AT_ASType))
-                            {
-                                case WorkOrRest.休息:
-                                    lblRest.Visible = true;
-                                    line1.Visible = true;
-                                    line2.Visible = true;
-                                    dpStartWork.Visible = false;
-                                    dpEndWork.Visible = false;
-                                    lblPMEndWork.Visible = false;
-                                    lblPMStartWork.Visible = false;
-                                    dpAMStartWork.Visible = false;
-                                    dpAMEndWork.Visible = false;
-                                    dpPMStartWork.Visible = false;
-                                    dpPMEndWork.Visible = false;
-                                    lineEndWork.Visible = false;
-                                    linePMStartWork.Visible = false;
-                                    linePMEndWork.Visible = false;
-                                    lblStartWork.Visible = false; ;
-                                    lblEndWork.Visible = false;
-                                    lineType.Visible = false;
-                                    btnCDType.Visible = false;
-                                    break;
-                                case WorkOrRest.上班:
-                                    switch ((WorkTimeType)Enum.Parse(typeof(WorkTimeType), atcd.AT_CommutingType))
-                                    {
-                                        case WorkTimeType.一天一上下班:
-                                            lblStartWork.Visible = true;
-                                            lblEndWork.Visible = true;
-                                            dpStartWork.Visible = true;
-                                            dpEndWork.Visible = true;
-                                            dpStartWork.Enabled = false;
-                                            dpEndWork.Enabled = false;
-                                            lblPMEndWork.Visible = false;
-                                            lblPMStartWork.Visible = false;
-                                            dpAMStartWork.Visible = false;
-                                            dpAMEndWork.Visible = false;
-                                            dpPMStartWork.Visible = false;
-                                            dpPMEndWork.Visible = false;
-                                            lineEndWork.Visible = true;
-                                            linePMStartWork.Visible = false;
-                                            linePMEndWork.Visible = false;
-                                            lblStartWork.Text = "上班时间";
-                                            lblEndWork.Text = "下班时间";
-                                            dpStartWork.Top = lblStartWork.Top;
-                                            dpEndWork.Top = lblEndWork.Top;
-                                            break;
-                                        case WorkTimeType.一天二上下班:
-                                            lblStartWork.Visible = true;
-                                            lblEndWork.Visible = true;
-                                            dpStartWork.Visible = false;
-                                            dpEndWork.Visible = false;
-                                            lblPMEndWork.Visible = true;
-                                            lblPMStartWork.Visible = true;
-                                            dpAMStartWork.Visible = true;
-                                            dpAMEndWork.Visible = true;
-                                            dpPMStartWork.Visible = true;
-                                            dpPMEndWork.Visible = true;
-                                            dpAMStartWork.Enabled = false;
-                                            dpAMEndWork.Enabled = false;
-                                            dpPMStartWork.Enabled = false;
-                                            dpPMEndWork.Enabled = false;
-                                            lineEndWork.Visible = true;
-                                            linePMStartWork.Visible = true;
-                                            linePMEndWork.Visible = true;
-                                            lblStartWork.Text = "上午上班";
-                                            lblEndWork.Text = "上午下班";
-                                            dpAMStartWork.Top = lblStartWork.Top;
-                                            dpAMEndWork.Top = lblEndWork.Top;
-                                            lblPMStartWork.Top = lblEndWork.Top + lblEndWork.Height;
-                                            dpPMStartWork.Top = lblPMStartWork.Top;
-                                            lblPMEndWork.Top = lblPMStartWork.Top + lblPMStartWork.Height;
-                                            dpPMEndWork.Top = lblPMEndWork.Top;
-                                            break;
-                                    }
-                                    line1.Visible = true;
-                                    line2.Visible = true;
-                                    lineType.Visible = false;
-                                    btnCDType.Visible = false;
-                                    break;
-                            }
-                        }
-                        else
-                        {
-                            lblRest.Visible = false;
-                            line1.Visible = false;
-                            line2.Visible = false;
-                            dpStartWork.Visible = false;
-                            dpEndWork.Visible = false;
-                            lblPMEndWork.Visible = false;
-                            lblPMStartWork.Visible = false;
-                            dpAMStartWork.Visible = false;
-                            dpAMEndWork.Visible = false;
-                            dpPMStartWork.Visible = false;
-                            dpPMEndWork.Visible = false;
-                            lineEndWork.Visible = false;
-                            linePMStartWork.Visible = false;
-                            linePMEndWork.Visible = false;
-                            lblStartWork.Visible = false; ;
-                            lblEndWork.Visible = false;
-                            btnCDType.Visible = false;
-                            lineType.Visible = false;
-                        }
-                    }
-                } 
-               //创建编辑考勤时，日历选中日期大于现在日期，根据选中日期自定义类型显示考勤控件             
-                if (calendar1.CurrentDate.Date >= DateTime.Now.AddDays(+1).Date)
-                { 
-                        switch (workType)
+                        switch ((WorkOrRest)Enum.Parse(typeof(WorkOrRest), atcd.AT_ASType))
                         {
                             case WorkOrRest.上班:
-                                lblRest.Visible = false;
-                                lblStartWork.Top = calendar1.Top + calendar1.Height + 10;
-                                lblEndWork.Top = lblStartWork.Top + lblStartWork.Height;
-                                switch (atWorkDate.AT_Type)
+                                switch ((WorkTimeType)Enum.Parse(typeof(WorkTimeType), atcd.AT_CommutingType))
                                 {
                                     case WorkTimeType.一天一上下班:
-                                        lblStartWork.Visible = true;
-                                        lblEndWork.Visible = true;
-                                        dpStartWork.Visible = true;
-                                        dpEndWork.Visible = true;
-                                        dpStartWork.Enabled = true;
-                                        dpEndWork.Enabled = true;
-                                        lblPMEndWork.Visible = false;
-                                        lblPMStartWork.Visible = false;
-                                        dpAMStartWork.Visible = false;
-                                        dpAMEndWork.Visible = false;
-                                        dpPMStartWork.Visible = false;
-                                        dpPMEndWork.Visible = false;
-                                        lineEndWork.Visible = true;
-                                        linePMStartWork.Visible = false;
-                                        linePMEndWork.Visible = false;
-                                        lblStartWork.Text = "上班时间";
-                                        lblEndWork.Text = "下班时间";
-                                        dpStartWork.Top = lblStartWork.Top;
-                                        dpEndWork.Top = lblEndWork.Top;
-                                        btnCDType.Top = lblEndWork.Top + lblEndWork.Height;
+
+                                        if (atcd.AT_StartTime != null)
+                                        {
+                                            dpStartWork.Value = Convert.ToDateTime(atcd.AT_StartTime);
+                                        }
+
+                                        if (atcd.AT_EndTime != null)
+                                        {
+                                            dpEndWork.Value  = Convert.ToDateTime(atcd.AT_EndTime);
+                                        }
                                         break;
-                                    case WorkTimeType.一天二上下班: 
-                                        dpStartWork.Visible = false;
-                                        dpEndWork.Visible = false;
-                                        lblStartWork.Visible = true;
-                                        lblEndWork.Visible = true;
-                                        lblPMEndWork.Visible = true;
-                                        lblPMStartWork.Visible = true;
-                                        dpAMStartWork.Visible = true;
-                                        dpAMEndWork.Visible = true;
-                                        dpPMStartWork.Visible = true;
-                                        dpPMEndWork.Visible = true;
-                                        dpAMStartWork.Enabled = true;
-                                        dpAMEndWork.Enabled = true;
-                                        dpPMStartWork.Enabled = true;
-                                        dpPMEndWork.Enabled = true;
-                                        lineEndWork.Visible = true;
-                                        linePMStartWork.Visible = true;
-                                        linePMEndWork.Visible = true;
-                                        lblStartWork.Text = "上午上班";
-                                        lblEndWork.Text = "上午下班";
-                                        dpAMStartWork.Top = lblStartWork.Top;
-                                        dpAMEndWork.Top = lblEndWork.Top;
-                                        lblPMStartWork.Top = lblEndWork.Top + lblEndWork.Height;
-                                        dpPMStartWork.Top = lblPMStartWork.Top;
-                                        lblPMEndWork.Top = lblPMStartWork.Top + lblPMStartWork.Height;
-                                        dpPMEndWork.Top = lblPMEndWork.Top;
-                                        btnCDType.Top = lblPMEndWork.Top + lblPMEndWork.Height;
+                                    case WorkTimeType.一天二上下班:
+                                        if (atcd.AT_AMStartTime != null)
+                                        {
+                                            dpAMStartWork.Value  = Convert.ToDateTime(atcd.AT_AMStartTime);
+                                        }
+
+                                        if (atcd.AT_AMEndTime != null)
+                                        {
+                                            dpAMEndWork.Value  = Convert.ToDateTime(atcd.AT_AMEndTime);
+                                        }
+
+                                        if (atcd.AT_PMStartTime != null)
+                                        {
+                                            dpPMStartWork.Value  = Convert.ToDateTime(atcd.AT_PMStartTime);
+                                        }
+
+                                        if (atcd.AT_PMEndTime != null)
+                                        {
+                                            dpPMEndWork.Value  = Convert.ToDateTime(atcd.AT_PMEndTime);
+                                        }
+
                                         break;
                                 }
-                                lineType.Top = btnCDType.Top + btnCDType.Height;
-                                line1.Visible = true;
-                                line2.Visible = true;
-                                btnCDType.Visible = true;
-                                lineType.Visible = true;
-                                btnCDType.Text = "设置为休息";
                                 break;
+                        }
+                        switch ((WorkOrRest)Enum.Parse(typeof(WorkOrRest), atcd.AT_ASType))
+                        {
                             case WorkOrRest.休息:
+                                lblRest.Visible = true;
                                 dpStartWork.Visible = false;
                                 dpEndWork.Visible = false;
                                 lblPMEndWork.Visible = false;
@@ -808,22 +594,157 @@ namespace SmoONE.UI.Attendance
                                 dpAMEndWork.Visible = false;
                                 dpPMStartWork.Visible = false;
                                 dpPMEndWork.Visible = false;
-                                lineEndWork.Visible = false;
-                                linePMStartWork.Visible = false;
-                                linePMEndWork.Visible = false;
                                 lblStartWork.Visible = false; ;
                                 lblEndWork.Visible = false;
-                                lblRest.Visible = true;
-                                line1.Visible = true;
-                                line2.Visible = true;
-                                btnCDType.Visible = true;
-                                btnCDType.Top = lblRest.Top + lblRest.Height;
-                                lineType.Top = btnCDType.Top + btnCDType.Height;
-                                lineType.Visible = true;
-                                btnCDType.Text = "设置为考勤";
+                                btnCDType.Visible = false;
+                                break;
+                            case WorkOrRest.上班:
+                                lblStartWork.Top = lblRest.Top;
+                                lblRest.Visible = false;
+                                switch ((WorkTimeType)Enum.Parse(typeof(WorkTimeType), atcd.AT_CommutingType))
+                                {
+                                    case WorkTimeType.一天一上下班:
+                                        lblStartWork.Visible = true;
+                                        lblEndWork.Visible = true;
+                                        dpStartWork.Visible = true;
+                                        dpEndWork.Visible = true;
+                                        dpStartWork.Enabled = false;
+                                        dpEndWork.Enabled = false;
+                                        lblPMEndWork.Visible = false;
+                                        lblPMStartWork.Visible = false;
+                                        dpAMStartWork.Visible = false;
+                                        dpAMEndWork.Visible = false;
+                                        dpPMStartWork.Visible = false;
+                                        dpPMEndWork.Visible = false;
+                                        lblStartWork.Text = "上班时间";
+                                        lblEndWork.Text = "下班时间";
+                                        dpStartWork.Top = lblStartWork.Top;
+                                        dpEndWork.Top = lblEndWork.Top;
+                                        break;
+                                    case WorkTimeType.一天二上下班:
+                                        lblStartWork.Visible = true;
+                                        lblEndWork.Visible = true;
+                                        dpStartWork.Visible = false;
+                                        dpEndWork.Visible = false;
+                                        lblPMEndWork.Visible = true;
+                                        lblPMStartWork.Visible = true;
+                                        dpAMStartWork.Visible = true;
+                                        dpAMEndWork.Visible = true;
+                                        dpPMStartWork.Visible = true;
+                                        dpPMEndWork.Visible = true;
+                                        dpAMStartWork.Enabled = false;
+                                        dpAMEndWork.Enabled = false;
+                                        dpPMStartWork.Enabled = false;
+                                        dpPMEndWork.Enabled = false;
+                                        lblStartWork.Text = "上午上班";
+                                        lblEndWork.Text = "上午下班";
+                                        dpAMStartWork.Top = lblStartWork.Top;
+                                        dpAMEndWork.Top = lblEndWork.Top;
+                                        lblPMStartWork.Top = lblEndWork.Top + lblEndWork.Height;
+                                        dpPMStartWork.Top = lblPMStartWork.Top;
+                                        lblPMEndWork.Top = lblPMStartWork.Top + lblPMStartWork.Height;
+                                        dpPMEndWork.Top = lblPMEndWork.Top;
+                                        break;
+                                }
+                                btnCDType.Visible = false;
                                 break;
                         }
                     }
+                    else
+                    {
+                        lblRest.Visible = false;
+                        dpStartWork.Visible = false;
+                        dpEndWork.Visible = false;
+                        lblPMEndWork.Visible = false;
+                        lblPMStartWork.Visible = false;
+                        dpAMStartWork.Visible = false;
+                        dpAMEndWork.Visible = false;
+                        dpPMStartWork.Visible = false;
+                        dpPMEndWork.Visible = false;
+                        lblStartWork.Visible = false; ;
+                        lblEndWork.Visible = false;
+                        btnCDType.Visible = false;
+                    }
+                }
+            }
+            //创建编辑考勤时，日历选中日期大于现在日期，根据选中日期自定义类型显示考勤控件             
+            if (calendar1.SelectDate.Date >= DateTime.Now.AddDays(+1).Date)
+            {
+                switch (workType)
+                {
+                    case WorkOrRest.上班:
+                        lblRest.Visible = false;
+                       // lblStartWork.Top = calendar1.Top + calendar1.Height + 10;
+                        lblStartWork.Top = lblRest.Top ;
+                        lblEndWork.Top = lblStartWork.Top + lblStartWork.Height;
+                        switch (atWorkDate.AT_Type)
+                        {
+                            case WorkTimeType.一天一上下班:
+                                lblStartWork.Visible = true;
+                                lblEndWork.Visible = true;
+                                dpStartWork.Visible = true;
+                                dpEndWork.Visible = true;
+                                dpStartWork.Enabled = true;
+                                dpEndWork.Enabled = true;
+                                lblPMEndWork.Visible = false;
+                                lblPMStartWork.Visible = false;
+                                dpAMStartWork.Visible = false;
+                                dpAMEndWork.Visible = false;
+                                dpPMStartWork.Visible = false;
+                                dpPMEndWork.Visible = false;
+                                lblStartWork.Text = "上班时间";
+                                lblEndWork.Text = "下班时间";
+                                dpStartWork.Top = lblStartWork.Top;
+                                dpEndWork.Top = lblEndWork.Top;
+                                btnCDType.Top = lblEndWork.Top + lblEndWork.Height;
+                                break;
+                            case WorkTimeType.一天二上下班:
+                                dpStartWork.Visible = false;
+                                dpEndWork.Visible = false;
+                                lblStartWork.Visible = true;
+                                lblEndWork.Visible = true;
+                                lblPMEndWork.Visible = true;
+                                lblPMStartWork.Visible = true;
+                                dpAMStartWork.Visible = true;
+                                dpAMEndWork.Visible = true;
+                                dpPMStartWork.Visible = true;
+                                dpPMEndWork.Visible = true;
+                                dpAMStartWork.Enabled = true;
+                                dpAMEndWork.Enabled = true;
+                                dpPMStartWork.Enabled = true;
+                                dpPMEndWork.Enabled = true;
+                                lblStartWork.Text = "上午上班";
+                                lblEndWork.Text = "上午下班";
+                                dpAMStartWork.Top = lblStartWork.Top;
+                                dpAMEndWork.Top = lblEndWork.Top;
+                                lblPMStartWork.Top = lblEndWork.Top + lblEndWork.Height;
+                                dpPMStartWork.Top = lblPMStartWork.Top;
+                                lblPMEndWork.Top = lblPMStartWork.Top + lblPMStartWork.Height;
+                                dpPMEndWork.Top = lblPMEndWork.Top;
+                                btnCDType.Top = lblPMEndWork.Top + lblPMEndWork.Height;
+                                break;
+                        }
+                        btnCDType.Visible = true;
+                        btnCDType.Text = "设置为休息";
+                        break;
+                    case WorkOrRest.休息:
+                        dpStartWork.Visible = false;
+                        dpEndWork.Visible = false;
+                        lblPMEndWork.Visible = false;
+                        lblPMStartWork.Visible = false;
+                        dpAMStartWork.Visible = false;
+                        dpAMEndWork.Visible = false;
+                        dpPMStartWork.Visible = false;
+                        dpPMEndWork.Visible = false;
+                        lblStartWork.Visible = false; ;
+                        lblEndWork.Visible = false;
+                        lblRest.Visible = true;
+                        btnCDType.Visible = true;
+                        btnCDType.Top = lblRest.Top + lblRest.Height;
+                        btnCDType.Text = "设置为考勤";
+                        break;
+                }
+            }
         }
        
         /// <summary>
@@ -847,44 +768,44 @@ namespace SmoONE.UI.Attendance
                         if (string.IsNullOrEmpty(StartTime)==false )
                         {
                             DateTime atsettingDate = atcdInput.AT_CD_Date.Date.AddHours(Convert.ToDateTime(StartTime).Hour).AddMinutes(Convert.ToDateTime(StartTime).Minute);
-                            dpStartWork.CurrentDate = atsettingDate;
-                            atcdInput.AT_CD_StartTime = dpStartWork.CurrentDate;
+                            dpStartWork.Value = atsettingDate;
+                            atcdInput.AT_CD_StartTime = dpStartWork.Value;
                         }
 
                         if (string.IsNullOrEmpty(EndTime) == false)
                         {
                             DateTime atsettingDate = atcdInput.AT_CD_Date.Date.AddHours(Convert.ToDateTime(EndTime).Hour).AddMinutes(Convert.ToDateTime(EndTime).Minute);
-                            dpEndWork.CurrentDate = atsettingDate;
-                            atcdInput.AT_CD_EndTime = dpEndWork.CurrentDate;
+                            dpEndWork.Value = atsettingDate;
+                            atcdInput.AT_CD_EndTime = dpEndWork.Value;
                         }
                         break;
                     case WorkTimeType.一天二上下班:
                         if (string.IsNullOrEmpty(AMStartTime ) == false)
                         {
                             DateTime atsettingDate = atcdInput.AT_CD_Date.Date.AddHours(Convert.ToDateTime(AMStartTime).Hour).AddMinutes(Convert.ToDateTime(AMStartTime).Minute);
-                            dpAMStartWork.CurrentDate = atsettingDate;
-                            atcdInput.AT_CD_AMStartTime = dpAMStartWork.CurrentDate;
+                            dpAMStartWork.Value = atsettingDate;
+                            atcdInput.AT_CD_AMStartTime = dpAMStartWork.Value;
                         }
 
                         if (string.IsNullOrEmpty(AMEndTime ) == false)
                         {
                             DateTime atsettingDate = atcdInput.AT_CD_Date.Date.AddHours(Convert.ToDateTime(AMEndTime).Hour).AddMinutes(Convert.ToDateTime(AMEndTime).Minute);
-                            dpAMEndWork.CurrentDate = atsettingDate;
-                            atcdInput.AT_CD_AMEndTime = dpAMEndWork.CurrentDate;
+                            dpAMEndWork.Value = atsettingDate;
+                            atcdInput.AT_CD_AMEndTime = dpAMEndWork.Value;
                         }
 
                         if (string.IsNullOrEmpty(PMStartTime) == false)
                         {
                             DateTime atsettingDate = atcdInput.AT_CD_Date.Date.AddHours(Convert.ToDateTime(PMStartTime).Hour).AddMinutes(Convert.ToDateTime(PMStartTime).Minute);
-                            dpPMStartWork.CurrentDate = atsettingDate;
-                            atcdInput.AT_CD_PMStartTime = dpPMStartWork.CurrentDate;
+                            dpPMStartWork.Value = atsettingDate;
+                            atcdInput.AT_CD_PMStartTime = dpPMStartWork.Value;
                         }
 
                         if (string.IsNullOrEmpty(PMEndTime) == false)
                         {
                             DateTime atsettingDate = atcdInput.AT_CD_Date.Date.AddHours(Convert.ToDateTime(PMEndTime).Hour).AddMinutes(Convert.ToDateTime(PMEndTime).Minute);
-                            dpPMEndWork.CurrentDate = atsettingDate;
-                            atcdInput.AT_CD_PMEndTime = dpPMEndWork.CurrentDate;
+                            dpPMEndWork.Value = atsettingDate;
+                            atcdInput.AT_CD_PMEndTime = dpPMEndWork.Value;
                         }
                         break;
                 }
@@ -922,14 +843,14 @@ namespace SmoONE.UI.Attendance
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dpStartWork_DatePicked(object sender, DatePickerEventArgs e)
+        private void dpStartWork_DatePicked(object sender, EventArgs e)
         {
             ShowResult = ShowResult.Yes;
             foreach (AT_CDInputDto atct in listatcdInput)
             {
                 if (atct.AT_CD_Date.Date.Equals(atcdInput.AT_CD_Date.Date))
                 {
-                    atct.AT_CD_StartTime = e.PickedDateTime;
+                    atct.AT_CD_StartTime = dpStartWork .Value ;
                     break;
                 }
             }
@@ -939,14 +860,14 @@ namespace SmoONE.UI.Attendance
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dpEndWork_DatePicked(object sender, DatePickerEventArgs e)
+        private void dpEndWork_DatePicked(object sender, EventArgs e)
         {
             ShowResult = ShowResult.Yes;
             foreach (AT_CDInputDto atct in listatcdInput)
             {
                 if (atct.AT_CD_Date.Date.Equals(atcdInput.AT_CD_Date.Date))
-                {
-                    atct.AT_CD_EndTime = e.PickedDateTime;
+                {                  
+                    atct.AT_CD_EndTime = dpEndWork .Value ;
                     break;
                 }
             }
@@ -957,14 +878,14 @@ namespace SmoONE.UI.Attendance
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dpAMStartWork_DatePicked(object sender, DatePickerEventArgs e)
+        private void dpAMStartWork_DatePicked(object sender, EventArgs e)
         {
             ShowResult = ShowResult.Yes;
             foreach (AT_CDInputDto atct in listatcdInput)
             {
                 if (atct.AT_CD_Date.Date.Equals(atcdInput.AT_CD_Date.Date))
                 {
-                    atct.AT_CD_AMStartTime = e.PickedDateTime;
+                    atct.AT_CD_AMStartTime = dpAMStartWork.Value ;
                     break;
                 }
             }
@@ -975,14 +896,14 @@ namespace SmoONE.UI.Attendance
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dpAMEndWork_DatePicked(object sender, DatePickerEventArgs e)
+        private void dpAMEndWork_DatePicked(object sender, EventArgs e)
         {
             ShowResult = ShowResult.Yes;
             foreach (AT_CDInputDto atct in listatcdInput)
             {
                 if (atct.AT_CD_Date.Date.Equals(atcdInput.AT_CD_Date.Date))
                 {
-                    atct.AT_CD_AMEndTime = e.PickedDateTime;
+                    atct.AT_CD_AMEndTime = dpAMEndWork.Value;
                     break;
                 }
             }
@@ -993,14 +914,14 @@ namespace SmoONE.UI.Attendance
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dpPMStartWork_DatePicked(object sender, DatePickerEventArgs e)
+        private void dpPMStartWork_DatePicked(object sender, EventArgs e)
         {
             ShowResult = ShowResult.Yes;
             foreach (AT_CDInputDto atct in listatcdInput)
             {
                 if (atct.AT_CD_Date.Date.Equals(atcdInput.AT_CD_Date.Date))
                 {
-                    atct.AT_CD_AMStartTime = e.PickedDateTime;
+                    atct.AT_CD_AMStartTime = dpPMStartWork.Value ;
                     break;
                 }
             }
@@ -1011,14 +932,15 @@ namespace SmoONE.UI.Attendance
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dpPMEndWork_DatePicked(object sender, DatePickerEventArgs e)
+        private void dpPMEndWork_DatePicked(object sender, EventArgs e)
         {
            
             foreach (AT_CDInputDto atct in listatcdInput)
             {
                 if (atct.AT_CD_Date.Date.Equals(atcdInput.AT_CD_Date.Date))
                 {
-                    atct.AT_CD_PMEndTime = e.PickedDateTime;
+                   atct.AT_CD_PMEndTime = dpPMEndWork.Value ;
+
                     break;
                 }
             }
@@ -1038,6 +960,46 @@ namespace SmoONE.UI.Attendance
             {
                 Toast(ex.Message, ToastLength.SHORT);
             }
+        }
+
+        /// <summary>
+        /// 日历日期点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void calendar1_DateChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int selectday = (int)Enum.Parse(typeof(Week), calendar1.SelectDate.DayOfWeek.ToString());//获取选中日期是某个星期的第几天
+                //如果当前选中日期在考勤工作日期中，则自定义日期类型为上班，否则为休息
+                if (weekdays.Split(',').Contains(selectday.ToString()) == true)
+                {
+                    workType = WorkOrRest.上班;
+                }
+                else
+                {
+                    workType = WorkOrRest.休息;
+                }
+                //如果当前选中日期已在考勤自定义集合中且自定义类型等于考勤类型，则赋值自定义日期类型
+                if (IsCATSettingDay(calendar1.SelectDate.Date) == true)
+                {
+                    foreach (AT_CDInputDto atcdInputDto in listatcdInput)
+                    {
+                        if (atcdInputDto.AT_CD_Date.Date.Equals(calendar1.SelectDate.Date) & atcdInputDto.AT_CD_CommutingType == atWorkDate.AT_Type)
+                        {
+                            workType = atcdInputDto.AT_CD_CDType;
+                            break;
+                        }
+                    }
+                }
+                upSettingDateType();
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message, ToastLength.SHORT);
+            }
+           
         }
     }
 }

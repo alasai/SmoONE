@@ -2,7 +2,7 @@ using System;
 using Smobiler.Core;
 namespace SmoONE.UI.Layout
 {
-    partial class frmATWorkRecordLayout : Smobiler.Core.MobileForm
+    partial class frmATWorkRecordLayout : Smobiler.Core.Controls.MobileUserControl
     {
         #region "SmobilerForm generated code "
 
@@ -34,12 +34,10 @@ namespace SmoONE.UI.Layout
             this.lblDate = new Smobiler.Core.Controls.Label();
             this.image1 = new Smobiler.Core.Controls.Image();
             this.lblAddress = new Smobiler.Core.Controls.Label();
-            this.line1 = new Smobiler.Core.Controls.Line();
             this.label1 = new Smobiler.Core.Controls.Label();
             // 
             // imgPortrait
             // 
-            this.imgPortrait.AutoVisibleInLayout = true;
             this.imgPortrait.BorderRadius = 10;
             this.imgPortrait.DataMember = "U_Portrait";
             this.imgPortrait.DisplayMember = "U_Portrait";
@@ -66,10 +64,9 @@ namespace SmoONE.UI.Layout
             this.lblDep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
             this.lblDep.Location = new System.Drawing.Point(47, 30);
             this.lblDep.Name = "lblDep";
-            this.lblDep.Padding = new Smobiler.Core.Padding(0F, 0F, 0F, 10F);
+            this.lblDep.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 0F, 10F);
             this.lblDep.Size = new System.Drawing.Size(253, 20);
             this.lblDep.TabIndex = 4;
-            this.lblDep.VerticalAlignment = Smobiler.Core.VerticalAlignment.Bottom;
             this.lblDep.ZIndex = 4;
             // 
             // lblDate
@@ -79,7 +76,7 @@ namespace SmoONE.UI.Layout
             this.lblDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
             this.lblDate.Location = new System.Drawing.Point(225, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Padding = new Smobiler.Core.Padding(0F, 0F, 0F, 10F);
+            this.lblDate.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 0F, 10F);
             this.lblDate.Size = new System.Drawing.Size(75, 30);
             this.lblDate.TabIndex = 5;
             this.lblDate.ZIndex = 4;
@@ -100,23 +97,14 @@ namespace SmoONE.UI.Layout
             this.lblAddress.ForeColor = System.Drawing.Color.SteelBlue;
             this.lblAddress.Location = new System.Drawing.Point(24, 50);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Padding = new Smobiler.Core.Padding(0F, 0F, 10F, 0F);
+            this.lblAddress.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 10F, 0F);
             this.lblAddress.Size = new System.Drawing.Size(276, 20);
             this.lblAddress.TabIndex = 7;
             this.lblAddress.ZIndex = 4;
-            // 
-            // line1
-            // 
-            this.line1.BackColor = System.Drawing.Color.LightGray;
-            this.line1.Location = new System.Drawing.Point(0, 100);
-            this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(300, 1);
-            this.line1.TabIndex = 8;
-            this.line1.ZIndex = 3;
+           
             // 
             // label1
             // 
-            this.label1.AutoVisibleInLayout = true;
             this.label1.DataMember = "AL_Reason";
             this.label1.DisplayMember = "AL_Reason";
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
@@ -135,7 +123,6 @@ namespace SmoONE.UI.Layout
             this.lblDep,
             this.lblDate,
             this.lblAddress,
-            this.line1,
             this.label1});
             this.Size = new System.Drawing.Size(300, 100);
             this.Name = "frmATWorkRecordLayout";
@@ -149,7 +136,6 @@ namespace SmoONE.UI.Layout
         internal Smobiler.Core.Controls.Label lblDate;
         private Smobiler.Core.Controls.Image image1;
         internal Smobiler.Core.Controls.Label lblAddress;
-        private Smobiler.Core.Controls.Line line1;
         private Smobiler.Core.Controls.Label label1;
     }
 }

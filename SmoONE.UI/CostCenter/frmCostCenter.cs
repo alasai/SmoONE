@@ -15,30 +15,12 @@ namespace SmoONE.UI.CostCenter
     // 创建时间： 2016/11
     // 主要内容： 成本中心列表界面
     // ******************************************************************
-    partial class frmCostCenter : Smobiler.Core.MobileForm
+    partial class frmCostCenter : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
         #endregion
-        /// <summary>
-        /// gridCCData点击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridCCData_CellClick(object sender, GridViewCellEventArgs e)
-        {
-           string  CCID = e.Cell.Items["lblCC_ID"].Value.ToString();
-            //跳转到成本中心详细界面
-           frmCostCenterDetail frm = new frmCostCenterDetail();
-           frm.CCID = CCID;
-           Redirect(frm, (MobileForm form, object args) =>
-           {
-               if (frm.ShowResult == ShowResult.Yes)
-               {
-                   Bind();
-               }
-           });
-        }
+
         /// <summary>
         /// 初始化事件
         /// </summary>
@@ -51,7 +33,7 @@ namespace SmoONE.UI.CostCenter
         /// <summary>
         /// 初始化方法
         /// </summary>
-        private void Bind()
+        public  void Bind()
         {
             //获取所有成本中心数据
           List<CCDto> listCC=  AutofacConfig.costCenterService.GetAllCC();
@@ -104,13 +86,18 @@ namespace SmoONE.UI.CostCenter
         {
             //跳转到成本中心创建界面
             frmCostCenterCreate frm = new frmCostCenterCreate();
-            Redirect(frm, (MobileForm form, object args) =>
+            Show(frm, (MobileForm form, object args) =>
             {
                 if (frm.ShowResult == ShowResult.Yes)
                 {
                     Bind();
                 }
             });
+        }
+
+        private void title1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

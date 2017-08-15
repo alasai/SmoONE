@@ -15,7 +15,7 @@ namespace SmoONE.UI.CostCenter
     // 创建时间： 2016/11
     // 主要内容：  成本中心模板列表界面
     // ******************************************************************
-    partial class frmCostTemplet : Smobiler.Core.MobileForm
+    partial class frmCostTemplet : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         /// <summary>
@@ -26,36 +26,12 @@ namespace SmoONE.UI.CostCenter
         /// 模板编号
         /// </summary>
         public string CTempID;
+        /// <summary>
+        /// 模板编号
+        /// </summary>
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
         #endregion
-        /// <summary>
-        /// gridCCTempletData点击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridCCTempletData_CellClick(object sender, GridViewCellEventArgs e)
-        {
-            CTempID = e.Cell.Items["lblID"].Value.ToString();
-            //如果是为成本模板选择，点击时则关闭界面
-            if (IsSelectCTemPlet == true)
-            {
-                ShowResult = Smobiler.Core.ShowResult.Yes;
-                Close();
-            }
-            else
-            {
-                //跳转到成本模板详细界面
-                frmCostTempletDetail frm = new frmCostTempletDetail();
-                frm.CTempID = CTempID;
-                Redirect(frm,(MobileForm form, object args) =>
-                    {
-                        if (frm.ShowResult == ShowResult.Yes)
-                        {
-                            Bind();
-                        }
-                    });
-            }
-        }
+   
         /// <summary>
         /// 初始化事件
         /// </summary>
@@ -68,7 +44,7 @@ namespace SmoONE.UI.CostCenter
         /// <summary>
         /// 初始化方法
         /// </summary>
-        private void Bind()
+        public  void Bind()
         {
             //获取所有成本模板
           List<CC_Type_TemplateDto> listCCTemp=  AutofacConfig.costCenterService.GetAllCCTTemplate();
@@ -147,7 +123,7 @@ namespace SmoONE.UI.CostCenter
         private void btnCreate_Click(object sender, EventArgs e)
         {  //跳转到成本模板创建界面
             frmCostTempletCreate frm = new frmCostTempletCreate();
-            Redirect(frm, (MobileForm form, object args) =>
+            Show(frm, (MobileForm form, object args) =>
             {
                 if (frm.ShowResult == ShowResult.Yes)
                 {

@@ -4,18 +4,19 @@ using System.Linq;
 using System.Text;
 using Smobiler.Core;
 using Smobiler.Core.Controls;
+using SmoONE.UI;
 using SmoONE.Domain;
+using SmoONE.UI.UserInfo;
 
-
-namespace SmoONE.UI
+namespace SmoONE.UI.Work
 {
     // ******************************************************************
-    // 文件版本： SmoONE 1.0
-    // Copyright  (c)  2016-2017 Smobiler 
-    // 创建时间： 2016/11
+    // 文件版本： SmoONE 2.0
+    // Copyright  (c)  2017-2018 Smobiler 
+    // 创建时间： 2017/07
     // 主要内容：  工作界面
     // ******************************************************************
-    partial class frmWork : Smobiler.Core.MobileForm
+    partial class frmWork : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         /// <summary>
@@ -27,38 +28,88 @@ namespace SmoONE.UI
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
         #endregion
         /// <summary>
-        /// TabBar点击事件
+        /// IconMenuDate点击事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void imageTabBar1_ItemClick(object sender, TabBarItemClickEventArgs e)
-        {
-            switch (imageTabBar1.SelectItemIndex)
-            {
-                case 0:
-                    frmCheck frmCheck = new frmCheck();
-                    Redirect(frmCheck);
-                        break;
-                case 1:
-                        frmCreated frmCreated = new frmCreated();
-                        Redirect(frmCreated);
-                        break;
-                case 2:
-                        frmCCTo frmCCTo = new frmCCTo();
-                        Redirect(frmCCTo);
-                        break;
-            }
-        }
-        /// <summary>
-        /// iconMenuData点击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void iconMenuData_MenuItemClick(object sender, IconMenuItemEventArgs e)
+        private void iconMenuData_ItemPress(object sender, IconMenuViewItemPressEventArgs e)
         {
             MenuItem(e.Item.ID);
         }
-
+        /// <summary>
+        /// 菜单点击事件方法
+        /// </summary>
+        /// <param name="id"></param>
+        private void MenuItem(string id)
+        {
+            if (MenuGroupDict.ContainsKey(id) == true)
+            {
+                //显示当前菜单的二级菜单
+                this.iconMenuData.ShowDialogMenu(MenuGroupDict[id]);
+            }
+            else
+            {
+                switch (id)
+                {
+                    //创建请假
+                    case "Leave":
+                        Leave.frmLeaveCreate frmLeaveCreate = new Leave.frmLeaveCreate();
+                        Show(frmLeaveCreate);
+                        break;
+                    //创建报销
+                    case "Reimbursement":
+                        RB.frmRBCreate frmRBCreate = new RB.frmRBCreate();
+                        Show(frmRBCreate);
+                        break;
+                    //创建消费记录
+                    case "RB_Rows":
+                        RB.frmRBRows frmRBRows = new RB.frmRBRows();
+                        Show(frmRBRows);
+                        break;
+                    //创建消费记录模板
+                    case "RB_RType_Template":
+                        RB.frmRTypeTemplate frmRTypeTemplate = new RB.frmRTypeTemplate();
+                        Show(frmRTypeTemplate);
+                        break;
+                    //创建部门
+                    case "Department":
+                        Department.frmDepartment frmDepartment = new Department.frmDepartment();
+                        Show(frmDepartment);
+                        break;
+                    //创建成本中心
+                    case "CostCenter":
+                        CostCenter.frmCostCenter frmCostCenter = new CostCenter.frmCostCenter();
+                        Show(frmCostCenter);
+                        break;
+                    //创建成本中心模板
+                    case "CC_Type_Template":
+                        CostCenter.frmCostTemplet frmCostTemplet = new CostCenter.frmCostTemplet();
+                        Show(frmCostTemplet);
+                        break;
+                    //考勤管理模板
+                    case "AttendanceManagement":
+                        Attendance.frmAttendanceManager frmAttendanceManager = new Attendance.frmAttendanceManager();
+                        Show(frmAttendanceManager);
+                        break;
+                    //考勤
+                    case "AttendanceInfo":
+                        Attendance.frmAttendanceMain frmAttendanceMain = new Attendance.frmAttendanceMain();
+                        frmAttendanceMain.enter = (int)Enum.Parse(typeof(ATMainState), ATMainState.考勤签到.ToString());
+                        Show(frmAttendanceMain);
+                        break;
+                    //我的考勤历史
+                    case "MyAttendanceHistory":
+                        Attendance.frmAttendanceStatSelfDay frmAttendanceStatSelfDay = new Attendance.frmAttendanceStatSelfDay();
+                        Show(frmAttendanceStatSelfDay);
+                        break;
+                    //考勤统计
+                    case "AttendanceStatistics":
+                        Attendance.frmAttendanceStatistics frmAttendanceStatistics = new Attendance.frmAttendanceStatistics();
+                        Show(frmAttendanceStatistics);
+                        break;
+                }
+            }
+        }
         /// <summary>
         /// Toolbar方法
         /// </summary>
@@ -74,7 +125,7 @@ namespace SmoONE.UI
                         break;
                     case "Me":
                         frmUser frm = new frmUser();
-                        this.Redirect(frm, (MobileForm sender1, object args) => ProcessToolbarFormName(frm.toolbarItemName));
+                        this.Show(frm, (MobileForm sender1, object args) => ProcessToolbarFormName(frm.toolbarItemName));
                         break;
                 }
             }
@@ -88,138 +139,9 @@ namespace SmoONE.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void frmWork_ToolbarItemClick(object sender, ToolbarClickEventArgs e)
+        private void toolBar1_ToolbarItemClick(object sender, ToolbarClickEventArgs e)
         {
             ProcessToolbarFormName(e.Name);
-        }
-        /// <summary>
-        /// 初始化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void frmWork_Load(object sender, EventArgs e)
-        {
-            MenuGroupDict = new Dictionary<string, IconMenuViewGroup>();
-            //获取菜单
-            MenuGroup();
-        }
-        /// <summary>
-        ///获取菜单
-        /// </summary>
-        private void MenuGroup()
-        {
-            try
-            {
-                List<Menu> listmenu = AutofacConfig.userService.GetMenuByUserID(Client.Session["U_ID"].ToString());
-                this.iconMenuData.Groups.Clear();
-                MenuGroupDict.Clear();
-                IconMenuViewGroup grp = new IconMenuViewGroup("Default", "");
-                //获取所有菜单组
-                foreach (Menu menu in listmenu)
-                {
-                    if (string.IsNullOrWhiteSpace(menu.M_ParentID) == true)
-                    {
-                        //添加一级菜单
-                        grp.Items.Add(new IconMenuViewItem(menu.M_MenuID, menu.M_Description, menu.M_Portrait, menu.M_MenuID));
-                        //添加二级菜单
-                        List<Menu> listsecondMenu = AutofacConfig.userService.GetSubMenuByUserID(Client.Session["U_ID"].ToString(), menu.M_MenuID);
-                        if (listsecondMenu.Count > 0)
-                        {
-                            Menu menuItem = AutofacConfig.userService.GetMenuByMenuID(menu.M_MenuID);
-                            IconMenuViewGroup mvGroupItem = new IconMenuViewGroup(menuItem.M_MenuID, menuItem.M_Description);
-                            foreach (Menu secondMenu in listsecondMenu)
-                            {
-                                mvGroupItem.Items.Add(new IconMenuViewItem(secondMenu.M_MenuID, secondMenu.M_Description, secondMenu.M_Portrait, secondMenu.M_MenuID));
-                                if (MenuGroupDict.ContainsKey(menu.M_MenuID) == false)
-                                    MenuGroupDict.Add(menu.M_MenuID, mvGroupItem);
-                            }
-
-                        }
-
-                    }
-                }
-                this.iconMenuData.Groups.Add(grp);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        /// <summary>
-        /// 菜单点击事件方法
-        /// </summary>
-        /// <param name="id"></param>
-        private void MenuItem(string id)
-        {
-	        if (MenuGroupDict.ContainsKey(id) == true) 
-            {
-                //显示当前菜单的二级菜单
-		        this.iconMenuData.ShowDialogMenu(MenuGroupDict[id]);
-	        } 
-            else
-            {
-                switch (id)
-                {
-                        //创建请假
-                    case "Leave":
-                            Leave.frmLeaveCreate frmLeaveCreate = new Leave.frmLeaveCreate();
-                            Redirect(frmLeaveCreate);
-                            break;
-                        //创建报销
-                    case "Reimbursement":
-                            RB.frmRBCreate frmRBCreate = new RB.frmRBCreate();
-                            Redirect(frmRBCreate);
-                            break;
-                        //创建消费记录
-                    case "RB_Rows":
-                            RB.frmRBRows frmRBRows = new RB.frmRBRows();
-                            Redirect(frmRBRows);
-                            break;
-                    //创建消费记录模板
-                    case "RB_RType_Template":
-                            RB.frmRTypeTemplate frmRTypeTemplate = new RB.frmRTypeTemplate();
-                            Redirect(frmRTypeTemplate);
-                            break;
-                    //创建部门
-                    case "Department":
-                            Department.frmDepartment frmDepartment = new Department.frmDepartment();
-                            Redirect(frmDepartment);
-                            break;
-                    //创建成本中心
-                    case "CostCenter":
-                            CostCenter.frmCostCenter frmCostCenter = new CostCenter.frmCostCenter();
-                            Redirect(frmCostCenter);
-                            break;
-                    //创建成本中心模板
-                    case "CC_Type_Template":
-                            CostCenter.frmCostTemplet frmCostTemplet = new CostCenter.frmCostTemplet();
-                            Redirect(frmCostTemplet);
-                       
-                            break;
-                    //考勤管理模板
-                    case "AttendanceManagement":
-                            Attendance.frmAttendanceManager frmAttendanceManager = new Attendance.frmAttendanceManager();
-                            Redirect(frmAttendanceManager);
-                            break;
-                    //考勤
-                    case "AttendanceInfo":
-                            Attendance.frmAttendanceMain frmAttendanceMain = new Attendance.frmAttendanceMain();
-                            frmAttendanceMain.enter = (int)Enum.Parse(typeof(ATMainState), ATMainState.考勤签到.ToString());
-                            Redirect(frmAttendanceMain);
-                            break;
-                    //我的考勤历史
-                    case "MyAttendanceHistory":
-                            Attendance.frmAttendanceStatSelfDay frmAttendanceStatSelfDay = new Attendance.frmAttendanceStatSelfDay();
-                            Redirect(frmAttendanceStatSelfDay);
-                            break;
-                    //考勤统计
-                    case "AttendanceStatistics":
-                            Attendance.frmAttendanceStatistics frmAttendanceStatistics = new Attendance.frmAttendanceStatistics();
-                            Redirect(frmAttendanceStatistics);
-                            break;
-                 
-                }
-		    }
         }
         /// <summary>
         /// 手机自带回退按钮事件
@@ -248,6 +170,75 @@ namespace SmoONE.UI
                 toasttime = DateTime.Now;
                 this.Toast("再按一次退出系统", ToastLength.SHORT);
             }
+        }
+        /// <summary>
+        /// 初始化事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmWork_Load(object sender, EventArgs e)
+        {
+            MenuGroupDict = new Dictionary<string, IconMenuViewGroup>();
+            //获取菜单
+            MenuGroup();
+        }
+        /// <summary>
+        ///获取菜单
+        /// </summary>
+        private void MenuGroup()
+        {
+            try
+            {
+                List<Menu> listmenu = AutofacConfig.userService.GetMenuByUserID(Client.Session["U_ID"].ToString());
+                this.iconMenuData.Groups.Clear();
+                MenuGroupDict.Clear();
+                IconMenuViewGroup grp = new IconMenuViewGroup("");
+                //获取所有菜单组
+                foreach (Menu menu in listmenu)
+                {
+                    if (string.IsNullOrWhiteSpace(menu.M_ParentID) == true)
+                    {
+                        //添加一级菜单
+                        grp.Items.Add(new IconMenuViewItem(menu.M_MenuID, menu.M_Portrait, menu.M_Description, menu.M_MenuID));
+                        //添加二级菜单
+                        List<Menu> listsecondMenu = AutofacConfig.userService.GetSubMenuByUserID(Client.Session["U_ID"].ToString(), menu.M_MenuID);
+                        if (listsecondMenu.Count > 0)
+                        {
+                            Menu menuItem = AutofacConfig.userService.GetMenuByMenuID(menu.M_MenuID);
+                            IconMenuViewGroup mvGroupItem = new IconMenuViewGroup(menuItem.M_Description);
+                            foreach (Menu secondMenu in listsecondMenu)
+                            {
+                                mvGroupItem.Items.Add(new IconMenuViewItem(secondMenu.M_MenuID, secondMenu.M_Portrait, secondMenu.M_Description, secondMenu.M_MenuID));
+                                if (MenuGroupDict.ContainsKey(menu.M_MenuID) == false)
+                                    MenuGroupDict.Add(menu.M_MenuID, mvGroupItem);
+                            }
+                        }
+                    }
+                }
+                this.iconMenuData.Groups.Add(grp);
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message);
+            }
+        }
+
+        private void plShenPi_Press(object sender, EventArgs e)
+        {
+            frmCheck frmCheck = new frmCheck();
+            Show(frmCheck);
+        }
+
+        private void plFaQi_Press(object sender, EventArgs e)
+        {
+            frmCreated frmCreated = new frmCreated();
+            Show(frmCreated);
+        }
+
+        private void plChaoSong_Press(object sender, EventArgs e)
+        {
+            frmCCTo frmCCTo = new frmCCTo();
+            Show(frmCCTo);
         }
     }
 }

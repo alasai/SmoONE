@@ -15,7 +15,7 @@ namespace SmoONE.UI.Attendance
     // 创建时间： 2017/2
     // 主要内容： 考勤签到原因填写界面
     // ******************************************************************
-    partial class frmAttendanceMainLayoutDialog : Smobiler.Core.MobileForm
+    partial class frmAttendanceMainLayoutDialog : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         public ALInputDto newLog = new ALInputDto();     //新建日志传输对象
@@ -32,15 +32,15 @@ namespace SmoONE.UI.Attendance
             {
                 if(string.IsNullOrEmpty(this.txtReason.Text)==true)         //原因不能为空
                 {
-                    throw new Exception(this.TitleText+"不能为空");
+                    throw new Exception(this.title1 .TitleText+"不能为空");
                 }
                 newLog.AL_Reason = this.txtReason.Text;           //迟到早退原因
                 ReturnInfo r = AutofacConfig.attendanceService.AddAttendanceLog(newLog);
                 if (r.IsSuccess == true)               //提交记录成功
                 {
-                    this.ShowResult = Smobiler.Core.ShowResult.Yes;
+                    this.ShowResult =Smobiler.Core.Controls .ShowResult.Yes;
                     this.Close();
-                    if(TitleText=="迟到理由")
+                    if(this.title1 .TitleText=="迟到理由")
                     {
                         Toast("签到成功"); 
                     }

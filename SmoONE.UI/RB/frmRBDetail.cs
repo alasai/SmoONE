@@ -1,57 +1,53 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Data;
-using System.Text;
-using Smobiler.Core;
 using Smobiler.Core.Controls;
-using SmoONE.CommLib;
-using SmoONE.Domain;
+using System.Data;
 using SmoONE.DTOs;
+using SmoONE.CommLib;
+using SmoONE.UI.Layout;
 
 namespace SmoONE.UI.RB
 {
     // ******************************************************************
-    // æ–‡ä»¶ç‰ˆæœ¬ï¼š SmoONE 1.0
-    // Copyright  (c)  2016-2017 Smobiler 
-    // åˆ›å»ºæ—¶é—´ï¼š 2016/11
-    // ä¸»è¦å†…å®¹ï¼š  æŠ¥é”€å•è¯¦æƒ…ç•Œé¢
+    // ÎÄ¼ş°æ±¾£º SmoONE 2.0
+    // Copyright  (c)  2017-2018 Smobiler 
+    // ´´½¨Ê±¼ä£º 2017/07
+    // Ö÷ÒªÄÚÈİ£º  ±¨Ïúµ¥ÏêÇé½çÃæ
     // ******************************************************************
-    partial class frmRBDetail : Smobiler.Core.MobileForm
+    partial class frmRBDetail : Smobiler.Core.Controls.MobileForm
     {
-
         #region "definition"
-        internal string ID ;                 //æŠ¥é”€å•ç¼–å·
-        internal string UserID;               //å½“å‰ç”¨æˆ·ID
-        internal RB_Status Status;               //æŠ¥é”€å•çŠ¶æ€
-        AutofacConfig AutofacConfig = new AutofacConfig();//è°ƒç”¨é…ç½®ç±»
+        internal string ID;                 //±¨Ïúµ¥±àºÅ
+        internal string UserID;               //µ±Ç°ÓÃ»§ID
+        internal RB_Status Status;               //±¨Ïúµ¥×´Ì¬
+        RefuseDialog Refuse = new RefuseDialog();        //±¨Ïú¾Ü¾øµ¯³ö¿ò
+        AutofacConfig AutofacConfig = new AutofacConfig();//µ÷ÓÃÅäÖÃÀà
         #endregion
-
         /// <summary>
-        /// åˆå§‹åŒ–æ•°æ®
+        /// ³õÊ¼»¯Êı¾İ
         /// </summary>
         private void Bind()
         {
             try
             {
-                UserID = Client.Session["U_ID"].ToString();               //å½“å‰ç”¨æˆ·ID
-                List<RB_RowsDto> Rows = AutofacConfig.rBService.GetRowByRBID(ID);         //æŸ¥æ‰¾æŠ¥é”€å•çš„æ¶ˆè´¹è®°å½•ä¿¡æ¯
-                RBDetailDto Reim = AutofacConfig.rBService.GetByID(ID);             //æŸ¥æ‰¾æŠ¥é”€å•çš„ç›¸å…³ä¿¡æ¯
-                Status = (RB_Status)Reim.RB_Status;             //æŠ¥é”€è®¢å•å½“å‰çŠ¶æ€                             
-                string[] ReimAEACheckers = Reim.RB_AEACheckers.Split(Convert.ToChar(","));       //è·å–è¡Œæ”¿å®¡æ‰¹äººå‘˜
-                string[] ReimFinancialCheckers = Reim.RB_FinancialCheckers.Split(Convert.ToChar(","));       //è·å–è´¢åŠ¡å®¡æ‰¹äººå‘˜
+                UserID = Client.Session["U_ID"].ToString();               //µ±Ç°ÓÃ»§ID
+                List<RB_RowsDto> Rows = AutofacConfig.rBService.GetRowByRBID(ID);         //²éÕÒ±¨Ïúµ¥µÄÏû·Ñ¼ÇÂ¼ĞÅÏ¢
+                RBDetailDto Reim = AutofacConfig.rBService.GetByID(ID);             //²éÕÒ±¨Ïúµ¥µÄÏà¹ØĞÅÏ¢
+                Status = (RB_Status)Reim.RB_Status;             //±¨Ïú¶©µ¥µ±Ç°×´Ì¬                             
+                string[] ReimAEACheckers = Reim.RB_AEACheckers.Split(Convert.ToChar(","));       //»ñÈ¡ĞĞÕşÉóÅúÈËÔ±
+                string[] ReimFinancialCheckers = Reim.RB_FinancialCheckers.Split(Convert.ToChar(","));       //»ñÈ¡²ÆÎñÉóÅúÈËÔ±
                 UserDetailDto userInfo = AutofacConfig.userService.GetUserByUserID(Reim.RB_CreateUser);
-                TitleText = userInfo.U_Name + "çš„æŠ¥é”€";                                     //æ ‡é¢˜
-                lblUserName.Text = userInfo.U_Name;                                   //æŠ¥é”€å•åˆ›å»ºç”¨æˆ·               
-                //å½“æ²¡æœ‰è®¾ç½®ç”¨æˆ·å¤´åƒæ—¶ï¼Œæ ¹æ®ç”¨æˆ·æ€§åˆ«æ˜¾ç¤ºé»˜è®¤å¤´åƒ
+                title1.TitleText = userInfo.U_Name + "µÄ±¨Ïú";                                     //±êÌâ
+                lblUserName.Text = userInfo.U_Name;                                   //±¨Ïúµ¥´´½¨ÓÃ»§               
+                //µ±Ã»ÓĞÉèÖÃÓÃ»§Í·ÏñÊ±£¬¸ù¾İÓÃ»§ĞÔ±ğÏÔÊ¾Ä¬ÈÏÍ·Ïñ
                 if (string.IsNullOrEmpty(userInfo.U_Portrait) == true)
                 {
                     switch (userInfo.U_Sex)
                     {
-                        case (int)Sex.ç”·:
+                        case (int)Sex.ÄĞ:
                             imgPortrait.ResourceID = "boy";
                             break;
-                        case (int)Sex.å¥³:
+                        case (int)Sex.Å®:
                             imgPortrait.ResourceID = "girl";
                             break;
                     }
@@ -60,148 +56,154 @@ namespace SmoONE.UI.RB
                 {
                     imgPortrait.ResourceID = userInfo.U_Portrait;
                 }
-                //é»˜è®¤çŠ¶æ€ä¸‹ï¼Œä¸æ˜¾ç¤ºåŒæ„ï¼Œæ‹’ç»ï¼Œç¼–è¾‘æŒ‰é’®
-                FooterBarLayoutData.Items["btnAgreed"].Visible = false;
-                FooterBarLayoutData.Items["btnRefuse"].Visible = false;
-                FooterBarLayoutData.Items["btnEdit"].Visible = false;
+                //Ä¬ÈÏ×´Ì¬ÏÂ£¬²»ÏÔÊ¾Í¬Òâ£¬¾Ü¾ø£¬±à¼­°´Å¥
+                btnAgreed.Visible = false;
+                btnRefuse.Visible = false;
+                btnEdit.Visible = false;
                 switch (Status)
                 {
-                    case RB_Status.æ–°å»º:                        //å¦‚æœæ˜¯å·²åˆ›å»ºçŠ¶æ€ï¼Œå½“å‰ç”¨æˆ·ä¸ºè´£ä»»äººï¼Œåˆ™æ˜¾ç¤ºå®¡æ‰¹æŒ‰é’®
-                        lblRBState.Text = "ç­‰å¾…è´£ä»»äººå®¡æ‰¹";
-                         if (UserID == Reim.RB_LiableMan)
-                         {
-                             FooterBarLayoutData.Items["btnAgreed"].Visible = true;
-                             FooterBarLayoutData.Items["btnRefuse"].Visible = true;
-                             if (UserID == Reim.RB_CreateUser)
-                             {
-                                 FooterBarLayoutData.Items["btnEdit"].Visible = true;
-                                 FooterBarLayoutData.Items["btnAgreed"].Width = 85;
-                                 FooterBarLayoutData.Items["btnAgreed"].Left = 10;
-                                 FooterBarLayoutData.Items["btnRefuse"].Width = 85;
-                                 FooterBarLayoutData.Items["btnRefuse"].Left = 108;
-                                 FooterBarLayoutData.Items["btnEdit"].Width = 85;
-                                 FooterBarLayoutData.Items["btnEdit"].Left = 205;
-                             }
-                             else
-                             {
-                                 FooterBarLayoutData.Items["btnAgreed"].Width = 134;
-                                 FooterBarLayoutData.Items["btnAgreed"].Left = 10;
-                                 FooterBarLayoutData.Items["btnRefuse"].Width = 134;
-                                 FooterBarLayoutData.Items["btnRefuse"].Left = 156;
-                             }
-                         }
-                         else 
-                         {
-                             if (UserID == Reim.RB_CreateUser)
-                             {
-                                 FooterBarLayoutData.Items["btnEdit"].Visible = true;
-                                 FooterBarLayoutData.Items["btnEdit"].Width = 280;
-                                 FooterBarLayoutData.Items["btnEdit"].Left = 10;
-                             }
-                             else
-                             {
-                                 FooterBarLayoutData.Items["Line1"].Visible = false;
-                             }
-                         }                            
+                    case RB_Status.ĞÂ½¨:                        //Èç¹ûÊÇÒÑ´´½¨×´Ì¬£¬µ±Ç°ÓÃ»§ÎªÔğÈÎÈË£¬ÔòÏÔÊ¾ÉóÅú°´Å¥
+                        lblRBState.Text = "µÈ´ıÔğÈÎÈËÉóÅú";
+                        if (UserID == Reim.RB_LiableMan)
+                        {
+                            btnAgreed.Visible = true;
+                            btnRefuse.Visible = true;
+                            if (UserID == Reim.RB_CreateUser)
+                            {
+                                btnEdit.Visible = true;
+                                btnAgreed.Width = 85;
+                                btnAgreed.Left = 10;
+                                btnRefuse.Width = 85;
+                                btnRefuse.Left = 108;
+                                btnEdit.Width = 85;
+                                btnEdit.Left = 205;
+                            }
+                            else
+                            {
+                                btnAgreed.Width = 134;
+                                btnAgreed.Left = 10;
+                                btnRefuse.Width = 134;
+                                btnRefuse.Left = 156;
+                            }
+                        }
+                        else
+                        {
+                            if (UserID == Reim.RB_CreateUser)
+                            {
+                                btnEdit.Visible = true;
+                                btnEdit.Width = 280;
+                                btnEdit.Left = 10;
+                            }
+                            else
+                            {
+                                plButton.Border = new Border(0);
+                            }
+                        }
                         break;
-                    case RB_Status.è´£ä»»äººå®¡æ‰¹:                  //å¦‚æœæ˜¯è´£ä»»äººå·²å®¡æ‰¹çŠ¶æ€ï¼Œå½“å‰ç”¨æˆ·ä¸ºè¡Œæ”¿å®¡æ‰¹äººï¼Œåˆ™æ˜¾ç¤ºå®¡æ‰¹åŠŸèƒ½æŒ‰é’®
-                        lblRBState.Text = "ç­‰å¾…è¡Œæ”¿å®¡æ‰¹";
+                    case RB_Status.ÔğÈÎÈËÉóÅú:                  //Èç¹ûÊÇÔğÈÎÈËÒÑÉóÅú×´Ì¬£¬µ±Ç°ÓÃ»§ÎªĞĞÕşÉóÅúÈË£¬ÔòÏÔÊ¾ÉóÅú¹¦ÄÜ°´Å¥
+                        lblRBState.Text = "µÈ´ıĞĞÕşÉóÅú";
                         foreach (string ReimAEAChecker in ReimAEACheckers)
                         {
                             if (UserID == ReimAEAChecker)
                             {
-                                FooterBarLayoutData.Items["btnAgreed"].Visible = true;
-                                FooterBarLayoutData.Items["btnRefuse"].Visible = true;
-                                FooterBarLayoutData.Items["btnAgreed"].Width = 134;
-                                FooterBarLayoutData.Items["btnAgreed"].Left = 10;
-                                FooterBarLayoutData.Items["btnRefuse"].Width = 134;
-                                FooterBarLayoutData.Items["btnRefuse"].Left = 156;
+                                btnAgreed.Visible = true;
+                                btnRefuse.Visible = true;
+                                btnAgreed.Width = 134;
+                                btnAgreed.Left = 10;
+                                btnRefuse.Width = 134;
+                                btnRefuse.Left = 156;
                             }
-                        }                     
+                        }
                         break;
-                    case RB_Status.è¡Œæ”¿å®¡æ‰¹:                //å¦‚æœå½“å‰è¡Œæ”¿å·²å®¡æ‰¹ï¼Œå½“å‰ç”¨æˆ·ä¸ºè´¢åŠ¡ï¼Œåˆ™æ˜¾ç¤ºå®¡æ‰¹åŠŸèƒ½æŒ‰é’®
-                        lblRBState.Text = "ç­‰å¾…è´¢åŠ¡å®¡æ‰¹";                       
+                    case RB_Status.ĞĞÕşÉóÅú:                //Èç¹ûµ±Ç°ĞĞÕşÒÑÉóÅú£¬µ±Ç°ÓÃ»§Îª²ÆÎñ£¬ÔòÏÔÊ¾ÉóÅú¹¦ÄÜ°´Å¥
+                        lblRBState.Text = "µÈ´ı²ÆÎñÉóÅú";
                         foreach (string ReimFinancialChecker in ReimFinancialCheckers)
                         {
                             if (UserID == ReimFinancialChecker)
                             {
-                                FooterBarLayoutData.Items["btnAgreed"].Visible = true;
-                                FooterBarLayoutData.Items["btnRefuse"].Visible = true;
-                                FooterBarLayoutData.Items["btnAgreed"].Width = 134;
-                                FooterBarLayoutData.Items["btnAgreed"].Left = 10;
-                                FooterBarLayoutData.Items["btnRefuse"].Width = 134;
-                                FooterBarLayoutData.Items["btnRefuse"].Left = 156;
+                                btnAgreed.Visible = true;
+                                btnAgreed.Visible = true;
+                                btnAgreed.Width = 134;
+                                btnAgreed.Left = 10;
+                                btnRefuse.Width = 134;
+                                btnRefuse.Left = 156;
                             }
                         }
                         break;
-                    case RB_Status.è´¢åŠ¡å®¡æ‰¹:                     //æŠ¥é”€é€šè¿‡ï¼Œä¸æ˜¾ç¤ºä»»ä½•æŒ‰é’®
-                        lblRBState.Text = "å·²å®¡æ‰¹ï¼ˆå®Œæˆï¼‰";
-                        FooterBarLayoutData.Items["Line1"].Visible = false;
+                    case RB_Status.²ÆÎñÉóÅú:                     //±¨ÏúÍ¨¹ı£¬²»ÏÔÊ¾ÈÎºÎ°´Å¥
+                        lblRBState.Text = "ÒÑÉóÅú£¨Íê³É£©";
+                        plButton.Border = new Border(0);
                         break;
-                    case RB_Status.å·²æ‹’ç»:                   //æŠ¥é”€é©³å›ï¼Œå¦‚æœå½“å‰ç”¨æˆ·ä¸ºæŠ¥é”€å•åˆ›å§‹äººï¼Œåˆ™æ˜¾ç¤ºç¼–è¾‘æŒ‰é’®
-                        lblRBState.Text = "å·²å®¡æ‰¹ï¼ˆæ‹’ç»ï¼‰";
+                    case RB_Status.ÒÑ¾Ü¾ø:                   //±¨Ïú²µ»Ø£¬Èç¹ûµ±Ç°ÓÃ»§Îª±¨Ïúµ¥´´Ê¼ÈË£¬ÔòÏÔÊ¾±à¼­°´Å¥
+                        lblRBState.Text = "ÒÑÉóÅú£¨¾Ü¾ø£©";
                         if (UserID == Reim.RB_CreateUser)
                         {
-                            FooterBarLayoutData.Items["btnEdit"].Visible = true;
-                            FooterBarLayoutData.Items["btnEdit"].Width = 280;
-                            FooterBarLayoutData.Items["btnEdit"].Left = 10;
+                            btnEdit.Visible = true;
+                            btnEdit.Width = 280;
+                            btnEdit.Left = 10;
                         }
                         else
                         {
-                            FooterBarLayoutData.Items["Line1"].Visible = false;
+                            plButton.Border = new Border(0);
                         }
                         break;
                 }
                 CCDetailDto Cost = AutofacConfig.costCenterService.GetCCByID(Reim.CC_ID);
-                lblRBNO.Text = Reim.RB_ID;     //æŠ¥é”€å•ç¼–å·
-                lblRBCC.Text = Cost.CC_Name;        //æˆæœ¬ä¸­å¿ƒåç§°
-                lblAmount.Text = Reim.RB_TotalAmount.ToString();           //æ€»é‡‘é¢
-                lblAmount.Text =Reim.RB_TotalAmount.ToString();//æŠ¥é”€å•æ€»é‡‘é¢
+                lblRBNO.Text = Reim.RB_ID;     //±¨Ïúµ¥±àºÅ
+                lblRBCC.Text = Cost.CC_Name;        //³É±¾ÖĞĞÄÃû³Æ
+                lblAmount.Text = Reim.RB_TotalAmount.ToString();           //×Ü½ğ¶î
+                lblAmount.Text = Reim.RB_TotalAmount.ToString();//±¨Ïúµ¥×Ü½ğ¶î
                 lblCreateTime.Text = Reim.RB_CreateDate.ToString("yyyy/MM/dd");
-                lblnote.Text = Reim.RB_Note;              //æŠ¥é”€å•å¤‡æ³¨
+                lblnote.Text = Reim.RB_Note;              //±¨Ïúµ¥±¸×¢
 
                 if (string.IsNullOrEmpty(Reim.RB_RejectionReason) == true)
                 {
                     lblReason.Text = "";
                     lblReason.Height = 25;
                     lblReason1.Height = 25;
-                    lblReason.VerticalAlignment = VerticalAlignment.Center ;
+                    lblReason.VerticalAlignment = VerticalAlignment.Center;
                     lblReason1.VerticalAlignment = VerticalAlignment.Center;
-                    lblReason.Padding = new Smobiler.Core.Padding(0, 0, 0, 0);
-                    lblReason1.Padding = new Smobiler.Core.Padding(0, 0, 0, 0);
+                    lblReason.Padding = new Padding(0, 0, 0, 0);
+                    lblReason1.Padding = new Padding(0, 0, 0, 0);
                 }
                 else
                 {
-                    lblReason.Text = Reim.RB_RejectionReason;       //æŠ¥é”€å•æ‹’ç»åŸå› 
+                    lblReason.Text = Reim.RB_RejectionReason;       //±¨Ïúµ¥¾Ü¾øÔ­Òò
                     lblReason.Height = 50;
                     lblReason1.Height = 50;
                     lblReason.VerticalAlignment = VerticalAlignment.Top;
                     lblReason1.VerticalAlignment = VerticalAlignment.Top;
-                    lblReason.Padding = new Smobiler.Core.Padding(0, 5, 0, 0);
-                    lblReason1.Padding = new Smobiler.Core.Padding(0, 5, 0, 0);
+                    lblReason.Padding = new Padding(0, 5, 0, 0);
+                    lblReason1.Padding = new Padding(0, 5, 0, 0);
                 }
-                gridRBRowData.Top = lblReason.Top + lblReason.Height;
+                listRBRowData.Top = lblReason.Top + lblReason.Height;
 
-                //åˆ›å»ºè¡¨ï¼Œå°†æ•°æ®è¿›è¡Œå¤„ç†åæ”¾å…¥è¡¨å†…ï¼Œç„¶åæ˜¾ç¤ºåœ¨é¡µé¢ä¸Š
+                //Èç¹ûÉóÅúÒÑ½áÊø£¬ÔòÒş²Ø°´Å¥ËùÕ¼ÇøÓò
+                if (btnAgreed.Visible == false && btnEdit.Visible == false && btnRefuse.Visible==false)
+                {
+                    plButton.Visible = false;
+                }
+
+                //´´½¨±í£¬½«Êı¾İ½øĞĞ´¦Àíºó·ÅÈë±íÄÚ£¬È»ºóÏÔÊ¾ÔÚÒ³ÃæÉÏ
                 DataTable rbrowtable = new DataTable();
-                rbrowtable.Columns.Add("ID", typeof(System.Int32));         //æ¶ˆè´¹è®°å½•ç¼–å·
-                rbrowtable.Columns.Add("RB_NO", typeof(System.String));   //æŠ¥é”€å•å·
-                rbrowtable.Columns.Add("RBROW_DATE", typeof(System.String));       //æ¶ˆè´¹æ—¥æœŸ
-                rbrowtable.Columns.Add("RBROW_TYPE", typeof(System.String));      //æ¶ˆè´¹ç±»å‹ID
-                rbrowtable.Columns.Add("RBROW_TYPENAME", typeof(System.String));   //æ¶ˆè´¹ç±»å‹åç§°
-                rbrowtable.Columns.Add("RBROW_AMOUNT", typeof(System.Decimal));      //æ¶ˆè´¹æ—¥æœŸ
-                rbrowtable.Columns.Add("RBROW_NOTE", typeof(System.String));       //æ¶ˆè´¹è®°å½•å¤‡æ³¨
+                rbrowtable.Columns.Add("ID", typeof(System.Int32));         //Ïû·Ñ¼ÇÂ¼±àºÅ
+                rbrowtable.Columns.Add("RB_NO", typeof(System.String));   //±¨Ïúµ¥ºÅ
+                rbrowtable.Columns.Add("RBROW_DATE", typeof(System.String));       //Ïû·ÑÈÕÆÚ
+                rbrowtable.Columns.Add("RBROW_TYPE", typeof(System.String));      //Ïû·ÑÀàĞÍID
+                rbrowtable.Columns.Add("RBROW_TYPENAME", typeof(System.String));   //Ïû·ÑÀàĞÍÃû³Æ
+                rbrowtable.Columns.Add("RBROW_AMOUNT", typeof(System.Decimal));      //Ïû·ÑÈÕÆÚ
+                rbrowtable.Columns.Add("RBROW_NOTE", typeof(System.String));       //Ïû·Ñ¼ÇÂ¼±¸×¢
                 foreach (RB_RowsDto Row in Rows)
                 {
                     string TypeName = AutofacConfig.rBService.GetTypeNameByID(Row.R_TypeID);
                     rbrowtable.Rows.Add(Row.R_ID, Row.RB_ID, Row.R_ConsumeDate.ToString("yyyy/MM/dd"), Row.R_TypeID, TypeName, Row.R_Amount, Row.R_Note);
                 }
-                gridRBRowData.Rows.Clear();//æ¸…ç©ºæŠ¥é”€å•è¡Œé¡¹åˆ—è¡¨æ•°æ®
+                listRBRowData.Rows.Clear();//Çå¿Õ±¨Ïúµ¥ĞĞÏîÁĞ±íÊı¾İ
                 if (rbrowtable.Rows.Count > 0)
-                {                  
-                    this.gridRBRowData.DataSource = rbrowtable;
-                    this.gridRBRowData.DataBind();
-                }           
+                {
+                    this.listRBRowData.DataSource = rbrowtable;
+                    this.listRBRowData.DataBind();
+                }
             }
             catch (Exception ex)
             {
@@ -209,34 +211,7 @@ namespace SmoONE.UI.RB
             }
         }
         /// <summary>
-        /// åˆå§‹åŒ–äº‹ä»¶
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// <remarks></remarks>
-        private void frmRBDetail_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                this.TitleText = "æŠ¥é”€è¯¦æƒ…";
-                Bind();               //æ•°æ®åˆå§‹åŒ–æ“ä½œ
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-        }
-        /// <summary>
-        /// TitleImageäº‹ä»¶ï¼Œå·¦ä¸Šè§’æŒ‰é’®
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void frmRBDetail_TitleImageClick(object sender, EventArgs e)
-        {
-            this.Close();            //å…³é—­å½“å‰é¡µé¢
-        }
-        /// <summary>
-        /// æ‰‹æœºè‡ªå¸¦å›é€€æŒ‰é’®äº‹ä»¶
+        /// ÊÖ»ú×Ô´ø»ØÍË°´Å¥ÊÂ¼ş
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -244,42 +219,20 @@ namespace SmoONE.UI.RB
         {
             if (e.KeyCode == KeyCode.Back)
             {
-                this.Close();            //å…³é—­å½“å‰é¡µé¢
+                this.Close();            //¹Ø±Õµ±Ç°Ò³Ãæ
             }
         }
-       
         /// <summary>
-        /// FooterBarDialogLayoutItemClick   
-        /// å½“é€‰æ‹©æ‹’ç»ï¼Œæ‹’ç»ç†ç”±æœªè¾“å…¥æ—¶ï¼Œå¼¹å‡ºæ¡†ï¼Œè¿›è¡Œå–æ¶ˆæˆ–ç¡®è®¤æ“ä½œ
+        /// ³õÊ¼»¯ÊÂ¼ş
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void frmRBDetail_FooterBarDialogLayoutItemClick(object sender, MobileFormLayoutItemEventArgs e)
+        private void frmRBDetail_Load(object sender, EventArgs e)
         {
             try
             {
-                switch (e.CellItem.Name)
-                {
-                    case "btnCancel":
-                        //å…³é—­æ‹’ç»ç†ç”±è¾“å…¥å¼¹æ¡†
-                        this.CloseFooterBar();
-                        break;
-                    case "btnOK":
-                        this.lblReason.Text = e.Cell.Items["txtReason"].Text;
-                        ReturnInfo r = AutofacConfig.rBService.UpdateRBStatus(ID, RB_Status.å·²æ‹’ç», UserID, this.lblReason.Text);
-                        if (r.IsSuccess == true)
-                        {
-                            Bind();     //æ“ä½œæˆåŠŸï¼Œåˆ·æ–°é¡µé¢
-                            this.ShowResult = Smobiler.Core.ShowResult.Yes;
-                            this.CloseFooterBar();                          
-                            Toast("å®¡æ‰¹æˆåŠŸ");                           
-                        }
-                        else
-                        {
-                            throw new Exception(r.ErrorInfo);
-                        }
-                        break;
-                }
+                title1.TitleText = "±¨ÏúÏêÇé";
+                Bind();               //Êı¾İ³õÊ¼»¯²Ù×÷
             }
             catch (Exception ex)
             {
@@ -287,60 +240,104 @@ namespace SmoONE.UI.RB
             }
         }
         /// <summary>
-        /// FooterBarç‚¹å‡»äº‹ä»¶
+        /// Í¬Òâ±¨Ïú
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void frmRBDetail_FooterBarLayoutItemClick(object sender, MobileFormLayoutItemEventArgs e)
+        private void btnAgreed_Press(object sender, EventArgs e)
         {
             try
             {
-                switch (e.CellItem.Name )
+                switch (Status)
                 {
-                    case "btnAgreed":
-                        switch (Status)
-                        {
-                            case RB_Status.æ–°å»º:
-                                Status = RB_Status.è´£ä»»äººå®¡æ‰¹;
-                                break;
-                            case RB_Status.è´£ä»»äººå®¡æ‰¹:
-                                Status = RB_Status.è¡Œæ”¿å®¡æ‰¹;
-                                break;
-                            case RB_Status.è¡Œæ”¿å®¡æ‰¹:
-                                Status = RB_Status.è´¢åŠ¡å®¡æ‰¹;
-                                break;
-                        }
-                        //Status += 1;       //æ›´æ”¹æŠ¥é”€å•çŠ¶æ€
-                        ReturnInfo r = AutofacConfig.rBService.UpdateRBStatus(ID, Status, UserID, "");           //ä¿å­˜æŠ¥é”€å•
-                        if (r.IsSuccess == true)
-                        {
-                            Bind();               //åˆ·æ–°é¡µé¢
-                            this.ShowResult = Smobiler.Core.ShowResult.Yes;
-                            Toast("å®¡æ‰¹æˆåŠŸ");
-                        }
-                        else
-                        {
-                            throw new Exception(r.ErrorInfo);
-                        }
+                    case RB_Status.ĞÂ½¨:
+                        Status = RB_Status.ÔğÈÎÈËÉóÅú;
                         break;
-                    case "btnRefuse":
-                        ShowFooterBar("frmRefuseLayout");          //è¾“å…¥æ‹’ç»ç†ç”±ï¼Œå¼¹æ¡†
+                    case RB_Status.ÔğÈÎÈËÉóÅú:
+                        Status = RB_Status.ĞĞÕşÉóÅú;
                         break;
-                    case "btnEdit":
-                        frmRBEdit RBEdit = new frmRBEdit();
-                        RBEdit.ID = ID;
-                        this.Redirect(RBEdit, (MobileForm from, object args) =>
-                        {
-                            if (RBEdit.ShowResult == Smobiler.Core.ShowResult.Yes)
-                            {
-                                Bind();          //é‡æ–°åŠ è½½æ•°æ®
-                            }
-                        });
-                        this.ShowResult = Smobiler.Core.ShowResult.Yes;
+                    case RB_Status.ĞĞÕşÉóÅú:
+                        Status = RB_Status.²ÆÎñÉóÅú;
                         break;
                 }
+                ReturnInfo r = AutofacConfig.rBService.UpdateRBStatus(ID, Status, UserID, "");           //±£´æ±¨Ïúµ¥
+                if (r.IsSuccess == true)
+                {
+                    Bind();               //Ë¢ĞÂÒ³Ãæ
+                    this.ShowResult = ShowResult.Yes;
+                    Toast("ÉóÅú³É¹¦");
+                }
+                else
+                {
+                    throw new Exception(r.ErrorInfo);
+                }
+            }
+            catch(Exception ex)
+            {
+                Toast(ex.Message);
+            }
+        }
+        /// <summary>
+        /// ¾Ü¾ø±¨Ïú
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRefuse_Press(object sender, EventArgs e)
+        {
+            try
+            {
+                //µ¯³öÊäÈë¾Ü¾øÀíÓÉ½çÃæ               
+                this.ShowDialog(Refuse);
             }
             catch (Exception ex)
+            {
+                Toast(ex.Message);
+            }
+        }
+        //Ìá½»¾Ü¾ø²Ù×÷µ½Êı¾İ¿â
+        public void SureRefuse()
+        {
+            try
+            {
+                ReturnInfo r = AutofacConfig.rBService.UpdateRBStatus(ID, RB_Status.ÒÑ¾Ü¾ø, UserID, this.lblReason.Text);
+                if (r.IsSuccess == true)
+                {
+                    Bind();     //²Ù×÷³É¹¦£¬Ë¢ĞÂÒ³Ãæ
+                    this.ShowResult = ShowResult.Yes;
+                    Refuse.Close();
+                    this.Form.Toast("ÉóÅú³É¹¦");
+                }
+                else
+                {
+                    throw new Exception(r.ErrorInfo);
+                }
+            }
+            catch(Exception ex)
+            {
+                Toast(ex.Message);
+            }
+        }
+        /// <summary>
+        /// ±¨Ïú±à¼­
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnEdit_Press(object sender, EventArgs e)
+        {
+            try
+            {
+                frmRBEdit RBEdit = new frmRBEdit();
+                RBEdit.ID = ID;
+                this.Show(RBEdit, (MobileForm from, object args) =>
+                {
+                    if (RBEdit.ShowResult == ShowResult.Yes)
+                    {
+                        Bind();          //ÖØĞÂ¼ÓÔØÊı¾İ
+                    }
+                });
+                this.ShowResult = ShowResult.Yes;
+            }
+            catch(Exception ex)
             {
                 Toast(ex.Message);
             }

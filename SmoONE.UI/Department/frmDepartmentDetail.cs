@@ -17,7 +17,7 @@ namespace SmoONE.UI.Department
     // 创建时间： 2016/11
     // 主要内容：  部门详情界面
     // ******************************************************************
-    partial class frmDepartmentDetail : Smobiler.Core.MobileForm
+    partial class frmDepartmentDetail : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         /// <summary>
@@ -139,7 +139,7 @@ namespace SmoONE.UI.Department
         {
             frmDepartmentCreate frm = new frmDepartmentCreate();
             frm.D_ID = D_ID;
-            Redirect(frm, (MobileForm form, object args) =>
+            Show(frm, (MobileForm form, object args) =>
             {
                 if (frm.ShowResult == ShowResult.Yes)
                 {
@@ -160,14 +160,14 @@ namespace SmoONE.UI.Department
             //bool isDelDep = false;//是否删除部门
             MessageBox.Show("是否确定删除部门？", "部门", MessageBoxButtons.YesNo, (Object s1, MessageBoxHandlerArgs args1) =>
                {
-                   if (args1.Result == Smobiler.Core.ShowResult.Yes)
+                   if (args1.Result == Smobiler.Core.Controls .ShowResult.Yes)
                    {
                        //如果部门人员人数大于0，则弹出提示框在删除部门，否则直接删除
                        if (gridUserData.Rows.Count > 0)
                        {
                            MessageBox.Show(lblName.Text + "已分配部门人员是否删除？", "删除部门", MessageBoxButtons.YesNo, (Object s, MessageBoxHandlerArgs args) =>
                            {
-                               if (args.Result == Smobiler.Core.ShowResult.Yes)
+                               if (args.Result ==Smobiler.Core.Controls .ShowResult.Yes)
                                {
 
                                    //isDelDep = true;

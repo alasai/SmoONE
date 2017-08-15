@@ -2,7 +2,7 @@ using System;
 using Smobiler.Core;
 namespace SmoONE.UI.Attendance
 {
-    partial class frmAttendanceMain : Smobiler.Core.MobileForm
+    partial class frmAttendanceMain : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,13 +28,20 @@ namespace SmoONE.UI.Attendance
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.lblWeekDay = new Smobiler.Core.Controls.Label();
-            this.lblDate = new Smobiler.Core.Controls.Label();
-            this.gridATdata = new Smobiler.Core.Controls.GridView();
             this.gps1 = new Smobiler.Core.Controls.GPS();
-            this.layoutDialog1 = new Smobiler.Core.Controls.LayoutDialog();
+            this.lblWeekDay = new Smobiler.Core.Controls.Label();
             this.lblInfo = new Smobiler.Core.Controls.Label();
-            this.DetailLayout = new Smobiler.Core.Controls.LayoutDialog();
+            this.lblDate = new Smobiler.Core.Controls.Label();
+            this.gridATdata = new Smobiler.Core.Controls.ListView();
+            this.title1 = new SmoONE.UI.Layout.Title();
+            this.panel1 = new Smobiler.Core.Controls.Panel();
+            // 
+            // gps1
+            // 
+            this.gps1.AmapKey = "8f960360ba094ef27da07c4cb5c615fc";
+            this.gps1.Name = "gps1";
+            this.gps1.RequestLocation = true;
+            this.gps1.TimeOut = 6000;
             // 
             // lblWeekDay
             // 
@@ -43,11 +50,21 @@ namespace SmoONE.UI.Attendance
             this.lblWeekDay.FontSize = 35F;
             this.lblWeekDay.ForeColor = System.Drawing.Color.White;
             this.lblWeekDay.Name = "lblWeekDay";
-            this.lblWeekDay.Padding = new Smobiler.Core.Padding(10F, 0F, 0F, 0F);
+            this.lblWeekDay.Padding = new Smobiler.Core.Controls.Padding(10F, 0F, 0F, 0F);
             this.lblWeekDay.Size = new System.Drawing.Size(300, 60);
-            this.lblWeekDay.TabIndex = 2;
             this.lblWeekDay.Text = "星期二";
-            this.lblWeekDay.VerticalAlignment = Smobiler.Core.VerticalAlignment.Bottom;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.BorderColor = System.Drawing.Color.Gray;
+            this.lblInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.lblInfo.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
+            this.lblInfo.Location = new System.Drawing.Point(10, 164);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Padding = new Smobiler.Core.Controls.Padding(10F, 0F, 0F, 0F);
+            this.lblInfo.Size = new System.Drawing.Size(280, 30);
+            this.lblInfo.Text = "目前暂无考勤模板！";
+            this.lblInfo.Visible = false;
             // 
             // lblDate
             // 
@@ -57,83 +74,67 @@ namespace SmoONE.UI.Attendance
             this.lblDate.ForeColor = System.Drawing.Color.White;
             this.lblDate.Location = new System.Drawing.Point(0, 60);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Padding = new Smobiler.Core.Padding(10F, 5F, 0F, 0F);
+            this.lblDate.Padding = new Smobiler.Core.Controls.Padding(10F, 5F, 0F, 0F);
             this.lblDate.Size = new System.Drawing.Size(300, 35);
-            this.lblDate.TabIndex = 3;
             this.lblDate.Text = "2012年7月26日";
-            this.lblDate.VerticalAlignment = Smobiler.Core.VerticalAlignment.Top;
+            this.lblDate.VerticalAlignment = Smobiler.Core.Controls.VerticalAlignment.Top;
             this.lblDate.ZIndex = 1;
             // 
             // gridATdata
             // 
-            this.gridATdata.AllowSlip = true;
-            this.gridATdata.Layout = "frmAttendanceMainLayout";
+            this.gridATdata.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridATdata.Location = new System.Drawing.Point(0, 95);
             this.gridATdata.Name = "gridATdata";
-            this.gridATdata.PageSize = 8;
-            this.gridATdata.ShowGridLines = false;
-            this.gridATdata.Size = new System.Drawing.Size(300, 275);
-            this.gridATdata.TabIndex = 4;
-            this.gridATdata.CellClick += new Smobiler.Core.Controls.GridViewCellClickEventHandler(this.gridATdata_CellClick);
-            this.gridATdata.ItemClick += new Smobiler.Core.Controls.GridViewItemClickEventHandler(this.gridATdata_ItemClick);
+            this.gridATdata.ShowSplitLine = true;
+            this.gridATdata.Size = new System.Drawing.Size(300, 355);
+            this.gridATdata.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.gridATdata.TemplateControlName = "frmAttendanceMainLayout";
             // 
-            // gps1
+            // title1
             // 
-            this.gps1.Name = "gps1";
-            this.gps1.TimeOut = 6000;
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.FontSize = 15F;
+            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.title1.Location = new System.Drawing.Point(111, 36);
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
+            this.title1.TitleText = "考勤";
             // 
-            // layoutDialog1
+            // panel1
             // 
-            this.layoutDialog1.Layout = "frmAttendanceMainLayoutDialog";
-            this.layoutDialog1.Name = "layoutDialog1";
-            // 
-            // lblInfo
-            // 
-            this.lblInfo.BorderColor = System.Drawing.Color.Gray;
-            this.lblInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.lblInfo.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Center;
-            this.lblInfo.Location = new System.Drawing.Point(10, 164);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Padding = new Smobiler.Core.Padding(10F, 0F, 0F, 0F);
-            this.lblInfo.Size = new System.Drawing.Size(280, 30);
-            this.lblInfo.TabIndex = 7;
-            this.lblInfo.Text = "目前暂无考勤模板！";
-            this.lblInfo.Visible = false;
-            // 
-            // DetailLayout
-            // 
-            this.DetailLayout.Layout = "frmAttendanceMainDetailLayout";
-            this.DetailLayout.Name = "DetailLayout";
+            this.panel1.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.lblWeekDay,
+            this.lblInfo,
+            this.lblDate,
+            this.gridATdata});
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 500);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(300, 424);
             // 
             // frmAttendanceMain
             // 
             this.BackColor = System.Drawing.Color.White;
-            this.ComponentControls.AddRange(new Smobiler.Core.ComponentBase[] {
-            this.gps1,
-            this.layoutDialog1,
-            this.DetailLayout});
+            this.Components.AddRange(new Smobiler.Core.Controls.MobileComponent[] {
+            this.gps1});
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.lblWeekDay,
-            this.gridATdata,
-            this.lblInfo,
-            this.lblDate});
-            this.StatusBarStyle = Smobiler.Core.StatusBarStyle.Default;
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
-            this.TitleText = "考勤";
+            this.title1,
+            this.panel1});
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmAttendanceMain_KeyDown);
             this.Load += new System.EventHandler(this.frmAttendanceMain_Load);
-            this.TitleImageClick += new System.EventHandler(this.frmAttendanceMain_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmAttendanceMain_KeyDown);
             this.Name = "frmAttendanceMain";
 
         }
         #endregion
 
-        private Smobiler.Core.Controls.Label lblWeekDay;
-        private Smobiler.Core.Controls.Label lblDate;
-        private Smobiler.Core.Controls.GridView gridATdata;
         private Smobiler.Core.Controls.GPS gps1;
-        private Smobiler.Core.Controls.LayoutDialog layoutDialog1;
+        private SmoONE.UI.Layout.Title title1;
+        private Smobiler.Core.Controls.Panel panel1;
+        private Smobiler.Core.Controls.Label lblWeekDay;
         private Smobiler.Core.Controls.Label lblInfo;
-        private Smobiler.Core.Controls.LayoutDialog DetailLayout;
+        private Smobiler.Core.Controls.Label lblDate;
+        private Smobiler.Core.Controls.ListView gridATdata;
     }
 }

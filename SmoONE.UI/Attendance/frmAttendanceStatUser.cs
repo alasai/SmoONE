@@ -14,7 +14,7 @@ namespace SmoONE.UI.Attendance
     // 创建时间： 2017/2
     // 主要内容： 用户考勤日志类型人员统计界面
     // ******************************************************************
-    partial class frmAttendanceStatUser : Smobiler.Core.MobileForm
+    partial class frmAttendanceStatUser : Smobiler.Core.Controls.MobileForm
     {
 
         #region "definition"
@@ -61,7 +61,7 @@ namespace SmoONE.UI.Attendance
                                     listUser.Add(userDto);
                                 }
                             }
-                            gridATUserData.DataSource = listUser; //绑定gridView数据
+                            gridATUserData.DataSource = listUser; //绑定ListView数据
                             gridATUserData.DataBind();
                         }
                 }
@@ -73,19 +73,7 @@ namespace SmoONE.UI.Attendance
         }
       
         
-        /// <summary>
-        /// 跳转到考勤统计记录界面
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridATUserData_CellClick(object sender, GridViewCellEventArgs e)
-        {
-            frmAttendanceStatMonthTypeDay frm =new frmAttendanceStatMonthTypeDay ();
-            frm.atType =atType;
-            frm.UserID=e.Cell.Items["lblUser"].Value.ToString ();
-            frm.Daytime = atDate;
-            Redirect(frm);
-        }
+      
 
         /// <summary>
         /// 手机自带返回键，退出页面

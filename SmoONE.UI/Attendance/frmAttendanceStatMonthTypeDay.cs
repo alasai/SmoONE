@@ -15,7 +15,7 @@ namespace SmoONE.UI.Attendance
     // 创建时间： 2017/2
     // 主要内容： 考勤报表统计(按月统计)
     // ******************************************************************
-    partial class frmAttendanceStatMonthTypeDay : Smobiler.Core.MobileForm
+    partial class frmAttendanceStatMonthTypeDay : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         public string UserID;//用户
@@ -23,38 +23,7 @@ namespace SmoONE.UI.Attendance
         public string Daytime;         //时间
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
         #endregion
-        /// <summary>
-        /// 跳转到考勤详细界面
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridATTypeDaydata_CellClick(object sender, GridViewCellEventArgs e)
-        {
-             try
-            {
-                if (string.IsNullOrEmpty(atType) == false)
-                {
-                    switch ((StatisticsType)Enum.Parse(typeof(StatisticsType), atType))
-                    {
-                        case StatisticsType.准点:
-                        case StatisticsType.迟到:
-                        case StatisticsType.早退:
-                        case StatisticsType.未签到:
-                        case StatisticsType.未签退:
-                            frmAttendanceMain frmMain = new frmAttendanceMain();
-                            frmMain.DayTime = e.Cell.Items["lblDay"].Text;            //选择查看的日期
-                            frmMain.enter = (int)Enum.Parse(typeof(ATMainState), ATMainState.统计查看.ToString());
-                            frmMain.UserID = UserID; 
-                            this.Redirect(frmMain);
-                            break;
-                    }
-                }
-            }
-             catch (Exception ex)
-             {
-                 Toast(ex.Message);
-             }
-        }
+      
 
         /// <summary>
         /// 根据用户、考勤类型和月份获取日期
@@ -71,14 +40,14 @@ namespace SmoONE.UI.Attendance
                  switch ((StatisticsType)Enum.Parse(typeof(StatisticsType), atType))
                     {
                         case StatisticsType.旷工:
-                            gridATTypeDaydata.Layout = "frmATStatSelfDetailDayLayout";
+                            gridATTypeDaydata.TemplateControlName = "frmATStatSelfDetailDayLayout";
                             break;
                         case StatisticsType.准点:
                         case StatisticsType.迟到:
                         case StatisticsType.早退:
                         case StatisticsType.未签到:
                         case StatisticsType.未签退:
-                            gridATTypeDaydata.Layout = "frmAttendanceStatDayLayout";
+                            gridATTypeDaydata.TemplateControlName = "frmAttendanceStatDayLayout";
                             break;
                     }
                 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +7,8 @@ using Smobiler.Core.Controls;
 
 namespace SmoONE.UI.Layout
 {
-    partial class frmRBROWLayout : Smobiler.Core.MobileForm
+    //[System.ComponentModel.ToolboxItem(true)]
+    partial class frmRBRowLayout : Smobiler.Core.Controls.MobileUserControl
     {
     }
 }

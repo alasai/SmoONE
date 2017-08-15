@@ -5,6 +5,8 @@ using System.Text;
 using Smobiler.Core;
 using Smobiler.Core.Controls;
 using SmoONE.DTOs;
+using SmoONE.UI.Attendance;
+using SmoONE.UI.Layout;
 
 namespace SmoONE.UI.Attendance
 {
@@ -14,32 +16,32 @@ namespace SmoONE.UI.Attendance
     // 创建时间： 2016/11
     // 主要内容： 考勤用户选中界面
     // ******************************************************************
-    partial class frmATUser : Smobiler.Core.MobileForm
+    partial class frmATUser : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
-        int selectUserQty = 0;//选中人员数
+        public  int selectUserQty = 0;//选中人员数
         public string ATNo;//考勤模板编号
         public string  selectUser;//选中人员
         #endregion
         /// <summary>
-        /// gridview点击事件
+        /// ListView点击事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void gridATData_CellClick(object sender, GridViewCellEventArgs e)
-        {
-            switch (Convert.ToBoolean(e.Cell.Items["Check"].DefaultValue))
-            {
-                case true:
-                    e.Cell.Items["Check"].DefaultValue = false;
-                    break;
-                case false:
-                    e.Cell.Items["Check"].DefaultValue = true;
-                    break;
-            }
-            upCheckState();
-        }
+        //private void gridATData_CellClick(object sender, GridViewCellEventArgs e)
+        //{
+        //    switch (Convert.ToBoolean(e.Cell.Items["Check"].DefaultValue))
+        //    {
+        //        case true:
+        //            e.Cell.Items["Check"].DefaultValue = false;
+        //            break;
+        //        case false:
+        //            e.Cell.Items["Check"].DefaultValue = true;
+        //            break;
+        //    }
+        //    upCheckState();
+        //}
         /// <summary>
         /// 获取用户
         /// </summary>
@@ -182,7 +184,7 @@ namespace SmoONE.UI.Attendance
                 if (listATUser.Count > 0)
                 {
                    
-                    gridATUserData.DataSource = listATUser; //绑定gridView数据
+                    gridATUserData.DataSource = listATUser; //绑定ListView数据
                     gridATUserData.DataBind();
                     upCheckState();
                 }
@@ -207,7 +209,7 @@ namespace SmoONE.UI.Attendance
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void checkAll_CheckChanged(object sender, CheckEventArgs e)
+        private void checkAll_CheckChanged(object sender, EventArgs e)
         {
             Checkall();
         }
@@ -216,19 +218,23 @@ namespace SmoONE.UI.Attendance
         /// </summary>
         private void Checkall()
         {
-            switch (checkAll.Checked)
+            switch (checkAll1.Checked)
             {
                 case true:
-                    foreach (GridViewRow rows in gridATUserData.Rows)
+                    foreach (ListViewRow rows in gridATUserData.Rows)
                     {
-                        rows.Cell.Items["Check"].DefaultValue = true;
+                       // rows.Cell.Items["Check"].DefaultValue = true;
+                        ((frmATUserLayout)(rows.Control)).Check.BindDisplayValue = true;
+
                     }
                     selectUserQty = gridATUserData.Rows.Count;
                     break;
                 case false:
-                    foreach (GridViewRow rows in gridATUserData.Rows)
+                    foreach (ListViewRow rows in gridATUserData.Rows)
                     {
-                        rows.Cell.Items["Check"].DefaultValue = false;
+                      //  rows.Cell.Items["Check"].DefaultValue = false;
+                        ((frmATUserLayout)(rows.Control)).Check.BindDisplayValue =false ;
+
                     }
                     selectUserQty = 0;
                     break;
@@ -239,25 +245,26 @@ namespace SmoONE.UI.Attendance
         /// <summary>
         /// 更新全选状态
         /// </summary>
-        private void upCheckState()
+        public  void upCheckState()
         {
             selectUserQty = 0;
-            foreach (GridViewRow rows in gridATUserData.Rows)
+            foreach (ListViewRow rows in gridATUserData.Rows)
             {
 
-                if (Convert.ToBoolean(rows.Cell.Items["Check"].DefaultValue) == true)
+
+                if (Convert.ToBoolean(((frmATUserLayout)(rows.Control)).Check.BindDisplayValue) == true)
                 {
                     selectUserQty += 1;
                 }
             }
-            //当gridView行项选中条数等于gridView行数时，为全选状态，否则为不选状态。
+            //当ListView行项选中条数等于ListView行数时，为全选状态，否则为不选状态。
             if (selectUserQty == gridATUserData.Rows.Count)
             {
-                checkAll.Checked = true;
+                checkAll1.Checked = true;
             }
             else
             {
-                checkAll.Checked = false;
+                checkAll1.Checked = false;
             }
             //更新选中人员数描述
             upSelectUserFoot();
@@ -271,70 +278,40 @@ namespace SmoONE.UI.Attendance
             {
                 if (selectUserQty > 0)
                 {
-                    FooterBarLayoutData.Items["btnSave"].BackColor =  System.Drawing.Color.FromArgb(43,146,223);
-                    FooterBarLayoutData.Items["btnSave"].Enabled = true ;
-                }
-                else 
-                {
-                    FooterBarLayoutData.Items["btnSave"].BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
-                    FooterBarLayoutData.Items["btnSave"].Enabled = false;
-                }
-                FooterBarLayoutData.Items["lblDesc"].DefaultValue = "已选中 " + selectUserQty.ToString() + " 人";
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message , ToastLength.SHORT );
-            }
-        }
-        /// <summary>
-        /// gridview点击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridATData_ItemClick(object sender, GridViewCellItemEventArgs e)
-        {
-            upCheckState();
-        }
+                   // FooterBarLayoutData.Items["btnSave"].BackColor = System.Drawing.Color.FromArgb(43, 146, 223);
+                    //FooterBarLayoutData.Items["btnSave"].Enabled = true;
+                    frmATFootLayout1.btnSave.BackColor = System.Drawing.Color.FromArgb(43, 146, 223);
+                    frmATFootLayout1.btnSave.Enabled = true;
 
-        private void frmATUser_FooterBarLayoutItemClick(object sender, MobileFormLayoutItemEventArgs e)
-        {
-            try
-            {
-                if (e.CellItem.Name.Equals("btnSave"))
-                {
-                    if (selectUserQty <= 0)
-                    {
-                        throw new Exception("请至少选择一位考勤成员！");
-                    }
-                    else
-                    {
-                        selectUser = null ;
-                        foreach (GridViewRow rows in gridATUserData.Rows)
-                        {
-                            if (Convert.ToBoolean(rows.Cell.Items["Check"].DefaultValue) == true)
-                            {
-                                if (string.IsNullOrEmpty(selectUser) == true)
-                                {
-                                    selectUser = rows.Cell.Items["lblUser"].Value.ToString();
-
-                                }
-                                else
-                                {
-                                    selectUser += "," + rows.Cell.Items["lblUser"].Value.ToString();
-                                }
-                            }
-                        }
-                        ShowResult = ShowResult.Yes;
-                        Close();
-                    }
-                   
                 }
+                else
+                {
+                   // FooterBarLayoutData.Items["btnSave"].BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
+                   // FooterBarLayoutData.Items["btnSave"].Enabled = false;
+
+                    frmATFootLayout1.btnSave.BackColor = System.Drawing.Color.FromArgb(45, 45, 45);
+                    frmATFootLayout1.btnSave.Enabled = false;
+                }
+                //FooterBarLayoutData.Items["lblDesc"].DefaultValue = "已选中 " + selectUserQty.ToString() + " 人";
+                frmATFootLayout1.lblDesc.Text = "已选中 " + selectUserQty.ToString() + " 人";
+
             }
             catch (Exception ex)
             {
                 Toast(ex.Message, ToastLength.SHORT);
             }
         }
+        /////// <summary>
+        /////// ListView点击事件
+        /////// </summary>
+        /////// <param name="sender"></param>
+        /////// <param name="e"></param>
+        ////private void gridATData_ItemClick(object sender, GridViewCellItemEventArgs e)
+        ////{
+        ////    upCheckState();
+        ////}
+
+      
         /// <summary>
         /// 初始化事件
         /// </summary>

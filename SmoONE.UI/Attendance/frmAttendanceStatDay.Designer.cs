@@ -2,7 +2,7 @@ using System;
 using Smobiler.Core;
 namespace SmoONE.UI.Attendance
 {
-    partial class frmAttendanceStatDay : Smobiler.Core.MobileForm
+    partial class frmAttendanceStatDay : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,57 +28,70 @@ namespace SmoONE.UI.Attendance
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.gridATdata = new Smobiler.Core.Controls.GridView();
-            this.line1 = new Smobiler.Core.Controls.Line();
+            this.title1 = new SmoONE.UI.Layout.Title();
+            this.panel1 = new Smobiler.Core.Controls.Panel();
             this.btnDate = new Smobiler.Core.Controls.Button();
+            this.gridATdata = new Smobiler.Core.Controls.ListView();
             // 
-            // gridATdata
+            // title1
             // 
-            this.gridATdata.AllowSlip = true;
-            this.gridATdata.Layout = "frmAttendanceStatDayLayout";
-            this.gridATdata.Location = new System.Drawing.Point(0, 35);
-            this.gridATdata.Name = "gridATdata";
-            this.gridATdata.PageSize = 8;
-            this.gridATdata.Size = new System.Drawing.Size(300, 460);
-            this.gridATdata.TabIndex = 2;
-            this.gridATdata.CellClick += new Smobiler.Core.Controls.GridViewCellClickEventHandler(this.gridATdata_CellClick);
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.FontSize = 15F;
+            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.title1.Location = new System.Drawing.Point(111, 36);
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
+            this.title1.TitleText = "成本中心";
             // 
-            // line1
+            // panel1
             // 
-            this.line1.BackColor = System.Drawing.Color.LightGray;
-            this.line1.Location = new System.Drawing.Point(0, 35);
-            this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(300, 1);
-            this.line1.TabIndex = 6;
+            this.panel1.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.btnDate,
+            this.gridATdata});
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 358);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(300, 200);
             // 
             // btnDate
             // 
+            this.btnDate.BackColor = System.Drawing.Color.White;
+            this.btnDate.BorderRadius = 0;
+            this.btnDate.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDate.FontSize = 12F;
             this.btnDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnDate.HoverBackColor = System.Drawing.Color.White;
-            this.btnDate.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             this.btnDate.Name = "btnDate";
             this.btnDate.Size = new System.Drawing.Size(300, 35);
-            this.btnDate.TabIndex = 7;
-            this.btnDate.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.ButDate_Click);
+            this.btnDate.Press += new System.EventHandler(this.ButDate_Click);
+            // 
+            // gridATdata
+            // 
+            this.gridATdata.BackColor = System.Drawing.Color.White;
+            this.gridATdata.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gridATdata.Location = new System.Drawing.Point(0, 35);
+            this.gridATdata.Name = "gridATdata";
+            this.gridATdata.ShowSplitLine = true;
+            this.gridATdata.Size = new System.Drawing.Size(300, 415);
+            this.gridATdata.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.gridATdata.TemplateControlName = "frmAttendanceStatDayLayout";
             // 
             // frmAttendanceStatDay
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.gridATdata,
-            this.line1,
-            this.btnDate});
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
+            this.title1,
+            this.panel1});
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmAttendanceStatDay_KeyDown);
             this.Load += new System.EventHandler(this.frmAttendanceStatDay_Load);
-            this.TitleImageClick += new System.EventHandler(this.frmAttendanceStatDay_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmAttendanceStatDay_KeyDown);
             this.Name = "frmAttendanceStatDay";
 
         }
         #endregion
 
-        private Smobiler.Core.Controls.GridView gridATdata;
-        private Smobiler.Core.Controls.Line line1;
+        private SmoONE.UI.Layout.Title title1;
+        private Smobiler.Core.Controls.Panel panel1;
         private Smobiler.Core.Controls.Button btnDate;
+        private Smobiler.Core.Controls.ListView gridATdata;
     }
 }

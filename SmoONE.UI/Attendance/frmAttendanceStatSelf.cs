@@ -15,7 +15,7 @@ namespace SmoONE.UI.Attendance
     // 创建时间： 2017/2
     // 主要内容： 用户月份考勤报表统计界面
     // ******************************************************************
-    partial class frmAttendanceStatSelf : Smobiler.Core.MobileForm
+    partial class frmAttendanceStatSelf : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         internal string UserID;        //用户ID
@@ -59,9 +59,9 @@ namespace SmoONE.UI.Attendance
                 {
                     throw new Exception("用户不存在");
                 }
-                if (string.IsNullOrEmpty(this.TitleText) == true)
+                if (string.IsNullOrEmpty(this.title1.TitleText) == true)
                 {
-                    this.TitleText = UserInfo.U_Name + "的考勤报表";
+                    this.title1 .TitleText = UserInfo.U_Name + "的考勤报表";
                 }
                 lblDay.Text = Stat.DS_NormalDayCount.ToString();//正常考勤天数
                 this.lblAll.Text = Stat.MS_AllCount.ToString() + "次";//应签到
@@ -141,34 +141,34 @@ namespace SmoONE.UI.Attendance
                 Toast(ex.Message);
             }
         }
-        /// <summary>
-        /// 点击进入具体查看签到情况
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridATdata_CellClick(object sender, GridViewCellEventArgs e)
-        {
-            try
-            {
-                if (Convert.ToInt32(e.Cell.Items["lblNumber"].Value) == 0)
-                {
-                    e.Cell.Items["lblDetail"].Enabled = false;
-                    e.Cell.Items["lblNumber"].Enabled = false;
-                }
-                else
-                {
-                    frmAttendanceStatSelfDetail newFrm = new frmAttendanceStatSelfDetail();
-                    newFrm.Type = e.Cell.Items["lblID"].Text;           //签到类型
-                    newFrm.Daytime = Daytime;                   //时间
-                    newFrm.UserID = UserID;                     //用户ID
-                    newFrm.TitleText = lblName.Text + e.Cell.Items["lblID"].Text + "记录";
-                    this.Redirect(newFrm);
-                }
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-        }
+        ///// <summary>
+        ///// 点击进入具体查看签到情况
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void gridATdata_CellClick(object sender, GridViewCellEventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (Convert.ToInt32(e.Cell.Items["lblNumber"].Value) == 0)
+        //        {
+        //            e.Cell.Items["lblDetail"].Enabled = false;
+        //            e.Cell.Items["lblNumber"].Enabled = false;
+        //        }
+        //        else
+        //        {
+        //            frmAttendanceStatSelfDetail newFrm = new frmAttendanceStatSelfDetail();
+        //            newFrm.Type = e.Cell.Items["lblID"].Text;           //签到类型
+        //            newFrm.Daytime = Daytime;                   //时间
+        //            newFrm.UserID = UserID;                     //用户ID
+        //            newFrm.TitleText = lblName.Text + e.Cell.Items["lblID"].Text + "记录";
+        //            this.Show(newFrm);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Toast(ex.Message);
+        //    }
+        //}
     }
 }

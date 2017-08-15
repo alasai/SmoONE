@@ -56,14 +56,16 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Smobiler.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=c28d201d12639a97, processorArchitecture=MSIL">
+    <Reference Include="Smobiler.Core.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8c6a0bf97233f4f9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\dll\Smobiler.Core.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Smobiler Designer\Library\Smobiler.Core.Controls.dll</HintPath>
     </Reference>
-    <Reference Include="Smobiler.Utility, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a049c84bba5d5e7a, processorArchitecture=MSIL">
+    <Reference Include="Smobiler.Core.Controls.Native, Version=1.0.0.0, Culture=neutral, PublicKeyToken=26f2e019a773c6db, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\dll\Smobiler.Utility.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Smobiler Designer\Library\Smobiler.Core.Controls.Native.dll</HintPath>
     </Reference>
+    <Reference Include="Smobiler.Utility" />
+    <Reference Include="Smobiler.Core" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -92,6 +94,12 @@
     <Compile Include="ATStatSelfDetail.cs" />
     <Compile Include="AttendanceManager.cs" />
     <Compile Include="AttendanceWorkDate.cs" />
+    <Compile Include="Attendance\frmATGPSEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmATGPSEdit.Designer.cs">
+      <DependentUpon>frmATGPSEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Attendance\frmAttendanceCalendarSetting.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -109,6 +117,12 @@
     </Compile>
     <Compile Include="Attendance\frmAttendanceDate.Designer.cs">
       <DependentUpon>frmAttendanceDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceMain.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Attendance\frmAttendanceMain.Designer.cs">
+      <DependentUpon>frmAttendanceMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Attendance\frmAttendanceMainReason.cs">
       <SubType>Component</SubType>
@@ -196,6 +210,12 @@
     <Compile Include="CostCenter\frmCostCenterCreate.Designer.cs">
       <DependentUpon>frmCostCenterCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="CostCenter\frmCostCenterDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CostCenter\frmCostCenterDetail.Designer.cs">
+      <DependentUpon>frmCostCenterDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="CostCenter\frmCostTemplet.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -214,33 +234,58 @@
     <Compile Include="CostCenter\frmCostTempletDetail.Designer.cs">
       <DependentUpon>frmCostTempletDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataCheckPoplist.cs" />
-    <Compile Include="DataGridviewbyUser.cs" />
     <Compile Include="CostCenter\frmRBCostCenter.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CostCenter\frmRBCostCenter.Designer.cs">
       <DependentUpon>frmRBCostCenter.cs</DependentUpon>
     </Compile>
-    <Compile Include="CostCenter\frmCostCenterDetail.cs">
+    <Compile Include="DataCheckPoplist.cs" />
+    <Compile Include="DataGridviewbyUser.cs" />
+    <Compile Include="DepartmentMode.cs" />
+    <Compile Include="ATAddressDistance.cs" />
+    <Compile Include="Department\frmDepartment.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CostCenter\frmCostCenterDetail.Designer.cs">
-      <DependentUpon>frmCostCenterDetail.cs</DependentUpon>
+    <Compile Include="Department\frmDepartment.Designer.cs">
+      <DependentUpon>frmDepartment.cs</DependentUpon>
     </Compile>
-    <Compile Include="DepartmentMode.cs" />
+    <Compile Include="Department\frmDepartmentCreate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Department\frmDepartmentCreate.Designer.cs">
+      <DependentUpon>frmDepartmentCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Department\frmDepartmentDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Department\frmDepartmentDetail.Designer.cs">
+      <DependentUpon>frmDepartmentDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Department\frmDepAssignUser.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Department\frmDepAssignUser.Designer.cs">
       <DependentUpon>frmDepAssignUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="ATAddressDistance.cs" />
-    <Compile Include="Attendance\frmAttendanceMain.cs">
+    <Compile Include="EuserInfo.cs" />
+    <Compile Include="frmLogon.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Attendance\frmAttendanceMain.Designer.cs">
-      <DependentUpon>frmAttendanceMain.cs</DependentUpon>
+    <Compile Include="frmLogon.Designer.cs">
+      <DependentUpon>frmLogon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\CheckOrCC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\CheckOrCC.Designer.cs">
+      <DependentUpon>CheckOrCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\EditUserInfoLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\EditUserInfoLayout.Designer.cs">
+      <DependentUpon>EditUserInfoLayout.cs</DependentUpon>
     </Compile>
     <Compile Include="Layout\frmATFootLayout.cs">
       <SubType>Component</SubType>
@@ -350,25 +395,6 @@
     <Compile Include="Layout\frmCostCenterLayout.Designer.cs">
       <DependentUpon>frmCostCenterLayout.cs</DependentUpon>
     </Compile>
-    <Compile Include="Department\frmDepartment.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Department\frmDepartment.Designer.cs">
-      <DependentUpon>frmDepartment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Department\frmDepartmentCreate.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Department\frmDepartmentCreate.Designer.cs">
-      <DependentUpon>frmDepartmentCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Department\frmDepartmentDetail.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Department\frmDepartmentDetail.Designer.cs">
-      <DependentUpon>frmDepartmentDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EuserInfo.cs" />
     <Compile Include="Layout\frmCostTempletLayout.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -411,12 +437,6 @@
     <Compile Include="Layout\frmRBCreateLayout.Designer.cs">
       <DependentUpon>frmRBCreateLayout.cs</DependentUpon>
     </Compile>
-    <Compile Include="Layout\frmRBFootbarLayout.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Layout\frmRBFootbarLayout.Designer.cs">
-      <DependentUpon>frmRBFootbarLayout.cs</DependentUpon>
-    </Compile>
     <Compile Include="Layout\frmRBModelLayout.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -440,6 +460,36 @@
     </Compile>
     <Compile Include="Layout\frmRefuseLayout.Designer.cs">
       <DependentUpon>frmRefuseLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmUserLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmUserLayout.Designer.cs">
+      <DependentUpon>frmUserLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\ImageButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\ImageButton.Designer.cs">
+      <DependentUpon>ImageButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Title.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\Title.Designer.cs">
+      <DependentUpon>Title.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leave\frmLeaveCreate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Leave\frmLeaveCreate.Designer.cs">
+      <DependentUpon>frmLeaveCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leave\frmLeaveDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Leave\frmLeaveDetail.Designer.cs">
+      <DependentUpon>frmLeaveDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="RB\frmRBCreate.cs">
       <SubType>Component</SubType>
@@ -495,38 +545,19 @@
     <Compile Include="RB\frmRTypeTemplate.Designer.cs">
       <DependentUpon>frmRTypeTemplate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layout\MenuTitle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\MenuTitle.Designer.cs">
+      <DependentUpon>MenuTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\RefuseDialog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\RefuseDialog.Designer.cs">
+      <DependentUpon>RefuseDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserDetails.cs" />
-    <Compile Include="UserInfo\frmUser.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UserInfo\frmUser.Designer.cs">
-      <DependentUpon>frmUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserSex.cs" />
-    <Compile Include="Work\frmCreated.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Work\frmCreated.Designer.cs">
-      <DependentUpon>frmCreated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Work\frmCCTo.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Work\frmCCTo.Designer.cs">
-      <DependentUpon>frmCCTo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Work\frmCheck.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Work\frmCheck.Designer.cs">
-      <DependentUpon>frmCheck.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Leave\frmLeaveDetail.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Leave\frmLeaveDetail.Designer.cs">
-      <DependentUpon>frmLeaveDetail.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserInfo\frmChangePWD.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -539,12 +570,37 @@
     <Compile Include="UserInfo\frmCheckOrCCTo.Designer.cs">
       <DependentUpon>frmCheckOrCCTo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogon.cs">
+    <Compile Include="UserInfo\frmRegister.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="frmLogon.Designer.cs">
-      <DependentUpon>frmLogon.cs</DependentUpon>
+    <Compile Include="UserInfo\frmRegister.Designer.cs">
+      <DependentUpon>frmRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserInfo\frmRegisterTel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserInfo\frmRegisterTel.Designer.cs">
+      <DependentUpon>frmRegisterTel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo\frmUser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserInfo\frmUser.Designer.cs">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo\frmUserDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserInfo\frmUserDetail.Designer.cs">
+      <DependentUpon>frmUserDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo\frmVerificationCode.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserInfo\frmVerificationCode.Designer.cs">
+      <DependentUpon>frmVerificationCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserSex.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -557,49 +613,26 @@
     <Compile Include="frmSetting.Designer.cs">
       <DependentUpon>frmSetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserInfo\frmRegisterTel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UserInfo\frmRegisterTel.Designer.cs">
-      <DependentUpon>frmRegisterTel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserInfo\frmRegister.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UserInfo\frmRegister.Designer.cs">
-      <DependentUpon>frmRegister.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserInfo\frmUserDetail.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UserInfo\frmUserDetail.Designer.cs">
-      <DependentUpon>frmUserDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Layout\frmUserLayout.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Layout\frmUserLayout.Designer.cs">
-      <DependentUpon>frmUserLayout.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Layout\EditUserInfoLayout.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Layout\EditUserInfoLayout.Designer.cs">
-      <DependentUpon>EditUserInfoLayout.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Leave\frmLeaveCreate.cs">
+    <Compile Include="DataGridview.cs" />
+    <Compile Include="Work\frmCCTo.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Leave\frmLeaveCreate.Designer.cs">
-      <DependentUpon>frmLeaveCreate.cs</DependentUpon>
+    <Compile Include="Work\frmCCTo.Designer.cs">
+      <DependentUpon>frmCCTo.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserInfo\frmVerificationCode.cs">
+    <Compile Include="Work\frmCheck.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UserInfo\frmVerificationCode.Designer.cs">
-      <DependentUpon>frmVerificationCode.cs</DependentUpon>
+    <Compile Include="Work\frmCheck.Designer.cs">
+      <DependentUpon>frmCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work\frmCreated.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Work\frmCreated.Designer.cs">
+      <DependentUpon>frmCreated.cs</DependentUpon>
     </Compile>
     <Compile Include="Work\frmWork.cs">
       <SubType>Component</SubType>
@@ -607,9 +640,11 @@
     <Compile Include="Work\frmWork.Designer.cs">
       <DependentUpon>frmWork.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataGridview.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Attendance\frmATGPSEdit.resx">
+      <DependentUpon>frmATGPSEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Attendance\frmAttendanceCalendarSetting.resx">
       <DependentUpon>frmAttendanceCalendarSetting.cs</DependentUpon>
     </EmbeddedResource>
@@ -618,6 +653,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Attendance\frmAttendanceDate.resx">
       <DependentUpon>frmAttendanceDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance\frmAttendanceMain.resx">
+      <DependentUpon>frmAttendanceMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Attendance\frmAttendanceMainReason.resx">
       <DependentUpon>frmAttendanceMainReason.cs</DependentUpon>
@@ -662,6 +700,9 @@
     <EmbeddedResource Include="CostCenter\frmCostCenterCreate.resx">
       <DependentUpon>frmCostCenterCreate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CostCenter\frmCostCenterDetail.resx">
+      <DependentUpon>frmCostCenterDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CostCenter\frmCostTemplet.resx">
       <DependentUpon>frmCostTemplet.cs</DependentUpon>
     </EmbeddedResource>
@@ -673,9 +714,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CostCenter\frmRBCostCenter.resx">
       <DependentUpon>frmRBCostCenter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CostCenter\frmCostCenterDetail.resx">
-      <DependentUpon>frmCostCenterDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Department\frmDepartment.resx">
       <DependentUpon>frmDepartment.cs</DependentUpon>
@@ -689,8 +727,14 @@
     <EmbeddedResource Include="Department\frmDepAssignUser.resx">
       <DependentUpon>frmDepAssignUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Attendance\frmAttendanceMain.resx">
-      <DependentUpon>frmAttendanceMain.cs</DependentUpon>
+    <EmbeddedResource Include="frmLogon.resx">
+      <DependentUpon>frmLogon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\CheckOrCC.resx">
+      <DependentUpon>CheckOrCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\EditUserInfoLayout.resx">
+      <DependentUpon>EditUserInfoLayout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\frmATFootLayout.resx">
       <DependentUpon>frmATFootLayout.cs</DependentUpon>
@@ -767,9 +811,6 @@
     <EmbeddedResource Include="Layout\frmRBCreateLayout.resx">
       <DependentUpon>frmRBCreateLayout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Layout\frmRBFootbarLayout.resx">
-      <DependentUpon>frmRBFootbarLayout.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Layout\frmRBModelLayout.resx">
       <DependentUpon>frmRBModelLayout.cs</DependentUpon>
     </EmbeddedResource>
@@ -781,6 +822,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\frmRefuseLayout.resx">
       <DependentUpon>frmRefuseLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmUserLayout.resx">
+      <DependentUpon>frmUserLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\ImageButton.resx">
+      <DependentUpon>ImageButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Title.resx">
+      <DependentUpon>Title.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leave\frmLeaveCreate.resx">
+      <DependentUpon>frmLeaveCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leave\frmLeaveDetail.resx">
+      <DependentUpon>frmLeaveDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RB\frmRBCreate.resx">
       <DependentUpon>frmRBCreate.cs</DependentUpon>
@@ -809,20 +868,11 @@
     <EmbeddedResource Include="RB\frmRTypeTemplate.resx">
       <DependentUpon>frmRTypeTemplate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserInfo\frmUser.resx">
-      <DependentUpon>frmUser.cs</DependentUpon>
+    <EmbeddedResource Include="Layout\MenuTitle.resx">
+      <DependentUpon>MenuTitle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Work\frmCreated.resx">
-      <DependentUpon>frmCreated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Work\frmCCTo.resx">
-      <DependentUpon>frmCCTo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Work\frmCheck.resx">
-      <DependentUpon>frmCheck.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Leave\frmLeaveDetail.resx">
-      <DependentUpon>frmLeaveDetail.cs</DependentUpon>
+    <EmbeddedResource Include="Layout\RefuseDialog.resx">
+      <DependentUpon>RefuseDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserInfo\frmChangePWD.resx">
       <DependentUpon>frmChangePWD.cs</DependentUpon>
@@ -830,32 +880,29 @@
     <EmbeddedResource Include="UserInfo\frmCheckOrCCTo.resx">
       <DependentUpon>frmCheckOrCCTo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogon.resx">
-      <DependentUpon>frmLogon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Leave\frmLeaveCreate.resx">
-      <DependentUpon>frmLeaveCreate.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserInfo\frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserInfo\frmRegisterTel.resx">
       <DependentUpon>frmRegisterTel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserInfo\frmUser.resx">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserInfo\frmUserDetail.resx">
       <DependentUpon>frmUserDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Layout\frmUserLayout.resx">
-      <DependentUpon>frmUserLayout.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Layout\EditUserInfoLayout.resx">
-      <DependentUpon>EditUserInfoLayout.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserInfo\frmVerificationCode.resx">
       <DependentUpon>frmVerificationCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work\frmCCTo.resx">
+      <DependentUpon>frmCCTo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work\frmCheck.resx">
+      <DependentUpon>frmCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work\frmCreated.resx">
+      <DependentUpon>frmCreated.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Work\frmWork.resx">
       <DependentUpon>frmWork.cs</DependentUpon>
@@ -894,6 +941,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

@@ -6,8 +6,9 @@ using Smobiler.Core;
 using Smobiler.Core.Controls;
 
 namespace SmoONE.UI.Layout
+
 {
-    partial class frmDepAssignUserLayout : Smobiler.Core.MobileForm
+    partial class frmDepAssignUserLayout : Smobiler.Core.Controls.MobileUserControl
     {
     }
 }

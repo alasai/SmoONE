@@ -4,34 +4,39 @@ using System.Linq;
 using System.Text;
 using Smobiler.Core;
 using Smobiler.Core.Controls;
-using SmoONE.Application;
+using SmoONE.UI;
 using SmoONE.DTOs;
-using SmoONE.Domain;
 
-namespace SmoONE.UI
+namespace SmoONE.UI.Work
 {
     // ******************************************************************
-    // 文件版本： SmoONE 1.0
-    // Copyright  (c)  2016-2017 Smobiler 
-    // 创建时间： 2016/11
+    // 文件版本： SmoONE 2.0
+    // Copyright  (c)  2017-2018 Smobiler 
+    // 创建时间： 2017/07
     // 主要内容：  抄送我的列表界面
     // ******************************************************************
-    partial class frmCCTo : Smobiler.Core.MobileForm
+    partial class frmCCTo : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
         #endregion
         /// <summary>
-        /// 获取初始化数据
+        /// 初始化事件
         /// </summary>
-        private void Bind()
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmCCTo_Load(object sender, EventArgs e)
+        {
+            Bind();
+        }/// <summary>
+         /// 获取初始化数据
+         /// </summary>
+        public void Bind()
         {
             try
             {
-              
                 List<DataGridview> listCCTo = new List<DataGridview>();//抄送我的数据
-
-                 //获取抄送给当前用户的请假数据
+                //获取抄送给当前用户的请假数据
                 List<LeaveDto> listLeaveDto = AutofacConfig.leaveService.GetByCCTo(Client.Session["U_ID"].ToString());
                 //如果请假数据条数大于0，则添加到抄送我的数据
                 if (listLeaveDto.Count > 0)
@@ -42,29 +47,19 @@ namespace SmoONE.UI
                         dataGItem.ID = leave.L_ID;
                         if (string.IsNullOrEmpty(leave.U_Portrait) == true)
                         {
-                             UserDetails userDetails = new UserDetails();
-                             UserDetailDto user = userDetails.getUser(leave.U_ID);
-                             if (user != null)
+                            UserDetails userDetails = new UserDetails();
+                            UserDetailDto user = userDetails.getUser(leave.U_ID);
+                            if (user != null)
                             {
                                 dataGItem.U_Portrait = user.U_Portrait;
                             }
-                            //UserDetailDto user = AutofacConfig.userService.GetUserByUserID(leave.U_ID);
-                            //switch (user.U_Sex)
-                            //{
-                            //    case (int)Sex.男:
-                            //        dataGItem.U_Portrait = "boy";
-                            //        break;
-                            //    case (int)Sex.女:
-                            //        dataGItem.U_Portrait = "girl";
-                            //        break;
-                            //}
                         }
                         else
                         {
                             dataGItem.U_Portrait = leave.U_Portrait;
                         }
                         dataGItem.Name = leave.U_Name + "的" + DataGridviewType.请假;
-                        dataGItem.Type = ((int )Enum.Parse(typeof(DataGridviewType), DataGridviewType.请假.ToString())).ToString();
+                        dataGItem.Type = ((int)Enum.Parse(typeof(DataGridviewType), DataGridviewType.请假.ToString())).ToString();
                         dataGItem.CreateDate = leave.L_CreateDate.ToString("yyyy/MM/dd");
                         switch (leave.L_Status)
                         {
@@ -82,14 +77,13 @@ namespace SmoONE.UI
                     }
                 }
 
-                gridCCData.Rows.Clear();//清除抄送我的列表数据
+                listCCData.Rows.Clear();//清除抄送我的列表数据
                 if (listCCTo.Count > 0)
                 {
                     //绑定gridView数据
-                    gridCCData.DataSource = listCCTo;
-                    gridCCData.DataBind();
+                    listCCData.DataSource = listCCTo;
+                    listCCData.DataBind();
                 }
-               
             }
             catch (Exception ex)
             {
@@ -97,7 +91,7 @@ namespace SmoONE.UI
             }
         }
         /// <summary>
-        /// 手机自带回退按钮事件
+        /// 手机自带回退按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -107,52 +101,6 @@ namespace SmoONE.UI
             {
                 Close();         //关闭当前页面
             }
-        }
-        /// <summary>
-        /// 标题栏图片按钮点击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void frmCCTo_TitleImageClick(object sender, EventArgs e)
-        {
-            Close();
-        }
-        /// <summary>
-        /// 初始化事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void frmCCTo_Load(object sender, EventArgs e)
-        {
-            Bind ();
-        }
-
-        /// <summary>
-        /// gridCCData点击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridCCData_CellClick(object sender, GridViewCellEventArgs e)
-        {
-            string ID = e.Cell.Items["lblId"].Value.ToString();
-            switch (Convert.ToInt32(e.Cell.Items["lblType"].Value))
-            {
-                    //跳转到请假详细界面
-                case (int)DataGridviewType.请假:
-                    Leave.frmLeaveDetail frmLeaveDetail = new Leave.frmLeaveDetail();
-                    frmLeaveDetail.lID = ID;
-                    Redirect(frmLeaveDetail, (MobileForm form, object args) =>
-                    {
-                        if (frmLeaveDetail.ShowResult == ShowResult.Yes)
-                        {
-                            Bind();
-                        }
-                    });
-                    break;
-                case (int)DataGridviewType.报销:
-                    break;
-            }
-          
         }
     }
 }

@@ -16,7 +16,7 @@ namespace SmoONE.UI.CostCenter
     // 创建时间： 2016/11
     // 主要内容：  成本中心详情界面
     // ******************************************************************
-    partial class frmCostCenterDetail : Smobiler.Core.MobileForm
+    partial class frmCostCenterDetail : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         public string CCID ;//成本中心编号
@@ -33,7 +33,7 @@ namespace SmoONE.UI.CostCenter
             //跳转到编辑界面
             frmCostCenterCreate frm = new frmCostCenterCreate();
             frm.CCID = CCID;
-            Redirect(frm, (MobileForm form, object args) =>
+            Show(frm, (MobileForm form, object args) =>
             {
                 if (frm.ShowResult == ShowResult.Yes)
                 {
@@ -77,13 +77,11 @@ namespace SmoONE.UI.CostCenter
                             lblActive.Text = "激活";
                             btnActive.Text = "冻结";
                             btnActive.BackColor= System.Drawing.Color.FromArgb(97, 121, 138);
-                            btnActive.HoverBackColor = System.Drawing.Color.FromArgb(86, 108, 125);
                             break;
                         case (int)IsActive.冻结:
                             lblActive.Text = "冻结";
                             btnActive.Text = "激活";
                             btnActive.BackColor= System.Drawing.Color.FromArgb(229,96,79);
-                            btnActive.HoverBackColor = System.Drawing.Color.FromArgb(216,87,70);
                             break;
                     }
             }

@@ -1,8 +1,10 @@
 using System;
 using Smobiler.Core;
-namespace SmoONE.UI
+using SmoONE.UI.Layout;
+
+namespace SmoONE.UI.UserInfo
 {
-    partial class frmRegisterTel : Smobiler.Core.MobileForm
+    partial class frmRegisterTel : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,88 +30,79 @@ namespace SmoONE.UI
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.txtTel = new Smobiler.Core.Controls.TextBox();
+            this.title1 = new Title();
+            this.plTel = new Smobiler.Core.Controls.Panel();
             this.label1 = new Smobiler.Core.Controls.Label();
+            this.txtTel = new Smobiler.Core.Controls.TextBox();
             this.btnSave = new Smobiler.Core.Controls.Button();
-            this.line3 = new Smobiler.Core.Controls.Line();
-            this.line1 = new Smobiler.Core.Controls.Line();
             // 
-            // txtTel
+            // title1
             // 
-            this.txtTel.FontSize = 12F;
-            this.txtTel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.txtTel.InputType = Smobiler.Core.TextBoxInputType.Number;
-            this.txtTel.Location = new System.Drawing.Point(66, 10);
-            this.txtTel.Name = "txtTel";
-            this.txtTel.Size = new System.Drawing.Size(234, 35);
-            this.txtTel.TabIndex = 2;
-            this.txtTel.WaterMarkText = "请输入手机号码";
-            this.txtTel.ZIndex = 2;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.Location = new System.Drawing.Point(27, 86);
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
+            this.title1.TitleText = "新用户注册";
+            // 
+            // plTel
+            // 
+            this.plTel.BackColor = System.Drawing.Color.White;
+            this.plTel.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.plTel.BorderColor = System.Drawing.Color.LightGray;
+            this.plTel.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.label1,
+            this.txtTel});
+            this.plTel.Location = new System.Drawing.Point(0, 60);
+            this.plTel.Name = "plTel";
+            this.plTel.Layout = Smobiler.Core.Controls.LayoutPosition.Absolute;
+            this.plTel.Size = new System.Drawing.Size(300, 35);
             // 
             // label1
             // 
-            this.label1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.label1.Location = new System.Drawing.Point(0, 10);
             this.label1.Name = "label1";
-            this.label1.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
+            this.label1.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
             this.label1.Size = new System.Drawing.Size(66, 35);
-            this.label1.TabIndex = 3;
             this.label1.Text = "手机号码";
-            this.label1.ZIndex = 1;
+            // 
+            // txtTel
+            // 
+            this.txtTel.FontSize = 13F;
+            this.txtTel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.txtTel.KeyboardType = Smobiler.Core.Controls.KeyboardType.Numeric;
+            this.txtTel.Location = new System.Drawing.Point(66, 0);
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Size = new System.Drawing.Size(234, 35);
+            this.txtTel.WaterMarkText = "请输入手机号码";
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnSave.BorderRadius = 2;
-            this.btnSave.FontSize = 17F;
+            this.btnSave.FontSize = 15F;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(135)))), ((int)(((byte)(209)))));
-            this.btnSave.HoverForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(10, 55);
+            this.btnSave.Location = new System.Drawing.Point(10, 105);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(280, 35);
-            this.btnSave.TabIndex = 4;
             this.btnSave.Text = "下一步";
-            this.btnSave.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnSave_Click);
-            // 
-            // line3
-            // 
-            this.line3.BackColor = System.Drawing.Color.LightGray;
-            this.line3.Location = new System.Drawing.Point(0, 45);
-            this.line3.Name = "line3";
-            this.line3.Size = new System.Drawing.Size(300, 1);
-            this.line3.TabIndex = 7;
-            // 
-            // line1
-            // 
-            this.line1.BackColor = System.Drawing.Color.LightGray;
-            this.line1.Location = new System.Drawing.Point(0, 10);
-            this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(300, 1);
-            this.line1.TabIndex = 8;
+            this.btnSave.Press += new System.EventHandler(this.btnSave_Press);
             // 
             // frmRegisterTel
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.btnSave,
-            this.label1,
-            this.txtTel,
-              this.line3,
-            this.line1});
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
-            this.TitleText = "新用户注册";
-            this.TitleImageClick += new System.EventHandler(this.frmRegisterTel_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmRegisterTel_KeyDown);
+            this.title1,
+            this.plTel,
+            this.btnSave});
+            this.Layout =  Smobiler.Core.Controls.LayoutPosition.Absolute;
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmRegisterTel_KeyDown);
             this.Name = "frmRegisterTel";
 
         }
         #endregion
 
+        private Title title1;
+        private Smobiler.Core.Controls.Panel plTel;
+        private Smobiler.Core.Controls.Label label1;
         private Smobiler.Core.Controls.TextBox txtTel;
-        internal Smobiler.Core.Controls.Label label1;
         private Smobiler.Core.Controls.Button btnSave;
-        private Smobiler.Core.Controls.Line line3;
-        private Smobiler.Core.Controls.Line line1;
     }
 }

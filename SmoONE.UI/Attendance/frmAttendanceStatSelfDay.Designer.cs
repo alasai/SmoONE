@@ -2,7 +2,7 @@ using System;
 using Smobiler.Core;
 namespace SmoONE.UI.Attendance
 {
-    partial class frmAttendanceStatSelfDay : Smobiler.Core.MobileForm
+    partial class frmAttendanceStatSelfDay : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,158 +28,178 @@ namespace SmoONE.UI.Attendance
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Smobiler.Core.Controls.PopListGroup popListGroup1 = new Smobiler.Core.Controls.PopListGroup();
-            Smobiler.Core.Controls.PopListGroup popListGroup2 = new Smobiler.Core.Controls.PopListGroup();
-            Smobiler.Core.Controls.PopListItem popListItem1 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem2 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem3 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem4 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem5 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem6 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem7 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem8 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem9 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem10 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem11 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem12 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListGroup popListGroup3 = new Smobiler.Core.Controls.PopListGroup();
+            Smobiler.Core.Controls.PopListGroup popListGroup4 = new Smobiler.Core.Controls.PopListGroup();
+            Smobiler.Core.Controls.PopListItem popListItem13 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem14 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem15 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem16 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem17 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem18 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem19 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem20 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem21 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem22 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem23 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem24 = new Smobiler.Core.Controls.PopListItem();
+            this.gridATdata = new Smobiler.Core.Controls.ListView();
+            this.popListYear = new Smobiler.Core.Controls.PopList();
+            this.popListMonth = new Smobiler.Core.Controls.PopList();
+            this.title1 = new SmoONE.UI.Layout.Title();
+            this.panel1 = new Smobiler.Core.Controls.Panel();
             this.btnYear = new Smobiler.Core.Controls.Button();
             this.btnMonth = new Smobiler.Core.Controls.Button();
             this.btnCheck = new Smobiler.Core.Controls.Button();
-            this.line1 = new Smobiler.Core.Controls.Line();
-            this.gridATdata = new Smobiler.Core.Controls.GridView();
-            this.popListYear = new Smobiler.Core.Controls.PopList();
-            this.popListMonth = new Smobiler.Core.Controls.PopList();
-            // 
-            // btnYear
-            // 
-            this.btnYear.FontSize = 12F;
-            this.btnYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnYear.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.btnYear.HoverBackColor = System.Drawing.Color.White;
-            this.btnYear.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnYear.Name = "btnYear";
-            this.btnYear.Size = new System.Drawing.Size(145, 35);
-            this.btnYear.TabIndex = 2;
-            this.btnYear.Text = " ▼ 2017年";
-            this.btnYear.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.ButYear_Click);
-            // 
-            // btnMonth
-            // 
-            this.btnMonth.FontSize = 12F;
-            this.btnMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnMonth.HoverBackColor = System.Drawing.Color.White;
-            this.btnMonth.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnMonth.Location = new System.Drawing.Point(145, 0);
-            this.btnMonth.Name = "btnMonth";
-            this.btnMonth.Size = new System.Drawing.Size(42, 35);
-            this.btnMonth.TabIndex = 3;
-            this.btnMonth.Text = "2月▼";
-            this.btnMonth.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.ButMonth_Click);
-            // 
-            // btnCheck
-            // 
-            this.btnCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnCheck.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.btnCheck.HoverBackColor = System.Drawing.Color.White;
-            this.btnCheck.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnCheck.Location = new System.Drawing.Point(187, 0);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Padding = new Smobiler.Core.Padding(0F, 0F, 10F, 0F);
-            this.btnCheck.Size = new System.Drawing.Size(113, 35);
-            this.btnCheck.TabIndex = 4;
-            this.btnCheck.Text = ">";
-            this.btnCheck.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.ButCheck_Click);
-            // 
-            // line1
-            // 
-            this.line1.BackColor = System.Drawing.Color.LightGray;
-            this.line1.Location = new System.Drawing.Point(0, 35);
-            this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(300, 1);
-            this.line1.TabIndex = 5;
             // 
             // gridATdata
             // 
-            this.gridATdata.AllowSlip = true;
-            this.gridATdata.AutoHeight = true;
-            this.gridATdata.Layout = "frmAttendanceStatDayLayout";
-            this.gridATdata.Location = new System.Drawing.Point(0, 35);
+            this.gridATdata.BackColor = System.Drawing.Color.White;
+            this.gridATdata.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gridATdata.Location = new System.Drawing.Point(0, 85);
             this.gridATdata.Name = "gridATdata";
-            this.gridATdata.PageSize = 8;
-            this.gridATdata.Size = new System.Drawing.Size(300, 460);
-            this.gridATdata.TabIndex = 6;
-            this.gridATdata.CellClick += new Smobiler.Core.Controls.GridViewCellClickEventHandler(this.gridATdata_CellClick);
+            this.gridATdata.ShowSplitLine = true;
+            this.gridATdata.Size = new System.Drawing.Size(300, 450);
+            this.gridATdata.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.gridATdata.TemplateControlName = "frmAttendanceStatDayLayout";
             // 
             // popListYear
             // 
-            popListGroup1.IndexerKey = "0";
-            popListGroup1.Text = "请选择年份";
+            popListGroup3.Title = "请选择年份";
+            popListGroup3.Value = null;
             this.popListYear.Groups.AddRange(new Smobiler.Core.Controls.PopListGroup[] {
-            popListGroup1});
+            popListGroup3});
             this.popListYear.Name = "popListYear";
             this.popListYear.Selected += new System.EventHandler(this.popListYear_Selected);
             // 
             // popListMonth
             // 
-            popListGroup2.IndexerKey = "";
-            popListItem1.Text = "1";
-            popListItem2.Text = "2";
-            popListItem3.Text = "3";
-            popListItem4.Text = "4";
-            popListItem5.Text = "5";
-            popListItem6.Text = "6";
-            popListItem7.Text = "7";
-            popListItem8.Text = "8";
-            popListItem9.Text = "9";
-            popListItem10.Text = "10";
-            popListItem11.Text = "11";
-            popListItem12.Text = "12";
-            popListGroup2.Items.AddRange(new Smobiler.Core.Controls.PopListItem[] {
-            popListItem1,
-            popListItem2,
-            popListItem3,
-            popListItem4,
-            popListItem5,
-            popListItem6,
-            popListItem7,
-            popListItem8,
-            popListItem9,
-            popListItem10,
-            popListItem11,
-            popListItem12});
-            popListGroup2.Text = "请选择月份";
+            popListItem13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem13.Text = "1";
+            popListItem14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem14.Text = "2";
+            popListItem15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem15.Text = "3";
+            popListItem16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem16.Text = "4";
+            popListItem17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem17.Text = "5";
+            popListItem18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem18.Text = "6";
+            popListItem19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem19.Text = "7";
+            popListItem20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem20.Text = "8";
+            popListItem21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem21.Text = "9";
+            popListItem22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem22.Text = "10";
+            popListItem23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem23.Text = "11";
+            popListItem24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem24.Text = "12";
+            popListGroup4.Items.AddRange(new Smobiler.Core.Controls.PopListItem[] {
+            popListItem13,
+            popListItem14,
+            popListItem15,
+            popListItem16,
+            popListItem17,
+            popListItem18,
+            popListItem19,
+            popListItem20,
+            popListItem21,
+            popListItem22,
+            popListItem23,
+            popListItem24});
+            popListGroup4.Title = "请选择月份";
+            popListGroup4.Value = null;
             this.popListMonth.Groups.AddRange(new Smobiler.Core.Controls.PopListGroup[] {
-            popListGroup2});
+            popListGroup4});
             this.popListMonth.Name = "popListMonth";
             this.popListMonth.Selected += new System.EventHandler(this.popListMonth_Selected);
             // 
+            // title1
+            // 
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.FontSize = 15F;
+            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.title1.Location = new System.Drawing.Point(111, 36);
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
+            this.title1.TitleText = "考勤";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.btnYear,
+            this.btnMonth,
+            this.btnCheck});
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 50);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(300, 35);
+            // 
+            // btnYear
+            // 
+            this.btnYear.BackColor = System.Drawing.Color.White;
+            this.btnYear.BorderRadius = 0;
+            this.btnYear.FontSize = 12F;
+            this.btnYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnYear.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
+            this.btnYear.Name = "btnYear";
+            this.btnYear.Size = new System.Drawing.Size(145, 35);
+            this.btnYear.Text = " ▼ 2017年";
+            this.btnYear.Press += new System.EventHandler(this.ButYear_Click);
+            // 
+            // btnMonth
+            // 
+            this.btnMonth.BackColor = System.Drawing.Color.White;
+            this.btnMonth.BorderRadius = 0;
+            this.btnMonth.FontSize = 12F;
+            this.btnMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnMonth.Location = new System.Drawing.Point(145, 0);
+            this.btnMonth.Name = "btnMonth";
+            this.btnMonth.Size = new System.Drawing.Size(42, 35);
+            this.btnMonth.Text = "2月▼";
+            this.btnMonth.Press += new System.EventHandler(this.ButMonth_Click);
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.BackColor = System.Drawing.Color.White;
+            this.btnCheck.BorderRadius = 0;
+            this.btnCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnCheck.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
+            this.btnCheck.Location = new System.Drawing.Point(187, 0);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 10F, 0F);
+            this.btnCheck.Size = new System.Drawing.Size(113, 35);
+            this.btnCheck.Text = ">";
+            this.btnCheck.Press += new System.EventHandler(this.ButCheck_Click);
+            // 
             // frmAttendanceStatSelfDay
             // 
-            this.ComponentControls.AddRange(new Smobiler.Core.ComponentBase[] {
+            this.Components.AddRange(new Smobiler.Core.Controls.MobileComponent[] {
             this.popListYear,
             this.popListMonth});
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.btnYear,
-            this.btnMonth,
-            this.btnCheck,
-            this.line1,
+            this.title1,
+            this.panel1,
             this.gridATdata});
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
-            this.TitleText = "我的考勤历史";
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmAttendanceStatSelfDay_KeyDown);
             this.Load += new System.EventHandler(this.frmAttendanceStatSelfDay_Load);
-            this.TitleImageClick += new System.EventHandler(this.frmAttendanceStatSelfDay_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmAttendanceStatSelfDay_KeyDown);
             this.Name = "frmAttendanceStatSelfDay";
 
         }
         #endregion
 
+        private Smobiler.Core.Controls.ListView gridATdata;
+        private Smobiler.Core.Controls.PopList popListYear;
+        private Smobiler.Core.Controls.PopList popListMonth;
+        private SmoONE.UI.Layout.Title title1;
+        private Smobiler.Core.Controls.Panel panel1;
         private Smobiler.Core.Controls.Button btnYear;
         private Smobiler.Core.Controls.Button btnMonth;
         private Smobiler.Core.Controls.Button btnCheck;
-        private Smobiler.Core.Controls.Line line1;
-        private Smobiler.Core.Controls.GridView gridATdata;
-        private Smobiler.Core.Controls.PopList popListYear;
-        private Smobiler.Core.Controls.PopList popListMonth;
     }
 }

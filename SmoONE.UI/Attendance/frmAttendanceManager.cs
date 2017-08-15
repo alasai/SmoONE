@@ -14,7 +14,7 @@ namespace SmoONE.UI.Attendance
     // 创建时间： 2017/2
     // 主要内容： 考勤模板列表界面
     // ******************************************************************
-    partial class frmAttendanceManager : Smobiler.Core.MobileForm
+    partial class frmAttendanceManager : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
@@ -28,36 +28,11 @@ namespace SmoONE.UI.Attendance
         {
             Close();
         }
-        /// <summary>
-        /// 跳转到考勤编辑界面
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridATData_CellClick(object sender, GridViewCellEventArgs e)
-        {
-            try
-            {
-                string ID = e.Cell.Items["lblId"].Value.ToString();
-                frmAttendanceCreate frmAttendanceCreate = new frmAttendanceCreate();
-                frmAttendanceCreate.ATNo = ID;
-                Redirect(frmAttendanceCreate, (MobileForm form, object args) =>
-                {
-                    if (frmAttendanceCreate.ShowResult == ShowResult.Yes)
-                    {
-                        Bind();
-                    }
-                });
-               
-            }
-            catch (Exception ex)
-            {
-                Toast (ex.Message , ToastLength.SHORT);
-            }
-        }
+       
         /// <summary>
         /// 获取初始化数据
         /// </summary>
-        private void Bind()
+        public  void Bind()
         {
             List<ATDto> listATDto = AutofacConfig.attendanceService.GetAll();
             gridATData.Rows.Clear();//清除考勤模板列表数据
@@ -109,7 +84,7 @@ namespace SmoONE.UI.Attendance
         private void btnCreate_Click(object sender, EventArgs e)
         {
             frmAttendanceCreate frm = new frmAttendanceCreate();
-            Redirect(frm, (MobileForm form, object args) =>
+            Show(frm, (MobileForm form, object args) =>
             {
                 if (frm.ShowResult == ShowResult.Yes)
                 {

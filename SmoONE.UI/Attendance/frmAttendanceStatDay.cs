@@ -15,7 +15,7 @@ namespace SmoONE.UI.Attendance
     // 创建时间： 2017/2
     // 主要内容： 选择用户的某月应签到天数
     // ******************************************************************
-    partial class frmAttendanceStatDay : Smobiler.Core.MobileForm
+    partial class frmAttendanceStatDay : Smobiler.Core.Controls.MobileForm
     {      
         #region "definition"
         internal string UserID;       //用户ID
@@ -57,7 +57,7 @@ namespace SmoONE.UI.Attendance
                 UserDetailDto user = userDetails.getUser(UserID);
                 if (user != null)                //如果存在该用户
                 {
-                    TitleText = user.U_Name+ "的考勤";      //显示页面标题
+                   // TitleText = user.U_Name+ "的考勤";      //显示页面标题
                 }
                 Bind();
             }
@@ -93,26 +93,7 @@ namespace SmoONE.UI.Attendance
                 Toast(ex.Message);
             }
         }
-        /// <summary>
-        /// 选择日期后，点击进入查看选中日期的考勤状况
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridATdata_CellClick(object sender, GridViewCellEventArgs e)
-        {
-            try
-            {
-                frmAttendanceMain frmMain = new frmAttendanceMain();
-                frmMain.DayTime = e.Cell.Items["lblDay"].Text;            //选择查看的日期
-                frmMain.UserID = UserID;             //所查看用户ID
-                frmMain.enter = (int)Enum.Parse(typeof(ATMainState), ATMainState.统计查看.ToString());
-                this.Redirect(frmMain);
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-        }
+     
         /// <summary>
         /// 点击进入查看考勤报表页面
         /// </summary>
@@ -123,10 +104,10 @@ namespace SmoONE.UI.Attendance
             try
             {
                 frmAttendanceStatSelf frmStat = new frmAttendanceStatSelf();
-                frmStat.TitleText = TitleText;             //标题
+               // frmStat.TitleText = TitleText;             //标题
                 frmStat.UserID = UserID;                   //用户ID
                 frmStat.Daytime = DayTime;                 //选择查看的日期
-                this.Redirect(frmStat);
+                this.Show(frmStat);
             }
             catch(Exception ex)
             {

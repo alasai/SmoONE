@@ -7,6 +7,8 @@ using Smobiler.Core.Controls;
 using SmoONE.Domain;
 using SmoONE.CommLib;
 using SmoONE.DTOs;
+using SmoONE.UI.Layout;
+using SmoONE.UI.UserInfo;
 
 namespace SmoONE.UI.CostCenter
 {
@@ -16,7 +18,7 @@ namespace SmoONE.UI.CostCenter
     // 创建时间： 2016/11
     // 主要内容：  成本中心模板创建或编辑界面
     // ******************************************************************
-    partial class frmCostTempletCreate : Smobiler.Core.MobileForm
+    partial class frmCostTempletCreate : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         public string CTempID;//模板编号
@@ -25,14 +27,14 @@ namespace SmoONE.UI.CostCenter
         private int imgCheckLeft = 0;
         private string addAEACheck = "";
         private List<string> listAEAChecks = new List<string>(); //行政审批人
-        private List<ImageButton> listbtnAEAChecksP = new List<ImageButton>();//行政审批人头像控件
+        private List<SmoONE.UI.Layout.ImageButton> listbtnAEAChecksP = new List<SmoONE.UI.Layout.ImageButton>();//行政审批人头像控件
         private List<Button> listbtnAEAChecks = new List<Button>();//行政审批人名称控件
 
         private int FCheckTop;//财务审批人top
         private int imgFCheckLeft = 0;
         private string addFCheck = "";
         private List<string> listFCheckers = new List<string>(); //财务审批人
-        private List<ImageButton> listbtnFCheckersP = new List<ImageButton>();//财务审批人头像控件
+        private List<SmoONE.UI.Layout.ImageButton> listbtnFCheckersP = new List<SmoONE.UI.Layout.ImageButton>();//财务审批人头像控件
         private List<Button> listbtnFCheckers = new List<Button>();//财务审批人名称控件
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
         #endregion
@@ -46,12 +48,12 @@ namespace SmoONE.UI.CostCenter
             popType.Groups.Clear();
             PopListGroup poli = new PopListGroup();
             popType.Groups.Add(poli);
-            poli.Text = "类型选择";
+            poli.Title = "类型选择";
             //获取类型，并赋值poplist数据
             List<CostCenter_Type> listCCType = AutofacConfig.costCenterService.GetAllCCType();
             foreach (CostCenter_Type ccType in listCCType)
             {
-                poli.Items.Add(ccType.CC_T_Description, ccType.CC_T_TypeID);
+                poli.AddListItem(ccType.CC_T_Description, ccType.CC_T_TypeID);
                 if (type.Trim().Length > 0)
                 {
                     if (type.Trim().Equals(ccType.CC_T_TypeID))
@@ -286,13 +288,16 @@ namespace SmoONE.UI.CostCenter
                     imgbtn.Width = imgCheckWSize;
                     imgbtn.Height = imgCheckWSize;
                     imgbtn.ZIndex = (Controls.Count + 1);
-                    imgbtn.BorderRadius = 10;
+                    imgbtn.ImageType = Smobiler.Core.Controls.ImageEx.ImageStyle.Image;
+                    imgbtn.SizeMode = ImageSizeMode.Stretch;
+
+                    imgbtn.BorderRadius = 12;
                     imgbtn.Name = "imgbtnAEACheck" + addAEACheck.Split(',')[0];
-                    imgbtn.SizeMode = Smobiler.Core.ImageSizeMode.StretchImage;
+                    imgbtn.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Stretch;
                     imgbtn.Tag = addAEACheck.Split(',')[0];
                     Controls.Add(imgbtn);//界面添加行政审批人头像控件
                     listbtnAEAChecksP.Add(imgbtn);//添加行政审批人头像控件
-                    imgbtn.Click += btnDelCheckClick;//删除行政审批人事件
+                    imgbtn.Press += btnDelCheckClick;//删除行政审批人事件
 
                     Button btn = new Button();
                     btn.Text = addAEACheck.Split(',')[1];
@@ -306,7 +311,7 @@ namespace SmoONE.UI.CostCenter
                     btn.ZIndex = (Controls.Count + 1);
                     Controls.Add(btn);//界面添加行政审批人名称控件
                     listbtnAEAChecks.Add(btn);//添加行政审批人名称控件
-                    btn.Click += btnDelCheckClick;//删除行政审批人事件
+                    btn.Press  += btnDelCheckClick;//删除行政审批人事件
 
                 }
 
@@ -362,13 +367,16 @@ namespace SmoONE.UI.CostCenter
                     imgbtn.Width = imgFCWSize;
                     imgbtn.Height = imgFCWSize;
                     imgbtn.ZIndex = (Controls.Count + 1);
-                    imgbtn.BorderRadius = 10;
+                    imgbtn.BorderRadius = 12;
+                    imgbtn.ImageType = Smobiler.Core.Controls.ImageEx.ImageStyle.Image;
+                    imgbtn.SizeMode = ImageSizeMode.Stretch;
+
                     imgbtn.Name = "imgbtnFCheck" + addFCheck.Split(',')[0];
-                    imgbtn.SizeMode = Smobiler.Core.ImageSizeMode.StretchImage;
+                    imgbtn.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Stretch;
                     imgbtn.Tag = addFCheck.Split(',')[0];
                     Controls.Add(imgbtn);//界面添加财务审批人头像控件
                     listbtnFCheckersP.Add(imgbtn);//添加财务审批人头像控件
-                    imgbtn.Click += btnDelFCheckClick;//删除财务审批人事件
+                    imgbtn.Press += btnDelFCheckClick;//删除财务审批人事件
                   
                     Button btn = new Button();
                     btn.Text = addFCheck.Split(',')[1];
@@ -382,7 +390,7 @@ namespace SmoONE.UI.CostCenter
                     btn.ZIndex = (Controls.Count + 1);
                     Controls.Add(btn);//界面添加财务审批人名称控件
                     listbtnFCheckers.Add(btn);//添加财务审批人名称控件
-                    btn.Click += btnDelFCheckClick;//删除财务审批人事件
+                    btn.Press  += btnDelFCheckClick;//删除财务审批人事件
                     
                 }
 
@@ -543,11 +551,11 @@ namespace SmoONE.UI.CostCenter
             }
             else
             {
-                frmCheckOrCCTo frm = new frmCheckOrCCTo();
+                SmoONE.UI.UserInfo.frmCheckOrCCTo frm = new SmoONE.UI.UserInfo.frmCheckOrCCTo();
                 frm.isCTemUser = true;
-                Redirect(frm, (MobileForm form, object args) =>
+                Show(frm, (MobileForm form, object args) =>
                 {
-                    if (frm.ShowResult == Smobiler.Core.ShowResult.Yes)
+                    if (frm.ShowResult ==  Smobiler.Core.Controls .ShowResult.Yes)
                     {
                         if (string.IsNullOrWhiteSpace(frm.userInfo) == false)
                         {
@@ -582,9 +590,9 @@ namespace SmoONE.UI.CostCenter
             {
                 frmCheckOrCCTo frm = new frmCheckOrCCTo();
                 frm.isCTemUser = true;
-                Redirect(frm, (MobileForm form, object args) =>
+                Show(frm, (MobileForm form, object args) =>
                 {
-                    if (frm.ShowResult == Smobiler.Core.ShowResult.Yes)
+                    if (frm.ShowResult ==Smobiler.Core.Controls .ShowResult.Yes)
                     {
                         if (string.IsNullOrWhiteSpace(frm.userInfo ) == false)
                         {
@@ -678,6 +686,26 @@ namespace SmoONE.UI.CostCenter
         private void frmCostTempletCreate_TitleImageClick(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void title1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void imgbtnAEACheckers_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void imgbtnFCheckers_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void imageButton1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

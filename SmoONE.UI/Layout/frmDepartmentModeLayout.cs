@@ -7,7 +7,7 @@ using Smobiler.Core.Controls;
 
 namespace SmoONE.UI.Layout
 {
-    partial class frmDepartmentModeLayout : Smobiler.Core.MobileForm
+    partial class frmDepartmentModeLayout : Smobiler.Core.Controls.MobileUserControl
     {
         private void btnDLayout_Click(object sender, EventArgs e)
         {

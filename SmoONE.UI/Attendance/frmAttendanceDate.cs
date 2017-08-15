@@ -14,7 +14,7 @@ namespace SmoONE.UI.Attendance
     // 创建时间： 2017/2
     // 主要内容： 考勤模板工作日期选择界面
     // ******************************************************************
-    partial class frmAttendanceDate : Smobiler.Core.MobileForm
+    partial class frmAttendanceDate : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         public string ATNo;//考勤模板编号
@@ -42,7 +42,7 @@ namespace SmoONE.UI.Attendance
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void imgbtnCalendar_Click(object sender, EventArgs e)
+        private void pCalendar_Press(object sender, EventArgs e)
         {
             try
             {
@@ -73,7 +73,7 @@ namespace SmoONE.UI.Attendance
                     frm.weekdays = weekdays;
                     frm.atWorkDate = atWorkDate;
                     frm.listatcdInput = listatcdInput;
-                    Redirect(frm, (MobileForm form, object args) =>
+                    Show(frm, (MobileForm form, object args) =>
                     {
                         if (frm.ShowResult == ShowResult.Yes)
                         {
@@ -192,7 +192,7 @@ namespace SmoONE.UI.Attendance
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void radioDate_CheckChanged(object sender, RadioGroupCheckChangedEventArgs e)
+        private void radioDate_ButtonPress(object sender, RadioButtonPressEventArgs e)
         {
             ShowResult = ShowResult.Yes;
             upATDate();
@@ -219,5 +219,6 @@ namespace SmoONE.UI.Attendance
                 }         
             }
         }
+
     }
 }

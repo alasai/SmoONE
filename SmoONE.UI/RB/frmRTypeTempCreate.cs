@@ -1,53 +1,50 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Smobiler.Core;
 using Smobiler.Core.Controls;
-using SmoONE.CommLib;
-using SmoONE.UI.RB;
+using SmoONE.UI;
 using SmoONE.DTOs;
+using SmoONE.CommLib;
 
 namespace SmoONE.UI.RB
 {
     // ******************************************************************
-    // æ–‡ä»¶ç‰ˆæœ¬ï¼š SmoONE 1.0
-    // Copyright  (c)  2016-2017 Smobiler 
-    // åˆ›å»ºæ—¶é—´ï¼š 2016/11
-    // ä¸»è¦å†…å®¹ï¼š  æ¶ˆè´¹æ¨¡æ¿åˆ›å»ºæˆ–ç¼–è¾‘ç•Œé¢
+    // ÎÄ¼ş°æ±¾£º SmoONE 2.0
+    // Copyright  (c)  2017-2018 Smobiler 
+    // ´´½¨Ê±¼ä£º 2017/07
+    // Ö÷ÒªÄÚÈİ£º  Ïû·ÑÄ£°å´´½¨»ò±à¼­½çÃæ
     // ******************************************************************
-    partial class frmRTypeTempCreate : Smobiler.Core.MobileForm
+    partial class frmRTypeTempCreate : Smobiler.Core.Controls.MobileForm
     {
-
         #region "Properties"
-        internal string ID;                 //æ¶ˆè´¹æ¨¡æ¿ç¼–å·
-        private string TYPEID;              //æ¶ˆè´¹ç±»å‹ç¼–å·
-        AutofacConfig AutofacConfig = new AutofacConfig();//è°ƒç”¨é…ç½®ç±»
+        internal string ID;                 //Ïû·ÑÄ£°å±àºÅ
+        private string TYPEID;              //Ïû·ÑÀàĞÍ±àºÅ
+        AutofacConfig AutofacConfig = new AutofacConfig();//µ÷ÓÃÅäÖÃÀà
         #endregion
-
         /// <summary>
-        /// æ¶ˆè´¹ç±»å‹é€‰æ‹©æŒ‰é’®
+        /// Ïû·ÑÀàĞÍÑ¡Ôñ°´Å¥
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /// <remarks></remarks>
-        private void btnRBType_Click(object sender, EventArgs e)
+        private void btnRBType_Press(object sender, EventArgs e)
         {
             try
             {
                 frmRTypeChoose frm = new frmRTypeChoose();
-                this.Redirect(frm, (MobileForm sender1, object args) =>
+                this.Show(frm, (MobileForm sender1, object args) =>
                 {
                     try
                     {
-                        if (frm.ShowResult == Smobiler.Core.ShowResult.Yes)
+                        if (frm.ShowResult == ShowResult.Yes)
                         {
                             string TYPEIDs = frm.TYPEID;
                             if (TYPEIDs.Length > 0)
                             {
                                 string[] types = TYPEIDs.Split(new char[] { '/' });
-                                TYPEID = types[0];               //æ¶ˆè´¹ç±»å‹ç¼–å·
-                                this.btnRBType.Text = types[1];  //æ¶ˆè´¹ç±»å‹åç§°
+                                TYPEID = types[0];               //Ïû·ÑÀàĞÍ±àºÅ
+                                this.btnRBType.Text = types[1];  //Ïû·ÑÀàĞÍÃû³Æ
                             }
                         }
                     }
@@ -63,68 +60,46 @@ namespace SmoONE.UI.RB
             }
         }
         /// <summary>
-        /// æ‰‹æœºè‡ªå¸¦è¿”å›é”®æ“ä½œ
+        /// Ïû·ÑÄ£°å´´½¨»òÕß±£´æ
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void frmConsModelCreate_KeyDown(object sender, KeyDownEventArgs e)
-        {
-            if (e.KeyCode == KeyCode.Back)
-            {
-                this.Close();         //å…³é—­å½“å‰é¡µé¢
-            }
-        }
-     
-        /// <summary>
-        /// TitleImageç‚¹å‡»äº‹ä»¶
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void frmConsModelCreate_TitleImageClick(object sender, EventArgs e)
-        {
-            this.Close();         //å…³é—­å½“å‰é¡µé¢
-        }
-        /// <summary>
-        /// saveæŒ‰é’®ä¿å­˜äº‹ä»¶
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnCreate_Click(object sender, EventArgs e)
+        private void btnSave_Press(object sender, EventArgs e)
         {
             try
             {
                 if (string.IsNullOrEmpty(this.txtMoney.Text))
                 {
-                    throw new Exception("è¯·è¾“å…¥æ¶ˆè´¹é‡‘é¢ï¼");
+                    throw new Exception("ÇëÊäÈëÏû·Ñ½ğ¶î£¡");
                 }
-                else 
+                else
                 {
                     if (System.Text.RegularExpressions.Regex.IsMatch(txtMoney.Text.Trim(), @"^(?!0+(?:\.0+)?$)(?:[1-9]\d*|0)(?:\.\d{1,2})?$") == false)
                     {
-                        throw new Exception("é‡‘é¢å¿…é¡»ä¸ºå¤§äº0çš„æ•°å­—ï¼");
+                        throw new Exception("½ğ¶î±ØĞëÎª´óÓÚ0µÄÊı×Ö£¡");
                     }
                 }
-                 if (string.IsNullOrEmpty(TYPEID))
+                if (string.IsNullOrEmpty(TYPEID))
                 {
-                    throw new Exception("è¯·é€‰æ‹©æ¶ˆè´¹ç±»åˆ«ï¼");
+                    throw new Exception("ÇëÑ¡ÔñÏû·ÑÀà±ğ£¡");
                 }
-                 if (string.IsNullOrEmpty(this.txtNote.Text))
+                if (string.IsNullOrEmpty(this.txtNote.Text))
                 {
-                    throw new Exception("è¯·è¾“å…¥å¤‡æ³¨ï¼");
+                    throw new Exception("ÇëÊäÈë±¸×¢£¡");
                 }
-                RBRTTInputDto RBModel = new RBRTTInputDto();                    //å®šä¹‰ä¸€ä¸ªæŠ¥é”€å•
-                RBModel.RB_RTT_Amount = Convert.ToDecimal(this.txtMoney.Text);             //æ¶ˆè´¹é‡‘é¢
-                RBModel.RB_RTT_TypeID = TYPEID;                             //æ¶ˆè´¹ç±»åˆ«
-                RBModel.RB_RTT_Note = this.txtNote.Text;                       //æ¶ˆè´¹å¤‡æ³¨
+                RBRTTInputDto RBModel = new RBRTTInputDto();                    //¶¨ÒåÒ»¸ö±¨Ïúµ¥
+                RBModel.RB_RTT_Amount = Convert.ToDecimal(this.txtMoney.Text);             //Ïû·Ñ½ğ¶î
+                RBModel.RB_RTT_TypeID = TYPEID;                             //Ïû·ÑÀà±ğ
+                RBModel.RB_RTT_Note = this.txtNote.Text;                       //Ïû·Ñ±¸×¢
                 if (string.IsNullOrWhiteSpace(ID) == false)
                 {
                     RBModel.RB_RTT_TemplateID = ID;
-                    ReturnInfo r = AutofacConfig.rBService.UpdateRB_Type_Template(RBModel);           //æ›´æ–°æ¶ˆè´¹æ¨¡æ¿ä¿¡æ¯
+                    ReturnInfo r = AutofacConfig.rBService.UpdateRB_Type_Template(RBModel);           //¸üĞÂÏû·ÑÄ£°åĞÅÏ¢
                     if (r.IsSuccess == true)
                     {
-                        this.ShowResult = Smobiler.Core.ShowResult.Yes;
+                        this.ShowResult = ShowResult.Yes;
                         this.Close();
-                        Toast("æ¶ˆè´¹æ¨¡æ¿ä¿®æ”¹æˆåŠŸ");
+                        Toast("Ïû·ÑÄ£°åĞŞ¸Ä³É¹¦");
                     }
                     else
                     {
@@ -132,51 +107,19 @@ namespace SmoONE.UI.RB
                     }
                 }
                 else
-                {                   
-                        RBModel.RB_RTT_CreateUser = Client.Session["U_ID"].ToString();                           //æ¨¡æ¿åˆ›å»ºç”¨æˆ·
-                        ReturnInfo r = AutofacConfig.rBService.CreateRB_Type_Template(RBModel);
-                        if (r.IsSuccess == true)
-                        {
-                            this.ShowResult = Smobiler.Core.ShowResult.Yes;
-                            this.Close();
-                            Toast("æ¶ˆè´¹æ¨¡æ¿æäº¤æˆåŠŸï¼");
-                        }
-                        else
-                        {
-                            throw new Exception(r.ErrorInfo);
-                        }                                 
-                }            
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-        }
-        /// <summary>
-        /// åˆå§‹åŒ–é¡µé¢
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void frmConsModelCreate_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(ID) == false)
                 {
-                    RB_RType_TemplateDto RBRTypeTem = AutofacConfig.rBService.GetTemplateByTemplateID(ID);
-                    string RBType = AutofacConfig.rBService.GetTypeNameByID(RBRTypeTem.RB_RTT_TypeID);
-                    this.txtMoney.Text = RBRTypeTem.RB_RTT_Amount.ToString();
-                    TYPEID = RBRTypeTem.RB_RTT_TypeID;       //æ¶ˆè´¹æ¨¡æ¿ç¼–å·
-                    this.btnRBType.Text = RBType;
-                    this.txtNote.Text = RBRTypeTem.RB_RTT_Note;
-                    this.TitleText = "æ¶ˆè´¹æ¨¡æ¿";
-                }
-                else
-                {
-                    this.TitleText = "æ¶ˆè´¹æ¨¡æ¿åˆ›å»º";
-                    this.btnDelete.Visible = false;
-                    btnSave.Width = 280;
-                    btnSave.Left = 10;
+                    RBModel.RB_RTT_CreateUser = Client.Session["U_ID"].ToString();                           //Ä£°å´´½¨ÓÃ»§
+                    ReturnInfo r = AutofacConfig.rBService.CreateRB_Type_Template(RBModel);
+                    if (r.IsSuccess == true)
+                    {
+                        this.ShowResult = ShowResult.Yes;
+                        this.Close();
+                        Toast("Ïû·ÑÄ£°åÌá½»³É¹¦£¡");
+                    }
+                    else
+                    {
+                        throw new Exception(r.ErrorInfo);
+                    }
                 }
             }
             catch (Exception ex)
@@ -185,20 +128,20 @@ namespace SmoONE.UI.RB
             }
         }
         /// <summary>
-        /// æ¶ˆè´¹æ¨¡æ¿åˆ é™¤æŒ‰é’®
+        /// Ïû·ÑÄ£°åÉ¾³ı
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Press(object sender, EventArgs e)
         {
             try
             {
                 ReturnInfo r = AutofacConfig.rBService.DeleteRB_Type_Template(ID);
                 if (r.IsSuccess == true)
                 {
-                    this.ShowResult = Smobiler.Core.ShowResult.Yes;
-                    this.Close();     
-                    Toast("åˆ é™¤æ¶ˆè´¹æ¨¡æ¿æˆåŠŸ");
+                    this.ShowResult = ShowResult.Yes;
+                    this.Close();
+                    Toast("É¾³ıÏû·ÑÄ£°å³É¹¦");
                 }
                 else
                 {
@@ -209,6 +152,50 @@ namespace SmoONE.UI.RB
             {
                 Toast(ex.Message);
             }
-        } 
+        }
+        /// <summary>
+        /// ÊÖ»ú×Ô´ø·µ»Ø¼ü²Ù×÷
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmRTypeTempCreate_KeyDown(object sender, KeyDownEventArgs e)
+        {
+            if (e.KeyCode == KeyCode.Back)
+            {
+                this.Close();         //¹Ø±Õµ±Ç°Ò³Ãæ
+            }
+        }
+        /// <summary>
+        /// ³õÊ¼»¯Ò³Ãæ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmRTypeTempCreate_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(ID) == false)
+                {
+                    RB_RType_TemplateDto RBRTypeTem = AutofacConfig.rBService.GetTemplateByTemplateID(ID);
+                    string RBType = AutofacConfig.rBService.GetTypeNameByID(RBRTypeTem.RB_RTT_TypeID);
+                    this.txtMoney.Text = RBRTypeTem.RB_RTT_Amount.ToString();
+                    TYPEID = RBRTypeTem.RB_RTT_TypeID;       //Ïû·ÑÄ£°å±àºÅ
+                    this.btnRBType.Text = RBType;
+                    this.txtNote.Text = RBRTypeTem.RB_RTT_Note;
+                    title.TitleText = "Ïû·ÑÄ£°å";
+                }
+                else
+                {
+                    title.TitleText = "Ïû·ÑÄ£°å´´½¨";
+                    this.btnDelete.Visible = false;
+                    btnSave.Width = 280;
+                    btnSave.Left = 10;
+                }
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message);
+            }
+        }
     }
 }

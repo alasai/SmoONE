@@ -2,7 +2,7 @@ using System;
 using Smobiler.Core;
 namespace SmoONE.UI.Layout
 {
-    partial class frmATStatSelfDetailDayLayout : Smobiler.Core.MobileForm
+    partial class frmATStatSelfDetailDayLayout : Smobiler.Core.Controls.MobileUserControl
     {
         #region "SmobilerForm generated code "
 
@@ -28,8 +28,17 @@ namespace SmoONE.UI.Layout
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
+            this.panel1 = new Smobiler.Core.Controls.Panel();
             this.lblDay = new Smobiler.Core.Controls.Label();
-            this.line1 = new Smobiler.Core.Controls.Line();
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.lblDay});
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(300, 50);
+            this.panel1.Touchable = true;
+            this.panel1.Press += new System.EventHandler(this.panel1_Press);
             // 
             // lblDay
             // 
@@ -37,32 +46,23 @@ namespace SmoONE.UI.Layout
             this.lblDay.DisplayMember = "AL_DateDesc";
             this.lblDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.lblDay.Name = "lblDay";
-            this.lblDay.Padding = new Smobiler.Core.Padding(10F, 0F, 10F, 0F);
+            this.lblDay.Padding = new Smobiler.Core.Controls.Padding(10F, 0F, 10F, 0F);
             this.lblDay.Size = new System.Drawing.Size(300, 50);
-            this.lblDay.TabIndex = 2;
             this.lblDay.Text = "2017Äê1ÔÂ22ÈÕ";
-            // 
-            // line1
-            // 
-            this.line1.BackColor = System.Drawing.Color.LightGray;
-            this.line1.Location = new System.Drawing.Point(0, 50);
-            this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(300, 1);
-            this.line1.TabIndex = 3;
-            this.line1.ZIndex = 3;
             // 
             // frmATStatSelfDetailDayLayout
             // 
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.lblDay,
-            this.line1});
+            this.panel1});
             this.Size = new System.Drawing.Size(300, 50);
             this.Name = "frmATStatSelfDetailDayLayout";
 
         }
         #endregion
 
+        private Smobiler.Core.Controls.Panel panel1;
         private Smobiler.Core.Controls.Label lblDay;
-        private Smobiler.Core.Controls.Line line1;
+
     }
 }

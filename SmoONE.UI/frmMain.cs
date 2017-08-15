@@ -77,7 +77,7 @@ partial class frmMain
         try
         {
             //服务起始界面
-            server.StartUpForm = typeof(SmoONE.UI.frmLogon );
+            server.StartUpForm = typeof(SmoONE.UI.frmLogon  );
             //服务TCP端口，默认为2323   
             this.txtTcpPort.Text = server.Setting.TcpServerPort.ToString();
             //服务HTTP端口，默认为2324  

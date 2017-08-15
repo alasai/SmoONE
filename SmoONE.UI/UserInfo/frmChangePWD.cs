@@ -4,25 +4,23 @@ using System.Linq;
 using System.Text;
 using Smobiler.Core;
 using Smobiler.Core.Controls;
-using SmoONE.Application;
-using System.Threading.Tasks;
 using SmoONE.CommLib;
-using SmoONE.Domain;
+using SmoONE.UI;
 
-namespace SmoONE.UI
+namespace SmoONE.UI.UserInfo
 {
-    // ******************************************************************
-    // 文件版本： SmoONE 1.0
-    // Copyright  (c)  2016-2017 Smobiler 
-    // 创建时间： 2016/11
+    /// ******************************************************************
+    // 文件版本： SmoONE 2.0
+    // Copyright  (c)  2017-2018 Smobiler 
+    // 创建时间： 2017/07
     // 主要内容：  密码修改界面
     // ******************************************************************
-    partial class frmChangePWD : Smobiler.Core.MobileForm
+    partial class frmChangePWD : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         public string oldPwd;//修改密码
-        bool isPwdC1 = true ; //新密码是否显示密码字符变量
-        bool isPwdC2 = true ;//确认密码是否显示密码字符变量
+        bool isPwdC1 = true; //新密码是否显示密码字符变量
+        bool isPwdC2 = true;//确认密码是否显示密码字符变量
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
         #endregion
         /// <summary>
@@ -30,21 +28,18 @@ namespace SmoONE.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void imgbtnPwdC1_Click(object sender, EventArgs e)
+        private void tpPwd1_Press(object sender, EventArgs e)
         {
             if (isPwdC1 == false)
             {
-                txtPwd1.PasswordChar = '*';//设置textbox为密码字符
-                imgbtnPwdC1.ResourceID = "!\\ue8f5192192192";
-                imgbtnPwdC1.Refresh();
+                txtPwd1.SecurityMode = true;//设置textbox为密码字符
+                fontPwd1.ResourceID = "eye-slash";
                 isPwdC1 = true;
-               
             }
             else
             {
-                txtPwd1.PasswordChar = ' ';//textbox密码字符为空时，显示明文
-                imgbtnPwdC1.ResourceID = "!\\ue417043146223";
-                imgbtnPwdC1.Refresh();
+                txtPwd1.SecurityMode = false;//textbox密码字符为空时，显示明文
+                fontPwd1.ResourceID = "eye";
                 isPwdC1 = false;
             }
         }
@@ -53,30 +48,27 @@ namespace SmoONE.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void imgbtnPwdC2_Click(object sender, EventArgs e)
+        private void tpPwd2_Press(object sender, EventArgs e)
         {
             if (isPwdC2 == false)
             {
-                txtPwd2.PasswordChar = '*';//设置textbox为密码字符
-                imgbtnPwdC2.ResourceID = "!\\ue8f5192192192";
-                imgbtnPwdC2.Refresh();
+                txtPwd2.SecurityMode = true;//设置textbox为密码字符
+                fontPwd2.ResourceID = "eye-slash";
                 isPwdC2 = true;
-
             }
             else
             {
-                txtPwd2.PasswordChar = ' ';//textbox密码字符为空时，显示明文
-                imgbtnPwdC2.ResourceID = "!\\ue417043146223";
-                imgbtnPwdC2.Refresh();
+                txtPwd2.SecurityMode = false;//textbox密码字符为空时，显示明文
+                fontPwd2.ResourceID = "eye";
                 isPwdC2 = false;
             }
         }
         /// <summary>
-        /// 修改保存密码
+        /// 保存修改密码
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Press(object sender, EventArgs e)
         {
             try
             {
@@ -90,7 +82,7 @@ namespace SmoONE.UI
                 {
                     throw new Exception("请输入新密码！");
                 }
-               
+
                 if (pwd2.Length <= 0)
                 {
                     throw new Exception("请输入确认密码！");
@@ -105,7 +97,7 @@ namespace SmoONE.UI
                 }
                 if (pwd2.Length < 6 || pwd2.Length > 12)
                 {
-                    throw new Exception("新密码必须为6-12位！");
+                    throw new Exception("确认密码必须为6-12位！");
                 }
                 if (oldPwd.Equals(pwd2))
                 {
@@ -116,8 +108,8 @@ namespace SmoONE.UI
                     //新密码处理,经过加密
                     string encryptPwd = AutofacConfig.userService.Encrypt(pwd2);
                     //更改密码
-                    ReturnInfo result = AutofacConfig.userService.ChangePwd(Client .Session ["U_ID"].ToString (), oldPwd, encryptPwd);
-                   //如果返回true则修改成功，否则弹出错误
+                    ReturnInfo result = AutofacConfig.userService.ChangePwd(Client.Session["U_ID"].ToString(), oldPwd, encryptPwd);
+                    //如果返回true则修改成功，否则弹出错误
                     if (result.IsSuccess == true)
                     {
                         Close();
@@ -128,11 +120,11 @@ namespace SmoONE.UI
                         throw new Exception(result.ErrorInfo);
                     }
                 }
-              
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Toast(ex.Message ,ToastLength.SHORT );
+                Toast(ex.Message, ToastLength.SHORT);
             }
         }
         /// <summary>
@@ -144,18 +136,8 @@ namespace SmoONE.UI
         {
             if (e.KeyCode == KeyCode.Back)
             {
-                Close();         //关闭当前页面
+                Close();
             }
         }
-        /// <summary>
-        /// 标题栏图片按钮点击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void frmChangePWD_TitleImageClick(object sender, EventArgs e)
-        {
-            Close();
-        } 
-
     }
 }

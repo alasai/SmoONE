@@ -2,7 +2,7 @@ using System;
 using Smobiler.Core;
 namespace SmoONE.UI.Department
 {
-    partial class frmDepartment : Smobiler.Core.MobileForm
+    partial class frmDepartment : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,99 +28,108 @@ namespace SmoONE.UI.Department
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.gridDepData = new Smobiler.Core.Controls.GridView();
+            this.gridDepData = new Smobiler.Core.Controls.ListView();
             this.btnCreate = new Smobiler.Core.Controls.Button();
             this.lblInfor = new Smobiler.Core.Controls.Label();
             this.treeDepData = new Smobiler.Core.Controls.TreeView();
-            this.tMode = new Smobiler.Core.Controls.ToolbarItem();
+            this.btnDMode = new Smobiler.Core.Controls.Button();
+            this.title1 = new SmoONE.UI.Layout.Title();
             // 
             // gridDepData
             // 
-            this.gridDepData.AutoHeight = true;
-            this.gridDepData.Layout = "frmDepartmentLayout";
-            this.gridDepData.Location = new System.Drawing.Point(0, 55);
+            this.gridDepData.BackColor = System.Drawing.Color.White;
+            this.gridDepData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridDepData.Location = new System.Drawing.Point(2, 95);
+            this.gridDepData.Margin = new Smobiler.Core.Controls.Margin(0F, 20F, 0F, 0F);
             this.gridDepData.Name = "gridDepData";
-            this.gridDepData.PageSize = 8;
-            this.gridDepData.ShowGridLines = false;
+            this.gridDepData.ShowSplitLine = true;
             this.gridDepData.Size = new System.Drawing.Size(300, 270);
-            this.gridDepData.TabIndex = 2;
+            this.gridDepData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.gridDepData.TemplateControlName = "frmDepartmentLayout";
             this.gridDepData.ZIndex = 2;
-            this.gridDepData.CellClick += new Smobiler.Core.Controls.GridViewCellClickEventHandler(this.gridDepData_CellClick);
             // 
             // btnCreate
             // 
             this.btnCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             this.btnCreate.BorderRadius = 2;
+            this.btnCreate.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCreate.FontSize = 17F;
-            this.btnCreate.ForeColor = System.Drawing.Color.White;
-            this.btnCreate.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(135)))), ((int)(((byte)(209)))));
-            this.btnCreate.HoverForeColor = System.Drawing.Color.White;
-            this.btnCreate.Location = new System.Drawing.Point(10, 10);
+            this.btnCreate.Location = new System.Drawing.Point(12, 50);
+            this.btnCreate.Margin = new Smobiler.Core.Controls.Margin(10F, 10F, 10F, 0F);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(280, 35);
-            this.btnCreate.TabIndex = 3;
             this.btnCreate.Text = "创建部门";
             this.btnCreate.ZIndex = 1;
-            this.btnCreate.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnCreate_Click);
+            this.btnCreate.Press += new System.EventHandler(this.btnCreate_Click);
             // 
             // lblInfor
             // 
             this.lblInfor.ForeColor = System.Drawing.Color.Silver;
-            this.lblInfor.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Center;
-            this.lblInfor.Location = new System.Drawing.Point(0, 180);
+            this.lblInfor.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
+            this.lblInfor.Location = new System.Drawing.Point(2, 220);
             this.lblInfor.Name = "lblInfor";
             this.lblInfor.Size = new System.Drawing.Size(300, 30);
-            this.lblInfor.TabIndex = 4;
             this.lblInfor.Text = "当前暂无部门，请创建！";
             this.lblInfor.Visible = false;
             this.lblInfor.ZIndex = 4;
             // 
             // treeDepData
             // 
-            this.treeDepData.AutoHeight = true;
-            this.treeDepData.ExpandAll = true;
-            this.treeDepData.FontSize = 15F;
-            this.treeDepData.Location = new System.Drawing.Point(0, 55);
+            this.treeDepData.BackColor = System.Drawing.Color.White;
+            this.treeDepData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeDepData.Location = new System.Drawing.Point(2, 95);
+            this.treeDepData.Margin = new Smobiler.Core.Controls.Margin(0F, 20F, 0F, 0F);
             this.treeDepData.Name = "treeDepData";
-            this.treeDepData.NodeCollapseIcon = "!\\ue315045045045";
-            this.treeDepData.NodeExpandIcon = "!\\ue313045045045";
-            this.treeDepData.NodeHeight = 45F;
-            this.treeDepData.SelectBackColor = System.Drawing.Color.WhiteSmoke;
+            this.treeDepData.NodeCollapseIcon = "angle-left";
             this.treeDepData.Size = new System.Drawing.Size(300, 413);
-            this.treeDepData.TabIndex = 5;
             this.treeDepData.ZIndex = 3;
-            this.treeDepData.NodeSelected += new System.EventHandler(this.treeDepData_NodeSelected);
+            this.treeDepData.NodePress += new Smobiler.Core.Controls.TreeViewNodeClickEventHandler(this.treeDepData_NodeSelected);
             // 
-            // tMode
+            // btnDMode
             // 
-            this.tMode.Name = "tMode";
-            this.tMode.Text = "层级展示";
+            this.btnDMode.BackColor = System.Drawing.Color.White;
+            this.btnDMode.BorderRadius = 0;
+            this.btnDMode.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnDMode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnDMode.Name = "btnDMode";
+            this.btnDMode.Size = new System.Drawing.Size(300, 35);
+            this.btnDMode.Text = "层级展示";
+            this.btnDMode.Press += new System.EventHandler(this.btnDLayout_Click);
+            // 
+            // title1
+            // 
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.FontSize = 15F;
+            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.title1.Location = new System.Drawing.Point(111, 36);
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
+            this.title1.TitleText = "部门";
             // 
             // frmDepartment
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.title1,
             this.btnCreate,
+            this.btnDMode,
+            this.lblInfor,
             this.gridDepData,
-            this.treeDepData,
-            this.lblInfor});
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
-            this.TitleText = "部门";
-            this.Toolbar.AddRange(new Smobiler.Core.Controls.ToolbarItem[] {
-            this.tMode});
-            this.ToolbarStyle = new Smobiler.Core.ToolBarSytle(Smobiler.Core.ToolbarSelectStyle.Select, System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223))))), System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223))))));
+            this.treeDepData});
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmDepartment_KeyDown);
             this.Load += new System.EventHandler(this.frmDepartment_Load);
-            this.ToolbarItemClick += new Smobiler.Core.ToolbarItemClickEventHandler(this.frmDepartment_ToolbarItemClick);
-            this.TitleImageClick += new System.EventHandler(this.frmDepartment_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmDepartment_KeyDown);
             this.Name = "frmDepartment";
 
         }
         #endregion
 
-        private Smobiler.Core.Controls.GridView gridDepData;
+        private Smobiler.Core.Controls.ListView gridDepData;
         private Smobiler.Core.Controls.Button btnCreate;
         private Smobiler.Core.Controls.Label lblInfor;
         private Smobiler.Core.Controls.TreeView treeDepData;
-        private Smobiler.Core.Controls.ToolbarItem tMode;
+        private Smobiler.Core.Controls.ToolBarItem tMode;
+        private Smobiler.Core.Controls.Button btnDMode;
+        private SmoONE.UI.Layout.Title title1;
     }
 }

@@ -1,8 +1,10 @@
-锘縰sing System;
+using System;
 using Smobiler.Core;
+using SmoONE.UI.Layout;
+
 namespace SmoONE.UI.RB
 {
-    partial class frmRTypeChoose : Smobiler.Core.MobileForm
+    partial class frmRTypeChoose : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,33 +30,46 @@ namespace SmoONE.UI.RB
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.gridRBRowTypeData = new Smobiler.Core.Controls.GridView();
+            this.title = new SmoONE.UI.Layout.Title();
+            this.listRBRowTypeData = new Smobiler.Core.Controls.ListView();
             // 
-            // gridRBRowTypeData
+            // title
             // 
-            this.gridRBRowTypeData.Layout = "frmRBTypeLayout";
-            this.gridRBRowTypeData.Name = "gridRBRowTypeData";
-            this.gridRBRowTypeData.ShowGridLines = false;
-            this.gridRBRowTypeData.Size = new System.Drawing.Size(300, 498);
-            this.gridRBRowTypeData.TabIndex = 2;
-            this.gridRBRowTypeData.CellClick += new Smobiler.Core.Controls.GridViewCellClickEventHandler(this.gridRBRowTypeData_CellClick);
+            this.title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title.FontSize = 15F;
+            this.title.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(300, 50);
+            this.title.TitleText = "消费类型选择";
+            // 
+            // listRBRowTypeData
+            // 
+            this.listRBRowTypeData.BackColor = System.Drawing.Color.White;
+            this.listRBRowTypeData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listRBRowTypeData.FooterControlName = null;
+            this.listRBRowTypeData.HeaderControlName = null;
+            this.listRBRowTypeData.Location = new System.Drawing.Point(114, 104);
+            this.listRBRowTypeData.Name = "listRBRowTypeData";
+            this.listRBRowTypeData.ShowSplitLine = true;
+            this.listRBRowTypeData.Size = new System.Drawing.Size(100, 30);
+            this.listRBRowTypeData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.listRBRowTypeData.TemplateControlName = "frmRBTypeLayout";
             // 
             // frmRTypeChoose
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.gridRBRowTypeData});
-            this.StatusBarStyle = Smobiler.Core.StatusBarStyle.Default;
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
-            this.TitleText = "娑堣垂绫诲瀷閫夋嫨";
-            this.ToolbarStyle = new Smobiler.Core.ToolBarSytle(Smobiler.Core.ToolbarSelectStyle.None, System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249))))), System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223))))), System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249))))), System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223))))));
-            this.Load += new System.EventHandler(this.frmRBRowType_Load);
-            this.TitleImageClick += new System.EventHandler(this.frmRBRowType_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmRBRowType_KeyDown);
+            this.title,
+            this.listRBRowTypeData});
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmRTypeChoose_KeyDown);
+            this.Load += new System.EventHandler(this.frmRTypeChoose_Load);
             this.Name = "frmRTypeChoose";
 
         }
         #endregion
 
-        internal Smobiler.Core.Controls.GridView gridRBRowTypeData;
+        private Title title;
+        private Smobiler.Core.Controls.ListView listRBRowTypeData;
     }
 }

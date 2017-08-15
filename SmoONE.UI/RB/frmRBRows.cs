@@ -1,59 +1,55 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
-using Smobiler.Core;
 using Smobiler.Core.Controls;
+using System.Data;
 using SmoONE.DTOs;
 
 namespace SmoONE.UI.RB
 {
     // ******************************************************************
-    // æ–‡ä»¶ç‰ˆæœ¬ï¼š SmoONE 1.0
-    // Copyright  (c)  2016-2017 Smobiler 
-    // åˆ›å»ºæ—¶é—´ï¼š 2016/11
-    // ä¸»è¦å†…å®¹ï¼š  æ¶ˆè´¹è®°å½•åˆ—è¡¨ç•Œé¢
+    // ÎÄ¼ş°æ±¾£º SmoONE 2.0
+    // Copyright  (c)  2017-2018 Smobiler 
+    // ´´½¨Ê±¼ä£º 2017/07
+    // Ö÷ÒªÄÚÈİ£º  Ïû·Ñ¼ÇÂ¼ÁĞ±í½çÃæ
     // ******************************************************************
-    partial class frmRBRows : Smobiler.Core.MobileForm
+    partial class frmRBRows : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
-        AutofacConfig AutofacConfig = new AutofacConfig();//è°ƒç”¨é…ç½®ç±»
+        AutofacConfig AutofacConfig = new AutofacConfig();//µ÷ÓÃÅäÖÃÀà
         #endregion
         /// <summary>
-        /// åˆå§‹åŒ–æ–¹æ³•
+        /// ³õÊ¼»¯·½·¨
         /// </summary>
         /// <remarks></remarks>
-        private void Bind()
+        public void Bind()
         {
             try
-            {             
+            {
                 List<RB_RowsDto> RBRows = AutofacConfig.rBService.GetRowsByCreateUser(Client.Session["U_ID"].ToString());
-                //æ¶ˆè´¹è®°å½•æµ‹è¯•æ•°æ®
+                //Ïû·Ñ¼ÇÂ¼²âÊÔÊı¾İ
                 DataTable table = new DataTable();
-                table.Columns.Add("ID", typeof(System.Int32));               //æ¶ˆè´¹è®°å½•ç¼–å·
-                table.Columns.Add("RB_NO", typeof(System.String));           //æŠ¥é”€å•ç¼–å·
-                table.Columns.Add("RBROW_DATE", typeof(System.String));      //æ¶ˆè´¹æ—¥æœŸ
-                table.Columns.Add("RBROW_TYPE", typeof(System.String));      //æ¶ˆè´¹ç±»å‹ç¼–å·
-                table.Columns.Add("RBROW_TYPENAME", typeof(System.String));  //æ¶ˆè´¹ç±»å‹åç§°
-                table.Columns.Add("RBROW_AMOUNT", typeof(System.Decimal));   //æ¶ˆè´¹é‡‘é¢
-                table.Columns.Add("RBROW_NOTE", typeof(System.String));      //æ¶ˆè´¹å¤‡æ³¨
+                table.Columns.Add("ID", typeof(System.Int32));               //Ïû·Ñ¼ÇÂ¼±àºÅ
+                table.Columns.Add("RB_NO", typeof(System.String));           //±¨Ïúµ¥±àºÅ
+                table.Columns.Add("RBROW_DATE", typeof(System.String));      //Ïû·ÑÈÕÆÚ
+                table.Columns.Add("RBROW_TYPE", typeof(System.String));      //Ïû·ÑÀàĞÍ±àºÅ
+                table.Columns.Add("RBROW_TYPENAME", typeof(System.String));  //Ïû·ÑÀàĞÍÃû³Æ
+                table.Columns.Add("RBROW_AMOUNT", typeof(System.Decimal));   //Ïû·Ñ½ğ¶î
+                table.Columns.Add("RBROW_NOTE", typeof(System.String));      //Ïû·Ñ±¸×¢
                 foreach (RB_RowsDto rows in RBRows)
                 {
                     table.Rows.Add(rows.R_ID, rows.RB_ID, rows.R_ConsumeDate.ToString("yyyy/MM/dd"), rows.R_TypeID, rows.R_TypeName, rows.R_Amount, rows.R_Note);
                 }
-
-                this.gridRBRowData.Rows.Clear();//æ¸…ç©ºæ¶ˆè´¹è®°å½•åˆ—è¡¨æ•°æ®
-                if (table.Rows.Count > 0)    //å½“è¡Œé¡¹ä¸­æœ‰æ•°æ®æ—¶
+                this.listRBRowData.Rows.Clear();//Çå¿ÕÏû·Ñ¼ÇÂ¼ÁĞ±íÊı¾İ
+                if (table.Rows.Count > 0)    //µ±ĞĞÏîÖĞÓĞÊı¾İÊ±
                 {
-                   
-                    this.lblInfor.Visible = false;          //éšè—æç¤ºæ–‡å­—
-                    this.gridRBRowData.DataSource = table;
-                    this.gridRBRowData.DataBind();
+
+                    this.lblInfor.Visible = false;          //Òş²ØÌáÊ¾ÎÄ×Ö
+                    this.listRBRowData.DataSource = table;
+                    this.listRBRowData.DataBind();
                 }
                 else
                 {
-                    this.lblInfor.Visible = true ;  
+                    this.lblInfor.Visible = true;
                 }
             }
             catch (Exception ex)
@@ -62,81 +58,40 @@ namespace SmoONE.UI.RB
             }
         }
         /// <summary>
-        /// åˆå§‹åŒ–äº‹ä»¶
+        /// ÊÖ»ú×Ô´ø»ØÍË°´Å¥ÊÂ¼ş
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /// <remarks></remarks>
-        private void frmRBMain_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                Bind();            //åˆå§‹åŒ–æ•°æ®
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-        }
-        /// <summary>
-        /// gridRBRowDataç‚¹å‡»äº‹ä»¶
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridRBRowData_CellClick(object sender, GridViewCellEventArgs e)
-        {
-            try
-            {
-                frmRowsCreate frm = new frmRowsCreate();      //è¿›å…¥æ¶ˆè´¹è®°å½•è¯¦æƒ…é¡µé¢
-                frm.ID = e.Cell.Items["lblMoney"].Value.ToString();
-                this.Redirect(frm, (MobileForm sender1, object args) =>
-                {
-                    if (frm.ShowResult == Smobiler.Core.ShowResult.Yes)
-                    {
-                        Bind();//é‡æ–°åŠ è½½æ•°æ®
-                    }
-                });
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-        }
-        /// <summary>
-        /// æ‰‹æœºè‡ªå¸¦å›é€€æŒ‰é’®äº‹ä»¶
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void frmRBMain_KeyDown(object sender, KeyDownEventArgs e)
+        private void frmRBRows_KeyDown(object sender, KeyDownEventArgs e)
         {
             if (e.KeyCode == KeyCode.Back)
             {
-                this.Close();             //å…³é—­å½“å‰é¡µé¢
+                this.Close();             //¹Ø±Õµ±Ç°Ò³Ãæ
             }
         }
         /// <summary>
-        /// TitleImageäº‹ä»¶
+        /// ³õÊ¼»¯ÊÂ¼ş
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void frmRBMain_TitleImageClick(object sender, EventArgs e)
+        private void frmRBRows_Load(object sender, EventArgs e)
         {
-            this.Close();             //å…³é—­å½“å‰é¡µé¢
+            Bind();            //³õÊ¼»¯Êı¾İ
+            
         }
-    
         /// <summary>
-        /// åˆ›å»ºæ¶ˆè´¹è®°å½•
+        /// ´´½¨Ïû·Ñ¼ÇÂ¼
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnCreate_Click(object sender, EventArgs e)
+        private void btnCreate_Press(object sender, EventArgs e)
         {
             frmRowsCreate frm = new frmRowsCreate();
-            this.Redirect(frm, (MobileForm from, object args) =>
+            this.Show(frm, (MobileForm from, object args) =>
             {
-                if (frm.ShowResult == Smobiler.Core.ShowResult.Yes)
+                if (frm.ShowResult == ShowResult.Yes)
                 {
-                    Bind();          //é‡æ–°åŠ è½½æ•°æ®
+                    Bind();          //ÖØĞÂ¼ÓÔØÊı¾İ
                 }
             });
         }

@@ -15,7 +15,7 @@ namespace SmoONE.UI.Attendance
     // 创建时间： 2017/2
     // 主要内容： 考勤模板创建或编辑界面
     // ******************************************************************
-    partial class frmAttendanceCreate : Smobiler.Core.MobileForm
+    partial class frmAttendanceCreate : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         public string ATNo;//考勤模板编号
@@ -157,23 +157,23 @@ namespace SmoONE.UI.Attendance
                     if (ATemplate.AT_StartTime != null)
                     {
 
-                        dpStartWork.CurrentDate = Convert.ToDateTime(ATemplate.AT_StartTime);
+                        dpStartWork.Value = Convert.ToDateTime(ATemplate.AT_StartTime);
                     }
                     else
                     {
                         DateTime starttime= new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,9,0,0);
-                        dpStartWork.CurrentDate = starttime;
+                        dpStartWork.Value = starttime;
                         ATemplate.AT_StartTime = starttime;
                     }
                     if (ATemplate.AT_EndTime != null)
                     {
 
-                        dpEndWork.CurrentDate = Convert.ToDateTime(ATemplate.AT_EndTime);
+                        dpEndWork.Value = Convert.ToDateTime(ATemplate.AT_EndTime);
                     }
                     else
                     {
                         DateTime endtime=new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 17, 30, 0);
-                        dpEndWork.CurrentDate = endtime;
+                        dpEndWork.Value = endtime;
                         ATemplate.AT_EndTime = endtime;
                     }
                     dpStartWork.Visible = true;
@@ -184,8 +184,6 @@ namespace SmoONE.UI.Attendance
                     dpAMEndWork.Visible = false;
                     dpPMStartWork.Visible = false;
                     dpPMEndWork.Visible = false;
-                    linePMupWork.Visible = false;
-                    linePMoffWork.Visible = false;
                     lblStartWork.Text = "上班时间";
                     lblEndWork.Text = "下班时间";
                     btnATMode.Text = "切换到一天两次上下班";
@@ -194,43 +192,43 @@ namespace SmoONE.UI.Attendance
                 case WorkTimeType.一天二上下班:
                     if (ATemplate.AT_AMStartTime != null)
                     {
-                        dpAMStartWork.CurrentDate = Convert.ToDateTime(ATemplate.AT_AMStartTime);
+                        dpAMStartWork.Value = Convert.ToDateTime(ATemplate.AT_AMStartTime);
                     }
                     else
                     {
                         DateTime amstarttime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 9, 0, 0);
-                        dpAMStartWork.CurrentDate = amstarttime;
+                        dpAMStartWork.Value = amstarttime;
                         ATemplate.AT_AMStartTime = amstarttime;
                     }
                     
                     if (ATemplate.AT_AMEndTime != null)
                     {
-                        dpAMEndWork.CurrentDate = Convert.ToDateTime(ATemplate.AT_AMEndTime);
+                        dpAMEndWork.Value = Convert.ToDateTime(ATemplate.AT_AMEndTime);
                     }
                     else
                     {
                         DateTime amendtime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 0, 0);
-                        dpAMEndWork.CurrentDate = amendtime;
+                        dpAMEndWork.Value = amendtime;
                         ATemplate.AT_AMEndTime = amendtime;
                     }
                     if (ATemplate.AT_PMStartTime != null)
                     {
-                        dpPMStartWork.CurrentDate = Convert.ToDateTime(ATemplate.AT_PMStartTime);
+                        dpPMStartWork.Value = Convert.ToDateTime(ATemplate.AT_PMStartTime);
                     }
                     else
                     {
                         DateTime pmstarttime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 13, 0, 0);
-                        dpPMStartWork.CurrentDate = pmstarttime;
+                        dpPMStartWork.Value = pmstarttime;
                         ATemplate.AT_PMStartTime = pmstarttime;
                     }
                     if (ATemplate.AT_PMEndTime != null)
                     {
-                        dpPMEndWork.CurrentDate = Convert.ToDateTime(ATemplate.AT_PMEndTime);
+                        dpPMEndWork.Value = Convert.ToDateTime(ATemplate.AT_PMEndTime);
                     }
                     else
                     {
                         DateTime pmsendtime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 17, 30, 0);
-                        dpPMEndWork.CurrentDate = pmsendtime;
+                        dpPMEndWork.Value = pmsendtime;
                         ATemplate.AT_PMEndTime = pmsendtime;
                     }
                      dpStartWork.Visible = false;
@@ -241,34 +239,26 @@ namespace SmoONE.UI.Attendance
                     dpAMEndWork.Visible = true;
                     dpPMEndWork.Visible = true;
                     dpPMStartWork.Visible = true;
-                    linePMupWork.Visible = true;
-                    linePMoffWork.Visible = true;
                     lblStartWork.Text = "上午上班";
                     lblEndWork.Text = "上午下班";
                     btnATMode.Text = "切换到一天一次上下班";
-                     lblDate1.Top =linePMoffWork.Top ;
+                    lblDate1.Top = lblPMEndWork.Top + lblPMEndWork.Height ;
                     break;
             }
                      btnDate.Top = lblDate1.Top;
                     btnDate2.Top = lblDate1.Top;
-                    lineDate.Top = lblDate1.Top + lblDate1.Height;
-                    btnATMode.Top = lineDate.Top;
-                    lineATMode.Top = btnATMode.Top + btnATMode.Height;
-                    lineException1.Top = lineATMode.Top + 10; ;
-                    lblException.Top = lineException1.Top;
-                    btnUser.Top = lineException1.Top;
-                    btnUser2.Top = lineException1.Top;
-                    lineException.Top  = lblException.Top + lblException.Height;
-                    lblAddress1.Top = lineException.Top;
-                    lblAddress.Top = lineException.Top;
-                    btnAddress2.Top = lineException.Top;
-                    lineAddress.Top = lblAddress1.Top + lblAddress1.Height;
-                    lblAllowableDeviation.Top = lineAddress.Top;
-                    txtADeviation.Top = lineAddress.Top;
-                    btnAllowableDeviation2.Top = lineAddress.Top;
-                    lineAllowableDeviation.Top = lblAllowableDeviation.Top + lblAllowableDeviation.Height ;
-                    lblADeviation.Top = lineAllowableDeviation.Top;
-                    btnSave.Top = lblADeviation.Top + lblADeviation.Height  + 10;
+                    btnATMode.Top = lblDate1.Top + lblDate1.Height;
+                    lblException.Top =  btnATMode.Top + btnATMode.Height + 10;
+                    btnUser.Top = lblException.Top;
+                    btnUser2.Top = lblException.Top;
+                    lblAddress1.Top = lblException.Top + lblException.Height;
+                    lblAddress.Top = lblAddress1.Top;
+                    btnAddress2.Top = lblAddress1.Top;
+                    lblAllowableDeviation.Top = lblAddress1.Top + lblAddress1.Height;
+                    txtADeviation.Top = lblAllowableDeviation.Top;
+                    btnAllowableDeviation2.Top = lblAllowableDeviation.Top;
+                    lblADeviation.Top = lblAllowableDeviation.Top + lblAllowableDeviation.Height;
+                    //btnSave.Top = lblADeviation.Top + lblADeviation.Height  + 10;
                     if (string.IsNullOrEmpty(ATNo) == false)
                     {
                         btnDelete.Top = btnSave.Top;
@@ -295,7 +285,7 @@ namespace SmoONE.UI.Attendance
                 {
                     lblAddress.Text=ATemplate.AT_Positions;
                 }
-                gps1.GetEditGpsAsyn(new GPSData(ATemplate.AT_Longitude, ATemplate.AT_Latitude, ATemplate.AT_Positions));
+               // gps1.GetEditGpsAsyn(new GPSData(ATemplate.AT_Longitude, ATemplate.AT_Latitude, ATemplate.AT_Positions));
             }
             catch (Exception ex)
             {
@@ -315,7 +305,7 @@ namespace SmoONE.UI.Attendance
                 {
                     try
                     {
-                        if (args.Result == Smobiler.Core.ShowResult.Yes)
+                        if (args.Result == Smobiler.Core.Controls .ShowResult.Yes)
                         {
                             switch (ATMode)
                             {
@@ -345,7 +335,27 @@ namespace SmoONE.UI.Attendance
         /// <param name="e"></param>
         private void btnAddress1_Click(object sender, EventArgs e)
         {
-            upATMap();
+            
+            //upATMap();
+
+            frmATGPSEdit frmATGPSEdit = new frmATGPSEdit();
+           frmATGPSEdit.Longitude =(float ) ATemplate.AT_Longitude;
+           frmATGPSEdit.Latitude  =(float ) ATemplate.AT_Latitude;
+           frmATGPSEdit.addressInfo  = ATemplate.AT_Positions;
+           this.Show(frmATGPSEdit, (MobileForm form, object args) =>
+            {
+                if (frmATGPSEdit.ShowResult == ShowResult.Yes)
+                {
+                    ATemplate.AT_Longitude = (decimal)frmATGPSEdit.Longitude;
+                    ATemplate.AT_Latitude = (decimal)frmATGPSEdit.Latitude;
+                    ATemplate.AT_Positions = frmATGPSEdit.addressInfo ;
+                    lblAddress.Text = ATemplate.AT_Positions;
+                }
+            });
+
+        
+
+
         }
         /// <summary>
         /// 手机自带回退按钮事件
@@ -505,6 +515,7 @@ namespace SmoONE.UI.Attendance
                     }
                     break;
             }
+
             frmAttendanceDate frm = new frmAttendanceDate();
             frm.weekdays = ATemplate.AT_WeeklyWorkingDay;
             frm.atWorkDate = atWorkDate;
@@ -514,7 +525,7 @@ namespace SmoONE.UI.Attendance
                 frm.ATNo = ATNo;
             }
             frm.listatcdInput = ATemplate.CustomDates;
-            Redirect(frm, (MobileForm form, object args) =>
+            Show(frm, (MobileForm form, object args) =>
             {
                 if (frm.ShowResult == ShowResult.Yes)
                 {
@@ -533,70 +544,71 @@ namespace SmoONE.UI.Attendance
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dpStartWork_DatePicked(object sender, DatePickerEventArgs e)
+        private void dpStartWork_DatePicked(object sender, EventArgs e)
         {
-            ATemplate.AT_StartTime = dpStartWork.CurrentDate ;   
+            ATemplate.AT_StartTime = dpStartWork.Value ;   
         }
         /// <summary>
         /// 下班时间更新
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dpEndWork_DatePicked(object sender, DatePickerEventArgs e)
+        private void dpEndWork_DatePicked(object sender, EventArgs e)
         {
-            ATemplate.AT_EndTime  = dpEndWork.CurrentDate;  
+            ATemplate.AT_EndTime  = dpEndWork.Value;  
         }
         /// <summary>
         /// 上午上班时间更新
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dpAMStartWork_DatePicked(object sender, DatePickerEventArgs e)
+        private void dpAMStartWork_DatePicked(object sender, EventArgs e)
         {
-            ATemplate.AT_AMStartTime = dpAMStartWork.CurrentDate;   
+            ATemplate.AT_AMStartTime = dpAMStartWork.Value;   
         }
         /// <summary>
         /// 上午下班时间更新
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dpAMEndWork_DatePicked(object sender, DatePickerEventArgs e)
+        private void dpAMEndWork_DatePicked(object sender, EventArgs e)
         {
-            ATemplate.AT_AMEndTime  = dpAMEndWork.CurrentDate;
+            ATemplate.AT_AMEndTime  = dpAMEndWork.Value;
         }
         /// <summary>
         /// 下午上班时间更新
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dpPMStartWork_DatePicked(object sender, DatePickerEventArgs e)
+        private void dpPMStartWork_DatePicked(object sender, EventArgs e)
         {
-            ATemplate.AT_PMStartTime = dpPMStartWork.CurrentDate;   
+            ATemplate.AT_PMStartTime = dpPMStartWork.Value;   
         }
         /// <summary>
         /// 下午下班时间更新
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dpPMEndWork_DatePicked(object sender, DatePickerEventArgs e)
+        private void dpPMEndWork_DatePicked(object sender, EventArgs e)
         {
-            ATemplate.AT_PMEndTime = dpPMEndWork.CurrentDate;
+            ATemplate.AT_PMEndTime = dpPMEndWork.Value;
         }
         /// <summary>
         /// 获取gps
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void gps1_GotLocation(object sender, GPSData e)
+        private void gps1_GotLocation(object sender, GPSResultArgs e)
         {
             try
             {
-                if ((e.IsError).Equals(false))
+                if ((e.isError).Equals(false))
                 {
                     if (e.Longitude != 0 & e.Latitude != 0)
                     {
-                        ATemplate.AT_Longitude = e.Longitude;
-                        ATemplate.AT_Latitude = e.Latitude;
+                       
+                        ATemplate.AT_Longitude =(decimal ) e.Longitude;
+                        ATemplate.AT_Latitude = (decimal)e.Latitude;
                         ATemplate.AT_Positions = e.Location;
                         lblAddress.Text = ATemplate.AT_Positions;
                     }
@@ -633,7 +645,7 @@ namespace SmoONE.UI.Attendance
                 frm.selectUser = ATemplate.AT_Users;
             }
           
-            Redirect(frm, (MobileForm form, object args) =>
+            Show(frm, (MobileForm form, object args) =>
             {
                 if (frm.ShowResult == ShowResult.Yes)
                 {
@@ -657,12 +669,12 @@ namespace SmoONE.UI.Attendance
             {
                 MessageBox.Show("是否确定删除考勤模板？", "删除", MessageBoxButtons.YesNo, (Object s1, MessageBoxHandlerArgs args1) =>
                {
-                       if (args1.Result == Smobiler.Core.ShowResult.Yes)
+                       if (args1.Result ==Smobiler.Core.Controls .ShowResult.Yes)
                        {
                             ReturnInfo r = AutofacConfig.attendanceService.DeleteAttendanceTemplate(ATNo);
                             if (r.IsSuccess == true)
                             {
-                                this.ShowResult = Smobiler.Core.ShowResult.Yes;
+                                this.ShowResult = Smobiler.Core.Controls .ShowResult.Yes;
                                 this.Close();
                                 Toast("考勤模板已删除!");
                             }

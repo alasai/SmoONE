@@ -1,8 +1,10 @@
 using System;
 using Smobiler.Core;
-namespace SmoONE.UI
+using SmoONE.UI.Layout;
+
+namespace SmoONE.UI.Work
 {
-    partial class frmWork : Smobiler.Core.MobileForm
+    partial class frmWork : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,106 +30,187 @@ namespace SmoONE.UI
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Smobiler.Core.Controls.ImageTabBarItem imageTabBarItem1 = new Smobiler.Core.Controls.ImageTabBarItem();
-            Smobiler.Core.Controls.ImageTabBarItem imageTabBarItem2 = new Smobiler.Core.Controls.ImageTabBarItem();
-            Smobiler.Core.Controls.ImageTabBarItem imageTabBarItem3 = new Smobiler.Core.Controls.ImageTabBarItem();
+            Smobiler.Core.Controls.ToolBarItem toolBarItem1 = new Smobiler.Core.Controls.ToolBarItem();
+            Smobiler.Core.Controls.ToolBarItem toolBarItem2 = new Smobiler.Core.Controls.ToolBarItem();
             this.iconMenuData = new Smobiler.Core.Controls.IconMenuView();
-            this.imageTabBar1 = new Smobiler.Core.Controls.ImageTabBar();
-            this.line1 = new Smobiler.Core.Controls.Line();
-            this.Work = new Smobiler.Core.Controls.ToolbarItem();
-            this.Me = new Smobiler.Core.Controls.ToolbarItem();
-            this.line2 = new Smobiler.Core.Controls.Line();
+            this.plTabBar = new Smobiler.Core.Controls.Panel();
+            this.plShenPi = new Smobiler.Core.Controls.Panel();
+            this.image2 = new Smobiler.Core.Controls.Image();
+            this.label1 = new Smobiler.Core.Controls.Label();
+            this.plFaQi = new Smobiler.Core.Controls.Panel();
+            this.image3 = new Smobiler.Core.Controls.Image();
+            this.label2 = new Smobiler.Core.Controls.Label();
+            this.plChaoSong = new Smobiler.Core.Controls.Panel();
+            this.image4 = new Smobiler.Core.Controls.Image();
+            this.label3 = new Smobiler.Core.Controls.Label();
+            this.menuTitle1 = new SmoONE.UI.Layout.MenuTitle();
+            this.spContent = new Smobiler.Core.Controls.Panel();
+            this.toolBar1 = new Smobiler.Core.Controls.ToolBar();
             // 
             // iconMenuData
             // 
-            this.iconMenuData.AutoHeight = true;
-            this.iconMenuData.BorderColor = System.Drawing.Color.Gray;
-            this.iconMenuData.ForeColor = System.Drawing.Color.Gray;
-            this.iconMenuData.GridLines = true;
-            this.iconMenuData.GridLinesColor = System.Drawing.Color.LightGray;
-            this.iconMenuData.Location = new System.Drawing.Point(0, 90);
-            this.iconMenuData.MenuItemHeight = 80F;
+            this.iconMenuData.ImageSizeMode = Smobiler.Core.Controls.ImageSizeMode.Default;
+            this.iconMenuData.Location = new System.Drawing.Point(0, 70);
             this.iconMenuData.Name = "iconMenuData";
-            this.iconMenuData.Size = new System.Drawing.Size(300, 380);
-            this.iconMenuData.TabIndex = 2;
-            this.iconMenuData.MenuItemClick += new Smobiler.Core.Controls.IconMenuItemClickHandler(this.iconMenuData_MenuItemClick);
+            this.iconMenuData.Size = new System.Drawing.Size(300, 400);
+            this.iconMenuData.ItemPress += new Smobiler.Core.Controls.IconMenuViewItemPressClickHandler(this.iconMenuData_ItemPress);
             // 
-            // imageTabBar1
+            // plTabBar
             // 
-            this.imageTabBar1.BackColor = System.Drawing.Color.White;
-            this.imageTabBar1.ForeColor = System.Drawing.Color.Gray;
-            imageTabBarItem1.ImageResourceID = "shenpi";
-            imageTabBarItem1.SelectImageResourceID = "shenpi";
-            imageTabBarItem1.Text = "待我审批";
-            imageTabBarItem2.ImageResourceID = "wofaqi";
-            imageTabBarItem2.SelectImageResourceID = "wofaqi";
-            imageTabBarItem2.Text = "我发起的";
-            imageTabBarItem3.ImageResourceID = "chaosong";
-            imageTabBarItem3.SelectImageResourceID = "chaosong";
-            imageTabBarItem3.Text = "抄送我的";
-            this.imageTabBar1.Items.AddRange(new Smobiler.Core.Controls.ImageTabBarItem[] {
-            imageTabBarItem1,
-            imageTabBarItem2,
-            imageTabBarItem3});
-            this.imageTabBar1.Name = "imageTabBar1";
-            this.imageTabBar1.SelectForeColor = System.Drawing.Color.Gray;
-            this.imageTabBar1.TabIndex = 3;
-            this.imageTabBar1.ItemClick += new Smobiler.Core.Controls.TabBarItemClickEventHandler(this.imageTabBar1_ItemClick);
+            this.plTabBar.BackColor = System.Drawing.Color.White;
+            this.plTabBar.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.plShenPi,
+            this.plFaQi,
+            this.plChaoSong});
+            this.plTabBar.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.plTabBar.Layout = Smobiler.Core.Controls.LayoutPosition.Relative;
+            this.plTabBar.Name = "plTabBar";
+            this.plTabBar.Size = new System.Drawing.Size(300, 60);
             // 
-            // line1
+            // plShenPi
             // 
-            this.line1.BackColor = System.Drawing.Color.LightGray;
-            this.line1.Location = new System.Drawing.Point(0, 80);
-            this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(300, 1);
-            this.line1.TabIndex = 4;
+            this.plShenPi.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.image2,
+            this.label1});
+            this.plShenPi.Flex = 1;
+            this.plShenPi.Name = "plShenPi";
+            this.plShenPi.Size = new System.Drawing.Size(0, 0);
+            this.plShenPi.Touchable = true;
+            this.plShenPi.Press += new System.EventHandler(this.plShenPi_Press);
             // 
-            // Work
+            // image2
             // 
-            this.Work.IconID = "work2";
-            this.Work.Name = "Work";
-            this.Work.SelectIconID = "work2";
+            this.image2.Location = new System.Drawing.Point(30, 3);
+            this.image2.Name = "image2";
+            this.image2.ResourceID = "shenpi";
+            this.image2.Size = new System.Drawing.Size(40, 40);
             // 
-            // Me
+            // label1
             // 
-            this.Me.IconID = "me";
-            this.Me.Name = "Me";
-            this.Me.SelectIconID = "me";
+            this.label1.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
+            this.label1.Location = new System.Drawing.Point(0, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 15);
+            this.label1.Text = "待我审批";
             // 
-            // line2
+            // plFaQi
             // 
-            this.line2.BackColor = System.Drawing.Color.LightGray;
-            this.line2.Location = new System.Drawing.Point(0, 90);
-            this.line2.Name = "line2";
-            this.line2.Size = new System.Drawing.Size(300, 1);
-            this.line2.TabIndex = 5;
+            this.plFaQi.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.image3,
+            this.label2});
+            this.plFaQi.Flex = 1;
+            this.plFaQi.Name = "plFaQi";
+            this.plFaQi.Size = new System.Drawing.Size(0, 0);
+            this.plFaQi.Touchable = true;
+            this.plFaQi.Press += new System.EventHandler(this.plFaQi_Press);
+            // 
+            // image3
+            // 
+            this.image3.Location = new System.Drawing.Point(30, 3);
+            this.image3.Name = "image3";
+            this.image3.ResourceID = "wofaqi";
+            this.image3.Size = new System.Drawing.Size(40, 40);
+            // 
+            // label2
+            // 
+            this.label2.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
+            this.label2.Location = new System.Drawing.Point(0, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 15);
+            this.label2.Text = "我发起的";
+            // 
+            // plChaoSong
+            // 
+            this.plChaoSong.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.image4,
+            this.label3});
+            this.plChaoSong.Flex = 1;
+            this.plChaoSong.Name = "plChaoSong";
+            this.plChaoSong.Size = new System.Drawing.Size(0, 0);
+            this.plChaoSong.Touchable = true;
+            this.plChaoSong.Press += new System.EventHandler(this.plChaoSong_Press);
+            // 
+            // image4
+            // 
+            this.image4.Location = new System.Drawing.Point(30, 3);
+            this.image4.Name = "image4";
+            this.image4.ResourceID = "chaosong";
+            this.image4.Size = new System.Drawing.Size(40, 40);
+            // 
+            // label3
+            // 
+            this.label3.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
+            this.label3.Location = new System.Drawing.Point(0, 43);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 15);
+            this.label3.Text = "抄送我的";
+            // 
+            // menuTitle1
+            // 
+            this.menuTitle1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.menuTitle1.Location = new System.Drawing.Point(100, 230);
+            this.menuTitle1.Name = "menuTitle1";
+            this.menuTitle1.Size = new System.Drawing.Size(100, 50);
+            this.menuTitle1.TitleText = "工作";
+            // 
+            // spContent
+            // 
+            this.spContent.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.iconMenuData,
+            this.plTabBar});
+            this.spContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spContent.Location = new System.Drawing.Point(74, 112);
+            this.spContent.Name = "spContent";
+            this.spContent.Size = new System.Drawing.Size(100, 30);
+            // 
+            // toolBar1
+            // 
+            this.toolBar1.BackColor = System.Drawing.Color.White;
+            this.toolBar1.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
+            this.toolBar1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.toolBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            toolBarItem1.IconID = "work2";
+            toolBarItem1.Name = "Work";
+            toolBarItem1.SelectIconID = "work2";
+            toolBarItem2.IconID = "me";
+            toolBarItem2.Name = "Me";
+            toolBarItem2.SelectIconID = "me";
+            this.toolBar1.Items.AddRange(new Smobiler.Core.Controls.ToolBarItem[] {
+            toolBarItem1,
+            toolBarItem2});
+            this.toolBar1.Location = new System.Drawing.Point(91, 373);
+            this.toolBar1.Name = "toolBar1";
+            this.toolBar1.SelectBackColor = System.Drawing.Color.Transparent;
+            this.toolBar1.SelectForeColor = System.Drawing.Color.Black;
+            this.toolBar1.Size = new System.Drawing.Size(100, 50);
+            this.toolBar1.ToolbarItemClick += new Smobiler.Core.Controls.ToolbarItemClickEventHandler(this.toolBar1_ToolbarItemClick);
             // 
             // frmWork
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.iconMenuData,
-            this.imageTabBar1,
-            this.line1,
-            this.line2});
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
-            this.TitleText = "工作";
-            this.Toolbar.AddRange(new Smobiler.Core.Controls.ToolbarItem[] {
-            this.Work,
-            this.Me});
-            this.ToolbarStyle = new Smobiler.Core.ToolBarSytle(Smobiler.Core.ToolbarSelectStyle.Select, System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(135)))), ((int)(((byte)(209))))), System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145))))));
+            this.menuTitle1,
+            this.spContent,
+            this.toolBar1});
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmWork_KeyDown);
             this.Load += new System.EventHandler(this.frmWork_Load);
-            this.ToolbarItemClick += new Smobiler.Core.ToolbarItemClickEventHandler(this.frmWork_ToolbarItemClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmWork_KeyDown);
             this.Name = "frmWork";
 
         }
         #endregion
 
+        private MenuTitle menuTitle1;
+        private Smobiler.Core.Controls.Panel spContent;
         private Smobiler.Core.Controls.IconMenuView iconMenuData;
-        private Smobiler.Core.Controls.ImageTabBar imageTabBar1;
-        private Smobiler.Core.Controls.Line line1;
-        private Smobiler.Core.Controls.ToolbarItem Work;
-        private Smobiler.Core.Controls.ToolbarItem Me;
-        private Smobiler.Core.Controls.Line line2;
+        private Smobiler.Core.Controls.Panel plTabBar;
+        private Smobiler.Core.Controls.Panel plShenPi;
+        private Smobiler.Core.Controls.Image image2;
+        private Smobiler.Core.Controls.Label label1;
+        private Smobiler.Core.Controls.Panel plFaQi;
+        private Smobiler.Core.Controls.Image image3;
+        private Smobiler.Core.Controls.Label label2;
+        private Smobiler.Core.Controls.Panel plChaoSong;
+        private Smobiler.Core.Controls.Image image4;
+        private Smobiler.Core.Controls.Label label3;
+        private Smobiler.Core.Controls.ToolBar toolBar1;
     }
 }

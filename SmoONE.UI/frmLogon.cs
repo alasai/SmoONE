@@ -6,6 +6,7 @@ using Smobiler.Core;
 using Smobiler.Core.Controls;
 using SmoONE.CommLib;
 using SmoONE.Domain;
+using SmoONE.UI.UserInfo;
 
 namespace SmoONE.UI
 {
@@ -15,7 +16,7 @@ namespace SmoONE.UI
     // 创建时间： 2016/11
     // 主要内容：  登录界面
     // ******************************************************************
-    partial class frmLogon : Smobiler.Core.MobileForm
+    partial class frmLogon : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
@@ -29,7 +30,7 @@ namespace SmoONE.UI
         {
             try
             {
-                //RedirectUrl("http://app.xianjiansoft.com/zhifubao/alipaycharge.aspx?orderno=20170105170558886");
+                
                 string userID = txtTel.Text.Trim();
                 string pwd = txtPwd.Text.Trim();
                 if (userID.Length <= 0)
@@ -54,8 +55,8 @@ namespace SmoONE.UI
                     List<Role> role = AutofacConfig.userService.GetRoleByUserID(userID);
                     Client.Session["U_ID"] = userID;
                     Client.Session["Roler"] = role;
-                    frmWork frmWork = new frmWork();
-                    Redirect(frmWork);
+                    SmoONE.UI.Work.frmWork frmWork = new SmoONE.UI.Work.frmWork();
+                    Show (frmWork);
                 }
                 else
                 {
@@ -84,8 +85,8 @@ namespace SmoONE.UI
         /// <param name="e"></param>
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            SmoONE.UI.frmRegisterTel frmRegister = new SmoONE.UI.frmRegisterTel();
-            Redirect(frmRegister);
+            frmRegisterTel frmRegister = new frmRegisterTel();
+            Show (frmRegister);
         }
         /// <summary>
         /// 验证登录
@@ -104,8 +105,7 @@ namespace SmoONE.UI
 
                 frmVerificationCode frmVerificationCode = new frmVerificationCode();
                 frmVerificationCode.Tel = userID;
-                frmVerificationCode.isVerifyLogon = true;
-                Redirect(frmVerificationCode);
+                Show(frmVerificationCode);
             }
             catch (Exception ex)
             {

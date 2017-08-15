@@ -1,47 +1,56 @@
-﻿using System;
+using System;
 using Smobiler.Core;
 namespace SmoONE.UI.Layout
 {
-    partial class frmRBTypeLayout : Smobiler.Core.MobileForm
+    partial class frmRBTypeLayout : Smobiler.Core.Controls.MobileUserControl
     {
-        #region "SmobilerForm generated code "
+        #region "SmobilerTouchUserControl generated code "
 
         public frmRBTypeLayout()
             : base()
         {
-            //This call is required by the SmobilerForm.
+            //This call is required by the SmobilerTouchUserControl.
             InitializeComponent();
 
             //Add any initialization after the InitializeComponent() call
         }
 
-        //SmobilerForm overrides dispose to clean up the component list.
+        //SmobilerTouchUserControl overrides dispose to clean up the component list.
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
         }
 
 
-        //NOTE: The following procedure is required by the SmobilerForm
-        //It can be modified using the SmobilerForm.  
+        //NOTE: The following procedure is required by the SmobilerTouchUserControl
+        //It can be modified using the SmobilerTouchUserControl.  
         //Do not modify it using the code editor.
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.Image1 = new Smobiler.Core.Controls.Image();
+            this.plContent = new Smobiler.Core.Controls.Panel();
+            this.image1 = new Smobiler.Core.Controls.Image();
             this.lblTypeName = new Smobiler.Core.Controls.Label();
-            this.line1 = new Smobiler.Core.Controls.Line();
             // 
-            // Image1
+            // plContent
             // 
-            this.Image1.BorderRadius = 10;
-            this.Image1.DataMember = "TYPE";
-            this.Image1.DisplayMember = "TYPE";
-            this.Image1.ID = "";
-            this.Image1.Location = new System.Drawing.Point(10, 12);
-            this.Image1.Name = "Image1";
-            this.Image1.Size = new System.Drawing.Size(35, 35);
-            this.Image1.TabIndex = 2;
+            this.plContent.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.image1,
+            this.lblTypeName});
+            this.plContent.Name = "plContent";
+            this.plContent.Size = new System.Drawing.Size(300, 60);
+            this.plContent.Touchable = true;
+            this.plContent.Press += new System.EventHandler(this.plContent_Press);
+            // 
+            // image1
+            // 
+            this.image1.BorderRadius = 18;
+            this.image1.DataMember = "TYPE";
+            this.image1.DisplayMember = "TYPE";
+            this.image1.Location = new System.Drawing.Point(11, 13);
+            this.image1.Name = "image1";
+            this.image1.Size = new System.Drawing.Size(35, 35);
+            this.image1.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Zoom;
             // 
             // lblTypeName
             // 
@@ -49,33 +58,20 @@ namespace SmoONE.UI.Layout
             this.lblTypeName.DisplayMember = "TYPENAME";
             this.lblTypeName.Location = new System.Drawing.Point(54, 0);
             this.lblTypeName.Name = "lblTypeName";
-            this.lblTypeName.Padding = new Smobiler.Core.Padding(0F, 0F, 10F, 0F);
+            this.lblTypeName.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 10F, 0F);
             this.lblTypeName.Size = new System.Drawing.Size(246, 60);
-            this.lblTypeName.TabIndex = 3;
-            // 
-            // line1
-            // 
-            this.line1.BackColor = System.Drawing.Color.LightGray;
-            this.line1.Location = new System.Drawing.Point(0, 60);
-            this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(300, 1);
-            this.line1.TabIndex = 4;
             // 
             // frmRBTypeLayout
             // 
-            this.BackColor = System.Drawing.Color.White;
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.Image1,
-            this.lblTypeName,
-            this.line1});
-            this.Size = new System.Drawing.Size(300, 60);
+            this.plContent});
+            this.Size = new System.Drawing.Size(0, 60);
             this.Name = "frmRBTypeLayout";
 
         }
         #endregion
-
-        internal Smobiler.Core.Controls.Image Image1;
+        private Smobiler.Core.Controls.Panel plContent;
+        private Smobiler.Core.Controls.Image image1;
         internal Smobiler.Core.Controls.Label lblTypeName;
-        private Smobiler.Core.Controls.Line line1;
     }
 }

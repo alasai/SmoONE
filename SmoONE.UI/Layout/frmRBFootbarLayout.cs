@@ -5,9 +5,9 @@ using System.Text;
 using Smobiler.Core;
 using Smobiler.Core.Controls;
 
-namespace SmoONE.UI.Layout
+namespace SmoONE.UI.TemplateControlName
 {
-    partial class frmRBFootbarLayout : Smobiler.Core.MobileForm
+    partial class frmRBFootbarLayout : Smobiler.Core.Controls.MobileForm
     {
     }
 }

@@ -7,6 +7,7 @@ using Smobiler.Core.Controls;
 using SmoONE.DTOs;
 using SmoONE.CommLib;
 using SmoONE.Domain;
+using SmoONE.UI.Layout;
 
 namespace SmoONE.UI.Department
 {
@@ -16,7 +17,7 @@ namespace SmoONE.UI.Department
     // 创建时间： 2016/11
     // 主要内容：  部门人员分配界面
     // ******************************************************************
-    partial class frmDepAssignUser : Smobiler.Core.MobileForm
+    partial class frmDepAssignUser : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         int selectUserQty = 0;//选中人员数
@@ -74,7 +75,7 @@ namespace SmoONE.UI.Department
                     btnLeader.Text = AutofacConfig.userService.GetUserByUserID(department.Dep_Leader).U_Name;
                     List<DataGridviewbyUser> listUser = new List<DataGridviewbyUser>();
                     List<UserDto> listDepUser = AutofacConfig.userService.GetAllUsers();//获取分配部门人员
-                    //部门创建时gridview绑定数据
+                    //部门创建时ListView绑定数据
                     if (string.IsNullOrEmpty(department.Dep_ID) == true )
                     {
                         if (listDepUser.Count > 0)
@@ -134,7 +135,11 @@ namespace SmoONE.UI.Department
                                         depUser.U_Portrait = user.U_Portrait;
                                     }
                                     depUser.U_DepID = user.U_DepID;
-                                    string DepName = AutofacConfig.departmentService.GetDepartmentByDepID(user.U_DepID).Dep_Name;
+                                    string DepName = "";
+                                    if (AutofacConfig.departmentService.GetDepartmentByDepID(user.U_DepID) != null)
+                                    {
+                                        DepName = AutofacConfig.departmentService.GetDepartmentByDepID(user.U_DepID).Dep_Name;
+                                    }      
                                     depUser.U_DepName = DepName;
                                     depUser.SelectCheck = false;
                                     listUser.Add(depUser);
@@ -142,7 +147,7 @@ namespace SmoONE.UI.Department
                             }
                         }
                     }
-                    //部门编辑时gridview绑定数据
+                    //部门编辑时ListView绑定数据
                     if (string.IsNullOrEmpty(department.Dep_ID) == false )
                     {
                         if (listDepUser.Count > 0)
@@ -244,7 +249,7 @@ namespace SmoONE.UI.Department
                     gridUserData.Rows.Clear();//清空人员列表数据
                     if (listUser.Count > 0)
                     {
-                        gridUserData.DataSource = listUser; //绑定gridView数据
+                        gridUserData.DataSource = listUser; //绑定ListView数据
                         gridUserData.DataBind();
                         upCheckState();
                     }
@@ -270,16 +275,20 @@ namespace SmoONE.UI.Department
             switch (checkAll .Checked )
             {
                 case true:
-                    foreach (GridViewRow rows in gridUserData.Rows)
+                    foreach (ListViewRow rows in gridUserData.Rows)
                     {
-                        rows.Cell.Items["Check"].DefaultValue = true;
+                        //rows.Cell.Items["Check"].DefaultValue = true;
+                        ((frmDepAssignUserLayout)(rows.Control)).Check.BindDisplayValue = true;
+
                     }
                     selectUserQty = gridUserData.Rows.Count;
                     break;
                 case false:
-                    foreach (GridViewRow rows in gridUserData.Rows)
+                    foreach (ListViewRow rows in gridUserData.Rows)
                     {
-                        rows.Cell.Items["Check"].DefaultValue = false;
+                        //rows.Cell.Items["Check"].DefaultValue = false;
+                        ((frmDepAssignUserLayout)(rows.Control)).Check.BindDisplayValue = false;
+
                     }
                     selectUserQty = 0;
                     break;
@@ -315,43 +324,44 @@ namespace SmoONE.UI.Department
                // }
                 string depuser = null;//选中用户中且已分配部门的用户
                 List<string > listselectuserdep =new List<string> ();//获取选中用户的且是已分配部门中，用户的部门
-                foreach (GridViewRow rows in gridUserData.Rows)
+                foreach (ListViewRow rows in gridUserData.Rows)
                 {
-                      if ((Convert.ToBoolean(rows.Cell.Items["Check"].DefaultValue) == true) &(!department.Dep_Leader.Equals(rows.Cell.Items["lblUser"].Value.ToString())))
+
+                    if ((Convert.ToBoolean(((frmDepAssignUserLayout)(rows.Control)).Check.BindDisplayValue) == true) & (!department.Dep_Leader.Equals(((frmDepAssignUserLayout)(rows.Control)).lblUser.BindDataValue.ToString())))
                     {      
-                        string user = rows.Cell.Items["lblUser"].Value.ToString();
+                        string user =((frmDepAssignUserLayout)(rows.Control)).lblUser.BindDataValue.ToString();
                         listUser.Add(user);
                        //获取选中用户中的已分配部门的用户                      
-                        if (string.IsNullOrEmpty(rows.Cell.Items["lblDep"].Value .ToString ())==false )
+                        if (string.IsNullOrEmpty(((frmDepAssignUserLayout)(rows.Control)).lblDep.BindDisplayValue.ToString())==false )
                         {
                             if (string .IsNullOrEmpty(depuser)==true  )
                             {
-                                depuser = rows.Cell.Items["lblUser"].Value.ToString () ;
+                                depuser = ((frmDepAssignUserLayout)(rows.Control)).lblUser.BindDataValue.ToString();
                             }
                             else
                             {
-                                depuser += "," + rows.Cell.Items["lblUser"].Value.ToString();
+                                depuser += "," + ((frmDepAssignUserLayout)(rows.Control)).lblUser.BindDataValue.ToString();
                             }
                             if (listselectuserdep.Count <= 0)
                             {
-                                listselectuserdep.Add(rows.Cell.Items["lblDep"].Value.ToString());//添加选中用户的部门
+                                listselectuserdep.Add(((frmDepAssignUserLayout)(rows.Control)).lblDep.BindDisplayValue.ToString());//添加选中用户的部门
                             }
                             else
                             {
-                                if (listselectuserdep.Contains(rows.Cell.Items["lblDep"].Value.ToString()) == false)
+                                if (listselectuserdep.Contains(((frmDepAssignUserLayout)(rows.Control)).lblDep.BindDisplayValue.ToString()) == false)
                                 {
-                                    listselectuserdep.Add(rows.Cell.Items["lblDep"].Value.ToString());//添加选中用户的部门
+                                    listselectuserdep.Add(((frmDepAssignUserLayout)(rows.Control)).lblDep.BindDisplayValue.ToString());//添加选中用户的部门
                                 }
                             }
                         }
                            
                           
-                            //    //if (string.IsNullOrEmpty(department.Dep_ID) == false & !department.Dep_ID.Equals(rows.Cell.Items["lblDep"].Value.ToString()))
+                            //    //if (string.IsNullOrEmpty(department.Dep_ID) == false & !department.Dep_ID.Equals(((frmDepAssignUserLayout)(rows.Control)).lblDep.BindDisplayValue.ToString()))
                             //    //{
-                            //    //    if (!department.Dep_ID.Equals(rows.Cell.Items["lblDep"].Value.ToString()))
+                            //    //    if (!department.Dep_ID.Equals(((frmDepAssignUserLayout)(rows.Control)).lblDep.BindDisplayValue.ToString()))
                             //    //    {
                             //            //如果是部门责任人，则添加到部门责任人用户depLeader中，否则添加到已分配部门用户assignUser中
-                            //            if (AutofacConfig.departmentService.IsLeader(rows.Cell.Items["lblUser"].Value.ToString()) == true)
+                            //            if (AutofacConfig.departmentService.IsLeader(                         ((frmDepAssignUserLayout)(rows.Control)).lblUser.BindDisplayValue.ToString()) == true)
                             //            {
                             //                if (string.IsNullOrEmpty(depLeader) == true)
                             //                {
@@ -503,7 +513,7 @@ namespace SmoONE.UI.Department
                 {
                     MessageBox.Show(assignUser+"是否分配？", "分配人员", MessageBoxButtons.YesNo, (Object s, MessageBoxHandlerArgs args) =>
                     {
-                        if (args.Result == Smobiler.Core.ShowResult.Yes)
+                        if (args.Result ==  Smobiler.Core.Controls .ShowResult.Yes)
                         {
                             //isUPdateDep = true;
                             department.UserIDs = listUser;
@@ -563,164 +573,7 @@ namespace SmoONE.UI.Department
                 Toast(ex.Message, ToastLength.SHORT);
             }
         }
-        ///// <summary>
-        ///// 分配部门人员
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //private void btnSave_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        List<string> listUser = new List<string>(); //用户集合
-        //        string assignUser = "";//已分配部门用户
-        //        string depLeader = "";//部门责任人用户
-        //        department.Dep_Name = txtDepName.Text.Trim();
-        //        listUser.Add(department.Dep_Leader);//添加部门负责人
-        //        //获取责任人的部门
-        //        UserDetailDto leader = AutofacConfig.userService.GetUserByUserID(department.Dep_Leader);
-        //        //如果部门编号不为空且不等于当前部门时，将责任人添加到已分配部门人员中
-        //        if (string.IsNullOrEmpty(leader.U_DepID) == false)
-        //        {
-        //            if (string.IsNullOrEmpty(department.Dep_ID) == false)
-        //            {
-        //                if (!department.Dep_ID.Equals(leader.U_DepID))
-        //                {
-        //                    assignUser = btnLeader.Text.Trim();
-        //                }
-        //            }
-        //        }
-        //        foreach (GridViewRow rows in gridUserData.Rows)
-        //        {
-
-        //            if ((Convert.ToBoolean(rows.Cell.Items["Check"].DefaultValue) == true) & (!department.Dep_Leader.Equals(rows.Cell.Items["lblUser"].Value.ToString())))
-        //            {
-        //                string user = rows.Cell.Items["lblUser"].Value.ToString();
-        //                listUser.Add(user);
-        //                //获取已分配且不等于当前部门的用户
-        //                if (string.IsNullOrEmpty(rows.Cell.Items["lblDep"].Value.ToString()) == false)
-        //                {
-        //                    if (string.IsNullOrEmpty(department.Dep_ID) == false)
-        //                    {
-        //                        if (!department.Dep_ID.Equals(rows.Cell.Items["lblDep"].Value.ToString()))
-        //                        {
-        //                            //如果是部门责任人，则添加到部门责任人用户depLeader中，否则添加到已分配部门用户assignUser中
-        //                            if (AutofacConfig.departmentService.IsLeader(rows.Cell.Items["lblUser"].Value.ToString()) == true)
-        //                            {
-        //                                if (string.IsNullOrEmpty(depLeader) == true)
-        //                                {
-        //                                    depLeader = rows.Cell.Items["lblUser"].Text;
-        //                                }
-        //                                else
-        //                                {
-        //                                    depLeader += "," + rows.Cell.Items["lblUser"].Text;
-        //                                }
-
-        //                            }
-        //                            else
-        //                            {
-        //                                if (string.IsNullOrEmpty(assignUser) == true)
-        //                                {
-        //                                    assignUser = rows.Cell.Items["lblUser"].Text;
-        //                                }
-        //                                else
-        //                                {
-        //                                    assignUser += "," + rows.Cell.Items["lblUser"].Text;
-        //                                }
-        //                            }
-
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //        }
-        //        if (string.IsNullOrEmpty(depLeader) == false)
-        //        {
-        //            throw new Exception(depLeader + "已是部门责任人，请先解散部门！");
-        //        }
-        //        //bool isUPdateDep = false; //是否更新部门人员
-        //        ReturnInfo result;
-        //        if (string.IsNullOrEmpty(assignUser) == false)
-        //        {
-        //            MessageBox.Show(assignUser + "已分配部门是否更新部门？", "分配人员", MessageBoxButtons.YesNo, (Object s, MessageBoxHandlerArgs args) =>
-        //            {
-        //                if (args.Result == Smobiler.Core.ShowResult.Yes)
-        //                {
-        //                    //isUPdateDep = true;
-        //                    department.UserIDs = listUser;
-        //                    if (department.Dep_ID != null)
-        //                    {
-        //                        result = AutofacConfig.departmentService.UpdateDepartment(department);
-        //                    }
-        //                    else
-        //                    {
-        //                        ShowResult = ShowResult.Yes;
-        //                        result = AutofacConfig.departmentService.AddDepartment(department);
-        //                    }
-        //                    if (result.IsSuccess == false)
-        //                    {
-        //                        throw new Exception(result.ErrorInfo);
-        //                    }
-        //                    else
-        //                    {
-        //                        Close();
-        //                        Toast("部门人员分配成功！", ToastLength.SHORT);
-        //                    }
-        //                }
-        //            }
-        //              );
-        //        }
-        //        else
-        //        {
-        //            //isUPdateDep = true;
-        //            department.UserIDs = listUser;
-        //            if (department.Dep_ID != null)
-        //            {
-        //                result = AutofacConfig.departmentService.UpdateDepartment(department);
-        //            }
-        //            else
-        //            {
-        //                ShowResult = ShowResult.Yes;
-        //                result = AutofacConfig.departmentService.AddDepartment(department);
-        //            }
-        //            if (result.IsSuccess == false)
-        //            {
-        //                throw new Exception(result.ErrorInfo);
-        //            }
-        //            else
-        //            {
-        //                Close();
-        //                Toast("部门人员分配成功！", ToastLength.SHORT);
-        //            }
-        //        }
-        //        //ReturnInfo result ;
-        //        //if (isUPdateDep == true)
-        //        //{
-        //        //    department.UserIDs = listUser;
-        //        //    if (department.Dep_ID != null)
-        //        //    {
-        //        //        result = AutofacConfig.departmentService.UpdateDepartment(department);
-        //        //    }
-        //        //    else
-        //        //    {
-        //        //        result = AutofacConfig.departmentService.AddDepartment(department);
-        //        //    }
-        //        //    if (result.IsSuccess == false)
-        //        //    {
-        //        //        throw new Exception(result.ErrorInfo);
-        //        //    }
-        //        //    else
-        //        //    {
-
-        //        //        Toast("部门人员分配成功！", ToastLength.SHORT);
-        //        //    }
-        //        //}
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Toast(ex.Message, ToastLength.SHORT);
-        //    }
-        //}
+       
         /// <summary>
         /// 全选
         /// </summary>
@@ -735,34 +588,33 @@ namespace SmoONE.UI.Department
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void checkAll_CheckChanged(object sender, CheckEventArgs e)
+        private void checkAll_CheckChanged(object sender, EventArgs e)
         {
             Checkall();
         }
-        /// <summary>
-        /// gridview点击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridView1_ItemClick(object sender, GridViewCellItemEventArgs e)
-        {
-            upCheckState();
-        }
+        ///// <summary>
+        ///// ListView点击事件
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void gridView1_ItemClick(object sender, GridViewCellItemEventArgs e)
+        //{
+        //    upCheckState();
+        //}
         /// <summary>
         /// 更新全选状态
         /// </summary>
         private void upCheckState()
         {
              selectUserQty = 0;
-            foreach (GridViewRow rows in gridUserData.Rows)
+            foreach (ListViewRow rows in gridUserData.Rows)
             {
-
-                if (Convert.ToBoolean(rows.Cell.Items["Check"].DefaultValue) == true)
+                if (Convert.ToBoolean(((frmDepAssignUserLayout)(rows.Control)).Check.BindDisplayValue) == true)
                 {
                     selectUserQty += 1;
                 }
             }
-            //当gridView行项选中条数等于gridView行数时，为全选状态，否则为不选状态。
+            //当ListView行项选中条数等于ListView行数时，为全选状态，否则为不选状态。
             if (selectUserQty == gridUserData.Rows.Count)
             {
                 checkAll.Checked = true;
@@ -772,24 +624,24 @@ namespace SmoONE.UI.Department
                 checkAll.Checked = false;
             }
         }
-        /// <summary>
-        /// gridview点击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridView1_CellClick(object sender, GridViewCellEventArgs e)
-        {
-            switch (Convert .ToBoolean (e.Cell.Items["Check"].DefaultValue))
-            {
-                case true :
-                    e.Cell.Items["Check"].DefaultValue = false;
-                    break;
-                case false :
-                    e.Cell.Items["Check"].DefaultValue = true;
-                    break;
-            }
-            upCheckState();
-        }
+        ///// <summary>
+        ///// ListView点击事件
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void gridView1_CellClick(object sender, GridViewCellEventArgs e)
+        //{
+        //    switch (Convert .ToBoolean (e.Cell.Items["Check"].DefaultValue))
+        //    {
+        //        case true :
+        //            e.Cell.Items["Check"].DefaultValue = false;
+        //            break;
+        //        case false :
+        //            e.Cell.Items["Check"].DefaultValue = true;
+        //            break;
+        //    }
+        //    upCheckState();
+        //}
 
         /// <summary>
         /// 上传部门头像
@@ -811,11 +663,11 @@ namespace SmoONE.UI.Department
             popLeader.Groups.Clear();
             PopListGroup poli = new PopListGroup();
             popLeader.Groups.Add(poli);
-            poli.Text = "责任人选择";
+            poli.Title = "责任人选择";
             List<UserDto> listuser = AutofacConfig.userService.GetAllUsers();
             foreach (UserDto user in listuser)
             {
-                poli.Items.Add(user.U_Name, user.U_ID);
+                poli.AddListItem(user.U_Name, user.U_ID);
                 if (string .IsNullOrEmpty (department .Dep_Leader)==false )
                 {
                     if (department.Dep_Leader.Trim().Equals(user.U_ID))
@@ -853,7 +705,7 @@ namespace SmoONE.UI.Department
                         MessageBox.Show(popLeader.Selection.Text + "已是部门成员，是否确定为该部门责任人？", MessageBoxButtons.YesNo, (Object s1, MessageBoxHandlerArgs args) =>
                         {
                             //此委托为异步委托事件
-                            if (args.Result == Smobiler.Core.ShowResult.Yes)
+                            if (args.Result == Smobiler.Core.Controls .ShowResult.Yes)
                             {
                                 department.Dep_Leader = popLeader.Selection.Value;
                                 btnLeader.Text = popLeader.Selection.Text;
@@ -879,9 +731,9 @@ namespace SmoONE.UI.Department
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void cameraPortrait_ImageCaptured(object sender, BinaryData e)
+        private void cameraPortrait_ImageCaptured(object sender, BinaryResultArgs e)
         {
-            if (string.IsNullOrEmpty(e.ErrorInfo))
+            if (string.IsNullOrEmpty(e.error))
             {
 
                 if (imgPortrait.ResourceID.Trim().Length > 0 & string.IsNullOrEmpty(department.Dep_Icon) == false)
@@ -898,6 +750,11 @@ namespace SmoONE.UI.Department
                     imgPortrait.Refresh();
                 }
             }
+        }
+
+        private void title1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

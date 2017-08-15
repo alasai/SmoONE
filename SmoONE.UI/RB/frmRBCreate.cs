@@ -1,51 +1,114 @@
-ï»¿using Microsoft.VisualBasic;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
+using System.Linq;
+using System.Text;
 using Smobiler.Core;
 using Smobiler.Core.Controls;
-using SmoONE.CommLib;
-using SmoONE.UI.CostCenter;
+using System.Data;
+using SmoONE.UI;
 using SmoONE.DTOs;
+using SmoONE.CommLib;
+using SmoONE.UI.Layout;
+using SmoONE.UI.CostCenter;
 
 namespace SmoONE.UI.RB
 {
     // ******************************************************************
-    // æ–‡ä»¶ç‰ˆæœ¬ï¼š SmoONE 1.0
-    // Copyright  (c)  2016-2017 Smobiler 
-    // åˆ›å»ºæ—¶é—´ï¼š 2016/11
-    // ä¸»è¦å†…å®¹ï¼š  æŠ¥é”€å•åˆ›å»ºç•Œé¢
+    // ÎÄ¼ş°æ±¾£º SmoONE 2.0
+    // Copyright  (c)  2017-2018 Smobiler 
+    // ´´½¨Ê±¼ä£º 2017/07
+    // Ö÷ÒªÄÚÈİ£º  ±¨Ïúµ¥´´½¨½çÃæ
     // ******************************************************************
-    partial class frmRBCreate : Smobiler.Core.MobileForm
+    partial class frmRBCreate : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
-        private string RBCC;          //æˆæœ¬ä¸­å¿ƒç¼–å·
-        AutofacConfig AutofacConfig = new AutofacConfig();//è°ƒç”¨é…ç½®ç±»
+        private string RBCC;          //³É±¾ÖĞĞÄ±àºÅ
+        AutofacConfig AutofacConfig = new AutofacConfig();//µ÷ÓÃÅäÖÃÀà
         #endregion
         /// <summary>
-        /// æˆæœ¬ä¸­å¿ƒé€‰æ‹©
+        /// ÊÖ»ú×Ô´ø·µ»Ø¼ü²Ù×÷
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmRBCreate_KeyDown(object sender, KeyDownEventArgs e)
+        {
+            if(e.KeyCode==KeyCode.Back)
+            {
+                Close();
+            }
+        }
+        /// <summary>
+        /// ´°Ìå³õÊ¼»¯¼ÓÔØÊÂ¼ş
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmRBCreate_Load(object sender, EventArgs e)
+        {        
+            try
+            {
+                Bind();        //Êı¾İ¼ÓÔØ
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Bind·½·¨
+        /// </summary>
+        private void Bind()
+        {
+            try
+            {
+                //½«ÓÃ»§µÄÎ´±¨ÏúÏû·Ñ¼ÇÂ¼ÏÔÊ¾³öÀ´
+                DataTable table = new DataTable();
+                table.Columns.Add("ID", typeof(System.Int32));
+                table.Columns.Add("RBROW_DATE", typeof(System.String));
+                table.Columns.Add("RBROW_TYPE", typeof(System.String));
+                table.Columns.Add("RBROW_TYPENAME", typeof(System.String));
+                table.Columns.Add("RBROW_AMOUNT", typeof(System.Decimal));
+                table.Columns.Add("RBROW_NOTE", typeof(System.String));
+                //ÓÃ»§µÄÎ´±¨ÏúÏû·Ñ¼ÇÂ¼
+                List<RB_RowsDto> Rows = AutofacConfig.rBService.GetRowsByCreateUser(Client.Session["U_ID"].ToString());
+                foreach (RB_RowsDto Row in Rows)
+                {
+                    string TypeName = AutofacConfig.rBService.GetTypeNameByID(Row.R_TypeID);
+                    table.Rows.Add(Row.R_ID, Row.R_ConsumeDate.ToString("yyyy/MM/dd"), Row.R_TypeID, TypeName, Row.R_Amount, Row.R_Note);
+                }
+                listRBRowData.Rows.Clear();//Çå¿Õ±¨Ïúµ¥ĞĞÏîÁĞ±íÊı¾İ
+                if (table.Rows.Count > 0)
+                {
+                    this.listRBRowData.DataSource = table;
+                    this.listRBRowData.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message);
+            }
+        }
+        /// <summary>
+        /// ³É±¾ÖĞĞÄÑ¡Ôñ
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         /// <remarks></remarks>
-        private void btnRBCC_Click(object sender, EventArgs e)
+        private void btnRBCC_Press(object sender, EventArgs e)
         {
             try
             {
-                frmRBCostCenter frmCostCenter = new frmRBCostCenter();           //è·³è½¬åˆ°æˆæœ¬ä¸­å¿ƒç•Œé¢
-                this.Redirect(frmCostCenter, (MobileForm sender1, object args) =>
+                frmRBCostCenter frmCostCenter = new frmRBCostCenter();           //Ìø×ªµ½³É±¾ÖĞĞÄ½çÃæ
+                this.Show(frmCostCenter, (MobileForm sender1, object args) =>
                 {
                     try
                     {
-                        //å¦‚æœæˆæœ¬ä¸­å¿ƒé€‰æ‹©æˆåŠŸ
-                        if (frmCostCenter.ShowResult == Smobiler.Core.ShowResult.Yes)
+                        //Èç¹û³É±¾ÖĞĞÄÑ¡Ôñ³É¹¦
+                        if (frmCostCenter.ShowResult == ShowResult.Yes)
                         {
-                            string CCID = frmCostCenter.CCID;         //  CCIDçš„å€¼ä¸ºæˆæœ¬ä¸­å¿ƒç¼–å·/åç§°
+                            string CCID = frmCostCenter.CCID;         //  CCIDµÄÖµÎª³É±¾ÖĞĞÄ±àºÅ/Ãû³Æ
                             string[] CCS = CCID.Split(new char[] { '/' });
-                            RBCC = CCS[0];                       //æˆæœ¬ä¸­å¿ƒç¼–å·              
-                            this.btnRBCC.Text = CCS[1];          //æˆæœ¬ä¸­å¿ƒåç§°
+                            RBCC = CCS[0];                       //³É±¾ÖĞĞÄ±àºÅ              
+                            this.btnRBCC.Text = CCS[1];          //³É±¾ÖĞĞÄÃû³Æ
                         }
                     }
                     catch (Exception ex)
@@ -60,103 +123,28 @@ namespace SmoONE.UI.RB
             }
         }
         /// <summary>
-        /// Bindæ–¹æ³•
+        /// ¸üĞÂÈ«Ñ¡×´Ì¬
         /// </summary>
-        private void Bind()
+        public void upCheckState()
         {
-            try
+            int selectUserQty = 0;      //ÉèÖÃµ±Ç°Ñ¡ÖĞĞĞÏîÎª0
+            foreach (ListViewRow Row in listRBRowData.Rows)
             {
-                //å°†ç”¨æˆ·çš„æœªæŠ¥é”€æ¶ˆè´¹è®°å½•æ˜¾ç¤ºå‡ºæ¥
-                DataTable table = new DataTable();
-                table.Columns.Add("ID", typeof(System.Int32));
-                table.Columns.Add("RBROW_DATE", typeof(System.String));
-                table.Columns.Add("RBROW_TYPE", typeof(System.String));
-                table.Columns.Add("RBROW_TYPENAME", typeof(System.String));
-                table.Columns.Add("RBROW_AMOUNT", typeof(System.Decimal));
-                table.Columns.Add("RBROW_NOTE", typeof(System.String));
-                //ç”¨æˆ·çš„æœªæŠ¥é”€æ¶ˆè´¹è®°å½•
-                List<RB_RowsDto> Rows = AutofacConfig.rBService.GetRowsByCreateUser(Client.Session["U_ID"].ToString());
-                foreach (RB_RowsDto Row in Rows)
-                {
-                    string TypeName = AutofacConfig.rBService.GetTypeNameByID(Row.R_TypeID);
-                    table.Rows.Add(Row.R_ID, Row.R_ConsumeDate.ToString("yyyy/MM/dd"), Row.R_TypeID, TypeName, Row.R_Amount, Row.R_Note);
-                }
-                gridRBRowData.Rows.Clear();//æ¸…ç©ºæŠ¥é”€å•è¡Œé¡¹åˆ—è¡¨æ•°æ®
-                if (table.Rows.Count > 0)
-                {
-                    this.gridRBRowData.DataSource = table;
-                    this.gridRBRowData.DataBind();
-                }
+                frmRBCreateLayout layout = Row.Control  as frmRBCreateLayout;
+                int num=layout.checkNum();
+                selectUserQty += num;
             }
-            catch (Exception ex)
+            if (selectUserQty == listRBRowData.Rows.Count)                //µ±Ñ¡ÖĞËùÓĞĞĞÏîÊ±
             {
-                Toast(ex.Message);
+                Checkall.Checked = true;
+            }
+            else                               //µ±Ã»ÓĞÑ¡ÖĞËùÓĞĞĞÏîÊ±
+            {
+                Checkall.Checked = false;
             }
         }
         /// <summary>
-        /// çª—ä½“åˆå§‹åŒ–åŠ è½½äº‹ä»¶
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void frmRBCreate_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                Bind();        //æ•°æ®åŠ è½½
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-        }
-     
-        /// <summary>
-        /// gridRBRowDataäº‹ä»¶
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="cell"></param>
-        /// <param name="cellItem"></param>
-        private void gridRBRowData_ItemClick(object sender, GridViewCellItemEventArgs e)
-        {
-            try
-            {
-                switch (e.CellItem.Name)
-                {
-                    case "Check":
-                        upCheckState();    //æ›´æ–°tooblarå…¨é€‰æ¡†çŠ¶æ€
-                        getAmount();         //è®¡ç®—å½“å‰é€‰ä¸­è¡Œé¡¹æ€»é‡‘é¢
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-        }
-        /// <summary>
-        /// æ›´æ–°å…¨é€‰çŠ¶æ€
-        /// </summary>
-        private void upCheckState()
-        {
-            int selectUserQty = 0;      //è®¾ç½®å½“å‰é€‰ä¸­è¡Œé¡¹ä¸º0
-            foreach (GridViewRow rows in gridRBRowData.Rows)
-            {
-                if (Convert.ToBoolean(rows.Cell.Items["Check"].DefaultValue) == true)
-                {
-                    selectUserQty += 1;
-                }
-            }            
-            if (selectUserQty == gridRBRowData.Rows.Count)                //å½“é€‰ä¸­æ‰€æœ‰è¡Œé¡¹æ—¶
-            {
-                FooterBarLayoutData.Items["Checkall"].DefaultValue = true;
-            }
-            else                               //å½“æ²¡æœ‰é€‰ä¸­æ‰€æœ‰è¡Œé¡¹æ—¶
-            {
-                FooterBarLayoutData.Items["Checkall"].DefaultValue = false;
-            }
-        }
-        /// <summary>
-        ///è®¡ç®—æŠ¥é”€å•æ€»é‡‘é¢
+        ///¼ÆËã±¨Ïúµ¥×Ü½ğ¶î
         /// </summary>
         /// <remarks></remarks>
         public void getAmount()
@@ -164,19 +152,15 @@ namespace SmoONE.UI.RB
             try
             {
                 decimal sumAmount = 0;
-                foreach (GridViewRow ROW in gridRBRowData.Rows)
+                foreach (ListViewRow Row in listRBRowData.Rows)
                 {
-                    //åˆ¤æ–­æ¶ˆè´¹è®°å½•æ˜¯å¦é€‰ä¸­ï¼Œè®¡ç®—é€‰ä¸­çš„æ¶ˆè´¹è®°å½•æ€»é‡‘é¢
-                    if (Convert.ToBoolean(ROW.Cell.Items["Check"].DefaultValue) == true)
-                    {
-                        if (ROW.Cell.Items["lblMoney"].Value.ToString().Length > 0)
-                        {
-                            sumAmount += Convert.ToDecimal(ROW.Cell.Items["lblMoney"].Value);
-                        }
-                    }
+                    //ÅĞ¶ÏÏû·Ñ¼ÇÂ¼ÊÇ·ñÑ¡ÖĞ£¬¼ÆËãÑ¡ÖĞµÄÏû·Ñ¼ÇÂ¼×Ü½ğ¶î
+                    frmRBCreateLayout layout = Row.Control as frmRBCreateLayout;
+                    decimal num = layout.getNum();       //»ñÈ¡Ñ¡ÖĞĞĞÏû·ÑÊıÁ¿
+                    sumAmount += num;
                 }
-                //å°†è®¡ç®—å‡ºæ¥çš„é€‰ä¸­çš„æ¶ˆè´¹è®°å½•æ€»é‡‘é¢æ˜¾ç¤ºåœ¨åº•éƒ¨
-                FooterBarLayoutData.Items["lblAmount"].DefaultValue = "ï¿¥" + sumAmount.ToString();
+                //½«¼ÆËã³öÀ´µÄÑ¡ÖĞµÄÏû·Ñ¼ÇÂ¼×Ü½ğ¶îÏÔÊ¾ÔÚµ×²¿
+                lblAmount.Text= "£¤" + sumAmount.ToString(); 
             }
             catch (Exception ex)
             {
@@ -184,141 +168,75 @@ namespace SmoONE.UI.RB
             }
         }
         /// <summary>
-        /// FooterBarç‚¹å‡»äº‹ä»¶
+        /// È«Ñ¡»òÈ«²»Ñ¡
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void frmRBCreate_FooterBarLayoutItemClick(object sender, MobileFormLayoutItemEventArgs e)
+        private void Checkall_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (ListViewRow Row in listRBRowData.Rows)
+            {
+                frmRBCreateLayout Layout = Row.Control as frmRBCreateLayout;
+                Layout.setCheck(Checkall.Checked);
+            }
+            getAmount();      //¼ÆËã±¨Ïúµ¥×Ü½ğ¶î
+        }
+        /// <summary>
+        /// ´´½¨Ïû·Ñ¼ÇÂ¼
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSave_Press(object sender, EventArgs e)
         {
             try
             {
-                switch (e.CellItem.Name)
+                if (string.IsNullOrEmpty(RBCC))     //ÅĞ¶Ï³É±¾ÖĞĞÄÊÇ·ñÒÑ¾­Ñ¡Ôñ
                 {
-                    case "Checkall":
-                        //æ¶ˆè´¹è®°å½•å…¨éƒ¨é€‰ä¸­
-                        getcheckall();
-                        break;
-                    case "btnSave":            //åˆ›å»ºæ¶ˆè´¹è®°å½•                        
-                    if (string.IsNullOrEmpty(RBCC))     //åˆ¤æ–­æˆæœ¬ä¸­å¿ƒæ˜¯å¦å·²ç»é€‰æ‹©
+                    throw new Exception("ÇëÑ¡Ôñ³É±¾ÖĞĞÄ£¡");
+                }
+                else
+                {
+                    RBInputDto RB = new RBInputDto();       //¶¨ÒåÒ»¸öĞÂµÄ±¨Ïúµ¥
+                    RB.CC_ID = RBCC;             //³É±¾ÖĞĞÄ±àºÅ
+                    RB.RB_Note = this.TxtNote.Text;            //±¨Ïúµ¥±¸×¢
+                    //½«Ñ¡ÖĞµÄÏû·Ñ¼ÇÂ¼ĞĞÏîÌí¼Óµ½±¨Ïúµ¥ÖĞ
+                    foreach (ListViewRow Row in listRBRowData.Rows)
                     {
-                        throw new Exception("è¯·é€‰æ‹©æˆæœ¬ä¸­å¿ƒï¼");
+                        frmRBCreateLayout layout = Row.Control as frmRBCreateLayout;
+                        //Èç¹ûµ±Ç°ĞĞÏîÏû·Ñ¼ÇÂ¼±»Ñ¡ÖĞ
+                        if (layout.checkNum()==1)
+                        {
+                            //°ÑÑ¡ÖĞĞĞµÄÏû·Ñ¼ÇÂ¼ĞĞÏîµÄÊı¾İÌí¼Óµ½±¨Ïúµ¥ÖĞ
+                            int RID = layout.getID();
+                            RB_RowsDto RBRow = AutofacConfig.rBService.GetRowByRowID(RID);
+                            RB_RowsInputDto NewRBRow = new RB_RowsInputDto();
+                            NewRBRow.R_ID = RBRow.R_ID;              //Ïû·Ñ¼ÇÂ¼±àºÅ
+                            NewRBRow.R_TypeID = RBRow.R_TypeID;           //Ïû·ÑÀàĞÍ±àºÅ
+                            NewRBRow.R_Amount = RBRow.R_Amount;            //Ïû·Ñ¼ÇÂ¼½ğ¶î
+                            NewRBRow.R_Note = RBRow.R_Note;                //Ïû·Ñ¼ÇÂ¼ÈÕÆÚ
+                            NewRBRow.R_ConsumeDate = RBRow.R_ConsumeDate;           //Ïû·ÑÈÕÆÚ
+                            RB.RB_Rows.Add(NewRBRow);
+                        }
+                    }
+                    RB.RB_CreateUser = Client.Session["U_ID"].ToString();               //´´½¨ÓÃ»§
+                    ReturnInfo r = AutofacConfig.rBService.CreateRB(RB);
+                    if (r.IsSuccess == true)
+                    {
+                        //Èç¹ûÊı¾İ¿âÌí¼Ó±¨Ïú¼ÇÂ¼³É¹¦
+                        this.ShowResult = ShowResult.Yes;
+                        this.Close();
+                        Toast("±¨ÏúÌá½»³É¹¦£¡");
                     }
                     else
                     {
-                        RBInputDto RB = new RBInputDto();       //å®šä¹‰ä¸€ä¸ªæ–°çš„æŠ¥é”€å•
-                        RB.CC_ID = RBCC;             //æˆæœ¬ä¸­å¿ƒç¼–å·
-                        RB.RB_Note = this.TxtNote.Text;            //æŠ¥é”€å•å¤‡æ³¨
-                        //å°†é€‰ä¸­çš„æ¶ˆè´¹è®°å½•è¡Œé¡¹æ·»åŠ åˆ°æŠ¥é”€å•ä¸­
-                        foreach (GridViewRow ROW in gridRBRowData.Rows)
-                        {
-                            //å¦‚æœå½“å‰è¡Œé¡¹æ¶ˆè´¹è®°å½•è¢«é€‰ä¸­
-                            if (Convert.ToBoolean(ROW.Cell.Items["Check"].DefaultValue) == true)        
-                            {
-                                //æŠŠé€‰ä¸­è¡Œçš„æ¶ˆè´¹è®°å½•è¡Œé¡¹çš„æ•°æ®æ·»åŠ åˆ°æŠ¥é”€å•ä¸­
-                                int RID = Convert.ToInt32(ROW.Cell.Items["imgType"].Value);
-                                RB_RowsDto RBRow = AutofacConfig.rBService.GetRowByRowID(RID);
-                                RB_RowsInputDto NewRBRow = new RB_RowsInputDto();
-                                NewRBRow.R_ID = RBRow.R_ID;              //æ¶ˆè´¹è®°å½•ç¼–å·
-                                NewRBRow.R_TypeID = RBRow.R_TypeID;           //æ¶ˆè´¹ç±»å‹ç¼–å·
-                                NewRBRow.R_Amount = RBRow.R_Amount;            //æ¶ˆè´¹è®°å½•é‡‘é¢
-                                NewRBRow.R_Note = RBRow.R_Note;                //æ¶ˆè´¹è®°å½•æ—¥æœŸ
-                                NewRBRow.R_ConsumeDate = RBRow.R_ConsumeDate;           //æ¶ˆè´¹æ—¥æœŸ
-                                RB.RB_Rows.Add(NewRBRow);
-                            }
-                        }
-                        RB.RB_CreateUser = Client.Session["U_ID"].ToString();               //åˆ›å»ºç”¨æˆ·
-                        ReturnInfo r = AutofacConfig.rBService.CreateRB(RB);
-                        if (r.IsSuccess == true)
-                        {
-                            //å¦‚æœæ•°æ®åº“æ·»åŠ æŠ¥é”€è®°å½•æˆåŠŸ
-                            this.ShowResult = Smobiler.Core.ShowResult.Yes;
-                            this.Close();
-                            Toast("æŠ¥é”€æäº¤æˆåŠŸï¼");
-                        }
-                        else
-                        {
-                            throw new Exception(r.ErrorInfo);
-                        }
+                        throw new Exception(r.ErrorInfo);
                     }
-                        break;
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 Toast(ex.Message);
             }
-        }
-        /// <summary>
-        /// å…¨é€‰
-        /// </summary>
-        private void getcheckall()
-        {
-            switch ((bool)FooterBarLayoutData.Items["Checkall"].DefaultValue)
-            {
-                case true:
-                    foreach (GridViewRow rows in gridRBRowData.Rows)
-                    {                        
-                        rows.Cell.Items["Check"].DefaultValue = true;        //é€‰ä¸­æ‰€æœ‰è¡Œé¡¹
-                    }
-                    break;
-                case false:
-                    foreach (GridViewRow rows in gridRBRowData.Rows)
-                    {
-                        rows.Cell.Items["Check"].DefaultValue = false;      //å–æ¶ˆé€‰ä¸­æ‰€æœ‰è¡Œé¡¹
-                    }
-                    break;
-            }
-            getAmount();      //è®¡ç®—æŠ¥é”€å•æ€»é‡‘é¢
-        }
-        /// <summary>
-        /// æ‰‹æœºè‡ªå¸¦è¿”å›é”®æ“ä½œ
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void frmRBCreate_KeyDown(object sender, KeyDownEventArgs e)
-        {
-            if (e.KeyCode == KeyCode.Back)        //å½“æŒ‰äº†æ‰‹æœºè‡ªå¸¦çš„è¿”å›é”®
-            {
-                this.Close();
-            }
-        }
-       
-        /// <summary>
-        /// TitleImageç‚¹å‡»äº‹ä»¶ï¼Œå·¦ä¸Šè§’é€€å‡º
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void frmRBCreate_TitleImageClick(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        /// <summary>
-        /// gridRBRowDataä¸å¯è§¦å‘æŒ‰é’®ç‚¹å‡»äº‹ä»¶
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="cell"></param>
-        /// <param name="cellItem"></param>
-        private void gridRBRowData_CellClick(object sender, GridViewCellEventArgs e)
-        {
-            try
-            { 
-                switch (Convert.ToBoolean(e.Cell.Items["Check"].DefaultValue))
-                {
-                    case true:
-                        e.Cell.Items["Check"].DefaultValue = false;
-                        break;
-                    case false:
-                        e.Cell.Items["Check"].DefaultValue = true;
-                        break;
-                }
-                upCheckState();    //æ›´æ–°tooblarå…¨é€‰æ¡†çŠ¶æ€
-                getAmount();         //è®¡ç®—å½“å‰é€‰ä¸­è¡Œé¡¹æ€»é‡‘é¢    
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-           
         }
     }
 }

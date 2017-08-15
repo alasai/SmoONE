@@ -30,14 +30,14 @@ namespace SmoONE.Infrastructure
             : base("default")
         {
             //手动创建了数据库和表,不用产生系统表
-            //if (!Database.Exists("default"))
-            //{
-            //    Database.SetInitializer<SmoONEDbContext>(
-            //            new DropCreateDatabaseIfModelChanges<SmoONEDbContext>());
-            //}
+            if (!Database.Exists("default"))
+            {
+                Database.SetInitializer<SmoONEDbContext>(
+                        new DropCreateDatabaseIfModelChanges<SmoONEDbContext>());
+            }
             //自动创建更新数据库和表,产生系统表
-            Database.SetInitializer<SmoONEDbContext>(
-                    new DropCreateDatabaseIfModelChanges<SmoONEDbContext>());
+            //Database.SetInitializer<SmoONEDbContext>(
+            //        new DropCreateDatabaseIfModelChanges<SmoONEDbContext>());
             this.Configuration.LazyLoadingEnabled = false; 
 
         }

@@ -1,112 +1,76 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using Smobiler.Core;
 using Smobiler.Core.Controls;
+using System.Data;
+using SmoONE.UI;
 
 namespace SmoONE.UI.RB
 {
     // ******************************************************************
-    // æ–‡ä»¶ç‰ˆæœ¬ï¼š SmoONE 1.0
-    // Copyright  (c)  2016-2017 Smobiler SmoONE1.0
-    // åˆ›å»ºæ—¶é—´ï¼š 2016/11
-    // ä¸»è¦å†…å®¹ï¼š  æ¶ˆè´¹ç±»å‹é€‰æ‹©åˆ—è¡¨
+    // ÎÄ¼ş°æ±¾£º SmoONE 2.0
+    // Copyright  (c)  2017-2018 Smobiler 
+    // ´´½¨Ê±¼ä£º 2017/07
+    // Ö÷ÒªÄÚÈİ£º  Ïû·ÑÀàĞÍÑ¡ÔñÁĞ±í
     // ******************************************************************
-    partial class frmRTypeChoose : Smobiler.Core.MobileForm
+    partial class frmRTypeChoose : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
-        internal string TYPEID;                //æ¶ˆè´¹ç±»å‹ç¼–å·
-        AutofacConfig AutofacConfig = new AutofacConfig();//è°ƒç”¨é…ç½®ç±»
+        internal string TYPEID;                //Ïû·ÑÀàĞÍ±àºÅ
+        AutofacConfig AutofacConfig = new AutofacConfig();//µ÷ÓÃÅäÖÃÀà
         #endregion
         /// <summary>
-        /// åˆå§‹åŒ–äº‹ä»¶
+        /// ÊÖ»ú×Ô´ø»ØÍË°´Å¥ÊÂ¼ş
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /// <remarks></remarks>
-        private void frmRBRowType_Load(object sender, EventArgs e)
+        private void frmRTypeChoose_KeyDown(object sender, KeyDownEventArgs e)
         {
-            try
-            {                
-                Bind();//ç»‘å®šæ•°æ®åº“æ•°æ®æ“ä½œ
-            }
-            catch (Exception ex)
+            if (e.KeyCode == KeyCode.Back)
             {
-                Toast(ex.Message);
+                this.Close();         //¹Ø±Õµ±Ç°Ò³Ãæ
             }
         }
-         /// <summary>
-        /// åˆå§‹åŒ–æ–¹æ³•
+        /// <summary>
+        /// ³õÊ¼»¯ÊÂ¼ş
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmRTypeChoose_Load(object sender, EventArgs e)
+        {
+            Bind();//°ó¶¨Êı¾İ¿âÊı¾İ²Ù×÷
+        }
+        /// <summary>
+        /// ³õÊ¼»¯·½·¨
         /// </summary>
         /// <remarks></remarks>
         private void Bind()
         {
             try
             {
-                //æ˜¾ç¤ºæ•°æ®æŠ¥é”€ç±»å‹
-                List<Domain.RB_RType> Types = AutofacConfig.rBService.GetAllType();
+                //ÏÔÊ¾Êı¾İ±¨ÏúÀàĞÍ
+                List<SmoONE.Domain.RB_RType> Types = AutofacConfig.rBService.GetAllType();
                 DataTable typetable = new DataTable();
-                typetable.Columns.Add("TYPE", typeof(System.String));          //æ¶ˆè´¹ç±»å‹ç¼–å·
-                typetable.Columns.Add("TYPENAME", typeof(System.String));      //æ¶ˆè´¹ç±»å‹åç§°
+                typetable.Columns.Add("TYPE", typeof(System.String));          //Ïû·ÑÀàĞÍ±àºÅ
+                typetable.Columns.Add("TYPENAME", typeof(System.String));      //Ïû·ÑÀàĞÍÃû³Æ
                 foreach (SmoONE.Domain.RB_RType row in Types)
                 {
-                    typetable.Rows.Add(row.RB_RT_ID,row.RB_RT_Name);
+                    typetable.Rows.Add(row.RB_RT_ID, row.RB_RT_Name);
                 }
-                this.gridRBRowTypeData.Rows.Clear();//æ¸…ç©ºæ¶ˆè´¹ç±»å‹é€‰æ‹©åˆ—è¡¨æ•°æ®
+                this.listRBRowTypeData.Rows.Clear();//Çå¿ÕÏû·ÑÀàĞÍÑ¡ÔñÁĞ±íÊı¾İ
                 if (typetable.Rows.Count > 0)
                 {
-                    this.gridRBRowTypeData.DataSource = typetable;
-                    this.gridRBRowTypeData.DataBind();
+                    this.listRBRowTypeData.DataSource = typetable;
+                    this.listRBRowTypeData.DataBind();
                 }
-               
+
             }
             catch (Exception ex)
             {
                 Toast(ex.Message);
             }
         }
-        /// <summary>
-        /// gridRBRowTypeDataç‚¹å‡»äº‹ä»¶
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridRBRowTypeData_CellClick(object sender, GridViewCellEventArgs e)
-        {
-            try
-            {
-                //é€‰ä¸­æŸä¸ªæ¶ˆè´¹ç±»å‹åï¼Œå°†é€‰ä¸­çš„æ¶ˆè´¹ç±»å‹IDå’Œåç§°ä¼ é€’åˆ°ä¸Šä¸€ä¸ªé¡µé¢
-                TYPEID = e.Cell.Items["lblTypeName"].Value + "/" + e.Cell.Items["lblTypeName"].Text;
-                this.ShowResult = Smobiler.Core.ShowResult.Yes;
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-        }
-        /// <summary>
-        /// TitleImageäº‹ä»¶ï¼Œå·¦ä¸Šè§’æŒ‰é’®
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void frmRBRowType_TitleImageClick(object sender, EventArgs e)
-        {
-            this.Close();         //å…³é—­å½“å‰é¡µé¢
-        }
-        /// <summary>
-        /// æ‰‹æœºè‡ªå¸¦å›é€€æŒ‰é’®äº‹ä»¶
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void frmRBRowType_KeyDown(object sender, KeyDownEventArgs e)
-        {
-            if (e.KeyCode == KeyCode.Back)
-            {
-                this.Close();         //å…³é—­å½“å‰é¡µé¢
-            }
-        }
-       
     }
 }

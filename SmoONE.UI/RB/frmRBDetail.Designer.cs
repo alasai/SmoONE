@@ -1,8 +1,10 @@
-Ôªøusing System;
+using System;
 using Smobiler.Core;
+using SmoONE.UI.Layout;
+
 namespace SmoONE.UI.RB
 {
-    partial class frmRBDetail : Smobiler.Core.MobileForm
+    partial class frmRBDetail : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,260 +30,309 @@ namespace SmoONE.UI.RB
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
+            this.btnAgreed = new Smobiler.Core.Controls.Button();
+            this.btnRefuse = new Smobiler.Core.Controls.Button();
+            this.btnEdit = new Smobiler.Core.Controls.Button();
+            this.title1 = new SmoONE.UI.Layout.Title();
+            this.plButton = new Smobiler.Core.Controls.Panel();
+            this.spContent = new Smobiler.Core.Controls.Panel();
+            this.plUser = new Smobiler.Core.Controls.Panel();
+            this.imgPortrait = new Smobiler.Core.Controls.Image();
+            this.lblUserName = new Smobiler.Core.Controls.Label();
+            this.lblRBState = new Smobiler.Core.Controls.Label();
+            this.plDetail = new Smobiler.Core.Controls.Panel();
             this.Label8 = new Smobiler.Core.Controls.Label();
             this.lblRBNO = new Smobiler.Core.Controls.Label();
+            this.label3 = new Smobiler.Core.Controls.Label();
+            this.lblCreateTime = new Smobiler.Core.Controls.Label();
             this.Label2 = new Smobiler.Core.Controls.Label();
             this.lblRBCC = new Smobiler.Core.Controls.Label();
+            this.label1 = new Smobiler.Core.Controls.Label();
+            this.lblAmount = new Smobiler.Core.Controls.Label();
             this.lblnote1 = new Smobiler.Core.Controls.Label();
             this.lblnote = new Smobiler.Core.Controls.Label();
             this.lblReason1 = new Smobiler.Core.Controls.Label();
             this.lblReason = new Smobiler.Core.Controls.Label();
-            this.gridRBRowData = new Smobiler.Core.Controls.GridView();
-            this.line1 = new Smobiler.Core.Controls.Line();
-            this.imgPortrait = new Smobiler.Core.Controls.Image();
-            this.lblUserName = new Smobiler.Core.Controls.Label();
-            this.lblRBState = new Smobiler.Core.Controls.Label();
-            this.label1 = new Smobiler.Core.Controls.Label();
-            this.lblAmount = new Smobiler.Core.Controls.Label();
-            this.label3 = new Smobiler.Core.Controls.Label();
-            this.lblCreateTime = new Smobiler.Core.Controls.Label();
+            this.listRBRowData = new Smobiler.Core.Controls.ListView();
             // 
-            // Label8
+            // btnAgreed
             // 
-            this.Label8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.Label8.FontSize = 13F;
-            this.Label8.ForeColor = System.Drawing.Color.Gray;
-            this.Label8.Location = new System.Drawing.Point(10, 67);
-            this.Label8.Name = "Label8";
-            this.Label8.Size = new System.Drawing.Size(55, 25);
-            this.Label8.TabIndex = 2;
-            this.Label8.Text = "Êä•ÈîÄÁºñÂè∑Ôºö";
+            this.btnAgreed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(187)))), ((int)(((byte)(91)))));
+            this.btnAgreed.FontSize = 15F;
+            this.btnAgreed.Location = new System.Drawing.Point(10, 10);
+            this.btnAgreed.Name = "btnAgreed";
+            this.btnAgreed.Size = new System.Drawing.Size(85, 35);
+            this.btnAgreed.Text = "Õ¨“‚";
+            this.btnAgreed.Press += new System.EventHandler(this.btnAgreed_Press);
             // 
-            // lblRBNO
+            // btnRefuse
             // 
-            this.lblRBNO.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.lblRBNO.FontSize = 13F;
-            this.lblRBNO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.lblRBNO.Location = new System.Drawing.Point(71, 67);
-            this.lblRBNO.Name = "lblRBNO";
-            this.lblRBNO.Size = new System.Drawing.Size(219, 25);
-            this.lblRBNO.TabIndex = 3;
+            this.btnRefuse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(158)))), ((int)(((byte)(38)))));
+            this.btnRefuse.FontSize = 15F;
+            this.btnRefuse.Location = new System.Drawing.Point(108, 10);
+            this.btnRefuse.Name = "btnRefuse";
+            this.btnRefuse.Size = new System.Drawing.Size(85, 35);
+            this.btnRefuse.Text = "æ‹æ¯";
+            this.btnRefuse.Press += new System.EventHandler(this.btnRefuse_Press);
             // 
-            // Label2
+            // btnEdit
             // 
-            this.Label2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.Label2.FontSize = 13F;
-            this.Label2.ForeColor = System.Drawing.Color.Gray;
-            this.Label2.Location = new System.Drawing.Point(10, 117);
-            this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(55, 25);
-            this.Label2.TabIndex = 4;
-            this.Label2.Text = "ÊàêÊú¨‰∏≠ÂøÉÔºö";
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnEdit.FontSize = 15F;
+            this.btnEdit.Location = new System.Drawing.Point(205, 10);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(85, 35);
+            this.btnEdit.Text = "±‡º≠";
+            this.btnEdit.Press += new System.EventHandler(this.btnEdit_Press);
             // 
-            // lblRBCC
+            // title1
             // 
-            this.lblRBCC.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.lblRBCC.FontSize = 13F;
-            this.lblRBCC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.lblRBCC.Format = "Ôø•{0}";
-            this.lblRBCC.Location = new System.Drawing.Point(71, 117);
-            this.lblRBCC.Name = "lblRBCC";
-            this.lblRBCC.Size = new System.Drawing.Size(219, 25);
-            this.lblRBCC.TabIndex = 5;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(300, 50);
+            this.title1.TitleText = "±®œ˙œÍ«È";
             // 
-            // lblnote1
+            // plButton
             // 
-            this.lblnote1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.lblnote1.FontSize = 13F;
-            this.lblnote1.ForeColor = System.Drawing.Color.Gray;
-            this.lblnote1.Location = new System.Drawing.Point(10, 167);
-            this.lblnote1.Name = "lblnote1";
-            this.lblnote1.Size = new System.Drawing.Size(55, 25);
-            this.lblnote1.TabIndex = 6;
-            this.lblnote1.Text = "Êä•ÈîÄÂ§áÊ≥®Ôºö";
+            this.plButton.BackColor = System.Drawing.Color.White;
+            this.plButton.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
+            this.plButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.plButton.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.btnAgreed,
+            this.btnRefuse,
+            this.btnEdit});
+            this.plButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plButton.Location = new System.Drawing.Point(0, 445);
+            this.plButton.Name = "plButton";
+            this.plButton.Size = new System.Drawing.Size(300, 55);
             // 
-            // lblnote
+            // spContent
             // 
-            this.lblnote.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.lblnote.FontSize = 13F;
-            this.lblnote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.lblnote.Location = new System.Drawing.Point(71, 167);
-            this.lblnote.Name = "lblnote";
-            this.lblnote.Size = new System.Drawing.Size(219, 25);
-            this.lblnote.TabIndex = 7;
+            this.spContent.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.plUser,
+            this.plDetail});
+            this.spContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spContent.Flex = 10000;
+            this.spContent.Location = new System.Drawing.Point(0, 50);
+            this.spContent.Name = "spContent";
+            this.spContent.Scrollable = true;
+            this.spContent.Size = new System.Drawing.Size(300, 405);
             // 
-            // lblReason1
+            // plUser
             // 
-            this.lblReason1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.lblReason1.FontSize = 13F;
-            this.lblReason1.ForeColor = System.Drawing.Color.Gray;
-            this.lblReason1.Location = new System.Drawing.Point(10, 192);
-            this.lblReason1.Name = "lblReason1";
-            this.lblReason1.Padding = new Smobiler.Core.Padding(0F, 5F, 0F, 0F);
-            this.lblReason1.Size = new System.Drawing.Size(55, 50);
-            this.lblReason1.TabIndex = 10;
-            this.lblReason1.Text = "ÊãíÁªùÁêÜÁî±Ôºö";
-            this.lblReason1.VerticalAlignment = Smobiler.Core.VerticalAlignment.Top;
-            // 
-            // lblReason
-            // 
-            this.lblReason.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.lblReason.FontSize = 13F;
-            this.lblReason.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.lblReason.Location = new System.Drawing.Point(71, 192);
-            this.lblReason.Name = "lblReason";
-            this.lblReason.Padding = new Smobiler.Core.Padding(0F, 5F, 0F, 0F);
-            this.lblReason.Size = new System.Drawing.Size(219, 50);
-            this.lblReason.TabIndex = 11;
-            this.lblReason.VerticalAlignment = Smobiler.Core.VerticalAlignment.Top;
-            // 
-            // gridRBRowData
-            // 
-            this.gridRBRowData.Border = new Smobiler.Core.Border(0, 0, 0, 1);
-            this.gridRBRowData.BorderColor = System.Drawing.Color.LightGray;
-            this.gridRBRowData.Layout = "frmRBROWLayout";
-            this.gridRBRowData.Location = new System.Drawing.Point(0, 242);
-            this.gridRBRowData.Name = "gridRBRowData";
-            this.gridRBRowData.ShowGridLines = false;
-            this.gridRBRowData.Size = new System.Drawing.Size(300, 199);
-            this.gridRBRowData.TabIndex = 12;
-            // 
-            // line1
-            // 
-            this.line1.BackColor = System.Drawing.Color.LightGray;
-            this.line1.Location = new System.Drawing.Point(10, 60);
-            this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(280, 1);
-            this.line1.TabIndex = 24;
+            this.plUser.BackColor = System.Drawing.Color.White;
+            this.plUser.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
+            this.plUser.BorderColor = System.Drawing.Color.LightGray;
+            this.plUser.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.imgPortrait,
+            this.lblUserName,
+            this.lblRBState});
+            this.plUser.Name = "plUser";
+            this.plUser.Size = new System.Drawing.Size(300, 60);
             // 
             // imgPortrait
             // 
-            this.imgPortrait.BorderRadius = 10;
+            this.imgPortrait.BorderRadius = 25;
             this.imgPortrait.DataMember = "U_Portrait";
             this.imgPortrait.DisplayMember = "U_Portrait";
-            this.imgPortrait.ID = "Tou";
             this.imgPortrait.Location = new System.Drawing.Point(10, 5);
             this.imgPortrait.Name = "imgPortrait";
             this.imgPortrait.ResourceID = "Tou";
             this.imgPortrait.Size = new System.Drawing.Size(55, 55);
-            this.imgPortrait.TabIndex = 25;
             // 
             // lblUserName
             // 
-            this.lblUserName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.lblUserName.FontSize = 17F;
+            this.lblUserName.FontSize = 15F;
             this.lblUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.lblUserName.Location = new System.Drawing.Point(70, 5);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(219, 29);
-            this.lblUserName.TabIndex = 26;
             // 
             // lblRBState
             // 
-            this.lblRBState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.lblRBState.FontSize = 14F;
+            this.lblRBState.FontSize = 12F;
             this.lblRBState.ForeColor = System.Drawing.Color.LimeGreen;
             this.lblRBState.Location = new System.Drawing.Point(70, 40);
             this.lblRBState.Name = "lblRBState";
             this.lblRBState.Size = new System.Drawing.Size(219, 19);
-            this.lblRBState.TabIndex = 27;
-            this.lblRBState.VerticalAlignment = Smobiler.Core.VerticalAlignment.Top;
+            this.lblRBState.VerticalAlignment = Smobiler.Core.Controls.VerticalAlignment.Top;
             // 
-            // label1
+            // plDetail
             // 
-            this.label1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.label1.FontSize = 13F;
-            this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(10, 142);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 25);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "ÊÄªÈáëÈ¢ùÔºö";
-            // 
-            // lblAmount
-            // 
-            this.lblAmount.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.lblAmount.FontSize = 13F;
-            this.lblAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.lblAmount.Location = new System.Drawing.Point(71, 142);
-            this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(219, 25);
-            this.lblAmount.TabIndex = 29;
-            // 
-            // label3
-            // 
-            this.label3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.label3.FontSize = 13F;
-            this.label3.ForeColor = System.Drawing.Color.Gray;
-            this.label3.Location = new System.Drawing.Point(10, 92);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 25);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "ÂàõÂª∫Êó∂Èó¥Ôºö";
-            // 
-            // lblCreateTime
-            // 
-            this.lblCreateTime.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.lblCreateTime.FontSize = 13F;
-            this.lblCreateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.lblCreateTime.Location = new System.Drawing.Point(71, 92);
-            this.lblCreateTime.Name = "lblCreateTime";
-            this.lblCreateTime.Size = new System.Drawing.Size(219, 25);
-            this.lblCreateTime.TabIndex = 31;
-            // 
-            // frmRBDetail
-            // 
-            this.BackColor = System.Drawing.Color.White;
-            this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.plDetail.BackColor = System.Drawing.Color.White;
+            this.plDetail.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.Label8,
             this.lblRBNO,
+            this.label3,
+            this.lblCreateTime,
             this.Label2,
             this.lblRBCC,
+            this.label1,
+            this.lblAmount,
             this.lblnote1,
             this.lblnote,
             this.lblReason1,
             this.lblReason,
-            this.imgPortrait,
-            this.lblUserName,
-            this.lblRBState,
-            this.gridRBRowData,
-            this.label1,
-            this.lblAmount,
-            this.label3,
-            this.lblCreateTime,
-             this.line1,
-            });
-            this.FooterBarLayout = "frmDetailFootbarLayout";
-            this.StatusBarStyle = Smobiler.Core.StatusBarStyle.Default;
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
-            this.TitleText = "Êä•ÈîÄËØ¶ÊÉÖ";
-            this.ToolbarStyle = new Smobiler.Core.ToolBarSytle(Smobiler.Core.ToolbarSelectStyle.None, System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223))))), System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223))))));
-            this.FooterBarLayoutItemClick += new Smobiler.Core.MobileFormLayoutItemClickEventHandler(this.frmRBDetail_FooterBarLayoutItemClick);
-            this.FooterBarDialogLayoutItemClick += new Smobiler.Core.MobileFormLayoutItemClickEventHandler(this.frmRBDetail_FooterBarDialogLayoutItemClick);
+            this.listRBRowData});
+            this.plDetail.Flex = 10000;
+            this.plDetail.Location = new System.Drawing.Point(0, 60);
+            this.plDetail.Name = "plDetail";
+            this.plDetail.Scrollable = true;
+            this.plDetail.Size = new System.Drawing.Size(300, 335);
+            // 
+            // Label8
+            // 
+            this.Label8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.Label8.FontSize = 10F;
+            this.Label8.ForeColor = System.Drawing.Color.Gray;
+            this.Label8.Location = new System.Drawing.Point(10, 7);
+            this.Label8.Name = "Label8";
+            this.Label8.Size = new System.Drawing.Size(55, 25);
+            this.Label8.Text = "±®œ˙±‡∫≈£∫";
+            // 
+            // lblRBNO
+            // 
+            this.lblRBNO.FontSize = 10F;
+            this.lblRBNO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.lblRBNO.Location = new System.Drawing.Point(71, 7);
+            this.lblRBNO.Name = "lblRBNO";
+            this.lblRBNO.Size = new System.Drawing.Size(219, 25);
+            // 
+            // label3
+            // 
+            this.label3.FontSize = 10F;
+            this.label3.ForeColor = System.Drawing.Color.Gray;
+            this.label3.Location = new System.Drawing.Point(10, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 25);
+            this.label3.Text = "¥¥Ω® ±º‰£∫";
+            // 
+            // lblCreateTime
+            // 
+            this.lblCreateTime.FontSize = 10F;
+            this.lblCreateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.lblCreateTime.Location = new System.Drawing.Point(71, 32);
+            this.lblCreateTime.Name = "lblCreateTime";
+            this.lblCreateTime.Size = new System.Drawing.Size(219, 25);
+            // 
+            // Label2
+            // 
+            this.Label2.FontSize = 10F;
+            this.Label2.ForeColor = System.Drawing.Color.Gray;
+            this.Label2.Location = new System.Drawing.Point(10, 57);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new System.Drawing.Size(55, 25);
+            this.Label2.Text = "≥…±æ÷––ƒ£∫";
+            // 
+            // lblRBCC
+            // 
+            this.lblRBCC.FontSize = 10F;
+            this.lblRBCC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.lblRBCC.Location = new System.Drawing.Point(71, 57);
+            this.lblRBCC.Name = "lblRBCC";
+            this.lblRBCC.Size = new System.Drawing.Size(219, 25);
+            // 
+            // label1
+            // 
+            this.label1.FontSize = 10F;
+            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.Location = new System.Drawing.Point(10, 82);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 25);
+            this.label1.Text = "◊‹Ω∂Ó£∫";
+            // 
+            // lblAmount
+            // 
+            this.lblAmount.FontSize = 10F;
+            this.lblAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.lblAmount.Location = new System.Drawing.Point(71, 82);
+            this.lblAmount.Name = "lblAmount";
+            this.lblAmount.Size = new System.Drawing.Size(219, 25);
+            // 
+            // lblnote1
+            // 
+            this.lblnote1.FontSize = 10F;
+            this.lblnote1.ForeColor = System.Drawing.Color.Gray;
+            this.lblnote1.Location = new System.Drawing.Point(10, 107);
+            this.lblnote1.Name = "lblnote1";
+            this.lblnote1.Size = new System.Drawing.Size(55, 25);
+            this.lblnote1.Text = "±®œ˙±∏◊¢£∫";
+            // 
+            // lblnote
+            // 
+            this.lblnote.FontSize = 10F;
+            this.lblnote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.lblnote.Location = new System.Drawing.Point(71, 107);
+            this.lblnote.Name = "lblnote";
+            this.lblnote.Size = new System.Drawing.Size(219, 25);
+            // 
+            // lblReason1
+            // 
+            this.lblReason1.FontSize = 10F;
+            this.lblReason1.ForeColor = System.Drawing.Color.Gray;
+            this.lblReason1.Location = new System.Drawing.Point(10, 132);
+            this.lblReason1.Name = "lblReason1";
+            this.lblReason1.Padding = new Smobiler.Core.Controls.Padding(0F, 5F, 0F, 0F);
+            this.lblReason1.Size = new System.Drawing.Size(55, 50);
+            this.lblReason1.Text = "æ‹æ¯¿Ì”…£∫";
+            this.lblReason1.VerticalAlignment = Smobiler.Core.Controls.VerticalAlignment.Top;
+            // 
+            // lblReason
+            // 
+            this.lblReason.FontSize = 10F;
+            this.lblReason.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.lblReason.Location = new System.Drawing.Point(71, 132);
+            this.lblReason.Name = "lblReason";
+            this.lblReason.Padding = new Smobiler.Core.Controls.Padding(0F, 5F, 0F, 0F);
+            this.lblReason.Size = new System.Drawing.Size(219, 50);
+            this.lblReason.VerticalAlignment = Smobiler.Core.Controls.VerticalAlignment.Top;
+            // 
+            // listRBRowData
+            // 
+            this.listRBRowData.BackColor = System.Drawing.Color.White;
+            this.listRBRowData.FooterControlName = null;
+            this.listRBRowData.HeaderControlName = null;
+            this.listRBRowData.Location = new System.Drawing.Point(0, 192);
+            this.listRBRowData.Name = "listRBRowData";
+            this.listRBRowData.Size = new System.Drawing.Size(300, 153);
+            this.listRBRowData.TemplateControlName = "frmRBRowLayout";
+            // 
+            // frmRBDetail
+            // 
+            this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.title1,
+            this.plButton,
+            this.spContent});
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmRBDetail_KeyDown);
             this.Load += new System.EventHandler(this.frmRBDetail_Load);
-            this.TitleImageClick += new System.EventHandler(this.frmRBDetail_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmRBDetail_KeyDown);
             this.Name = "frmRBDetail";
 
         }
         #endregion
 
+        private Title title1;
+        private Smobiler.Core.Controls.Panel plButton;
+        private Smobiler.Core.Controls.Button btnAgreed;
+        private Smobiler.Core.Controls.Button btnRefuse;
+        private Smobiler.Core.Controls.Button btnEdit;
+        private Smobiler.Core.Controls.Panel spContent;
+        private Smobiler.Core.Controls.Panel plUser;
+        private Smobiler.Core.Controls.Image imgPortrait;
+        internal Smobiler.Core.Controls.Label lblUserName;
+        internal Smobiler.Core.Controls.Label lblRBState;
+        private Smobiler.Core.Controls.Panel plDetail;
         internal Smobiler.Core.Controls.Label Label8;
-        internal Smobiler.Core.Controls.Label lblRBNO;
+        private Smobiler.Core.Controls.Label lblRBNO;
+        internal Smobiler.Core.Controls.Label label3;
+        internal Smobiler.Core.Controls.Label lblCreateTime;
         internal Smobiler.Core.Controls.Label Label2;
         internal Smobiler.Core.Controls.Label lblRBCC;
+        internal Smobiler.Core.Controls.Label label1;
+        internal Smobiler.Core.Controls.Label lblAmount;
         internal Smobiler.Core.Controls.Label lblnote1;
         internal Smobiler.Core.Controls.Label lblnote;
         internal Smobiler.Core.Controls.Label lblReason1;
         internal Smobiler.Core.Controls.Label lblReason;
-        private Smobiler.Core.Controls.Line line1;
-        private Smobiler.Core.Controls.Image imgPortrait;
-        internal Smobiler.Core.Controls.Label lblUserName;
-        internal Smobiler.Core.Controls.Label lblRBState;
-        internal Smobiler.Core.Controls.GridView gridRBRowData;
-        internal Smobiler.Core.Controls.Label label1;
-        internal Smobiler.Core.Controls.Label lblAmount;
-        internal Smobiler.Core.Controls.Label label3;
-        internal Smobiler.Core.Controls.Label lblCreateTime;
+        private Smobiler.Core.Controls.ListView listRBRowData;
     }
 }

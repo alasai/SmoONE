@@ -1,8 +1,8 @@
 ﻿using System;
 using Smobiler.Core;
-namespace SmoONE.UI.Layout
+namespace SmoONE.UI.TemplateControlName
 {
-    partial class frmRBFootbarLayout : Smobiler.Core.MobileForm
+    partial class frmRBFootbarLayout : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -36,7 +36,7 @@ namespace SmoONE.UI.Layout
             // 
             // Checkall
             // 
-            this.Checkall.Border = new Smobiler.Core.Border(1);
+            this.Checkall.Border = new Smobiler.Core.Controls.Border(1);
             this.Checkall.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.Checkall.Checked = false;
             this.Checkall.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
@@ -62,7 +62,7 @@ namespace SmoONE.UI.Layout
             // 
             this.Label3.Bold = true;
             this.Label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.Label3.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
+            this.Label3.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.Label3.Location = new System.Drawing.Point(75, 0);
             this.Label3.Name = "Label3";
             this.Label3.Size = new System.Drawing.Size(85, 35);
@@ -76,7 +76,7 @@ namespace SmoONE.UI.Layout
             this.lblAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             this.lblAmount.Location = new System.Drawing.Point(160, 0);
             this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Padding = new Smobiler.Core.Padding(2F, 0F, 0F, 0F);
+            this.lblAmount.Padding = new Smobiler.Core.Controls.Padding(2F, 0F, 0F, 0F);
             this.lblAmount.Size = new System.Drawing.Size(140, 35);
             this.lblAmount.TabIndex = 5;
             this.lblAmount.Text = "￥0";
@@ -88,8 +88,6 @@ namespace SmoONE.UI.Layout
             this.btnSave.BorderRadius = 2;
             this.btnSave.FontSize = 17F;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnSave.HoverForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(10, 35);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(280, 35);

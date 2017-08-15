@@ -1,8 +1,10 @@
-Ôªøusing System;
+using System;
 using Smobiler.Core;
+using SmoONE.UI.Layout;
+
 namespace SmoONE.UI.RB
 {
-    partial class frmRTypeTemplate : Smobiler.Core.MobileForm
+    partial class frmRTypeTemplate : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,87 +30,76 @@ namespace SmoONE.UI.RB
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.gridRBModelData = new Smobiler.Core.Controls.GridView();
-            this.Create = new Smobiler.Core.Controls.ToolbarItem();
-            this.Delete = new Smobiler.Core.Controls.ToolbarItem();
-            this.btnSave = new Smobiler.Core.Controls.Button();
+            this.title1 = new SmoONE.UI.Layout.Title();
+            this.btnCreate = new Smobiler.Core.Controls.Button();
+            this.listRBModelData = new Smobiler.Core.Controls.ListView();
             this.lblInfor = new Smobiler.Core.Controls.Label();
             // 
-            // gridRBModelData
+            // title1
             // 
-            this.gridRBModelData.Layout = "frmRBModelLayout";
-            this.gridRBModelData.Location = new System.Drawing.Point(0, 63);
-            this.gridRBModelData.Name = "gridRBModelData";
-            this.gridRBModelData.PageSize = 10;
-            this.gridRBModelData.ShowGridLines = false;
-            this.gridRBModelData.Size = new System.Drawing.Size(300, 437);
-            this.gridRBModelData.TabIndex = 2;
-            this.gridRBModelData.CellClick += new Smobiler.Core.Controls.GridViewCellClickEventHandler(this.gridRBModelData_CellClick);
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.FontSize = 15F;
+            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.title1.Location = new System.Drawing.Point(87, 108);
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
+            this.title1.TitleText = "œ˚∑—ƒ£∞Â¡–±Ì";
             // 
-            // Create
+            // btnCreate
             // 
-            this.Create.IconID = "!\\ue148043146223";
-            this.Create.Name = "Create";
-            this.Create.Text = "ÂàõÂª∫Ê®°Êùø";
-            this.Create.Visible = false;
+            this.btnCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnCreate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCreate.FontSize = 15F;
+            this.btnCreate.Location = new System.Drawing.Point(10, 60);
+            this.btnCreate.Margin = new Smobiler.Core.Controls.Margin(10F, 10F, 10F, 0F);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(280, 35);
+            this.btnCreate.Text = "¥¥Ω®œ˚∑—ƒ£∞Â";
+            this.btnCreate.Press += new System.EventHandler(this.btnCreate_Press);
             // 
-            // Delete
+            // listRBModelData
             // 
-            this.Delete.IconID = "!\\uf05c043146223";
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Âà†Èô§";
-            this.Delete.Visible = false;
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnSave.BorderRadius = 2;
-            this.btnSave.FontSize = 17F;
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(135)))), ((int)(((byte)(209)))));
-            this.btnSave.HoverForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(10, 10);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(280, 35);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "ÂàõÂª∫Ê∂àË¥πÊ®°Êùø";
-            this.btnSave.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnCreate_Click);
+            this.listRBModelData.BackColor = System.Drawing.Color.White;
+            this.listRBModelData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listRBModelData.FooterControlName = null;
+            this.listRBModelData.HeaderControlName = null;
+            this.listRBModelData.Location = new System.Drawing.Point(17, 262);
+            this.listRBModelData.Margin = new Smobiler.Core.Controls.Margin(0F, 20F, 0F, 0F);
+            this.listRBModelData.Name = "listRBModelData";
+            this.listRBModelData.ShowSplitLine = true;
+            this.listRBModelData.Size = new System.Drawing.Size(100, 30);
+            this.listRBModelData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.listRBModelData.TemplateControlName = "frmRBModelLayout";
             // 
             // lblInfor
             // 
+            this.lblInfor.BackColor = System.Drawing.Color.White;
             this.lblInfor.ForeColor = System.Drawing.Color.Silver;
-            this.lblInfor.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Center;
+            this.lblInfor.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
             this.lblInfor.Location = new System.Drawing.Point(0, 180);
             this.lblInfor.Name = "lblInfor";
             this.lblInfor.Size = new System.Drawing.Size(300, 30);
-            this.lblInfor.TabIndex = 5;
-            this.lblInfor.Text = "ÂΩìÂâçÊöÇÊó†Ê∂àË¥πÊ®°ÊùøÔºåËØ∑ÂàõÂª∫ÔºÅ";
+            this.lblInfor.Text = "µ±«∞‘›Œﬁœ˚∑—ƒ£∞Â£¨«Î¥¥Ω®£°";
             // 
             // frmRTypeTemplate
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.gridRBModelData,
-            this.btnSave,
+            this.title1,
+            this.btnCreate,
+            this.listRBModelData,
             this.lblInfor});
-            this.StatusBarStyle = Smobiler.Core.StatusBarStyle.Default;
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
-            this.TitleText = "Ê∂àË¥πÊ®°ÊùøÂàóË°®";
-            this.Toolbar.AddRange(new Smobiler.Core.Controls.ToolbarItem[] {
-            this.Create,
-            this.Delete});
-            this.ToolbarStyle = new Smobiler.Core.ToolBarSytle(Smobiler.Core.ToolbarSelectStyle.None, System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249))))), System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223))))), System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249))))), System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223))))));
-            this.Load += new System.EventHandler(this.frmConsModelList_Load);
-            this.TitleImageClick += new System.EventHandler(this.frmConsModelList_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmConsModelList_KeyDown);
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmRTypeTemplate_KeyDown);
+            this.Load += new System.EventHandler(this.frmRTypeTemplate_Load);
             this.Name = "frmRTypeTemplate";
 
         }
         #endregion
 
-        internal Smobiler.Core.Controls.GridView gridRBModelData;
-        internal Smobiler.Core.Controls.ToolbarItem Create;
-        internal Smobiler.Core.Controls.ToolbarItem Delete;
-        private Smobiler.Core.Controls.Button btnSave;
+        private Title title1;
+        private Smobiler.Core.Controls.Button btnCreate;
+        private Smobiler.Core.Controls.ListView listRBModelData;
         private Smobiler.Core.Controls.Label lblInfor;
     }
 }

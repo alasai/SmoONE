@@ -15,7 +15,7 @@ namespace SmoONE.UI.Attendance
     // 创建时间： 2017/2
         // 主要内容： 用户考勤类型详情记录界面
         // ******************************************************************
-    partial class frmAttendanceStatSelfDetail : Smobiler.Core.MobileForm
+    partial class frmAttendanceStatSelfDetail : Smobiler.Core.Controls.MobileForm
     {
         
         #region "definition"
@@ -78,7 +78,7 @@ namespace SmoONE.UI.Attendance
                 {
                     case StatisticsType.未签到:
                     case StatisticsType.未签退:
-                        gridView1.Layout = "frmATStatSelfDetailDayLayout";
+                        gridView1.TemplateControlName = "frmATStatSelfDetailDayLayout";
                         if (listATlog.Count > 0)
                         {
                             List<DateTime> listATDate = new List<DateTime>();
@@ -106,7 +106,7 @@ namespace SmoONE.UI.Attendance
                     case StatisticsType.准点:
                     case StatisticsType.迟到:
                     case StatisticsType.早退:
-                        gridView1.Layout = "frmATStatSelfDetailTypeLayout";
+                        gridView1.TemplateControlName = "frmATStatSelfDetailTypeLayout";
                         if (listATlog.Count > 0)
                         {
                             List<ATStatSelfDetail> listATlogStatistics = new List<ATStatSelfDetail>();

@@ -74,8 +74,6 @@
     <Compile Include="Entity\User\ValidateCode.cs" />
     <Compile Include="IAggregateRoot.cs" />
     <Compile Include="IEntity.cs" />
-    <Compile Include="Entity\Attendance\MonthlyStatistics.cs" />
-    <Compile Include="Entity\Attendance\MonthlyResult.cs" />
     <Compile Include="IRepository\IAttendanceLogRepository.cs" />
     <Compile Include="IRepository\IAttendanceSchedulingRepository.cs" />
     <Compile Include="IRepository\IAttendanceTemplateRepository.cs" />
@@ -102,6 +100,8 @@
     <Compile Include="IRepository\IUserRepository.cs" />
     <Compile Include="IRepository\IUserRoleRepository.cs" />
     <Compile Include="IRepository\IValidateCodeRepository.cs" />
+    <Compile Include="Entity\Attendance\MonthlyStatistics.cs" />
+    <Compile Include="Entity\Attendance\MonthlyResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

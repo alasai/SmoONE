@@ -16,7 +16,7 @@ namespace SmoONE.UI.Department
     // 创建时间： 2016/11
     // 主要内容：  部门创建或编辑界面
     // ******************************************************************
-    partial class frmDepartmentCreate : Smobiler.Core.MobileForm
+    partial class frmDepartmentCreate : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         public string D_ID;//部门编号
@@ -83,8 +83,8 @@ namespace SmoONE.UI.Department
                   
                     frmDepAssignUser frmDepAssignUser = new frmDepAssignUser();
                     frmDepAssignUser.department = department;
-                    //Redirect(frmDepAssignUser);
-                    Redirect(frmDepAssignUser, (MobileForm form, object args) =>
+                    //Show(frmDepAssignUser);
+                    Show(frmDepAssignUser, (MobileForm form, object args) =>
                         {
                             if (frmDepAssignUser.ShowResult == ShowResult.Yes)
                             {
@@ -110,11 +110,11 @@ namespace SmoONE.UI.Department
             popLeader.Groups.Clear();
             PopListGroup poli = new PopListGroup();
             popLeader.Groups.Add(poli);
-            poli.Text = "责任人选择";
+            poli.Title = "责任人选择";
             List<UserDto> listuser = AutofacConfig.userService.GetAllUsers();
             foreach (UserDto user in listuser)
             {
-                poli.Items.Add(user.U_Name, user.U_ID);
+                poli.AddListItem(user.U_Name, user.U_ID);
                 if (leader.Trim().Length > 0)
                 {
                     if (leader.Trim().Equals(user.U_ID))
@@ -164,12 +164,15 @@ namespace SmoONE.UI.Department
                     btnLeader.Text = userinfo.U_Name;
                     btnSave.Text = "提交";
                     btnAssignUser.Visible = true;
-                    btnSave.Top = 190;
+                   // btnSave.Top = 190;
+                    btnAssignUser.Top = btnLeader.Top + btnLeader.Height + 10;
+                    btnSave.Top = btnAssignUser.Top + btnAssignUser.Height + 10;
                 }
                 else
                 {
                     btnAssignUser.Visible =false ;
-                    btnSave.Top = 145;
+                   // btnSave.Top = 145;
+                    btnSave.Top = btnLeader.Top + btnLeader.Height + 10;
                 }
             }
                 catch (Exception ex)
@@ -204,7 +207,7 @@ namespace SmoONE.UI.Department
                         MessageBox.Show(popLeader.Selection.Text+"已是部门成员，是否确定为该部门责任人？", MessageBoxButtons.YesNo, (Object s1, MessageBoxHandlerArgs args) =>
                         {
                             //此委托为异步委托事件
-                            if (args.Result == Smobiler.Core.ShowResult.Yes)
+                            if (args.Result == Smobiler.Core.Controls .ShowResult.Yes)
                             {
                                 leader = popLeader.Selection.Value;
                                 btnLeader.Text = popLeader.Selection.Text;
@@ -259,9 +262,9 @@ namespace SmoONE.UI.Department
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void cameraPortrait_ImageCaptured(object sender, BinaryData e)
+        private void cameraPortrait_ImageCaptured(object sender, BinaryResultArgs e)
         {
-            if (string.IsNullOrEmpty(e.ErrorInfo))
+            if (string.IsNullOrEmpty(e.error ))
             {
 
                 if (imgPortrait.ResourceID.Trim().Length > 0 & string.IsNullOrEmpty(D_Portrait)==false )
@@ -298,7 +301,7 @@ namespace SmoONE.UI.Department
                     department.Dep_Icon = dep.Dep_Icon;
                     frmDepAssignUser frmDepAssignUser = new frmDepAssignUser();
                     frmDepAssignUser.department = department;
-                    Redirect(frmDepAssignUser, (MobileForm form, object args) =>
+                    Show(frmDepAssignUser, (MobileForm form, object args) =>
                     {
                         if (frmDepAssignUser.ShowResult == ShowResult.Yes)
                         {

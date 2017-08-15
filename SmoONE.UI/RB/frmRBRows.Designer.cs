@@ -1,8 +1,10 @@
-Ôªøusing System;
+using System;
 using Smobiler.Core;
+using SmoONE.UI.Layout;
+
 namespace SmoONE.UI.RB
 {
-    partial class frmRBRows : Smobiler.Core.MobileForm
+    partial class frmRBRows : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,67 +30,76 @@ namespace SmoONE.UI.RB
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.gridRBRowData = new Smobiler.Core.Controls.GridView();
+            this.title1 = new SmoONE.UI.Layout.Title();
             this.btnCreate = new Smobiler.Core.Controls.Button();
+            this.listRBRowData = new Smobiler.Core.Controls.ListView();
             this.lblInfor = new Smobiler.Core.Controls.Label();
             // 
-            // gridRBRowData
+            // title1
             // 
-            this.gridRBRowData.Layout = "frmConsumptionLayout";
-            this.gridRBRowData.Location = new System.Drawing.Point(0, 55);
-            this.gridRBRowData.Name = "gridRBRowData";
-            this.gridRBRowData.ShowGridLines = false;
-            this.gridRBRowData.Size = new System.Drawing.Size(300, 435);
-            this.gridRBRowData.TabIndex = 3;
-            this.gridRBRowData.CellClick += new Smobiler.Core.Controls.GridViewCellClickEventHandler(this.gridRBRowData_CellClick);
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.FontSize = 15F;
+            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(300, 50);
+            this.title1.TitleText = "œ˚∑—º«¬º";
             // 
             // btnCreate
             // 
             this.btnCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnCreate.BorderRadius = 2;
-            this.btnCreate.FontSize = 17F;
-            this.btnCreate.ForeColor = System.Drawing.Color.White;
-            this.btnCreate.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(135)))), ((int)(((byte)(209)))));
-            this.btnCreate.HoverForeColor = System.Drawing.Color.White;
-            this.btnCreate.Location = new System.Drawing.Point(10, 10);
+            this.btnCreate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCreate.FontSize = 15F;
+            this.btnCreate.Location = new System.Drawing.Point(10, 60);
+            this.btnCreate.Margin = new Smobiler.Core.Controls.Margin(10F, 10F, 10F, 0F);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(280, 35);
-            this.btnCreate.TabIndex = 4;
-            this.btnCreate.Text = "ÂàõÂª∫Ê∂àË¥πËÆ∞ÂΩï";
-            this.btnCreate.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnCreate_Click);
+            this.btnCreate.Text = "¥¥Ω®œ˚∑—º«¬º";
+            this.btnCreate.Press += new System.EventHandler(this.btnCreate_Press);
+            // 
+            // listRBRowData
+            // 
+            this.listRBRowData.BackColor = System.Drawing.Color.White;
+            this.listRBRowData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listRBRowData.FooterControlName = null;
+            this.listRBRowData.HeaderControlName = null;
+            this.listRBRowData.Location = new System.Drawing.Point(0, 100);
+            this.listRBRowData.Margin = new Smobiler.Core.Controls.Margin(0F, 20F, 0F, 0F);
+            this.listRBRowData.Name = "listRBRowData";
+            this.listRBRowData.ShowSplitLine = true;
+            this.listRBRowData.Size = new System.Drawing.Size(300, 30);
+            this.listRBRowData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.listRBRowData.TemplateControlName = "frmConsumptionLayout";
             // 
             // lblInfor
             // 
+            this.lblInfor.BackColor = System.Drawing.Color.White;
             this.lblInfor.ForeColor = System.Drawing.Color.Silver;
-            this.lblInfor.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Center;
+            this.lblInfor.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
             this.lblInfor.Location = new System.Drawing.Point(0, 180);
             this.lblInfor.Name = "lblInfor";
             this.lblInfor.Size = new System.Drawing.Size(300, 30);
-            this.lblInfor.TabIndex = 6;
-            this.lblInfor.Text = "ÂΩìÂâçÊöÇÊó†Ê∂àË¥πËÆ∞ÂΩïÔºåËØ∑ÂàõÂª∫ÔºÅ";
+            this.lblInfor.Text = "µ±«∞‘›Œﬁœ˚∑—º«¬º£¨«Î¥¥Ω®£°";
             this.lblInfor.Visible = false;
             // 
             // frmRBRows
             // 
-            this.AllowSlip = true;
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.gridRBRowData,
+            this.title1,
             this.btnCreate,
+            this.listRBRowData,
             this.lblInfor});
-            this.StatusBarStyle = Smobiler.Core.StatusBarStyle.Default;
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
-            this.TitleText = "Ê∂àË¥πËÆ∞ÂΩï";
-            this.ToolbarStyle = new Smobiler.Core.ToolBarSytle(Smobiler.Core.ToolbarSelectStyle.None, System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249))))), System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223))))), System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249))))), System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223))))));
-            this.Load += new System.EventHandler(this.frmRBMain_Load);
-            this.TitleImageClick += new System.EventHandler(this.frmRBMain_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmRBMain_KeyDown);
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmRBRows_KeyDown);
+            this.Load += new System.EventHandler(this.frmRBRows_Load);
             this.Name = "frmRBRows";
 
         }
         #endregion
 
-        internal Smobiler.Core.Controls.GridView gridRBRowData;
+        private Title title1;
         private Smobiler.Core.Controls.Button btnCreate;
+        private Smobiler.Core.Controls.ListView listRBRowData;
         private Smobiler.Core.Controls.Label lblInfor;
     }
 }

@@ -1,8 +1,10 @@
 using System;
 using Smobiler.Core;
+using SmoONE.UI.Layout;
+
 namespace SmoONE.UI.UserInfo
 {
-    partial class frmUserDetail : Smobiler.Core.MobileForm
+    partial class frmUserDetail : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,292 +30,289 @@ namespace SmoONE.UI.UserInfo
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
+            this.title1 = new SmoONE.UI.Layout.Title();
+            this.spContent = new Smobiler.Core.Controls.Panel();
             this.imgPortrait = new Smobiler.Core.Controls.Image();
-            this.label1 = new Smobiler.Core.Controls.Label();
-            this.lblName = new Smobiler.Core.Controls.Label();
-            this.imgbtnTel = new Smobiler.Core.Controls.ImageButton();
-            this.imgbtnMes = new Smobiler.Core.Controls.ImageButton();
-            this.imgbtnEmail = new Smobiler.Core.Controls.ImageButton();
-            this.btnTel = new Smobiler.Core.Controls.Button();
-            this.btnMes = new Smobiler.Core.Controls.Button();
-            this.btnEmail = new Smobiler.Core.Controls.Button();
-            this.label4 = new Smobiler.Core.Controls.Label();
+            this.plAction = new Smobiler.Core.Controls.Panel();
+            this.tpTel = new Smobiler.Core.Controls.Panel();
+            this.fontTel = new Smobiler.Core.Controls.FontIcon();
             this.lblTel = new Smobiler.Core.Controls.Label();
-            this.label2 = new Smobiler.Core.Controls.Label();
-            this.lblBirthday = new Smobiler.Core.Controls.Label();
-            this.label5 = new Smobiler.Core.Controls.Label();
+            this.tpMes = new Smobiler.Core.Controls.Panel();
+            this.fontMes = new Smobiler.Core.Controls.FontIcon();
+            this.lblMes = new Smobiler.Core.Controls.Label();
+            this.tpEmail = new Smobiler.Core.Controls.Panel();
+            this.fontEmail = new Smobiler.Core.Controls.FontIcon();
             this.lblEmail = new Smobiler.Core.Controls.Label();
-            this.line9 = new Smobiler.Core.Controls.Line();
-            this.line1 = new Smobiler.Core.Controls.Line();
-            this.line2 = new Smobiler.Core.Controls.Line();
-            this.line3 = new Smobiler.Core.Controls.Line();
+            this.plTel = new Smobiler.Core.Controls.Panel();
+            this.label1 = new Smobiler.Core.Controls.Label();
+            this.lblTelShow = new Smobiler.Core.Controls.Label();
+            this.plBirShow = new Smobiler.Core.Controls.Panel();
+            this.label2 = new Smobiler.Core.Controls.Label();
+            this.lblBirShow = new Smobiler.Core.Controls.Label();
+            this.plEmail = new Smobiler.Core.Controls.Panel();
+            this.label3 = new Smobiler.Core.Controls.Label();
+            this.lblEmailShow = new Smobiler.Core.Controls.Label();
+            this.lblName = new Smobiler.Core.Controls.Label();
+            // 
+            // title1
+            // 
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.FontSize = 15F;
+            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.title1.Location = new System.Drawing.Point(130, 29);
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
+            // 
+            // spContent
+            // 
+            this.spContent.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.imgPortrait,
+            this.plAction,
+            this.plTel,
+            this.plBirShow,
+            this.plEmail,
+            this.lblName});
+            this.spContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spContent.Flex = 10000;
+            this.spContent.Location = new System.Drawing.Point(206, 254);
+            this.spContent.Name = "spContent";
+            this.spContent.Scrollable = true;
+            this.spContent.Size = new System.Drawing.Size(100, 30);
             // 
             // imgPortrait
             // 
-            this.imgPortrait.BackColorAlpha = 0;
-            this.imgPortrait.BorderRadius = 10;
-            this.imgPortrait.Enlarged = true;
-            this.imgPortrait.ID = "";
-            this.imgPortrait.Location = new System.Drawing.Point(110, 10);
+            this.imgPortrait.BorderRadius = 40;
+            this.imgPortrait.Location = new System.Drawing.Point(110, 20);
             this.imgPortrait.Name = "imgPortrait";
             this.imgPortrait.Size = new System.Drawing.Size(80, 80);
-            this.imgPortrait.SizeMode = Smobiler.Core.ImageSizeMode.StretchImage;
-            this.imgPortrait.TabIndex = 2;
-            this.imgPortrait.ZIndex = 2;
+            this.imgPortrait.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Stretch;
+            this.imgPortrait.Zooming = true;
             // 
-            // label1
+            // plAction
             // 
-            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.label1.FontSize = 12F;
-            this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Name = "label1";
-            this.label1.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.label1.Size = new System.Drawing.Size(300, 200);
-            this.label1.TabIndex = 3;
-            this.label1.ZIndex = 1;
+            this.plAction.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.tpTel,
+            this.tpMes,
+            this.tpEmail});
+            this.plAction.Location = new System.Drawing.Point(0, 145);
+            this.plAction.Name = "plAction";
+            this.plAction.Size = new System.Drawing.Size(300, 65);
             // 
-            // lblName
+            // tpTel
             // 
-            this.lblName.BackColorAlpha = 0;
-            this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.lblName.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Center;
-            this.lblName.Location = new System.Drawing.Point(0, 90);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(300, 25);
-            this.lblName.TabIndex = 4;
+            this.tpTel.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.fontTel,
+            this.lblTel});
+            this.tpTel.Name = "tpTel";
+            this.tpTel.Size = new System.Drawing.Size(100, 65);
+            this.tpTel.Touchable = true;
+            this.tpTel.Press += new System.EventHandler(this.tpTel_Press);
             // 
-            // imgbtnTel
+            // fontTel
             // 
-            this.imgbtnTel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.imgbtnTel.BorderRadius = 10;
-            this.imgbtnTel.FontSize = 10F;
-            this.imgbtnTel.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.imgbtnTel.Location = new System.Drawing.Point(32, 125);
-            this.imgbtnTel.Name = "imgbtnTel";
-            this.imgbtnTel.Padding = new Smobiler.Core.Padding(7F);
-            this.imgbtnTel.ResourceID = "!\\ue551255255255";
-            this.imgbtnTel.Size = new System.Drawing.Size(35, 35);
-            this.imgbtnTel.TabIndex = 5;
-            this.imgbtnTel.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnTel_Click);
-            // 
-            // imgbtnMes
-            // 
-            this.imgbtnMes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.imgbtnMes.BorderRadius = 10;
-            this.imgbtnMes.FontSize = 10F;
-            this.imgbtnMes.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.imgbtnMes.Location = new System.Drawing.Point(132, 125);
-            this.imgbtnMes.Name = "imgbtnMes";
-            this.imgbtnMes.Padding = new Smobiler.Core.Padding(7F);
-            this.imgbtnMes.ResourceID = "!\\ue8af255255255";
-            this.imgbtnMes.Size = new System.Drawing.Size(35, 35);
-            this.imgbtnMes.TabIndex = 6;
-            this.imgbtnMes.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnMes_Click);
-            // 
-            // imgbtnEmail
-            // 
-            this.imgbtnEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.imgbtnEmail.BorderRadius = 10;
-            this.imgbtnEmail.FontSize = 10F;
-            this.imgbtnEmail.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.imgbtnEmail.Location = new System.Drawing.Point(232, 125);
-            this.imgbtnEmail.Name = "imgbtnEmail";
-            this.imgbtnEmail.Padding = new Smobiler.Core.Padding(7F);
-            this.imgbtnEmail.ResourceID = "!\\ue159255255255";
-            this.imgbtnEmail.Size = new System.Drawing.Size(39, 35);
-            this.imgbtnEmail.TabIndex = 7;
-            this.imgbtnEmail.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnEmail_Click);
-            // 
-            // btnTel
-            // 
-            this.btnTel.BackColorAlpha = 0;
-            this.btnTel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnTel.HoverBackColor = System.Drawing.Color.White;
-            this.btnTel.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnTel.Location = new System.Drawing.Point(0, 160);
-            this.btnTel.Name = "btnTel";
-            this.btnTel.Size = new System.Drawing.Size(100, 30);
-            this.btnTel.TabIndex = 8;
-            this.btnTel.Text = "打电话";
-            this.btnTel.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnTel_Click);
-            // 
-            // btnMes
-            // 
-            this.btnMes.BackColorAlpha = 0;
-            this.btnMes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnMes.HoverBackColor = System.Drawing.Color.White;
-            this.btnMes.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnMes.Location = new System.Drawing.Point(100, 160);
-            this.btnMes.Name = "btnMes";
-            this.btnMes.Size = new System.Drawing.Size(100, 30);
-            this.btnMes.TabIndex = 9;
-            this.btnMes.Text = "发短信";
-            this.btnMes.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnMes_Click);
-            // 
-            // btnEmail
-            // 
-            this.btnEmail.BackColorAlpha = 0;
-            this.btnEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnEmail.HoverBackColor = System.Drawing.Color.White;
-            this.btnEmail.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnEmail.Location = new System.Drawing.Point(200, 160);
-            this.btnEmail.Name = "btnEmail";
-            this.btnEmail.Size = new System.Drawing.Size(100, 30);
-            this.btnEmail.TabIndex = 10;
-            this.btnEmail.Text = "发邮件";
-            this.btnEmail.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnEmail_Click);
-            // 
-            // label4
-            // 
-            this.label4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.label4.FontSize = 12F;
-            this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(0, 200);
-            this.label4.Name = "label4";
-            this.label4.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.label4.Size = new System.Drawing.Size(300, 20);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "电话";
-            this.label4.VerticalAlignment = Smobiler.Core.VerticalAlignment.Bottom;
+            this.fontTel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.fontTel.BorderRadius = 17;
+            this.fontTel.ForeColor = System.Drawing.Color.White;
+            this.fontTel.Location = new System.Drawing.Point(32, 0);
+            this.fontTel.Name = "fontTel";
+            this.fontTel.Padding = new Smobiler.Core.Controls.Padding(6F);
+            this.fontTel.ResourceID = "phone";
+            this.fontTel.Size = new System.Drawing.Size(35, 35);
             // 
             // lblTel
             // 
-            this.lblTel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.lblTel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.lblTel.Location = new System.Drawing.Point(0, 220);
+            this.lblTel.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
+            this.lblTel.Location = new System.Drawing.Point(0, 35);
             this.lblTel.Name = "lblTel";
-            this.lblTel.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.lblTel.Size = new System.Drawing.Size(300, 30);
-            this.lblTel.TabIndex = 12;
+            this.lblTel.Size = new System.Drawing.Size(100, 30);
+            this.lblTel.Text = "打电话";
             // 
-            // label2
+            // tpMes
             // 
-            this.label2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.label2.FontSize = 12F;
-            this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(0, 250);
-            this.label2.Name = "label2";
-            this.label2.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.label2.Size = new System.Drawing.Size(300, 20);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "生日";
-            this.label2.VerticalAlignment = Smobiler.Core.VerticalAlignment.Bottom;
+            this.tpMes.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.fontMes,
+            this.lblMes});
+            this.tpMes.Location = new System.Drawing.Point(100, 0);
+            this.tpMes.Name = "tpMes";
+            this.tpMes.Size = new System.Drawing.Size(100, 65);
+            this.tpMes.Touchable = true;
+            this.tpMes.Press += new System.EventHandler(this.tpMes_Press);
             // 
-            // lblBirthday
+            // fontMes
             // 
-            this.lblBirthday.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.lblBirthday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.lblBirthday.Location = new System.Drawing.Point(0, 270);
-            this.lblBirthday.Name = "lblBirthday";
-            this.lblBirthday.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.lblBirthday.Size = new System.Drawing.Size(300, 30);
-            this.lblBirthday.TabIndex = 14;
+            this.fontMes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.fontMes.BorderRadius = 17;
+            this.fontMes.ForeColor = System.Drawing.Color.White;
+            this.fontMes.Location = new System.Drawing.Point(32, 0);
+            this.fontMes.Name = "fontMes";
+            this.fontMes.Padding = new Smobiler.Core.Controls.Padding(6F);
+            this.fontMes.ResourceID = "comments";
+            this.fontMes.Size = new System.Drawing.Size(35, 35);
             // 
-            // label5
+            // lblMes
             // 
-            this.label5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.label5.FontSize = 12F;
-            this.label5.ForeColor = System.Drawing.Color.Gray;
-            this.label5.Location = new System.Drawing.Point(0, 300);
-            this.label5.Name = "label5";
-            this.label5.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.label5.Size = new System.Drawing.Size(300, 20);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "邮件";
-            this.label5.VerticalAlignment = Smobiler.Core.VerticalAlignment.Bottom;
+            this.lblMes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.lblMes.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
+            this.lblMes.Location = new System.Drawing.Point(0, 35);
+            this.lblMes.Name = "lblMes";
+            this.lblMes.Size = new System.Drawing.Size(100, 30);
+            this.lblMes.Text = "发短信";
+            // 
+            // tpEmail
+            // 
+            this.tpEmail.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.fontEmail,
+            this.lblEmail});
+            this.tpEmail.Location = new System.Drawing.Point(200, 0);
+            this.tpEmail.Name = "tpEmail";
+            this.tpEmail.Size = new System.Drawing.Size(100, 65);
+            this.tpEmail.Touchable = true;
+            this.tpEmail.Press += new System.EventHandler(this.tpEmail_Press);
+            // 
+            // fontEmail
+            // 
+            this.fontEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.fontEmail.BorderRadius = 17;
+            this.fontEmail.ForeColor = System.Drawing.Color.White;
+            this.fontEmail.Location = new System.Drawing.Point(32, 0);
+            this.fontEmail.Name = "fontEmail";
+            this.fontEmail.Padding = new Smobiler.Core.Controls.Padding(6F);
+            this.fontEmail.ResourceID = "envelope";
+            this.fontEmail.Size = new System.Drawing.Size(35, 35);
             // 
             // lblEmail
             // 
-            this.lblEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.lblEmail.Location = new System.Drawing.Point(0, 320);
+            this.lblEmail.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
+            this.lblEmail.Location = new System.Drawing.Point(0, 35);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.lblEmail.Size = new System.Drawing.Size(300, 30);
-            this.lblEmail.TabIndex = 16;
+            this.lblEmail.Size = new System.Drawing.Size(100, 30);
+            this.lblEmail.Text = "发邮件";
             // 
-            // line9
+            // plTel
             // 
-            this.line9.BackColor = System.Drawing.Color.LightGray;
-            this.line9.Location = new System.Drawing.Point(0, 350);
-            this.line9.Name = "line9";
-            this.line9.Size = new System.Drawing.Size(300, 1);
-            this.line9.TabIndex = 17;
+            this.plTel.BackColor = System.Drawing.Color.White;
+            this.plTel.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.plTel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.plTel.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.label1,
+            this.lblTelShow});
+            this.plTel.Location = new System.Drawing.Point(0, 220);
+            this.plTel.Name = "plTel";
+            this.plTel.Size = new System.Drawing.Size(300, 50);
             // 
-            // line1
+            // label1
             // 
-            this.line1.BackColor = System.Drawing.Color.LightGray;
-            this.line1.Location = new System.Drawing.Point(0, 200);
-            this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(300, 1);
-            this.line1.TabIndex = 18;
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(300, 20);
+            this.label1.Text = "电话";
             // 
-            // line2
+            // lblTelShow
             // 
-            this.line2.BackColor = System.Drawing.Color.LightGray;
-            this.line2.Location = new System.Drawing.Point(0, 250);
-            this.line2.Name = "line2";
-            this.line2.Size = new System.Drawing.Size(300, 1);
-            this.line2.TabIndex = 19;
+            this.lblTelShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.lblTelShow.Location = new System.Drawing.Point(0, 20);
+            this.lblTelShow.Name = "lblTelShow";
+            this.lblTelShow.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.lblTelShow.Size = new System.Drawing.Size(300, 30);
             // 
-            // line3
+            // plBirShow
             // 
-            this.line3.BackColor = System.Drawing.Color.LightGray;
-            this.line3.Location = new System.Drawing.Point(0, 300);
-            this.line3.Name = "line3";
-            this.line3.Size = new System.Drawing.Size(300, 1);
-            this.line3.TabIndex = 20;
+            this.plBirShow.BackColor = System.Drawing.Color.White;
+            this.plBirShow.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
+            this.plBirShow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.plBirShow.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.label2,
+            this.lblBirShow});
+            this.plBirShow.Location = new System.Drawing.Point(0, 270);
+            this.plBirShow.Name = "plBirShow";
+            this.plBirShow.Size = new System.Drawing.Size(300, 50);
+            // 
+            // label2
+            // 
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(300, 20);
+            this.label2.Text = "生日";
+            // 
+            // lblBirShow
+            // 
+            this.lblBirShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.lblBirShow.Location = new System.Drawing.Point(0, 20);
+            this.lblBirShow.Name = "lblBirShow";
+            this.lblBirShow.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.lblBirShow.Size = new System.Drawing.Size(300, 30);
+            // 
+            // plEmail
+            // 
+            this.plEmail.BackColor = System.Drawing.Color.White;
+            this.plEmail.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
+            this.plEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.plEmail.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.label3,
+            this.lblEmailShow});
+            this.plEmail.Location = new System.Drawing.Point(0, 320);
+            this.plEmail.Name = "plEmail";
+            this.plEmail.Size = new System.Drawing.Size(300, 50);
+            // 
+            // label3
+            // 
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(300, 20);
+            this.label3.Text = "邮件";
+            // 
+            // lblEmailShow
+            // 
+            this.lblEmailShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.lblEmailShow.Location = new System.Drawing.Point(0, 20);
+            this.lblEmailShow.Name = "lblEmailShow";
+            this.lblEmailShow.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.lblEmailShow.Size = new System.Drawing.Size(300, 30);
+            // 
+            // lblName
+            // 
+            this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.lblName.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
+            this.lblName.Location = new System.Drawing.Point(0, 100);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(300, 25);
             // 
             // frmUserDetail
             // 
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.label1,
-            this.imgPortrait,
-            this.lblName,
-            this.imgbtnTel,
-            this.imgbtnMes,
-            this.imgbtnEmail,
-            this.btnTel,
-            this.btnMes,
-            this.btnEmail,
-            this.label4,
-            this.lblTel,
-            this.label2,
-            this.lblBirthday,
-            this.label5,
-            this.lblEmail,
-            this.line9,
-            this.line1,
-            this.line2,
-            this.line3});
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
+            this.title1,
+            this.spContent});
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmUserDetail_KeyDown);
             this.Load += new System.EventHandler(this.frmUserDetail_Load);
-            this.TitleImageClick += new System.EventHandler(this.frmUserDetail_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmUserDetail_KeyDown);
             this.Name = "frmUserDetail";
 
         }
         #endregion
 
+        private Title title1;
+        private Smobiler.Core.Controls.Panel spContent;
         private Smobiler.Core.Controls.Image imgPortrait;
-        internal Smobiler.Core.Controls.Label label1;
+        private Smobiler.Core.Controls.Panel plAction;
+        private Smobiler.Core.Controls.Panel tpTel;
+        private Smobiler.Core.Controls.Panel tpMes;
+        private Smobiler.Core.Controls.Panel tpEmail;
+        private Smobiler.Core.Controls.FontIcon fontTel;
+        private Smobiler.Core.Controls.Label lblTel;
+        private Smobiler.Core.Controls.FontIcon fontMes;
+        private Smobiler.Core.Controls.Label lblMes;
+        private Smobiler.Core.Controls.FontIcon fontEmail;
+        private Smobiler.Core.Controls.Label lblEmail;
+        private Smobiler.Core.Controls.Panel plTel;
+        private Smobiler.Core.Controls.Label label1;
+        private Smobiler.Core.Controls.Label lblTelShow;
+        private Smobiler.Core.Controls.Panel plBirShow;
+        private Smobiler.Core.Controls.Label label2;
+        private Smobiler.Core.Controls.Label lblBirShow;
+        private Smobiler.Core.Controls.Panel plEmail;
+        private Smobiler.Core.Controls.Label label3;
+        private Smobiler.Core.Controls.Label lblEmailShow;
         private Smobiler.Core.Controls.Label lblName;
-        private Smobiler.Core.Controls.ImageButton imgbtnTel;
-        private Smobiler.Core.Controls.ImageButton imgbtnMes;
-        private Smobiler.Core.Controls.ImageButton imgbtnEmail;
-        private Smobiler.Core.Controls.Button btnTel;
-        private Smobiler.Core.Controls.Button btnMes;
-        private Smobiler.Core.Controls.Button btnEmail;
-        internal Smobiler.Core.Controls.Label label4;
-        internal Smobiler.Core.Controls.Label lblTel;
-        internal Smobiler.Core.Controls.Label label2;
-        internal Smobiler.Core.Controls.Label lblBirthday;
-        internal Smobiler.Core.Controls.Label label5;
-        internal Smobiler.Core.Controls.Label lblEmail;
-        private Smobiler.Core.Controls.Line line9;
-        private Smobiler.Core.Controls.Line line1;
-        private Smobiler.Core.Controls.Line line2;
-        private Smobiler.Core.Controls.Line line3;
     }
 }

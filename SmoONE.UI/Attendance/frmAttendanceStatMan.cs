@@ -15,7 +15,7 @@ namespace SmoONE.UI.Attendance
     // 创建时间： 2017/2
     // 主要内容： 选中日期，该签到人员的签到状况统计
     // ******************************************************************
-    partial class frmAttendanceStatMan : Smobiler.Core.MobileForm
+    partial class frmAttendanceStatMan : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
         public string DayTime;
@@ -119,28 +119,11 @@ namespace SmoONE.UI.Attendance
         {
             Close();
         }
-        /// <summary>
-        /// 点击进入签到详细界面
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridATdata_CellClick(object sender, GridViewCellEventArgs e)
+
+        private void title1_Load(object sender, EventArgs e)
         {
-            try
-            {
-                if (Convert.ToBoolean(e.Cell.Items["lblAbsenteeism"].Value)==false  )
-                {
-                    frmAttendanceMain frmMain = new frmAttendanceMain();
-                    frmMain.DayTime = DayTime;            //时间
-                    frmMain.enter = (int)Enum.Parse(typeof(ATMainState), ATMainState.统计查看.ToString());
-                    frmMain.UserID = e.Cell.Items["lblUser"].Value.ToString();
-                    this.Redirect(frmMain);
-                }
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
+
         }
+      
     }
 }

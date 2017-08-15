@@ -2,7 +2,7 @@ using System;
 using Smobiler.Core;
 namespace SmoONE.UI.Attendance
 {
-    partial class frmAttendanceStatUser : Smobiler.Core.MobileForm
+    partial class frmAttendanceStatUser : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,47 +28,55 @@ namespace SmoONE.UI.Attendance
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.gridATUserData = new Smobiler.Core.Controls.GridView();
+            this.gridATUserData = new Smobiler.Core.Controls.ListView();
             this.lblATMonth = new Smobiler.Core.Controls.Label();
+            this.title1 = new SmoONE.UI.Layout.Title();
             // 
             // gridATUserData
             // 
-            this.gridATUserData.AllowSlip = true;
-            this.gridATUserData.AutoHeight = true;
-            this.gridATUserData.Layout = "frmUserLayout";
-            this.gridATUserData.Location = new System.Drawing.Point(0, 35);
+            this.gridATUserData.BackColor = System.Drawing.Color.White;
+            this.gridATUserData.Dock = System.Windows.Forms.DockStyle.Top;
             this.gridATUserData.Name = "gridATUserData";
-            this.gridATUserData.PageSize = 8;
-            this.gridATUserData.ShowGridLines = false;
-            this.gridATUserData.Size = new System.Drawing.Size(300, 421);
-            this.gridATUserData.TabIndex = 2;
-            this.gridATUserData.CellClick += new Smobiler.Core.Controls.GridViewCellClickEventHandler(this.gridATUserData_CellClick);
+            this.gridATUserData.Size = new System.Drawing.Size(300, 415);
+            this.gridATUserData.TemplateControlName = "frmUserLayout";
             // 
             // lblATMonth
             // 
             this.lblATMonth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.lblATMonth.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblATMonth.ForeColor = System.Drawing.Color.White;
-            this.lblATMonth.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Center;
+            this.lblATMonth.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
             this.lblATMonth.Name = "lblATMonth";
             this.lblATMonth.Size = new System.Drawing.Size(300, 35);
-            this.lblATMonth.TabIndex = 3;
+            // 
+            // title1
+            // 
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.FontSize = 15F;
+            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.title1.Location = new System.Drawing.Point(111, 36);
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
+            this.title1.TitleText = "考勤月报表";
             // 
             // frmAttendanceStatUser
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.title1,
+            this.lblATMonth,
             this.gridATUserData,
-            this.lblATMonth});
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
-            this.TitleText = "考勤月报表";
+            });
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmAttendanceStatUser_KeyDown);
             this.Load += new System.EventHandler(this.frmAttendanceStatUser_Load);
-            this.TitleImageClick += new System.EventHandler(this.frmAttendanceStatUser_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmAttendanceStatUser_KeyDown);
             this.Name = "frmAttendanceStatUser";
 
         }
         #endregion
 
-        private Smobiler.Core.Controls.GridView gridATUserData;
+        private Smobiler.Core.Controls.ListView gridATUserData;
         private Smobiler.Core.Controls.Label lblATMonth;
+        private SmoONE.UI.Layout.Title title1;
     }
 }

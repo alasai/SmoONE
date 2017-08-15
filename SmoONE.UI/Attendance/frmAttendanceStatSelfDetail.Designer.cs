@@ -2,7 +2,7 @@ using System;
 using Smobiler.Core;
 namespace SmoONE.UI.Attendance
 {
-    partial class frmAttendanceStatSelfDetail : Smobiler.Core.MobileForm
+    partial class frmAttendanceStatSelfDetail : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,31 +28,40 @@ namespace SmoONE.UI.Attendance
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.gridView1 = new Smobiler.Core.Controls.GridView();
+            this.gridView1 = new Smobiler.Core.Controls.ListView();
+            this.title1 = new SmoONE.UI.Layout.Title();
             // 
             // gridView1
             // 
-            this.gridView1.AllowSlip = true;
-            this.gridView1.Layout = "";
+            this.gridView1.BackColor = System.Drawing.Color.White;
+            this.gridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridView1.Name = "gridView1";
-            this.gridView1.PageSize = 8;
-            this.gridView1.ShowGridLines = false;
-            this.gridView1.Size = new System.Drawing.Size(300, 480);
-            this.gridView1.TabIndex = 2;
+            this.gridView1.Size = new System.Drawing.Size(300, 450);
+            // 
+            // title1
+            // 
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.FontSize = 15F;
+            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.title1.Location = new System.Drawing.Point(111, 36);
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
             // 
             // frmAttendanceStatSelfDetail
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.title1,
             this.gridView1});
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmAttendanceStatSelfDetail_KeyDown);
             this.Load += new System.EventHandler(this.frmAttendanceStatSelfDetail_Load);
-            this.TitleImageClick += new System.EventHandler(this.frmAttendanceStatSelfDetail_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmAttendanceStatSelfDetail_KeyDown);
             this.Name = "frmAttendanceStatSelfDetail";
 
         }
         #endregion
 
-        private Smobiler.Core.Controls.GridView gridView1;
+        private Smobiler.Core.Controls.ListView gridView1;
+        private SmoONE.UI.Layout.Title title1;
     }
 }

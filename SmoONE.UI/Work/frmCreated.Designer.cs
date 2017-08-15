@@ -1,8 +1,10 @@
 using System;
 using Smobiler.Core;
-namespace SmoONE.UI
+using SmoONE.UI.Layout;
+
+namespace SmoONE.UI.Work
 {
-    partial class frmCreated : Smobiler.Core.MobileForm
+    partial class frmCreated : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,34 +30,47 @@ namespace SmoONE.UI
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.gridCrateData = new Smobiler.Core.Controls.GridView();
+            this.title1 = new SmoONE.UI.Layout.Title();
+            this.listCrateData = new Smobiler.Core.Controls.ListView();
             // 
-            // gridCrateData
+            // title1
             // 
-            this.gridCrateData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(244)))));
-            this.gridCrateData.Layout = "frmLeaveLayout";
-            this.gridCrateData.Name = "gridCrateData";
-            this.gridCrateData.PageSize = 8;
-            this.gridCrateData.ShowGridLines = false;
-            this.gridCrateData.Size = new System.Drawing.Size(300, 469);
-            this.gridCrateData.TabIndex = 2;
-            this.gridCrateData.CellClick += new Smobiler.Core.Controls.GridViewCellClickEventHandler(this.gridCrateData_CellClick);
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.FontSize = 15F;
+            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.title1.Location = new System.Drawing.Point(166, 96);
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
+            this.title1.TitleText = "我发起的";
+            // 
+            // listCrateData
+            // 
+            this.listCrateData.BackColor = System.Drawing.Color.White;
+            this.listCrateData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listCrateData.FooterControlName = null;
+            this.listCrateData.HeaderControlName = null;
+            this.listCrateData.Location = new System.Drawing.Point(84, 114);
+            this.listCrateData.Name = "listCrateData";
+            this.listCrateData.ShowSplitLine = true;
+            this.listCrateData.Size = new System.Drawing.Size(100, 30);
+            this.listCrateData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.listCrateData.TemplateControlName = "frmLeaveLayout";
             // 
             // frmCreated
             // 
-            this.BackColor = System.Drawing.Color.White;
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.gridCrateData});
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
-            this.TitleText = "我发起的";
+            this.title1,
+            this.listCrateData});
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmCreated_KeyDown);
             this.Load += new System.EventHandler(this.frmCreated_Load);
-            this.TitleImageClick += new System.EventHandler(this.frmCreated_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmCreated_KeyDown);
             this.Name = "frmCreated";
 
         }
         #endregion
 
-        private Smobiler.Core.Controls.GridView gridCrateData;
+        private Title title1;
+        private Smobiler.Core.Controls.ListView listCrateData;
     }
 }

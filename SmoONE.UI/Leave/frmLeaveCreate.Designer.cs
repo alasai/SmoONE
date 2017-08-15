@@ -2,7 +2,7 @@
 
 namespace SmoONE.UI.Leave
 {
-    partial class frmLeaveCreate : Smobiler.Core.MobileForm
+    partial class frmLeaveCreate : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm Designer generated code "
 
@@ -28,7 +28,11 @@ namespace SmoONE.UI.Leave
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
+            this.popType = new Smobiler.Core.Controls.PopList();
+            this.camera1 = new Smobiler.Core.Controls.Camera();
+            this.pContent = new Smobiler.Core.Controls.Panel();
             this.label1 = new Smobiler.Core.Controls.Label();
+            this.btnSave = new Smobiler.Core.Controls.Button();
             this.btnType = new Smobiler.Core.Controls.Button();
             this.btnType1 = new Smobiler.Core.Controls.Button();
             this.label2 = new Smobiler.Core.Controls.Label();
@@ -40,465 +44,35 @@ namespace SmoONE.UI.Leave
             this.Label5 = new Smobiler.Core.Controls.Label();
             this.txtReason = new Smobiler.Core.Controls.TextBox();
             this.lblImg = new Smobiler.Core.Controls.Label();
-            this.lblCheck = new Smobiler.Core.Controls.Label();
-            this.lblCheck1 = new Smobiler.Core.Controls.Label();
-            this.imgbtnAddCheck = new Smobiler.Core.Controls.ImageButton();
-            this.popType = new Smobiler.Core.Controls.PopList();
-            this.btnSave = new Smobiler.Core.Controls.Button();
-            this.lblCCTo1 = new Smobiler.Core.Controls.Label();
-            this.lblCCTo = new Smobiler.Core.Controls.Label();
-            this.imgbtnAddCCTo = new Smobiler.Core.Controls.ImageButton();
             this.imgL = new Smobiler.Core.Controls.Image();
+            this.Label9 = new Smobiler.Core.Controls.Label();
             this.btnupPhoto = new Smobiler.Core.Controls.Button();
             this.btndelPhoto = new Smobiler.Core.Controls.Button();
-            this.Label9 = new Smobiler.Core.Controls.Label();
-            this.camera1 = new Smobiler.Core.Controls.Camera();
-            this.line9 = new Smobiler.Core.Controls.Line();
-            this.line1 = new Smobiler.Core.Controls.Line();
-            this.line2 = new Smobiler.Core.Controls.Line();
-            this.line3 = new Smobiler.Core.Controls.Line();
-            this.line4 = new Smobiler.Core.Controls.Line();
-            this.line5 = new Smobiler.Core.Controls.Line();
-            this.line6 = new Smobiler.Core.Controls.Line();
-            this.line7 = new Smobiler.Core.Controls.Line();
-            this.line8 = new Smobiler.Core.Controls.Line();
-            this.line11 = new Smobiler.Core.Controls.Line();
-            this.line12 = new Smobiler.Core.Controls.Line();
-            this.line13 = new Smobiler.Core.Controls.Line();
-            this.lblCheck2 = new Smobiler.Core.Controls.Label();
-            this.lblCCTo2 = new Smobiler.Core.Controls.Label();
-            // 
-            // label1
-            // 
-            this.label1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.label1.Location = new System.Drawing.Point(0, 10);
-            this.label1.Name = "label1";
-            this.label1.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.label1.Size = new System.Drawing.Size(66, 35);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "请假类型";
-            this.label1.ZIndex = 1;
-            // 
-            // btnType
-            // 
-            this.btnType.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.btnType.FontSize = 12F;
-            this.btnType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.btnType.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.btnType.HoverBackColor = System.Drawing.Color.White;
-            this.btnType.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.btnType.Location = new System.Drawing.Point(66, 10);
-            this.btnType.Name = "btnType";
-            this.btnType.Padding = new Smobiler.Core.Padding(0F, 0F, 5F, 0F);
-            this.btnType.Size = new System.Drawing.Size(209, 35);
-            this.btnType.TabIndex = 4;
-            this.btnType.Text = "选择（必填）";
-            this.btnType.ZIndex = 2;
-            this.btnType.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btntype_Click);
-            // 
-            // btnType1
-            // 
-            this.btnType1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.btnType1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.btnType1.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.btnType1.HoverBackColor = System.Drawing.Color.White;
-            this.btnType1.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.btnType1.Location = new System.Drawing.Point(275, 10);
-            this.btnType1.Name = "btnType1";
-            this.btnType1.Padding = new Smobiler.Core.Padding(0F, 0F, 4F, 0F);
-            this.btnType1.Size = new System.Drawing.Size(25, 35);
-            this.btnType1.TabIndex = 5;
-            this.btnType1.Text = ">";
-            this.btnType1.ZIndex = 3;
-            this.btnType1.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btntype_Click);
-            // 
-            // label2
-            // 
-            this.label2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.label2.Location = new System.Drawing.Point(0, 55);
-            this.label2.Name = "label2";
-            this.label2.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.label2.Size = new System.Drawing.Size(66, 35);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "开始时间";
-            this.label2.ZIndex = 4;
-            // 
-            // dpkStartDate
-            // 
-            this.dpkStartDate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.dpkStartDate.FontSize = 12F;
-            this.dpkStartDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.dpkStartDate.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.dpkStartDate.Location = new System.Drawing.Point(66, 55);
-            this.dpkStartDate.Name = "dpkStartDate";
-            this.dpkStartDate.Padding = new Smobiler.Core.Padding(0F, 0F, 30F, 0F);
-            this.dpkStartDate.Size = new System.Drawing.Size(234, 35);
-            this.dpkStartDate.TabIndex = 7;
-            this.dpkStartDate.ZIndex = 5;
-            // 
-            // Label3
-            // 
-            this.Label3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.Label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.Label3.Location = new System.Drawing.Point(0, 90);
-            this.Label3.Name = "Label3";
-            this.Label3.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.Label3.Size = new System.Drawing.Size(66, 35);
-            this.Label3.TabIndex = 8;
-            this.Label3.Text = "结束时间";
-            this.Label3.ZIndex = 6;
-            // 
-            // dpkEndDate
-            // 
-            this.dpkEndDate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.dpkEndDate.FontSize = 12F;
-            this.dpkEndDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.dpkEndDate.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.dpkEndDate.Location = new System.Drawing.Point(66, 90);
-            this.dpkEndDate.Name = "dpkEndDate";
-            this.dpkEndDate.Padding = new Smobiler.Core.Padding(0F, 0F, 30F, 0F);
-            this.dpkEndDate.Size = new System.Drawing.Size(234, 35);
-            this.dpkEndDate.TabIndex = 9;
-            this.dpkEndDate.ZIndex = 7;
-            // 
-            // Label4
-            // 
-            this.Label4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.Label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.Label4.Location = new System.Drawing.Point(0, 135);
-            this.Label4.Name = "Label4";
-            this.Label4.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.Label4.Size = new System.Drawing.Size(66, 35);
-            this.Label4.TabIndex = 10;
-            this.Label4.Text = "请假天数";
-            this.Label4.ZIndex = 8;
-            // 
-            // txtLday
-            // 
-            this.txtLday.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.txtLday.FontSize = 12F;
-            this.txtLday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.txtLday.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.txtLday.InputType = Smobiler.Core.TextBoxInputType.Number;
-            this.txtLday.Location = new System.Drawing.Point(66, 135);
-            this.txtLday.Name = "txtLday";
-            this.txtLday.Padding = new Smobiler.Core.Padding(0F, 0F, 30F, 0F);
-            this.txtLday.Size = new System.Drawing.Size(234, 35);
-            this.txtLday.TabIndex = 11;
-            this.txtLday.WaterMarkText = "（必填）";
-            this.txtLday.ZIndex = 9;
-            // 
-            // Label5
-            // 
-            this.Label5.Border = new Smobiler.Core.Border(0, 0, 0, 1);
-            this.Label5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.Label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.Label5.Location = new System.Drawing.Point(0, 180);
-            this.Label5.Name = "Label5";
-            this.Label5.Padding = new Smobiler.Core.Padding(4F, 5F, 0F, 0F);
-            this.Label5.Size = new System.Drawing.Size(66, 80);
-            this.Label5.TabIndex = 12;
-            this.Label5.Text = "请假事由";
-            this.Label5.VerticalAlignment = Smobiler.Core.VerticalAlignment.Top;
-            this.Label5.ZIndex = 10;
-            // 
-            // txtReason
-            // 
-            this.txtReason.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.txtReason.FontSize = 12F;
-            this.txtReason.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.txtReason.Location = new System.Drawing.Point(66, 180);
-            this.txtReason.Multiline = true;
-            this.txtReason.Name = "txtReason";
-            this.txtReason.Padding = new Smobiler.Core.Padding(0F, 5F, 30F, 0F);
-            this.txtReason.Size = new System.Drawing.Size(235, 80);
-            this.txtReason.TabIndex = 13;
-            this.txtReason.WaterMarkText = "（必填）";
-            this.txtReason.ZIndex = 11;
-            // 
-            // lblImg
-            // 
-            this.lblImg.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.lblImg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.lblImg.Location = new System.Drawing.Point(0, 270);
-            this.lblImg.Name = "lblImg";
-            this.lblImg.Padding = new Smobiler.Core.Padding(4F, 5F, 0F, 0F);
-            this.lblImg.Size = new System.Drawing.Size(66, 80);
-            this.lblImg.TabIndex = 14;
-            this.lblImg.Text = "图片";
-            this.lblImg.VerticalAlignment = Smobiler.Core.VerticalAlignment.Top;
-            this.lblImg.ZIndex = 12;
-            // 
-            // lblCheck
-            // 
-            this.lblCheck.BorderColor = System.Drawing.Color.LightGray;
-            this.lblCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.lblCheck.Location = new System.Drawing.Point(0, 360);
-            this.lblCheck.Name = "lblCheck";
-            this.lblCheck.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.lblCheck.Size = new System.Drawing.Size(66, 35);
-            this.lblCheck.TabIndex = 15;
-            this.lblCheck.Text = "审批人";
-            this.lblCheck.ZIndex = 17;
-            // 
-            // lblCheck1
-            // 
-            this.lblCheck1.BorderColor = System.Drawing.Color.LightGray;
-            this.lblCheck1.ForeColor = System.Drawing.Color.Silver;
-            this.lblCheck1.Location = new System.Drawing.Point(66, 360);
-            this.lblCheck1.Name = "lblCheck1";
-            this.lblCheck1.Padding = new Smobiler.Core.Padding(0F, 0F, 4F, 0F);
-            this.lblCheck1.Size = new System.Drawing.Size(234, 35);
-            this.lblCheck1.TabIndex = 18;
-            this.lblCheck1.Text = "（添加1-4位审批人，点击头像可删除）";
-            this.lblCheck1.ZIndex = 18;
-            // 
-            // imgbtnAddCheck
-            // 
-            this.imgbtnAddCheck.Location = new System.Drawing.Point(65, 395);
-            this.imgbtnAddCheck.Name = "imgbtnAddCheck";
-            this.imgbtnAddCheck.ResourceID = "add";
-            this.imgbtnAddCheck.Size = new System.Drawing.Size(35, 35);
-            this.imgbtnAddCheck.SizeMode = Smobiler.Core.ImageSizeMode.StretchImage;
-            this.imgbtnAddCheck.TabIndex = 20;
-            this.imgbtnAddCheck.ZIndex = 20;
-            this.imgbtnAddCheck.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.imgbtnAddCheck_Click);
+            this.lblCheck = new Smobiler.Core.Controls.Label();
+            this.lblCheck1 = new Smobiler.Core.Controls.Label();
+            this.pCheck2 = new Smobiler.Core.Controls.Panel();
+            this.imgbtnAddCheck = new SmoONE.UI.Layout.ImageButton();
+            this.lblCCTo = new Smobiler.Core.Controls.Label();
+            this.lblCCTo1 = new Smobiler.Core.Controls.Label();
+            this.pCCTo2 = new Smobiler.Core.Controls.Panel();
+            this.imgbtnAddCCTo = new SmoONE.UI.Layout.ImageButton();
+            this.title1 = new SmoONE.UI.Layout.Title();
             // 
             // popType
             // 
             this.popType.Name = "popType";
             this.popType.Selected += new System.EventHandler(this.popType_Selected);
             // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnSave.BorderRadius = 2;
-            this.btnSave.FontSize = 17F;
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(135)))), ((int)(((byte)(209)))));
-            this.btnSave.HoverForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(10, 560);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(280, 35);
-            this.btnSave.TabIndex = 21;
-            this.btnSave.Text = "提交";
-            this.btnSave.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnSave_Click);
-            // 
-            // lblCCTo1
-            // 
-            this.lblCCTo1.Border = new Smobiler.Core.Border(0, 1, 0, 0);
-            this.lblCCTo1.BorderColor = System.Drawing.Color.LightGray;
-            this.lblCCTo1.ForeColor = System.Drawing.Color.Silver;
-            this.lblCCTo1.Location = new System.Drawing.Point(66, 460);
-            this.lblCCTo1.Name = "lblCCTo1";
-            this.lblCCTo1.Padding = new Smobiler.Core.Padding(0F, 0F, 4F, 0F);
-            this.lblCCTo1.Size = new System.Drawing.Size(234, 35);
-            this.lblCCTo1.TabIndex = 22;
-            this.lblCCTo1.Text = "（添加0-4位抄送人，点击头像可删除）";
-            this.lblCCTo1.ZIndex = 22;
-            // 
-            // lblCCTo
-            // 
-            this.lblCCTo.Border = new Smobiler.Core.Border(0, 1, 0, 0);
-            this.lblCCTo.BorderColor = System.Drawing.Color.LightGray;
-            this.lblCCTo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.lblCCTo.Location = new System.Drawing.Point(0, 460);
-            this.lblCCTo.Name = "lblCCTo";
-            this.lblCCTo.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.lblCCTo.Size = new System.Drawing.Size(66, 35);
-            this.lblCCTo.TabIndex = 23;
-            this.lblCCTo.Text = "抄送人";
-            this.lblCCTo.ZIndex = 21;
-            // 
-            // imgbtnAddCCTo
-            // 
-            this.imgbtnAddCCTo.Location = new System.Drawing.Point(65, 495);
-            this.imgbtnAddCCTo.Name = "imgbtnAddCCTo";
-            this.imgbtnAddCCTo.ResourceID = "add";
-            this.imgbtnAddCCTo.Size = new System.Drawing.Size(35, 35);
-            this.imgbtnAddCCTo.SizeMode = Smobiler.Core.ImageSizeMode.StretchImage;
-            this.imgbtnAddCCTo.TabIndex = 24;
-            this.imgbtnAddCCTo.ZIndex = 24;
-            this.imgbtnAddCCTo.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.imgbtnAddCCTo_Click);
-            // 
-            // imgL
-            // 
-            this.imgL.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.imgL.Enlarged = true;
-            this.imgL.Location = new System.Drawing.Point(66, 270);
-            this.imgL.Name = "imgL";
-            this.imgL.Padding = new Smobiler.Core.Padding(0F, 2F, 0F, 0F);
-            this.imgL.Size = new System.Drawing.Size(235, 50);
-            this.imgL.TabIndex = 25;
-            this.imgL.ZIndex = 13;
-            // 
-            // btnupPhoto
-            // 
-            this.btnupPhoto.Border = new Smobiler.Core.Border(1);
-            this.btnupPhoto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.btnupPhoto.BorderRadius = 5;
-            this.btnupPhoto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.btnupPhoto.Location = new System.Drawing.Point(114, 322);
-            this.btnupPhoto.Name = "btnupPhoto";
-            this.btnupPhoto.Size = new System.Drawing.Size(65, 20);
-            this.btnupPhoto.TabIndex = 26;
-            this.btnupPhoto.Text = "上传";
-            this.btnupPhoto.ZIndex = 15;
-            this.btnupPhoto.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnupPhoto_Click);
-            // 
-            // btndelPhoto
-            // 
-            this.btndelPhoto.Border = new Smobiler.Core.Border(1);
-            this.btndelPhoto.BorderColor = System.Drawing.Color.Red;
-            this.btndelPhoto.BorderRadius = 5;
-            this.btndelPhoto.ForeColor = System.Drawing.Color.Red;
-            this.btndelPhoto.Location = new System.Drawing.Point(189, 322);
-            this.btndelPhoto.Name = "btndelPhoto";
-            this.btndelPhoto.Size = new System.Drawing.Size(65, 20);
-            this.btndelPhoto.TabIndex = 27;
-            this.btndelPhoto.Text = "删除";
-            this.btndelPhoto.ZIndex = 16;
-            this.btndelPhoto.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btndelPhoto_Click);
-            // 
-            // Label9
-            // 
-            this.Label9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.Label9.Location = new System.Drawing.Point(66, 320);
-            this.Label9.Name = "Label9";
-            this.Label9.Size = new System.Drawing.Size(235, 30);
-            this.Label9.TabIndex = 28;
-            this.Label9.ZIndex = 14;
-            // 
             // camera1
             // 
             this.camera1.Name = "camera1";
-            this.camera1.QualityMode = Smobiler.Core.Controls.ImageQualityMode.Compressed;
-            this.camera1.ImageCaptured += new Smobiler.Core.CameraOnlineCallBackHandler(this.camera1_ImageCaptured);
+            this.camera1.ImageCaptured += new Smobiler.Core.Controls.CameraOnlineCallBackHandler(this.camera1_ImageCaptured);
             // 
-            // line9
+            // pContent
             // 
-            this.line9.BackColor = System.Drawing.Color.LightGray;
-            this.line9.Location = new System.Drawing.Point(0, 10);
-            this.line9.Name = "line9";
-            this.line9.Size = new System.Drawing.Size(300, 1);
-            this.line9.TabIndex = 29;
-            // 
-            // line1
-            // 
-            this.line1.BackColor = System.Drawing.Color.LightGray;
-            this.line1.Location = new System.Drawing.Point(0, 45);
-            this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(300, 1);
-            this.line1.TabIndex = 30;
-            // 
-            // line2
-            // 
-            this.line2.BackColor = System.Drawing.Color.LightGray;
-            this.line2.Location = new System.Drawing.Point(0, 55);
-            this.line2.Name = "line2";
-            this.line2.Size = new System.Drawing.Size(300, 1);
-            this.line2.TabIndex = 31;
-            // 
-            // line3
-            // 
-            this.line3.BackColor = System.Drawing.Color.LightGray;
-            this.line3.Location = new System.Drawing.Point(0, 90);
-            this.line3.Name = "line3";
-            this.line3.Size = new System.Drawing.Size(300, 1);
-            this.line3.TabIndex = 32;
-            // 
-            // line4
-            // 
-            this.line4.BackColor = System.Drawing.Color.LightGray;
-            this.line4.Location = new System.Drawing.Point(0, 125);
-            this.line4.Name = "line4";
-            this.line4.Size = new System.Drawing.Size(300, 1);
-            this.line4.TabIndex = 33;
-            // 
-            // line5
-            // 
-            this.line5.BackColor = System.Drawing.Color.LightGray;
-            this.line5.Location = new System.Drawing.Point(0, 135);
-            this.line5.Name = "line5";
-            this.line5.Size = new System.Drawing.Size(300, 1);
-            this.line5.TabIndex = 34;
-            // 
-            // line6
-            // 
-            this.line6.BackColor = System.Drawing.Color.LightGray;
-            this.line6.Location = new System.Drawing.Point(0, 170);
-            this.line6.Name = "line6";
-            this.line6.Size = new System.Drawing.Size(300, 1);
-            this.line6.TabIndex = 35;
-            // 
-            // line7
-            // 
-            this.line7.BackColor = System.Drawing.Color.LightGray;
-            this.line7.Location = new System.Drawing.Point(0, 180);
-            this.line7.Name = "line7";
-            this.line7.Size = new System.Drawing.Size(300, 1);
-            this.line7.TabIndex = 36;
-            // 
-            // line8
-            // 
-            this.line8.BackColor = System.Drawing.Color.LightGray;
-            this.line8.Location = new System.Drawing.Point(0, 260);
-            this.line8.Name = "line8";
-            this.line8.Size = new System.Drawing.Size(300, 1);
-            this.line8.TabIndex = 37;
-            // 
-            // line11
-            // 
-            this.line11.BackColor = System.Drawing.Color.LightGray;
-            this.line11.Location = new System.Drawing.Point(0, 350);
-            this.line11.Name = "line11";
-            this.line11.Size = new System.Drawing.Size(300, 1);
-            this.line11.TabIndex = 39;
-            // 
-            // line12
-            // 
-            this.line12.BackColor = System.Drawing.Color.LightGray;
-            this.line12.Location = new System.Drawing.Point(0, 270);
-            this.line12.Name = "line12";
-            this.line12.Size = new System.Drawing.Size(300, 1);
-            this.line12.TabIndex = 40;
-            // 
-            // line13
-            // 
-            this.line13.BackColor = System.Drawing.Color.LightGray;
-            this.line13.Location = new System.Drawing.Point(0, 360);
-            this.line13.Name = "line13";
-            this.line13.Size = new System.Drawing.Size(300, 1);
-            this.line13.TabIndex = 41;
-            // 
-            // lblCheck2
-            // 
-            this.lblCheck2.BorderColor = System.Drawing.Color.LightGray;
-            this.lblCheck2.Location = new System.Drawing.Point(0, 395);
-            this.lblCheck2.Name = "lblCheck2";
-            this.lblCheck2.Size = new System.Drawing.Size(300, 55);
-            this.lblCheck2.TabIndex = 42;
-            this.lblCheck2.ZIndex = 19;
-            // 
-            // lblCCTo2
-            // 
-            this.lblCCTo2.BorderColor = System.Drawing.Color.LightGray;
-            this.lblCCTo2.Location = new System.Drawing.Point(0, 495);
-            this.lblCCTo2.Name = "lblCCTo2";
-            this.lblCCTo2.Size = new System.Drawing.Size(300, 50);
-            this.lblCCTo2.TabIndex = 44;
-            this.lblCCTo2.ZIndex = 23;
-            // 
-            // frmLeaveCreate
-            // 
-            this.ComponentControls.AddRange(new Smobiler.Core.ComponentBase[] {
-            this.popType,
-            this.camera1});
-            this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.btnSave,
+            this.pContent.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.label1,
+            this.btnSave,
             this.btnType,
             this.btnType1,
             this.label2,
@@ -516,36 +90,390 @@ namespace SmoONE.UI.Leave
             this.btndelPhoto,
             this.lblCheck,
             this.lblCheck1,
-            this.lblCheck2,
-            this.imgbtnAddCheck,
+            this.pCheck2,
             this.lblCCTo,
             this.lblCCTo1,
-            this.lblCCTo2,
-            this.imgbtnAddCCTo,
-            this.line9,
-            this.line1,
-            this.line2,
-            this.line3,
-            this.line4,
-            this.line5,
-            this.line6,
-            this.line7,
-            this.line8,
-            this.line11,
-            this.line12,
-            this.line13});
-            this.Size = new System.Drawing.Size(300, 600);
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
-            this.TitleText = "我的请假";
+            this.pCCTo2});
+            this.pContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pContent.Flex = 10000;
+            this.pContent.Location = new System.Drawing.Point(0, 50);
+            this.pContent.Name = "pContent";
+            this.pContent.Scrollable = true;
+            this.pContent.Size = new System.Drawing.Size(300, 450);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.label1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.label1.Location = new System.Drawing.Point(0, 10);
+            this.label1.Name = "label1";
+            this.label1.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.label1.Size = new System.Drawing.Size(66, 35);
+            this.label1.Text = "请假类型";
+            this.label1.ZIndex = 1;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnSave.FontSize = 17F;
+            this.btnSave.Location = new System.Drawing.Point(10, 560);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(280, 35);
+            this.btnSave.Text = "提交";
+            this.btnSave.Press += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnType
+            // 
+            this.btnType.BackColor = System.Drawing.Color.White;
+            this.btnType.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.btnType.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnType.BorderRadius = 0;
+            this.btnType.FontSize = 12F;
+            this.btnType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.btnType.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
+            this.btnType.Location = new System.Drawing.Point(66, 10);
+            this.btnType.Name = "btnType";
+            this.btnType.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 5F, 0F);
+            this.btnType.Size = new System.Drawing.Size(209, 35);
+            this.btnType.Text = "选择（必填）";
+            this.btnType.ZIndex = 2;
+            this.btnType.Press += new System.EventHandler(this.btntype_Click);
+            // 
+            // btnType1
+            // 
+            this.btnType1.BackColor = System.Drawing.Color.White;
+            this.btnType1.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.btnType1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnType1.BorderRadius = 0;
+            this.btnType1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.btnType1.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
+            this.btnType1.Location = new System.Drawing.Point(275, 10);
+            this.btnType1.Name = "btnType1";
+            this.btnType1.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
+            this.btnType1.Size = new System.Drawing.Size(25, 35);
+            this.btnType1.Text = ">";
+            this.btnType1.ZIndex = 3;
+            this.btnType1.Press += new System.EventHandler(this.btntype_Click);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.label2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.label2.Location = new System.Drawing.Point(0, 55);
+            this.label2.Name = "label2";
+            this.label2.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.label2.Size = new System.Drawing.Size(66, 35);
+            this.label2.Text = "开始时间";
+            this.label2.ZIndex = 4;
+            // 
+            // dpkStartDate
+            // 
+            this.dpkStartDate.BackColor = System.Drawing.Color.White;
+            this.dpkStartDate.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.dpkStartDate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.dpkStartDate.FontSize = 12F;
+            this.dpkStartDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.dpkStartDate.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
+            this.dpkStartDate.Location = new System.Drawing.Point(66, 55);
+            this.dpkStartDate.Name = "dpkStartDate";
+            this.dpkStartDate.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
+            this.dpkStartDate.Size = new System.Drawing.Size(234, 35);
+            this.dpkStartDate.Value = new System.DateTime(2017, 8, 9, 11, 47, 17, 764);
+            this.dpkStartDate.ZIndex = 5;
+            // 
+            // Label3
+            // 
+            this.Label3.BackColor = System.Drawing.Color.White;
+            this.Label3.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
+            this.Label3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.Label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.Label3.Location = new System.Drawing.Point(0, 90);
+            this.Label3.Name = "Label3";
+            this.Label3.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.Label3.Size = new System.Drawing.Size(66, 35);
+            this.Label3.Text = "结束时间";
+            this.Label3.ZIndex = 6;
+            // 
+            // dpkEndDate
+            // 
+            this.dpkEndDate.BackColor = System.Drawing.Color.White;
+            this.dpkEndDate.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
+            this.dpkEndDate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.dpkEndDate.FontSize = 12F;
+            this.dpkEndDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.dpkEndDate.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
+            this.dpkEndDate.Location = new System.Drawing.Point(66, 90);
+            this.dpkEndDate.Name = "dpkEndDate";
+            this.dpkEndDate.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
+            this.dpkEndDate.Size = new System.Drawing.Size(234, 35);
+            this.dpkEndDate.Value = new System.DateTime(2017, 8, 9, 11, 47, 17, 767);
+            this.dpkEndDate.ZIndex = 7;
+            // 
+            // Label4
+            // 
+            this.Label4.BackColor = System.Drawing.Color.White;
+            this.Label4.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.Label4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.Label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.Label4.Location = new System.Drawing.Point(0, 135);
+            this.Label4.Name = "Label4";
+            this.Label4.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.Label4.Size = new System.Drawing.Size(66, 35);
+            this.Label4.Text = "请假天数";
+            this.Label4.ZIndex = 8;
+            // 
+            // txtLday
+            // 
+            this.txtLday.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.txtLday.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.txtLday.FontSize = 12F;
+            this.txtLday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.txtLday.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
+            this.txtLday.KeyboardType = Smobiler.Core.Controls.KeyboardType.Numeric;
+            this.txtLday.Location = new System.Drawing.Point(66, 135);
+            this.txtLday.Name = "txtLday";
+            this.txtLday.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
+            this.txtLday.Size = new System.Drawing.Size(234, 35);
+            this.txtLday.WaterMarkText = "（必填）";
+            this.txtLday.ZIndex = 9;
+            // 
+            // Label5
+            // 
+            this.Label5.BackColor = System.Drawing.Color.White;
+            this.Label5.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
+            this.Label5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.Label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.Label5.Location = new System.Drawing.Point(0, 180);
+            this.Label5.Name = "Label5";
+            this.Label5.Padding = new Smobiler.Core.Controls.Padding(4F, 5F, 0F, 0F);
+            this.Label5.Size = new System.Drawing.Size(66, 80);
+            this.Label5.Text = "请假事由";
+            this.Label5.VerticalAlignment = Smobiler.Core.Controls.VerticalAlignment.Top;
+            this.Label5.ZIndex = 10;
+            // 
+            // txtReason
+            // 
+            this.txtReason.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.txtReason.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.txtReason.FontSize = 12F;
+            this.txtReason.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.txtReason.Location = new System.Drawing.Point(66, 180);
+            this.txtReason.Multiline = true;
+            this.txtReason.Name = "txtReason";
+            this.txtReason.Padding = new Smobiler.Core.Controls.Padding(0F, 5F, 30F, 0F);
+            this.txtReason.Size = new System.Drawing.Size(235, 80);
+            this.txtReason.WaterMarkText = "（必填）";
+            this.txtReason.ZIndex = 11;
+            // 
+            // lblImg
+            // 
+            this.lblImg.BackColor = System.Drawing.Color.White;
+            this.lblImg.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.lblImg.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.lblImg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.lblImg.Location = new System.Drawing.Point(0, 270);
+            this.lblImg.Name = "lblImg";
+            this.lblImg.Padding = new Smobiler.Core.Controls.Padding(4F, 5F, 0F, 0F);
+            this.lblImg.Size = new System.Drawing.Size(66, 80);
+            this.lblImg.Text = "图片";
+            this.lblImg.VerticalAlignment = Smobiler.Core.Controls.VerticalAlignment.Top;
+            this.lblImg.ZIndex = 12;
+            // 
+            // imgL
+            // 
+            this.imgL.BackColor = System.Drawing.Color.White;
+            this.imgL.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
+            this.imgL.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.imgL.Location = new System.Drawing.Point(66, 270);
+            this.imgL.Name = "imgL";
+            this.imgL.Padding = new Smobiler.Core.Controls.Padding(0F, 2F, 0F, 0F);
+            this.imgL.Size = new System.Drawing.Size(235, 50);
+            this.imgL.ZIndex = 13;
+            // 
+            // Label9
+            // 
+            this.Label9.BackColor = System.Drawing.Color.White;
+            this.Label9.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
+            this.Label9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.Label9.Location = new System.Drawing.Point(66, 320);
+            this.Label9.Name = "Label9";
+            this.Label9.Size = new System.Drawing.Size(235, 30);
+            this.Label9.ZIndex = 14;
+            // 
+            // btnupPhoto
+            // 
+            this.btnupPhoto.BackColor = System.Drawing.Color.White;
+            this.btnupPhoto.Border = new Smobiler.Core.Controls.Border(1F);
+            this.btnupPhoto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.btnupPhoto.BorderRadius = 4;
+            this.btnupPhoto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.btnupPhoto.Location = new System.Drawing.Point(114, 322);
+            this.btnupPhoto.Name = "btnupPhoto";
+            this.btnupPhoto.Size = new System.Drawing.Size(65, 20);
+            this.btnupPhoto.Text = "上传";
+            this.btnupPhoto.ZIndex = 15;
+            this.btnupPhoto.Press += new System.EventHandler(this.btnupPhoto_Click);
+            // 
+            // btndelPhoto
+            // 
+            this.btndelPhoto.BackColor = System.Drawing.Color.White;
+            this.btndelPhoto.Border = new Smobiler.Core.Controls.Border(1F);
+            this.btndelPhoto.BorderColor = System.Drawing.Color.Red;
+            this.btndelPhoto.BorderRadius = 4;
+            this.btndelPhoto.ForeColor = System.Drawing.Color.Red;
+            this.btndelPhoto.Location = new System.Drawing.Point(189, 322);
+            this.btndelPhoto.Name = "btndelPhoto";
+            this.btndelPhoto.Size = new System.Drawing.Size(65, 20);
+            this.btndelPhoto.Text = "删除";
+            this.btndelPhoto.ZIndex = 16;
+            this.btndelPhoto.Press += new System.EventHandler(this.btndelPhoto_Click);
+            // 
+            // lblCheck
+            // 
+            this.lblCheck.BackColor = System.Drawing.Color.White;
+            this.lblCheck.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.lblCheck.BorderColor = System.Drawing.Color.LightGray;
+            this.lblCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.lblCheck.Location = new System.Drawing.Point(0, 360);
+            this.lblCheck.Name = "lblCheck";
+            this.lblCheck.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.lblCheck.Size = new System.Drawing.Size(66, 35);
+            this.lblCheck.Text = "审批人";
+            this.lblCheck.ZIndex = 17;
+            // 
+            // lblCheck1
+            // 
+            this.lblCheck1.BackColor = System.Drawing.Color.White;
+            this.lblCheck1.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.lblCheck1.BorderColor = System.Drawing.Color.LightGray;
+            this.lblCheck1.ForeColor = System.Drawing.Color.Silver;
+            this.lblCheck1.Location = new System.Drawing.Point(66, 360);
+            this.lblCheck1.Name = "lblCheck1";
+            this.lblCheck1.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
+            this.lblCheck1.Size = new System.Drawing.Size(234, 35);
+            this.lblCheck1.Text = "（添加1-4位审批人，点击头像可删除）";
+            this.lblCheck1.ZIndex = 18;
+            // 
+            // pCheck2
+            // 
+            this.pCheck2.BackColor = System.Drawing.Color.White;
+            this.pCheck2.BorderColor = System.Drawing.Color.LightGray;
+            this.pCheck2.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.imgbtnAddCheck});
+            this.pCheck2.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.pCheck2.Layout = Smobiler.Core.Controls.LayoutPosition.Relative;
+            this.pCheck2.Location = new System.Drawing.Point(0, 395);
+            this.pCheck2.Name = "pCheck2";
+            this.pCheck2.Padding = new Smobiler.Core.Controls.Padding(65F, 0F, 0F, 0F);
+            this.pCheck2.Size = new System.Drawing.Size(300, 55);
+            this.pCheck2.ZIndex = 19;
+            // 
+            // imgbtnAddCheck
+            // 
+            this.imgbtnAddCheck.BackColor = System.Drawing.Color.White;
+            this.imgbtnAddCheck.FontSize = 13F;
+            this.imgbtnAddCheck.ForeColor = System.Drawing.Color.Black;
+            this.imgbtnAddCheck.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
+            this.imgbtnAddCheck.ImageType = Smobiler.Core.Controls.ImageEx.ImageStyle.Image;
+            this.imgbtnAddCheck.Layout = Smobiler.Core.Controls.LayoutPosition.Relative;
+            this.imgbtnAddCheck.Name = "imgbtnAddCheck";
+            this.imgbtnAddCheck.ResourceID = "add";
+            this.imgbtnAddCheck.Size = new System.Drawing.Size(35, 35);
+            this.imgbtnAddCheck.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Zoom;
+            this.imgbtnAddCheck.ZIndex = 20;
+            this.imgbtnAddCheck.Press += new System.EventHandler(this.imgbtnAddCheck_Click);
+            // 
+            // lblCCTo
+            // 
+            this.lblCCTo.BackColor = System.Drawing.Color.White;
+            this.lblCCTo.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
+            this.lblCCTo.BorderColor = System.Drawing.Color.LightGray;
+            this.lblCCTo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.lblCCTo.Location = new System.Drawing.Point(0, 460);
+            this.lblCCTo.Name = "lblCCTo";
+            this.lblCCTo.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.lblCCTo.Size = new System.Drawing.Size(66, 35);
+            this.lblCCTo.Text = "抄送人";
+            this.lblCCTo.ZIndex = 21;
+            // 
+            // lblCCTo1
+            // 
+            this.lblCCTo1.BackColor = System.Drawing.Color.White;
+            this.lblCCTo1.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
+            this.lblCCTo1.BorderColor = System.Drawing.Color.LightGray;
+            this.lblCCTo1.ForeColor = System.Drawing.Color.Silver;
+            this.lblCCTo1.Location = new System.Drawing.Point(66, 460);
+            this.lblCCTo1.Name = "lblCCTo1";
+            this.lblCCTo1.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
+            this.lblCCTo1.Size = new System.Drawing.Size(234, 35);
+            this.lblCCTo1.Text = "（添加0-4位抄送人，点击头像可删除）";
+            this.lblCCTo1.ZIndex = 22;
+            // 
+            // pCCTo2
+            // 
+            this.pCCTo2.BackColor = System.Drawing.Color.White;
+            this.pCCTo2.BorderColor = System.Drawing.Color.LightGray;
+            this.pCCTo2.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.imgbtnAddCCTo});
+            this.pCCTo2.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.pCCTo2.Layout = Smobiler.Core.Controls.LayoutPosition.Relative;
+            this.pCCTo2.Location = new System.Drawing.Point(0, 495);
+            this.pCCTo2.Name = "pCCTo2";
+            this.pCCTo2.Padding = new Smobiler.Core.Controls.Padding(65F, 0F, 0F, 0F);
+            this.pCCTo2.Size = new System.Drawing.Size(300, 50);
+            this.pCCTo2.ZIndex = 23;
+            // 
+            // imgbtnAddCCTo
+            // 
+            this.imgbtnAddCCTo.BackColor = System.Drawing.Color.White;
+            this.imgbtnAddCCTo.FontSize = 13F;
+            this.imgbtnAddCCTo.ForeColor = System.Drawing.Color.Black;
+            this.imgbtnAddCCTo.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
+            this.imgbtnAddCCTo.ImageType = Smobiler.Core.Controls.ImageEx.ImageStyle.Image;
+            this.imgbtnAddCCTo.Layout = Smobiler.Core.Controls.LayoutPosition.Relative;
+            this.imgbtnAddCCTo.Name = "imgbtnAddCCTo";
+            this.imgbtnAddCCTo.ResourceID = "add";
+            this.imgbtnAddCCTo.Size = new System.Drawing.Size(35, 35);
+            this.imgbtnAddCCTo.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Zoom;
+            this.imgbtnAddCCTo.ZIndex = 24;
+            this.imgbtnAddCCTo.Press += new System.EventHandler(this.imgbtnAddCCTo_Click);
+            // 
+            // title1
+            // 
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.FontSize = 15F;
+            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.title1.Location = new System.Drawing.Point(111, 36);
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
+            this.title1.TitleText = "请假";
+            // 
+            // frmLeaveCreate
+            // 
+            this.Components.AddRange(new Smobiler.Core.Controls.MobileComponent[] {
+            this.popType,
+            this.camera1});
+            this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.title1,
+            this.pContent});
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmLeaveCreate_KeyDown);
             this.Load += new System.EventHandler(this.frmLeaveCreate_Load);
-            this.TitleImageClick += new System.EventHandler(this.frmLeaveCreate_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmLeaveCreate_KeyDown);
             this.Name = "frmLeaveCreate";
 
         }
         #endregion
 
+        private Smobiler.Core.Controls.PopList popType;
+        private Smobiler.Core.Controls.Camera camera1;
+        private Smobiler.Core.Controls.Panel pContent;
         internal Smobiler.Core.Controls.Label label1;
+        private Smobiler.Core.Controls.Button btnSave;
         internal Smobiler.Core.Controls.Button btnType;
         internal Smobiler.Core.Controls.Button btnType1;
         internal Smobiler.Core.Controls.Label label2;
@@ -557,33 +485,18 @@ namespace SmoONE.UI.Leave
         internal Smobiler.Core.Controls.Label Label5;
         internal Smobiler.Core.Controls.TextBox txtReason;
         internal Smobiler.Core.Controls.Label lblImg;
-        internal Smobiler.Core.Controls.Label lblCheck;
-        private Smobiler.Core.Controls.Label lblCheck1;
-        private Smobiler.Core.Controls.ImageButton imgbtnAddCheck;
-        private Smobiler.Core.Controls.PopList popType;
-        private Smobiler.Core.Controls.Button btnSave;
-        private Smobiler.Core.Controls.Label lblCCTo1;
-        internal Smobiler.Core.Controls.Label lblCCTo;
-        private Smobiler.Core.Controls.ImageButton imgbtnAddCCTo;
         internal Smobiler.Core.Controls.Image imgL;
+        internal Smobiler.Core.Controls.Label Label9;
         internal Smobiler.Core.Controls.Button btnupPhoto;
         internal Smobiler.Core.Controls.Button btndelPhoto;
-        internal Smobiler.Core.Controls.Label Label9;
-        private Smobiler.Core.Controls.Camera camera1;
-        private Smobiler.Core.Controls.Line line9;
-        private Smobiler.Core.Controls.Line line1;
-        private Smobiler.Core.Controls.Line line2;
-        private Smobiler.Core.Controls.Line line3;
-        private Smobiler.Core.Controls.Line line4;
-        private Smobiler.Core.Controls.Line line5;
-        private Smobiler.Core.Controls.Line line6;
-        private Smobiler.Core.Controls.Line line7;
-        private Smobiler.Core.Controls.Line line8;
-        private Smobiler.Core.Controls.Line line11;
-        private Smobiler.Core.Controls.Line line12;
-        private Smobiler.Core.Controls.Line line13;
-        private Smobiler.Core.Controls.Label lblCheck2;
-        private Smobiler.Core.Controls.Label lblCCTo2;
-
+        internal Smobiler.Core.Controls.Label lblCheck;
+        private Smobiler.Core.Controls.Label lblCheck1;
+        private Smobiler.Core.Controls.Panel pCheck2;
+        internal Smobiler.Core.Controls.Label lblCCTo;
+        private Smobiler.Core.Controls.Label lblCCTo1;
+        private Smobiler.Core.Controls.Panel pCCTo2;
+        private SmoONE.UI.Layout.Title title1;
+        private Layout.ImageButton imgbtnAddCheck;
+        private Layout.ImageButton imgbtnAddCCTo;
     }
 }

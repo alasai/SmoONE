@@ -1,8 +1,10 @@
-Ôªøusing System;
+using System;
 using Smobiler.Core;
+using SmoONE.UI.Layout;
+
 namespace SmoONE.UI.RB
 {
-    partial class frmRTypeTempCreate : Smobiler.Core.MobileForm
+    partial class frmRTypeTempCreate : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,285 +30,269 @@ namespace SmoONE.UI.RB
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.Label4 = new Smobiler.Core.Controls.Label();
+            this.title = new SmoONE.UI.Layout.Title();
+            this.spContent = new Smobiler.Core.Controls.Panel();
+            this.plMoney = new Smobiler.Core.Controls.Panel();
+            this.label2 = new Smobiler.Core.Controls.Label();
             this.txtMoney = new Smobiler.Core.Controls.TextBox();
-            this.Label1 = new Smobiler.Core.Controls.Label();
-            this.Label5 = new Smobiler.Core.Controls.Label();
+            this.label3 = new Smobiler.Core.Controls.Label();
+            this.plRBType = new Smobiler.Core.Controls.Panel();
+            this.label4 = new Smobiler.Core.Controls.Label();
             this.btnRBType = new Smobiler.Core.Controls.Button();
             this.btnRBType1 = new Smobiler.Core.Controls.Button();
-            this.Label3 = new Smobiler.Core.Controls.Label();
+            this.plNote = new Smobiler.Core.Controls.Panel();
+            this.label6 = new Smobiler.Core.Controls.Label();
             this.txtNote = new Smobiler.Core.Controls.TextBox();
-            this.Label6 = new Smobiler.Core.Controls.Label();
-            this.save = new Smobiler.Core.Controls.ToolbarItem();
-            this.line1 = new Smobiler.Core.Controls.Line();
-            this.line2 = new Smobiler.Core.Controls.Line();
-            this.line3 = new Smobiler.Core.Controls.Line();
-            this.line4 = new Smobiler.Core.Controls.Line();
-            this.line5 = new Smobiler.Core.Controls.Line();
-            this.line6 = new Smobiler.Core.Controls.Line();
+            this.label1 = new Smobiler.Core.Controls.Label();
             this.btnSave = new Smobiler.Core.Controls.Button();
             this.btnDelete = new Smobiler.Core.Controls.Button();
+            this.label7 = new Smobiler.Core.Controls.Label();
+            this.button1 = new Smobiler.Core.Controls.Button();
+            this.button2 = new Smobiler.Core.Controls.Button();
             // 
-            // Label4
+            // title
             // 
-            this.Label4.Border = new Smobiler.Core.Border(0, 0, 0, 1);
-            this.Label4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.Label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.Label4.Location = new System.Drawing.Point(0, 10);
-            this.Label4.Name = "Label4";
-            this.Label4.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.Label4.Size = new System.Drawing.Size(88, 35);
-            this.Label4.TabIndex = 2;
-            this.Label4.Text = "Ê∂àË¥πÈáëÈ¢ù";
+            this.title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title.FontSize = 15F;
+            this.title.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.title.Location = new System.Drawing.Point(103, 89);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(100, 50);
+            this.title.TitleText = "œ˚∑—ƒ£∞Â¥¥Ω®";
+            // 
+            // spContent
+            // 
+            this.spContent.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.plMoney,
+            this.plRBType,
+            this.plNote,
+            this.label1,
+            this.btnSave,
+            this.btnDelete});
+            this.spContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spContent.Flex = 10000;
+            this.spContent.Location = new System.Drawing.Point(70, 245);
+            this.spContent.Margin = new Smobiler.Core.Controls.Margin(0F, 10F, 0F, 0F);
+            this.spContent.Name = "spContent";
+            this.spContent.Scrollable = true;
+            this.spContent.Size = new System.Drawing.Size(100, 30);
+            // 
+            // plMoney
+            // 
+            this.plMoney.BackColor = System.Drawing.Color.White;
+            this.plMoney.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.plMoney.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.plMoney.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.label2,
+            this.txtMoney,
+            this.label3});
+            this.plMoney.Name = "plMoney";
+            this.plMoney.Size = new System.Drawing.Size(300, 35);
+            // 
+            // label2
+            // 
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.label2.Name = "label2";
+            this.label2.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.label2.Size = new System.Drawing.Size(88, 35);
+            this.label2.Text = "œ˚∑—Ω∂Ó";
             // 
             // txtMoney
             // 
-            this.txtMoney.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.txtMoney.FontSize = 12F;
+            this.txtMoney.BackColor = System.Drawing.Color.Transparent;
             this.txtMoney.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.txtMoney.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.txtMoney.InputType = Smobiler.Core.TextBoxInputType.Number;
-            this.txtMoney.Location = new System.Drawing.Point(88, 10);
+            this.txtMoney.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
+            this.txtMoney.KeyboardType = Smobiler.Core.Controls.KeyboardType.Numeric;
+            this.txtMoney.Location = new System.Drawing.Point(88, 0);
             this.txtMoney.Name = "txtMoney";
-            this.txtMoney.Padding = new Smobiler.Core.Padding(0F, 0F, 5F, 0F);
+            this.txtMoney.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 5F, 0F);
             this.txtMoney.Size = new System.Drawing.Size(168, 35);
-            this.txtMoney.TabIndex = 3;
             this.txtMoney.WaterMarkText = "0.00";
             // 
-            // Label1
+            // label3
             // 
-            this.Label1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.Label1.FontSize = 12F;
-            this.Label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.Label1.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.Label1.Location = new System.Drawing.Point(255, 10);
-            this.Label1.Name = "Label1";
-            this.Label1.Padding = new Smobiler.Core.Padding(0F, 0F, 30F, 0F);
-            this.Label1.Size = new System.Drawing.Size(45, 35);
-            this.Label1.TabIndex = 4;
-            this.Label1.Text = "ÂÖÉ";
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.label3.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
+            this.label3.Location = new System.Drawing.Point(255, 0);
+            this.label3.Name = "label3";
+            this.label3.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
+            this.label3.Size = new System.Drawing.Size(45, 35);
+            this.label3.Text = "‘™";
             // 
-            // Label5
+            // plRBType
             // 
-            this.Label5.Border = new Smobiler.Core.Border(0, 1, 0, 1);
-            this.Label5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.Label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.Label5.Location = new System.Drawing.Point(0, 55);
-            this.Label5.Name = "Label5";
-            this.Label5.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
-            this.Label5.Size = new System.Drawing.Size(88, 35);
-            this.Label5.TabIndex = 5;
-            this.Label5.Text = "Ê∂àË¥πÁ±ªÂà´";
+            this.plRBType.BackColor = System.Drawing.Color.White;
+            this.plRBType.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.plRBType.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.plRBType.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.label4,
+            this.btnRBType,
+            this.btnRBType1});
+            this.plRBType.Location = new System.Drawing.Point(0, 45);
+            this.plRBType.Name = "plRBType";
+            this.plRBType.Size = new System.Drawing.Size(300, 35);
+            // 
+            // label4
+            // 
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.label4.Name = "label4";
+            this.label4.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.label4.Size = new System.Drawing.Size(88, 35);
+            this.label4.Text = "œ˚∑—¿‡±";
             // 
             // btnRBType
             // 
-            this.btnRBType.Border = new Smobiler.Core.Border(0, 1, 0, 1);
-            this.btnRBType.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.btnRBType.FontSize = 12F;
+            this.btnRBType.BackColor = System.Drawing.Color.Transparent;
+            this.btnRBType.BorderRadius = 0;
             this.btnRBType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.btnRBType.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.btnRBType.HoverBackColor = System.Drawing.Color.White;
-            this.btnRBType.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.btnRBType.Location = new System.Drawing.Point(88, 55);
+            this.btnRBType.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
+            this.btnRBType.Location = new System.Drawing.Point(88, 0);
             this.btnRBType.Name = "btnRBType";
-            this.btnRBType.Padding = new Smobiler.Core.Padding(0F, 0F, 5F, 0F);
+            this.btnRBType.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 5F, 0F);
             this.btnRBType.Size = new System.Drawing.Size(188, 35);
-            this.btnRBType.TabIndex = 6;
-            this.btnRBType.Text = "ÈÄâÊã©ÔºàÂøÖÂ°´Ôºâ";
-            this.btnRBType.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnRBType_Click);
+            this.btnRBType.Text = "—°‘Ò£®±ÿÃÓ£©";
+            this.btnRBType.Press += new System.EventHandler(this.btnRBType_Press);
             // 
             // btnRBType1
             // 
-            this.btnRBType1.Border = new Smobiler.Core.Border(0, 1, 0, 1);
-            this.btnRBType1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnRBType1.BackColor = System.Drawing.Color.Transparent;
+            this.btnRBType1.BorderRadius = 0;
             this.btnRBType1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.btnRBType1.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.btnRBType1.HoverBackColor = System.Drawing.Color.White;
-            this.btnRBType1.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.btnRBType1.Location = new System.Drawing.Point(276, 55);
+            this.btnRBType1.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
+            this.btnRBType1.Location = new System.Drawing.Point(275, 0);
             this.btnRBType1.Name = "btnRBType1";
-            this.btnRBType1.Padding = new Smobiler.Core.Padding(0F, 0F, 4F, 0F);
+            this.btnRBType1.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.btnRBType1.Size = new System.Drawing.Size(25, 35);
-            this.btnRBType1.TabIndex = 7;
             this.btnRBType1.Text = ">";
-            this.btnRBType1.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnRBType_Click);
+            this.btnRBType1.Press += new System.EventHandler(this.btnRBType_Press);
             // 
-            // Label3
+            // plNote
             // 
-            this.Label3.Border = new Smobiler.Core.Border(0, 1, 0, 1);
-            this.Label3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.Label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.Label3.Location = new System.Drawing.Point(0, 100);
-            this.Label3.Name = "Label3";
-            this.Label3.Padding = new Smobiler.Core.Padding(4F, 5F, 0F, 0F);
-            this.Label3.Size = new System.Drawing.Size(88, 100);
-            this.Label3.TabIndex = 8;
-            this.Label3.Text = "Â§áÊ≥®";
-            this.Label3.VerticalAlignment = Smobiler.Core.VerticalAlignment.Top;
+            this.plNote.BackColor = System.Drawing.Color.White;
+            this.plNote.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.plNote.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.plNote.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.label6,
+            this.txtNote});
+            this.plNote.Location = new System.Drawing.Point(0, 90);
+            this.plNote.Name = "plNote";
+            this.plNote.Size = new System.Drawing.Size(300, 100);
+            // 
+            // label6
+            // 
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.label6.Name = "label6";
+            this.label6.Padding = new Smobiler.Core.Controls.Padding(4F, 5F, 0F, 0F);
+            this.label6.Size = new System.Drawing.Size(88, 100);
+            this.label6.Text = "±∏◊¢";
+            this.label6.VerticalAlignment = Smobiler.Core.Controls.VerticalAlignment.Top;
             // 
             // txtNote
             // 
-            this.txtNote.Border = new Smobiler.Core.Border(0, 1, 0, 1);
-            this.txtNote.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.txtNote.FontSize = 12F;
+            this.txtNote.BackColor = System.Drawing.Color.Transparent;
             this.txtNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.txtNote.Location = new System.Drawing.Point(87, 100);
+            this.txtNote.Location = new System.Drawing.Point(88, 0);
             this.txtNote.MaxLength = 200;
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
-            this.txtNote.Padding = new Smobiler.Core.Padding(0F, 5F, 30F, 0F);
-            this.txtNote.Size = new System.Drawing.Size(213, 100);
-            this.txtNote.TabIndex = 9;
-            this.txtNote.WaterMarkText = "ËØ∑ËæìÂÖ•Ë¥πÁî®ÊòéÁªÜÊèèËø∞ÔºàÂøÖÂ°´Ôºâ";
+            this.txtNote.Padding = new Smobiler.Core.Controls.Padding(0F, 5F, 30F, 0F);
+            this.txtNote.Size = new System.Drawing.Size(212, 100);
+            this.txtNote.WaterMarkText = "£®±ÿÃÓ£©";
             // 
-            // Label6
+            // label1
             // 
-            this.Label6.BackColorAlpha = 0;
-            this.Label6.FontSize = 13F;
-            this.Label6.ForeColor = System.Drawing.Color.Red;
-            this.Label6.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Right;
-            this.Label6.Location = new System.Drawing.Point(0, 200);
-            this.Label6.Name = "Label6";
-            this.Label6.Padding = new Smobiler.Core.Padding(0F, 0F, 30F, 0F);
-            this.Label6.Size = new System.Drawing.Size(300, 25);
-            this.Label6.TabIndex = 10;
-            this.Label6.Text = "Â§áÊ≥®ÈïøÂ∫¶‰∏çËÉΩË∂ÖËøá200ÔºÅ";
-            // 
-            // save
-            // 
-            this.save.IconID = "!\\ue161043146223";
-            this.save.Name = "save";
-            this.save.Text = "‰øùÂ≠ò";
-            this.save.Visible = false;
-            // 
-            // line1
-            // 
-            this.line1.BackColor = System.Drawing.Color.LightGray;
-            this.line1.Location = new System.Drawing.Point(0, 10);
-            this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(300, 1);
-            this.line1.TabIndex = 11;
-            // 
-            // line2
-            // 
-            this.line2.BackColor = System.Drawing.Color.LightGray;
-            this.line2.Location = new System.Drawing.Point(0, 45);
-            this.line2.Name = "line2";
-            this.line2.Size = new System.Drawing.Size(300, 1);
-            this.line2.TabIndex = 12;
-            // 
-            // line3
-            // 
-            this.line3.BackColor = System.Drawing.Color.LightGray;
-            this.line3.Location = new System.Drawing.Point(0, 55);
-            this.line3.Name = "line3";
-            this.line3.Size = new System.Drawing.Size(300, 1);
-            this.line3.TabIndex = 13;
-            // 
-            // line4
-            // 
-            this.line4.BackColor = System.Drawing.Color.LightGray;
-            this.line4.Location = new System.Drawing.Point(0, 90);
-            this.line4.Name = "line4";
-            this.line4.Size = new System.Drawing.Size(300, 1);
-            this.line4.TabIndex = 14;
-            // 
-            // line5
-            // 
-            this.line5.BackColor = System.Drawing.Color.LightGray;
-            this.line5.Location = new System.Drawing.Point(0, 100);
-            this.line5.Name = "line5";
-            this.line5.Size = new System.Drawing.Size(300, 1);
-            this.line5.TabIndex = 15;
-            // 
-            // line6
-            // 
-            this.line6.BackColor = System.Drawing.Color.LightGray;
-            this.line6.Location = new System.Drawing.Point(0, 200);
-            this.line6.Name = "line6";
-            this.line6.Size = new System.Drawing.Size(300, 1);
-            this.line6.TabIndex = 16;
+            this.label1.FontSize = 12F;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
+            this.label1.Location = new System.Drawing.Point(0, 190);
+            this.label1.Name = "label1";
+            this.label1.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
+            this.label1.Size = new System.Drawing.Size(300, 25);
+            this.label1.Text = "±∏◊¢≥§∂»≤ªƒ‹≥¨π˝200£°";
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnSave.BorderRadius = 2;
-            this.btnSave.FontSize = 17F;
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(135)))), ((int)(((byte)(209)))));
-            this.btnSave.HoverForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(10, 235);
+            this.btnSave.FontSize = 15F;
+            this.btnSave.Location = new System.Drawing.Point(10, 225);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(134, 35);
-            this.btnSave.TabIndex = 17;
-            this.btnSave.Text = "Êèê‰∫§";
-            this.btnSave.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnCreate_Click);
+            this.btnSave.Text = "Ã·Ωª";
+            this.btnSave.Press += new System.EventHandler(this.btnSave_Press);
             // 
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(158)))), ((int)(((byte)(38)))));
-            this.btnDelete.BorderRadius = 2;
-            this.btnDelete.FontSize = 17F;
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(151)))), ((int)(((byte)(34)))));
-            this.btnDelete.HoverForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(156, 235);
+            this.btnDelete.FontSize = 15F;
+            this.btnDelete.Location = new System.Drawing.Point(156, 225);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(134, 35);
-            this.btnDelete.TabIndex = 18;
-            this.btnDelete.Text = "Âà†Èô§";
-            this.btnDelete.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnDelete_Click);
+            this.btnDelete.Text = "…æ≥˝";
+            this.btnDelete.Press += new System.EventHandler(this.btnDelete_Press);
+            // 
+            // label7
+            // 
+            this.label7.FontSize = 12F;
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
+            this.label7.Location = new System.Drawing.Point(0, 190);
+            this.label7.Name = "label7";
+            this.label7.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
+            this.label7.Size = new System.Drawing.Size(300, 25);
+            this.label7.Text = "±∏◊¢≥§∂»≤ªƒ‹≥¨π˝200£°";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.button1.FontSize = 15F;
+            this.button1.Location = new System.Drawing.Point(10, 225);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 35);
+            this.button1.Text = "Ã·Ωª";
+            this.button1.Press += new System.EventHandler(this.btnSave_Press);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(158)))), ((int)(((byte)(38)))));
+            this.button2.FontSize = 15F;
+            this.button2.Location = new System.Drawing.Point(156, 225);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(134, 35);
+            this.button2.Text = "…æ≥˝";
+            this.button2.Press += new System.EventHandler(this.btnDelete_Press);
             // 
             // frmRTypeTempCreate
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.Label4,
-            this.txtMoney,
-            this.Label1,
-            this.Label5,
-            this.btnRBType,
-            this.btnRBType1,
-            this.Label3,
-            this.txtNote,
-            this.Label6,
-            this.line1,
-            this.line2,
-            this.line3,
-            this.line4,
-            this.line5,
-            this.line6,
-            this.btnSave,
-            this.btnDelete});
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
-            this.TitleText = "Ê∂àË¥πÊ®°ÊùøÂàõÂª∫";
-            this.Toolbar.AddRange(new Smobiler.Core.Controls.ToolbarItem[] {
-            this.save});
-            this.ToolbarStyle = new Smobiler.Core.ToolBarSytle(Smobiler.Core.ToolbarSelectStyle.None, System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249))))), System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223))))), System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249))))), System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223))))));
-            this.Load += new System.EventHandler(this.frmConsModelCreate_Load);
-            this.TitleImageClick += new System.EventHandler(this.frmConsModelCreate_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmConsModelCreate_KeyDown);
+            this.title,
+            this.spContent});
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmRTypeTempCreate_KeyDown);
+            this.Load += new System.EventHandler(this.frmRTypeTempCreate_Load);
             this.Name = "frmRTypeTempCreate";
 
         }
         #endregion
 
-        internal Smobiler.Core.Controls.Label Label4;
-        internal Smobiler.Core.Controls.TextBox txtMoney;
-        internal Smobiler.Core.Controls.Label Label1;
-        internal Smobiler.Core.Controls.Label Label5;
+        private Title title;
+        private Smobiler.Core.Controls.Panel spContent;
+        private Smobiler.Core.Controls.Panel plMoney;
+        private Smobiler.Core.Controls.Label label2;
+        private Smobiler.Core.Controls.TextBox txtMoney;
+        private Smobiler.Core.Controls.Label label3;
+        private Smobiler.Core.Controls.Panel plRBType;
+        internal Smobiler.Core.Controls.Label label4;
         internal Smobiler.Core.Controls.Button btnRBType;
-        internal Smobiler.Core.Controls.Button btnRBType1;
-        internal Smobiler.Core.Controls.Label Label3;
-        internal Smobiler.Core.Controls.TextBox txtNote;
-        internal Smobiler.Core.Controls.Label Label6;
-        internal Smobiler.Core.Controls.ToolbarItem save;
-        private Smobiler.Core.Controls.Line line1;
-        private Smobiler.Core.Controls.Line line2;
-        private Smobiler.Core.Controls.Line line3;
-        private Smobiler.Core.Controls.Line line4;
-        private Smobiler.Core.Controls.Line line5;
-        private Smobiler.Core.Controls.Line line6;
+        private Smobiler.Core.Controls.Button btnRBType1;
+        private Smobiler.Core.Controls.Panel plNote;
+        private Smobiler.Core.Controls.Label label6;
+        private Smobiler.Core.Controls.TextBox txtNote;
+        private Smobiler.Core.Controls.Label label7;
         private Smobiler.Core.Controls.Button btnSave;
         private Smobiler.Core.Controls.Button btnDelete;
+        private Smobiler.Core.Controls.Label label1;
+        private Smobiler.Core.Controls.Button button1;
+        private Smobiler.Core.Controls.Button button2;
     }
 }

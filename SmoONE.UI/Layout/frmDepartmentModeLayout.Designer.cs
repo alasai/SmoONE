@@ -2,7 +2,7 @@ using System;
 using Smobiler.Core;
 namespace SmoONE.UI.Layout
 {
-    partial class frmDepartmentModeLayout : Smobiler.Core.MobileForm
+    partial class frmDepartmentModeLayout : Smobiler.Core.Controls.MobileUserControl
     {
         #region "SmobilerForm generated code "
 
@@ -32,14 +32,13 @@ namespace SmoONE.UI.Layout
             // 
             // btnDMode
             // 
+            this.btnDMode.BackColor = System.Drawing.Color.White;
+            this.btnDMode.BorderRadius = 0;
             this.btnDMode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnDMode.HoverBackColor = System.Drawing.Color.White;
-            this.btnDMode.HoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             this.btnDMode.Name = "btnDMode";
             this.btnDMode.Size = new System.Drawing.Size(300, 35);
-            this.btnDMode.TabIndex = 2;
             this.btnDMode.Text = "�㼶չʾ";
-            this.btnDMode.Click += new Smobiler.Core.Controls.ButtonBase.ClickEventHandler(this.btnDLayout_Click);
+            this.btnDMode.Press += new System.EventHandler(this.btnDLayout_Click);
             // 
             // frmDepartmentModeLayout
             // 

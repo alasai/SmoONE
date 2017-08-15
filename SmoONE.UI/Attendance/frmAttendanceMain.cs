@@ -18,18 +18,18 @@ namespace SmoONE.UI.Attendance
     // 创建时间： 2017/2
     // 主要内容： 考勤签到界面(考勤统计查看界面)
     // ******************************************************************
-    partial class frmAttendanceMain : Smobiler.Core.MobileForm
+    partial class frmAttendanceMain : Smobiler.Core.Controls.MobileForm
     {
         #region "definition"
-        int LocState;      //定位状态
-        string Location;        //定位签到所在位置
+        public int LocState;      //定位状态
+        public string Location;        //定位签到所在位置
         public string DayTime;   //查看统计时候，查看的具体日期
         DateTime AL_Date;   //签到时间
         public int enter;  //页面进入状态 1：签到   2：说明统计查看  
-        internal string UserID;     //用户ID
+        public  string UserID;     //用户ID
         public string CommutingType;    //上下班状态
-        bool? hasgps = null;    //是否获取GPS   
-        ALInputDto newLog = new ALInputDto();     //新建日志传输对象
+        public bool? hasgps = null;    //是否获取GPS   
+        internal ALInputDto newLog = new ALInputDto();     //新建日志传输对象
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类     
         #endregion
         /// <summary>
@@ -69,9 +69,9 @@ namespace SmoONE.UI.Attendance
                         //获取定位信息：经纬度和所处位置
                         if ((ATMainState)Enum.Parse(typeof(ATMainState), enter.ToString()) != ATMainState.统计查看)        //只有进行签到时候才获取定位信息
                         {
-                            this.gps1.GetGps(new GpsCallBackHandler((object ss, Smobiler.Core.Controls.GPSData ee) =>
+                            this.gps1.GetGps(new GpsCallBackHandler((object ss, Smobiler.Core.Controls.GPSResultArgs ee) =>
                             {
-                                if (ee.IsError == true)
+                                if (ee.isError  == true)
                                 {
                                     hasgps = false;
                                 }
@@ -79,7 +79,7 @@ namespace SmoONE.UI.Attendance
                                 {
                                     hasgps = true;
                                 }
-                                if ((ee.Latitude == Convert.ToDecimal(WorkTime.AT_Latitude) && ee.Longitude == Convert.ToDecimal(WorkTime.AT_Longitude)) || ATAddressDistance.GetDistance(Convert.ToDouble(ee.Latitude), Convert.ToDouble(ee.Longitude), Convert.ToDouble(WorkTime.AT_Latitude), Convert.ToDouble(WorkTime.AT_Longitude)) < Convert.ToDouble(WorkTime.AT_AllowableDeviation.ToString()))
+                                if ((ee.Latitude == Convert.ToDouble(WorkTime.AT_Latitude) && ee.Longitude == Convert.ToDouble(WorkTime.AT_Longitude)) || ATAddressDistance.GetDistance(Convert.ToDouble(ee.Latitude), Convert.ToDouble(ee.Longitude), Convert.ToDouble(WorkTime.AT_Latitude), Convert.ToDouble(WorkTime.AT_Longitude)) < Convert.ToDouble(WorkTime.AT_AllowableDeviation.ToString()))
                                 {
                                     LocState = 1;
                                     Location = ee.Location;        //定位签到所在位置
@@ -107,7 +107,7 @@ namespace SmoONE.UI.Attendance
         /// <summary>
         /// 数据绑定
         /// </summary>
-        private void Bind()
+        public  void Bind()
         {
             try
             {
@@ -366,186 +366,48 @@ namespace SmoONE.UI.Attendance
                 Close();         //关闭当前页面
             }
         }
-        /// <summary>
-        /// 进行签到或者签退
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridATdata_ItemClick(object sender, GridViewCellItemEventArgs e)
-        {
-            try
-            {
-                if (hasgps.HasValue == false) throw new Exception("定位尚未完成，请稍后再试");
-                if (hasgps.Value == false) throw new Exception("未获取GPS信息，请检查权限");
-                newLog.AL_Reason = "";
-                switch ((StatisticsTime)Enum.Parse(typeof(StatisticsTime), e.Cell.Items["lblType"].Value.ToString()))
-                {
-                    case StatisticsTime.上午上班时间:
-                        newLog.AL_LogTimeType = StatisticsTime.上午上班时间;
-                        break;
-                    case StatisticsTime.上午下班时间:
-                        newLog.AL_LogTimeType = StatisticsTime.上午下班时间;
-                        break;
-                    case StatisticsTime.下午上班时间:
-                        newLog.AL_LogTimeType = StatisticsTime.下午上班时间;
-                        break;
-                    case StatisticsTime.下午下班时间:
-                        newLog.AL_LogTimeType = StatisticsTime.下午下班时间;
-                        break;
-                    case StatisticsTime.上班时间:
-                        newLog.AL_LogTimeType = StatisticsTime.上班时间;
-                        break;
-                    case StatisticsTime.下班时间:
-                        newLog.AL_LogTimeType = StatisticsTime.下班时间;
-                        break;
-                }
-                newLog.AL_Date = DateTime.Now;          //签到时间
-                newLog.AL_UserID = UserID;              //用户ID
-                if ((WorkTimeType)Enum.Parse(typeof(WorkTimeType), CommutingType) == WorkTimeType.一天一上下班)
-                {
-                    newLog.AL_CommutingType = WorkTimeType.一天一上下班;
-                }
-                else
-                {
-                    newLog.AL_CommutingType = WorkTimeType.一天二上下班;
-                }
-                newLog.AL_Position = Location;                //签到位置
-                newLog.AL_OnTime = Convert.ToDateTime(e.Cell.Items["lblTime"].Text);       //签到准点
-                switch (e.CellItem.Name)
-                {
-                    case "btnCheck":
-                        if (LocState == 1)              //已成功定位
-                        {
-                            if (e.Cell.Items["btnCheck"].Text == "签到")
-                            {
-                                if (DateTime.Now > Convert.ToDateTime(e.Cell.Items["lblTime"].Text))
-                                {
-                                    newLog.AL_Status = AttendanceType.迟到;         //签到状态  
-                                    frmAttendanceMainLayoutDialog frmReason = new frmAttendanceMainLayoutDialog();
-                                    frmReason.newLog = newLog;
-                                    frmReason.TitleText = "迟到理由";
-                                    this.Redirect(frmReason, (MobileForm from, object args) =>
-                                    {
-                                        if (frmReason.ShowResult == Smobiler.Core.ShowResult.Yes)
-                                        {
-                                            Bind();          //重新加载数据
-                                        }
-                                    });
-                                }
-                                else
-                                {
-                                    newLog.AL_Status = AttendanceType.准点;             //签到状态
-                                    ReturnInfo r = AutofacConfig.attendanceService.AddAttendanceLog(newLog);
-                                    if (r.IsSuccess == true)         //添加记录成功
-                                    {
-                                        Toast("签到成功！");
-                                        Bind();                     //刷新页面
-                                    }
-                                    else
-                                    {
-                                        throw new Exception(r.ErrorInfo);        //提示添加记录失败原因
-                                    }
-                                }
-                            }
-                            else if (e.Cell.Items["btnCheck"].Text == "签退")
-                            {
-                                if (DateTime.Now < Convert.ToDateTime(e.Cell.Items["lblTime"].Text))
-                                {
-                                    MessageBox.Show("现在是早退时间，确认签退吗？", Smobiler.Core.MessageBoxButtons.OKCancel, (object o, MessageBoxHandlerArgs args) =>
-                                    {
-                                        if (args.Result == Smobiler.Core.ShowResult.OK)
-                                        {
-                                            newLog.AL_Status = AttendanceType.早退;           //签到状态
-                                            frmAttendanceMainLayoutDialog frmReason = new frmAttendanceMainLayoutDialog();
-                                            frmReason.newLog = newLog;
-                                            frmReason.TitleText = "早退理由";
-                                            this.Redirect(frmReason, (MobileForm from, object arg) =>
-                                            {
-                                                if (frmReason.ShowResult == Smobiler.Core.ShowResult.Yes)
-                                                {
-                                                    Bind();          //重新加载数据
-                                                }
-                                            });
-                                        }
-                                    });
-                                }
-                                else
-                                {
-                                    newLog.AL_Status = AttendanceType.准点;
-                                    ReturnInfo r = AutofacConfig.attendanceService.AddAttendanceLog(newLog);
-                                    if (r.IsSuccess == true)             //添加记录成功
-                                    {
-                                        Toast("签退成功！");
-                                        Bind();                  //刷新页面
-                                    }
-                                    else
-                                    {
-                                        throw new Exception(r.ErrorInfo);
-                                    }
-                                }
-                            }
-                        }
-                        else if (LocState == 2)
-                        {
-                            if (e.Cell.Items["btnCheck"].Text == "签到")
-                            {
-                                throw new Exception("签到失败，您当前不在公司附近");
-                            }
-                            else if (e.Cell.Items["btnCheck"].Text == "签退")
-                            {
-                                throw new Exception("签退失败，您当前不在公司附近");
-                            }
-                        }
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-        }
-        /// <summary>
-        /// 签到查看时候，点击行项会显示签到的详细信息
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gridATdata_CellClick(object sender, GridViewCellEventArgs e)
-        {
-            try
-            {
-                if ((ATMainState)Enum.Parse(typeof(ATMainState), enter.ToString()) == ATMainState.统计查看)                   //进入的是查看签到页面
-                {
-                    List<ALDto> listStats = AutofacConfig.attendanceService.GetALByUserAndDate(UserID, Convert.ToDateTime(DayTime));
-                    foreach (ALDto Row in listStats)
-                    {
-                        if (Row.AL_OnTime.ToString("HH:mm") == e.Cell.Items["lblTime"].Text && string.IsNullOrEmpty(Row.AL_Reason) == false)
-                        {
-                            DetailLayout.LayoutData.Items["lblLocation"].Text = Row.AL_Position;        //显示考勤地点
-                            DetailLayout.LayoutData.Items["lblReason"].Text = Row.AL_Reason;            //显示迟到早退原因
-                            DetailLayout.Show();
-                        }
-                    }
-                }
-                else if (string.IsNullOrEmpty(e.Cell.Items["btnCheck"].DefaultValue.ToString()) == true)                  //当前行项已签到
-                {
-                    List<ALDto> listLogs = AutofacConfig.attendanceService.GetALByUserAndDate(UserID, DateTime.Now);
-                    foreach (ALDto Row in listLogs)
-                    {
-                        if (Row.AL_OnTime.ToString("HH:mm") == e.Cell.Items["lblTime"].Text && string.IsNullOrEmpty(Row.AL_Reason) == false)
-                        {
-                            DetailLayout.LayoutData.Items["lblLocation"].Visible = false;         //隐藏考勤地点信息
-                            DetailLayout.LayoutData.Items["imgLocation"].Visible = false;         //隐藏位置图标
-                            DetailLayout.LayoutData.Items["lblReason"].Top = 0;
-                            DetailLayout.LayoutData.Items["lblReason"].Text = Row.AL_Reason;            //显示迟到早退原因
-                            DetailLayout.Show();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-        }
+        ///// <summary>
+        ///// 签到查看时候，点击行项会显示签到的详细信息
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void gridATdata_CellClick(object sender, GridViewCellEventArgs e)
+        //{
+        //    try
+        //    {
+        //        if ((ATMainState)Enum.Parse(typeof(ATMainState), enter.ToString()) == ATMainState.统计查看)                   //进入的是查看签到页面
+        //        {
+        //            List<ALDto> listStats = AutofacConfig.attendanceService.GetALByUserAndDate(UserID, Convert.ToDateTime(DayTime));
+        //            foreach (ALDto Row in listStats)
+        //            {
+        //                if (Row.AL_OnTime.ToString("HH:mm") == e.Cell.Items["lblTime"].Text && string.IsNullOrEmpty(Row.AL_Reason) == false)
+        //                {
+        //                    DetailLayout.LayoutData.Items["lblLocation"].Text = Row.AL_Position;        //显示考勤地点
+        //                    DetailLayout.LayoutData.Items["lblReason"].Text = Row.AL_Reason;            //显示迟到早退原因
+        //                    DetailLayout.Show();
+        //                }
+        //            }
+        //        }
+        //        else if (string.IsNullOrEmpty(e.Cell.Items["btnCheck"].DefaultValue.ToString()) == true)                  //当前行项已签到
+        //        {
+        //            List<ALDto> listLogs = AutofacConfig.attendanceService.GetALByUserAndDate(UserID, DateTime.Now);
+        //            foreach (ALDto Row in listLogs)
+        //            {
+        //                if (Row.AL_OnTime.ToString("HH:mm") == e.Cell.Items["lblTime"].Text && string.IsNullOrEmpty(Row.AL_Reason) == false)
+        //                {
+        //                    DetailLayout.LayoutData.Items["lblLocation"].Visible = false;         //隐藏考勤地点信息
+        //                    DetailLayout.LayoutData.Items["imgLocation"].Visible = false;         //隐藏位置图标
+        //                    DetailLayout.LayoutData.Items["lblReason"].Top = 0;
+        //                    DetailLayout.LayoutData.Items["lblReason"].Text = Row.AL_Reason;            //显示迟到早退原因
+        //                    DetailLayout.Show();
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Toast(ex.Message);
+        //    }
+        //}
     }
 }

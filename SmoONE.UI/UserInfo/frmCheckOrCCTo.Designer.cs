@@ -1,8 +1,10 @@
 using System;
 using Smobiler.Core;
-namespace SmoONE.UI
+using SmoONE.UI.Layout;
+
+namespace SmoONE.UI.UserInfo
 {
-    partial class frmCheckOrCCTo : Smobiler.Core.MobileForm
+    partial class frmCheckOrCCTo : Smobiler.Core.Controls.MobileForm
     {
         #region "SmobilerForm generated code "
 
@@ -28,61 +30,66 @@ namespace SmoONE.UI
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
+            this.title1 = new   Title();
             this.textBox1 = new Smobiler.Core.Controls.TextBox();
             this.label1 = new Smobiler.Core.Controls.Label();
-            this.gridUserData = new Smobiler.Core.Controls.GridView();
+            this.listUserData = new Smobiler.Core.Controls.ListView();
+            // 
+            // title1
+            // 
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.Location = new System.Drawing.Point(74, 53);
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
+            this.title1.TitleText = "联系人";
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.BorderRadius = 2;
-            this.textBox1.HorizontalAlignment = Smobiler.Core.HorizontalAlignment.Center;
-            this.textBox1.Location = new System.Drawing.Point(13, 9);
+            this.textBox1.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
+            this.textBox1.Location = new System.Drawing.Point(13, 59);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(276, 25);
-            this.textBox1.TabIndex = 2;
             this.textBox1.WaterMarkText = "搜索";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
-            this.label1.BackColorAlpha = 0;
-            this.label1.Location = new System.Drawing.Point(0, 40);
+            this.label1.Location = new System.Drawing.Point(0, 90);
             this.label1.Name = "label1";
-            this.label1.Padding = new Smobiler.Core.Padding(4F, 0F, 0F, 0F);
+            this.label1.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
             this.label1.Size = new System.Drawing.Size(300, 25);
-            this.label1.TabIndex = 3;
             this.label1.Text = "联系人";
             // 
-            // gridUserData
+            // listUserData
             // 
-            this.gridUserData.AllowSlip = true;
-            this.gridUserData.Layout = "frmUserLayout";
-            this.gridUserData.Location = new System.Drawing.Point(0, 65);
-            this.gridUserData.Name = "gridUserData";
-            this.gridUserData.PageSize = 8;
-            this.gridUserData.ShowGridLines = false;
-            this.gridUserData.Size = new System.Drawing.Size(300, 398);
-            this.gridUserData.TabIndex = 4;
-            this.gridUserData.CellClick += new Smobiler.Core.Controls.GridViewCellClickEventHandler(this.gridUserData_CellClick);
+            this.listUserData.BackColor = System.Drawing.Color.White;
+            this.listUserData.FooterControlName = null;
+            this.listUserData.HeaderControlName = null;
+            this.listUserData.Location = new System.Drawing.Point(0, 115);
+            this.listUserData.Name = "listUserData";
+            this.listUserData.Size = new System.Drawing.Size(300, 385);
+            this.listUserData.TemplateControlName = "frmUserLayout";
             // 
             // frmCheckOrCCTo
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.title1,
             this.textBox1,
             this.label1,
-            this.gridUserData});
-            this.TitleStyle = new Smobiler.Core.MobileFormTitleStyle("!\\ue5c4044044044", System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242))))), System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44))))), Smobiler.Core.HorizontalAlignment.Left);
-            this.TitleText = "联系人";
+            this.listUserData});
+            this.Layout =  Smobiler.Core.Controls.LayoutPosition.Absolute;
+            this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmCheckOrCCTo_KeyDown);
             this.Load += new System.EventHandler(this.frmCheckOrCCTo_Load);
-            this.TitleImageClick += new System.EventHandler(this.frmCheckOrCCTo_TitleImageClick);
-            this.KeyDown += new Smobiler.Core.KeyDownEventHandler(this.frmCheckOrCCTo_KeyDown);
             this.Name = "frmCheckOrCCTo";
 
         }
         #endregion
 
+        private Title title1;
         private Smobiler.Core.Controls.TextBox textBox1;
         private Smobiler.Core.Controls.Label label1;
-        private Smobiler.Core.Controls.GridView gridUserData;
+        private Smobiler.Core.Controls.ListView listUserData;
     }
 }

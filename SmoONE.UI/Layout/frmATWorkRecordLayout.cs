@@ -7,7 +7,7 @@ using Smobiler.Core.Controls;
 
 namespace SmoONE.UI.Layout
 {
-    partial class frmATWorkRecordLayout : Smobiler.Core.MobileForm
+    partial class frmATWorkRecordLayout : Smobiler.Core.Controls.MobileUserControl
     {
     }
 }

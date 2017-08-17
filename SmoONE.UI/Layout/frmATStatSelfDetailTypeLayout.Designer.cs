@@ -39,7 +39,7 @@ namespace SmoONE.UI.Layout
             this.image1.Name = "image1";
             this.image1.ResourceID = "!\\ue55f255000000";
             this.image1.Size = new System.Drawing.Size(15, 15);
-            this.image1.TabIndex = 2;
+            this.image1.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Cover;
             this.image1.ZIndex = 3;
             // 
             // lblLocation
@@ -51,7 +51,6 @@ namespace SmoONE.UI.Layout
             this.lblLocation.Name = "lblLocation";
             this.lblLocation.Padding = new Smobiler.Core.Controls.Padding(25F, 0F, 10F, 0F);
             this.lblLocation.Size = new System.Drawing.Size(300, 30);
-            this.lblLocation.TabIndex = 3;
             this.lblLocation.ZIndex = 2;
             // 
             // lblDate
@@ -62,7 +61,6 @@ namespace SmoONE.UI.Layout
             this.lblDate.Name = "lblDate";
             this.lblDate.Padding = new Smobiler.Core.Controls.Padding(10F, 0F, 10F, 0F);
             this.lblDate.Size = new System.Drawing.Size(306, 30);
-            this.lblDate.TabIndex = 4;
             this.lblDate.Text = "签到 2017年2月15日 9:30";
             this.lblDate.ZIndex = 1;
             // 
@@ -75,10 +73,8 @@ namespace SmoONE.UI.Layout
             this.lblReason.Name = "lblReason";
             this.lblReason.Padding = new Smobiler.Core.Controls.Padding(10F, 10F, 10F, 0F);
             this.lblReason.Size = new System.Drawing.Size(300, 60);
-            this.lblReason.TabIndex = 5;
-            this.lblReason.VerticalAlignment = Smobiler.Core.Controls .VerticalAlignment.Top;
+            this.lblReason.VerticalAlignment = Smobiler.Core.Controls.VerticalAlignment.Top;
             this.lblReason.ZIndex = 4;
-          
             // 
             // frmATStatSelfDetailTypeLayout
             // 
@@ -87,8 +83,7 @@ namespace SmoONE.UI.Layout
             this.lblDate,
             this.lblLocation,
             this.image1,
-            this.lblReason,
-       });
+            this.lblReason});
             this.Size = new System.Drawing.Size(300, 120);
             this.Name = "frmATStatSelfDetailTypeLayout";
 

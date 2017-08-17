@@ -30,7 +30,7 @@ namespace SmoONE.UI.UserInfo
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.title1 = new Title();
+            this.title1 = new SmoONE.UI.Layout.Title();
             this.spContent = new Smobiler.Core.Controls.Panel();
             this.lblTel = new Smobiler.Core.Controls.Label();
             this.txtVcode1 = new Smobiler.Core.Controls.TextBox();
@@ -39,7 +39,11 @@ namespace SmoONE.UI.UserInfo
             // 
             // title1
             // 
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.FontSize = 15F;
+            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title1.Location = new System.Drawing.Point(63, 80);
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(100, 50);
@@ -94,6 +98,7 @@ namespace SmoONE.UI.UserInfo
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnSave.BorderRadius = 4;
             this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.btnSave.Location = new System.Drawing.Point(10, 125);
             this.btnSave.Name = "btnSave";

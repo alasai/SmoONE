@@ -54,7 +54,7 @@ namespace SmoONE.UI.Layout
             this.imgPortrait.Location = new System.Drawing.Point(10, 12);
             this.imgPortrait.Name = "imgPortrait";
             this.imgPortrait.Size = new System.Drawing.Size(35, 35);
-            this.imgPortrait.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Stretch;
+            this.imgPortrait.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Cover;
             // 
             // lblId
             // 

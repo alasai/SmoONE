@@ -452,7 +452,6 @@ namespace SmoONE.UI.Attendance
             this.dpStartWork.Name = "dpStartWork";
             this.dpStartWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
             this.dpStartWork.Size = new System.Drawing.Size(200, 35);
-            this.dpStartWork.Value = new System.DateTime(2017, 8, 9, 9, 50, 9, 52);
             this.dpStartWork.ValueChanged += new System.EventHandler(this.dpStartWork_DatePicked);
             // 
             // dpEndWork
@@ -468,7 +467,6 @@ namespace SmoONE.UI.Attendance
             this.dpEndWork.Name = "dpEndWork";
             this.dpEndWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
             this.dpEndWork.Size = new System.Drawing.Size(200, 35);
-            this.dpEndWork.Value = new System.DateTime(2017, 8, 9, 9, 50, 9, 52);
             this.dpEndWork.ValueChanged += new System.EventHandler(this.dpEndWork_DatePicked);
             // 
             // dpPMStartWork
@@ -484,7 +482,6 @@ namespace SmoONE.UI.Attendance
             this.dpPMStartWork.Name = "dpPMStartWork";
             this.dpPMStartWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
             this.dpPMStartWork.Size = new System.Drawing.Size(200, 35);
-            this.dpPMStartWork.Value = new System.DateTime(2017, 8, 9, 9, 50, 9, 68);
             this.dpPMStartWork.ValueChanged += new System.EventHandler(this.dpPMStartWork_DatePicked);
             // 
             // dpPMEndWork
@@ -500,7 +497,6 @@ namespace SmoONE.UI.Attendance
             this.dpPMEndWork.Name = "dpPMEndWork";
             this.dpPMEndWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
             this.dpPMEndWork.Size = new System.Drawing.Size(200, 35);
-            this.dpPMEndWork.Value = new System.DateTime(2017, 8, 9, 9, 50, 9, 68);
             this.dpPMEndWork.ValueChanged += new System.EventHandler(this.dpPMEndWork_DatePicked);
             // 
             // lblADeviation
@@ -528,7 +524,6 @@ namespace SmoONE.UI.Attendance
             this.dpAMStartWork.Name = "dpAMStartWork";
             this.dpAMStartWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
             this.dpAMStartWork.Size = new System.Drawing.Size(200, 35);
-            this.dpAMStartWork.Value = new System.DateTime(2017, 1, 19, 10, 21, 0, 0);
             this.dpAMStartWork.ValueChanged += new System.EventHandler(this.dpAMStartWork_DatePicked);
             // 
             // dpAMEndWork
@@ -544,7 +539,6 @@ namespace SmoONE.UI.Attendance
             this.dpAMEndWork.Name = "dpAMEndWork";
             this.dpAMEndWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
             this.dpAMEndWork.Size = new System.Drawing.Size(200, 35);
-            this.dpAMEndWork.Value = new System.DateTime(2017, 8, 9, 9, 50, 9, 68);
             this.dpAMEndWork.ValueChanged += new System.EventHandler(this.dpAMEndWork_DatePicked);
             // 
             // frmAttendanceCreate

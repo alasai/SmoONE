@@ -123,8 +123,4 @@
   <metadata name="popListMonth.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>138, 17</value>
   </metadata>
-  <assembly alias="Smobiler.Core" name="Smobiler.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=c28d201d12639a97" />
-  <data name="tabPageView1.TitleStyle" type="Smobiler.Core.Controls.TabPageViewTitleStyle, Smobiler.Core">
-    <value />
-  </data>
 </root>

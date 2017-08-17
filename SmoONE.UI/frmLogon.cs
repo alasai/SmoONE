@@ -112,5 +112,7 @@ namespace SmoONE.UI
                 Toast(ex.Message, ToastLength.SHORT);
             }
         }
+
+
     }
 }

@@ -53,6 +53,7 @@ namespace SmoONE.UI.Layout
             this.imgType.Location = new System.Drawing.Point(8, 12);
             this.imgType.Name = "imgType";
             this.imgType.Size = new System.Drawing.Size(35, 35);
+            this.imgType.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Cover;
             // 
             // lblRT_Type
             // 

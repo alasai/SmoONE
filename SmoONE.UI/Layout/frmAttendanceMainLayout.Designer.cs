@@ -62,7 +62,7 @@ namespace SmoONE.UI.Layout
             this.imgUser.Name = "imgUser";
             this.imgUser.ResourceID = "1";
             this.imgUser.Size = new System.Drawing.Size(45, 45);
-            this.imgUser.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Stretch;
+            this.imgUser.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Cover;
             this.imgUser.ZIndex = 3;
             // 
             // webView1

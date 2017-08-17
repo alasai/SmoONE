@@ -37,6 +37,7 @@ namespace SmoONE.UI.Layout
             this.image1.Location = new System.Drawing.Point(7, 0);
             this.image1.Name = "image1";
             this.image1.Size = new System.Drawing.Size(36, 36);
+            this.image1.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Cover;
             // 
             // label1
             // 

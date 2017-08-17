@@ -69,6 +69,7 @@ namespace SmoONE.UI.Work
             // 
             // plShenPi
             // 
+            this.plShenPi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.plShenPi.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.image2,
             this.label1});
@@ -80,21 +81,22 @@ namespace SmoONE.UI.Work
             // 
             // image2
             // 
-            this.image2.Location = new System.Drawing.Point(30, 3);
+            this.image2.Location = new System.Drawing.Point(5, 15);
             this.image2.Name = "image2";
             this.image2.ResourceID = "shenpi";
-            this.image2.Size = new System.Drawing.Size(40, 40);
+            this.image2.Size = new System.Drawing.Size(30, 30);
             // 
             // label1
             // 
             this.label1.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
-            this.label1.Location = new System.Drawing.Point(0, 43);
+            this.label1.Location = new System.Drawing.Point(35, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 15);
+            this.label1.Size = new System.Drawing.Size(65, 34);
             this.label1.Text = "待我审批";
             // 
             // plFaQi
             // 
+            this.plFaQi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.plFaQi.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.image3,
             this.label2});
@@ -106,17 +108,17 @@ namespace SmoONE.UI.Work
             // 
             // image3
             // 
-            this.image3.Location = new System.Drawing.Point(30, 3);
+            this.image3.Location = new System.Drawing.Point(5, 15);
             this.image3.Name = "image3";
             this.image3.ResourceID = "wofaqi";
-            this.image3.Size = new System.Drawing.Size(40, 40);
+            this.image3.Size = new System.Drawing.Size(30, 30);
             // 
             // label2
             // 
             this.label2.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
-            this.label2.Location = new System.Drawing.Point(0, 43);
+            this.label2.Location = new System.Drawing.Point(35, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 15);
+            this.label2.Size = new System.Drawing.Size(65, 34);
             this.label2.Text = "我发起的";
             // 
             // plChaoSong
@@ -132,17 +134,17 @@ namespace SmoONE.UI.Work
             // 
             // image4
             // 
-            this.image4.Location = new System.Drawing.Point(30, 3);
+            this.image4.Location = new System.Drawing.Point(5, 15);
             this.image4.Name = "image4";
             this.image4.ResourceID = "chaosong";
-            this.image4.Size = new System.Drawing.Size(40, 40);
+            this.image4.Size = new System.Drawing.Size(30, 30);
             // 
             // label3
             // 
             this.label3.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
-            this.label3.Location = new System.Drawing.Point(0, 43);
+            this.label3.Location = new System.Drawing.Point(35, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 15);
+            this.label3.Size = new System.Drawing.Size(65, 34);
             this.label3.Text = "抄送我的";
             // 
             // menuTitle1
@@ -180,8 +182,6 @@ namespace SmoONE.UI.Work
             toolBarItem2});
             this.toolBar1.Location = new System.Drawing.Point(91, 373);
             this.toolBar1.Name = "toolBar1";
-            this.toolBar1.SelectBackColor = System.Drawing.Color.Transparent;
-            this.toolBar1.SelectForeColor = System.Drawing.Color.Black;
             this.toolBar1.Size = new System.Drawing.Size(100, 50);
             this.toolBar1.ToolbarItemClick += new Smobiler.Core.Controls.ToolbarItemClickEventHandler(this.toolBar1_ToolbarItemClick);
             // 

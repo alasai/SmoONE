@@ -84,7 +84,10 @@ namespace SmoONE.UI.UserInfo
             {
                 foreach (Role role in listRole)
                 {
-                    radioGroup1.Buttons.Add(new RadioButton(role.R_Name));
+                    RadioButton rb = new RadioButton();
+                    rb.Value = role.R_RoleID;
+                    rb.Text = role.R_Name;
+                    radioGroup1.Buttons.Add(rb);
                 }
                 radioGroup1.Buttons[0].Checked = true;
             }
@@ -134,7 +137,7 @@ namespace SmoONE.UI.UserInfo
 
                 RadioButton selectRole = radioGroup1.CheckedButton;
                 List<string> listrole = new List<string>();
-                listrole.Add(selectRole.Text);
+                listrole.Add(selectRole.Value);
 
                 //密码处理,经过加密
                 string encryptPwd = AutofacConfig.userService.Encrypt(pwd2);

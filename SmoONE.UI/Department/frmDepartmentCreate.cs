@@ -266,7 +266,6 @@ namespace SmoONE.UI.Department
         {
             if (string.IsNullOrEmpty(e.error ))
             {
-
                 if (imgPortrait.ResourceID.Trim().Length > 0 & string.IsNullOrEmpty(D_Portrait)==false )
                 {
                     e.SaveFile(D_Portrait+".png");

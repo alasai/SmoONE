@@ -243,6 +243,7 @@ namespace SmoONE.UI.RB
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnSave.BorderRadius = 4;
             this.btnSave.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSave.FontSize = 17F;
             this.btnSave.Location = new System.Drawing.Point(10, 455);

@@ -45,6 +45,7 @@ namespace SmoONE.UI.Work
         "我已审批的"};
             this.segmentedControl1.Location = new System.Drawing.Point(10, 10);
             this.segmentedControl1.Name = "segmentedControl1";
+            this.segmentedControl1.SegmentedBorderRadius = 4;
             this.segmentedControl1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             this.segmentedControl1.Size = new System.Drawing.Size(280, 35);
             this.segmentedControl1.UnSelectedColor = System.Drawing.Color.White;

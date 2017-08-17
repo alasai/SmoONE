@@ -65,6 +65,7 @@ namespace SmoONE.UI.Layout
             this.imgType.Location = new System.Drawing.Point(30, 7);
             this.imgType.Name = "imgType";
             this.imgType.Size = new System.Drawing.Size(45, 45);
+            this.imgType.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Cover;
             // 
             // lblMoney
             // 

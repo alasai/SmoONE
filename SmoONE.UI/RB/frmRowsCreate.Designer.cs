@@ -223,7 +223,7 @@ namespace SmoONE.UI.RB
             // plDate
             // 
             this.plDate.BackColor = System.Drawing.Color.White;
-            this.plDate.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.plDate.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
             this.plDate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.plDate.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.label5,
@@ -248,7 +248,6 @@ namespace SmoONE.UI.RB
             this.DatePicker.Name = "DatePicker";
             this.DatePicker.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
             this.DatePicker.Size = new System.Drawing.Size(212, 35);
-            this.DatePicker.Value = new System.DateTime(2017, 8, 8, 13, 8, 18, 96);
             // 
             // plNote
             // 
@@ -297,6 +296,7 @@ namespace SmoONE.UI.RB
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnSave.BorderRadius = 4;
             this.btnSave.FontSize = 15F;
             this.btnSave.Location = new System.Drawing.Point(10, 305);
             this.btnSave.Name = "btnSave";
@@ -307,6 +307,7 @@ namespace SmoONE.UI.RB
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(158)))), ((int)(((byte)(38)))));
+            this.btnDelete.BorderRadius = 4;
             this.btnDelete.FontSize = 15F;
             this.btnDelete.Location = new System.Drawing.Point(156, 305);
             this.btnDelete.Name = "btnDelete";

@@ -44,7 +44,7 @@ namespace SmoONE.UI.Layout
             this.imgPortrait.Location = new System.Drawing.Point(4, 7);
             this.imgPortrait.Name = "imgPortrait";
             this.imgPortrait.Size = new System.Drawing.Size(35, 35);
-            this.imgPortrait.TabIndex = 2;
+            this.imgPortrait.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Cover;
             // 
             // lblUser
             // 
@@ -54,7 +54,6 @@ namespace SmoONE.UI.Layout
             this.lblUser.Location = new System.Drawing.Point(47, 0);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(178, 30);
-            this.lblUser.TabIndex = 3;
             // 
             // lblDep
             // 
@@ -66,7 +65,6 @@ namespace SmoONE.UI.Layout
             this.lblDep.Name = "lblDep";
             this.lblDep.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 0F, 10F);
             this.lblDep.Size = new System.Drawing.Size(253, 20);
-            this.lblDep.TabIndex = 4;
             this.lblDep.ZIndex = 4;
             // 
             // lblDate
@@ -78,7 +76,6 @@ namespace SmoONE.UI.Layout
             this.lblDate.Name = "lblDate";
             this.lblDate.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 0F, 10F);
             this.lblDate.Size = new System.Drawing.Size(75, 30);
-            this.lblDate.TabIndex = 5;
             this.lblDate.ZIndex = 4;
             // 
             // image1
@@ -87,7 +84,6 @@ namespace SmoONE.UI.Layout
             this.image1.Name = "image1";
             this.image1.ResourceID = "!\\ue0c8145145145";
             this.image1.Size = new System.Drawing.Size(20, 20);
-            this.image1.TabIndex = 6;
             // 
             // lblAddress
             // 
@@ -99,9 +95,7 @@ namespace SmoONE.UI.Layout
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 10F, 0F);
             this.lblAddress.Size = new System.Drawing.Size(276, 20);
-            this.lblAddress.TabIndex = 7;
             this.lblAddress.ZIndex = 4;
-           
             // 
             // label1
             // 
@@ -111,7 +105,6 @@ namespace SmoONE.UI.Layout
             this.label1.Location = new System.Drawing.Point(4, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(300, 30);
-            this.label1.TabIndex = 9;
             // 
             // frmATWorkRecordLayout
             // 

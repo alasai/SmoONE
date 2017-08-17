@@ -174,7 +174,7 @@ namespace SmoONE.UI.Leave
             nodeStateDate.Items.Clear();
             //添加节点数据
             NodeViewItem nodeItem = new NodeViewItem();
-            nodeItem.FontIcon = "tijiao";
+            nodeItem.FontIcon = "circle";
             UserDetails userDetails = new UserDetails();
             UserDetailDto createUser = userDetails.getUser(leave.L_CreateUser);
             if (createUser != null)
@@ -204,7 +204,7 @@ namespace SmoONE.UI.Leave
                         foreach (string cUser in CheckUsers)
                         {
                             NodeViewItem nodeItem2 = new NodeViewItem();
-                            nodeItem2.FontIcon = "jinxingzhong";
+                            nodeItem2.FontIcon = "circle";
                             UserDetailDto checkUser = userDetails.getUser(cUser);
                             if (checkUser != null)
                               {
@@ -227,7 +227,7 @@ namespace SmoONE.UI.Leave
                     break;
                 case (int)L_Status.已审批:
                     NodeViewItem nodeItem3 = new NodeViewItem();
-                    nodeItem3.FontIcon = "wancheng";
+                    nodeItem3.FontIcon = "circle";
                     UserDetailDto checkUser1 = userDetails.getUser(leave.L_CurrantCheck);
                     if (checkUser1 != null)
                     {

@@ -55,6 +55,10 @@ namespace SmoONE.UI.Layout
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.White;
+            this.btnCancel.Border = new Smobiler.Core.Controls.Border(0F, 1F, 1F, 0F);
+            this.btnCancel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnCancel.BorderRadius = 0;
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.btnCancel.Location = new System.Drawing.Point(0, 95);
             this.btnCancel.Name = "btnCancel";
@@ -64,6 +68,10 @@ namespace SmoONE.UI.Layout
             // 
             // btnOK
             // 
+            this.btnOK.BackColor = System.Drawing.Color.White;
+            this.btnOK.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
+            this.btnOK.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btnOK.BorderRadius = 0;
             this.btnOK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.btnOK.Location = new System.Drawing.Point(135, 95);
             this.btnOK.Name = "btnOK";

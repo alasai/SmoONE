@@ -109,6 +109,7 @@ namespace SmoONE.UI.Leave
             // label3
             // 
             this.label3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.label3.FontSize = 10F;
             this.label3.ForeColor = System.Drawing.Color.Gray;
             this.label3.Location = new System.Drawing.Point(9, 72);
             this.label3.Name = "label3";
@@ -118,6 +119,7 @@ namespace SmoONE.UI.Leave
             // lblLId
             // 
             this.lblLId.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.lblLId.FontSize = 10F;
             this.lblLId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.lblLId.Location = new System.Drawing.Point(70, 72);
             this.lblLId.Name = "lblLId";
@@ -126,6 +128,7 @@ namespace SmoONE.UI.Leave
             // label5
             // 
             this.label5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.label5.FontSize = 10F;
             this.label5.ForeColor = System.Drawing.Color.Gray;
             this.label5.Location = new System.Drawing.Point(9, 97);
             this.label5.Name = "label5";
@@ -135,6 +138,7 @@ namespace SmoONE.UI.Leave
             // lblLType
             // 
             this.lblLType.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.lblLType.FontSize = 10F;
             this.lblLType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.lblLType.Location = new System.Drawing.Point(70, 97);
             this.lblLType.Name = "lblLType";
@@ -143,6 +147,7 @@ namespace SmoONE.UI.Leave
             // label7
             // 
             this.label7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.label7.FontSize = 10F;
             this.label7.ForeColor = System.Drawing.Color.Gray;
             this.label7.Location = new System.Drawing.Point(9, 122);
             this.label7.Name = "label7";
@@ -152,6 +157,7 @@ namespace SmoONE.UI.Leave
             // lblStartDate
             // 
             this.lblStartDate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.lblStartDate.FontSize = 10F;
             this.lblStartDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.lblStartDate.Location = new System.Drawing.Point(70, 122);
             this.lblStartDate.Name = "lblStartDate";
@@ -160,6 +166,7 @@ namespace SmoONE.UI.Leave
             // label9
             // 
             this.label9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.label9.FontSize = 10F;
             this.label9.ForeColor = System.Drawing.Color.Gray;
             this.label9.Location = new System.Drawing.Point(9, 147);
             this.label9.Name = "label9";
@@ -169,6 +176,7 @@ namespace SmoONE.UI.Leave
             // lblEndDate
             // 
             this.lblEndDate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.lblEndDate.FontSize = 10F;
             this.lblEndDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.lblEndDate.Location = new System.Drawing.Point(70, 147);
             this.lblEndDate.Name = "lblEndDate";
@@ -177,6 +185,7 @@ namespace SmoONE.UI.Leave
             // label11
             // 
             this.label11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.label11.FontSize = 10F;
             this.label11.ForeColor = System.Drawing.Color.Gray;
             this.label11.Location = new System.Drawing.Point(9, 197);
             this.label11.Name = "label11";
@@ -188,6 +197,7 @@ namespace SmoONE.UI.Leave
             // lblReson
             // 
             this.lblReson.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.lblReson.FontSize = 10F;
             this.lblReson.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.lblReson.Location = new System.Drawing.Point(70, 197);
             this.lblReson.Name = "lblReson";
@@ -198,6 +208,7 @@ namespace SmoONE.UI.Leave
             // label13
             // 
             this.label13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.label13.FontSize = 10F;
             this.label13.ForeColor = System.Drawing.Color.Gray;
             this.label13.Location = new System.Drawing.Point(9, 247);
             this.label13.Name = "label13";
@@ -219,6 +230,7 @@ namespace SmoONE.UI.Leave
             // label1
             // 
             this.label1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.label1.FontSize = 10F;
             this.label1.ForeColor = System.Drawing.Color.Gray;
             this.label1.Location = new System.Drawing.Point(9, 172);
             this.label1.Name = "label1";
@@ -228,6 +240,7 @@ namespace SmoONE.UI.Leave
             // lblLDay
             // 
             this.lblLDay.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.lblLDay.FontSize = 10F;
             this.lblLDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.lblLDay.Location = new System.Drawing.Point(70, 172);
             this.lblLDay.Name = "lblLDay";

@@ -41,7 +41,7 @@ namespace SmoONE.UI.Layout
             this.imgType.Location = new System.Drawing.Point(0, 7);
             this.imgType.Name = "imgType";
             this.imgType.Size = new System.Drawing.Size(45, 45);
-            this.imgType.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Zoom;
+            this.imgType.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Cover;
             // 
             // lblMoney
             // 
@@ -68,7 +68,6 @@ namespace SmoONE.UI.Layout
             // lblnote
             // 
             this.lblnote.DisplayMember = "RBROW_NOTE";
-            this.lblnote.FontSize = 13F;
             this.lblnote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.lblnote.Location = new System.Drawing.Point(150, 0);
             this.lblnote.Name = "lblnote";
@@ -83,7 +82,6 @@ namespace SmoONE.UI.Layout
             this.lblMoney,
             this.lbldate,
             this.lblnote});
-            this.Layout =  Smobiler.Core.Controls.LayoutPosition.Absolute;
             this.Size = new System.Drawing.Size(0, 60);
             this.Name = "frmRBRowLayout";
 

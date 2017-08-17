@@ -58,6 +58,7 @@ namespace SmoONE.UI.RB
             // btnAgreed
             // 
             this.btnAgreed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(187)))), ((int)(((byte)(91)))));
+            this.btnAgreed.BorderRadius = 4;
             this.btnAgreed.FontSize = 15F;
             this.btnAgreed.Location = new System.Drawing.Point(10, 10);
             this.btnAgreed.Name = "btnAgreed";
@@ -68,6 +69,7 @@ namespace SmoONE.UI.RB
             // btnRefuse
             // 
             this.btnRefuse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(158)))), ((int)(((byte)(38)))));
+            this.btnRefuse.BorderRadius = 4;
             this.btnRefuse.FontSize = 15F;
             this.btnRefuse.Location = new System.Drawing.Point(108, 10);
             this.btnRefuse.Name = "btnRefuse";
@@ -78,6 +80,7 @@ namespace SmoONE.UI.RB
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnEdit.BorderRadius = 4;
             this.btnEdit.FontSize = 15F;
             this.btnEdit.Location = new System.Drawing.Point(205, 10);
             this.btnEdit.Name = "btnEdit";
@@ -87,7 +90,11 @@ namespace SmoONE.UI.RB
             // 
             // title1
             // 
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.FontSize = 15F;
+            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(300, 50);
             this.title1.TitleText = "±®œ˙œÍ«È";

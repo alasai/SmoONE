@@ -50,6 +50,7 @@ namespace SmoONE.UI.RB
             // btnCreate
             // 
             this.btnCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnCreate.BorderRadius = 4;
             this.btnCreate.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCreate.FontSize = 15F;
             this.btnCreate.Location = new System.Drawing.Point(10, 60);

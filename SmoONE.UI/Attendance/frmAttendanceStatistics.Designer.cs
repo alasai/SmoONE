@@ -42,7 +42,6 @@ namespace SmoONE.UI.Attendance
             Smobiler.Core.Controls.PopListItem popListItem10 = new Smobiler.Core.Controls.PopListItem();
             Smobiler.Core.Controls.PopListItem popListItem11 = new Smobiler.Core.Controls.PopListItem();
             Smobiler.Core.Controls.PopListItem popListItem12 = new Smobiler.Core.Controls.PopListItem();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAttendanceStatistics));
             this.popListYear = new Smobiler.Core.Controls.PopList();
             this.popListMonth = new Smobiler.Core.Controls.PopList();
             this.gridATdata = new Smobiler.Core.Controls.ListView();
@@ -113,10 +112,8 @@ namespace SmoONE.UI.Attendance
             // gridATdata
             // 
             this.gridATdata.BackColor = System.Drawing.Color.White;
-            this.gridATdata.Dock = System.Windows.Forms.DockStyle.Top;
             this.gridATdata.FooterControlName = null;
             this.gridATdata.HeaderControlName = null;
-            this.gridATdata.Location = new System.Drawing.Point(0, 140);
             this.gridATdata.Name = "gridATdata";
             this.gridATdata.ShowSplitLine = true;
             this.gridATdata.Size = new System.Drawing.Size(300, 360);
@@ -206,10 +203,8 @@ namespace SmoONE.UI.Attendance
             // gridATdata1
             // 
             this.gridATdata1.BackColor = System.Drawing.Color.White;
-            this.gridATdata1.Dock = System.Windows.Forms.DockStyle.Top;
             this.gridATdata1.FooterControlName = null;
             this.gridATdata1.HeaderControlName = null;
-            this.gridATdata1.Location = new System.Drawing.Point(0, 140);
             this.gridATdata1.Name = "gridATdata1";
             this.gridATdata1.ShowSplitLine = true;
             this.gridATdata1.Size = new System.Drawing.Size(300, 360);
@@ -219,11 +214,9 @@ namespace SmoONE.UI.Attendance
             // tabPageView1
             // 
             this.tabPageView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.tabPageView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabPageView1.Location = new System.Drawing.Point(0, 140);
             this.tabPageView1.Name = "tabPageView1";
             this.tabPageView1.Size = new System.Drawing.Size(300, 360);
-           // this.tabPageView1.TitleStyle = ((Smobiler.Core.Controls.TabPageViewTitleStyle)(resources.GetObject("tabPageView1.TitleStyle")));
             this.tabPageView1.PageIndexChanged += new System.EventHandler(this.tabPageView1_PageIndexChanged);
             // 
             // frmAttendanceStatistics

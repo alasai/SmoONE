@@ -574,7 +574,7 @@ namespace SmoONE.UI.Attendance
             this.title1.Location = new System.Drawing.Point(111, 36);
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(100, 50);
-            this.title1.TitleText = "成本中心";
+            this.title1.TitleText = "考勤统计";
             // 
             // frmAttendanceStatMonth
             // 

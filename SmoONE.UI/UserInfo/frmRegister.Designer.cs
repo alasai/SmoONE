@@ -69,7 +69,6 @@ namespace SmoONE.UI.UserInfo
             // txtName
             // 
             this.txtName.BackColor = System.Drawing.Color.Transparent;
-            this.txtName.FontSize = 13F;
             this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.txtName.Location = new System.Drawing.Point(66, 0);
             this.txtName.Name = "txtName";
@@ -100,7 +99,6 @@ namespace SmoONE.UI.UserInfo
             // txtPwd1
             // 
             this.txtPwd1.BackColor = System.Drawing.Color.Transparent;
-            this.txtPwd1.FontSize = 13F;
             this.txtPwd1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.txtPwd1.KeyboardType = Smobiler.Core.Controls.KeyboardType.Numeric;
             this.txtPwd1.Location = new System.Drawing.Point(66, 0);
@@ -153,7 +151,6 @@ namespace SmoONE.UI.UserInfo
             // txtPwd2
             // 
             this.txtPwd2.BackColor = System.Drawing.Color.Transparent;
-            this.txtPwd2.FontSize = 13F;
             this.txtPwd2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.txtPwd2.KeyboardType = Smobiler.Core.Controls.KeyboardType.Numeric;
             this.txtPwd2.Location = new System.Drawing.Point(66, 0);
@@ -195,6 +192,7 @@ namespace SmoONE.UI.UserInfo
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnSave.BorderRadius = 4;
             this.btnSave.FontSize = 15F;
             this.btnSave.Location = new System.Drawing.Point(10, 250);
             this.btnSave.Name = "btnSave";
@@ -206,7 +204,7 @@ namespace SmoONE.UI.UserInfo
             // 
             this.radioGroup1.BackColor = System.Drawing.Color.White;
             this.radioGroup1.FontSize = 12F;
-            this.radioGroup1.Layout = Smobiler.Core.Controls.LayoutPosition.Relative;
+            this.radioGroup1.GridLinesColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.radioGroup1.Location = new System.Drawing.Point(0, 140);
             this.radioGroup1.Name = "radioGroup1";
             this.radioGroup1.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);

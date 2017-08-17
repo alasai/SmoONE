@@ -35,7 +35,6 @@ namespace SmoONE.UI.Attendance
             // 
             // txtReason
             // 
-            this.txtReason.BackColor = System.Drawing.Color.White;
             this.txtReason.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
             this.txtReason.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.txtReason.Location = new System.Drawing.Point(0, 60);
@@ -58,8 +57,8 @@ namespace SmoONE.UI.Attendance
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnSave.BorderRadius = 4;
             this.btnSave.FontSize = 17F;
-            this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(15, 195);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(270, 35);
@@ -80,11 +79,10 @@ namespace SmoONE.UI.Attendance
             // frmAttendanceMainLayoutDialog
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-           this .title1 ,
-                this.txtReason,
+            this.title1,
+            this.txtReason,
             this.Label6,
-            this.btnSave,
-           });
+            this.btnSave});
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmAttendanceMainLayoutDialog_KeyDown);
             this.Name = "frmAttendanceMainLayoutDialog";
 

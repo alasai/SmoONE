@@ -55,6 +55,7 @@ namespace SmoONE.UI.Layout
             this.label2.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
             this.label2.Location = new System.Drawing.Point(0, 30);
             this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 35);
             this.label2.Text = "«©µΩŒª÷√";
             // 
             // imgLocation
@@ -63,6 +64,7 @@ namespace SmoONE.UI.Layout
             this.imgLocation.Padding = new Smobiler.Core.Controls.Padding(5F);
             this.imgLocation.ResourceID = "!\\ue55f255000000";
             this.imgLocation.Size = new System.Drawing.Size(30, 30);
+            this.imgLocation.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Cover;
             // 
             // frmAttendanceMainDetailLayout
             // 

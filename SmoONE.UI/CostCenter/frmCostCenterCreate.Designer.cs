@@ -219,7 +219,6 @@ namespace SmoONE.UI.CostCenter
             this.dpkStartDate.Name = "dpkStartDate";
             this.dpkStartDate.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
             this.dpkStartDate.Size = new System.Drawing.Size(234, 35);
-            this.dpkStartDate.Value = new System.DateTime(2017, 8, 9, 9, 57, 34, 592);
             // 
             // dpkEndDate
             // 
@@ -233,7 +232,6 @@ namespace SmoONE.UI.CostCenter
             this.dpkEndDate.Name = "dpkEndDate";
             this.dpkEndDate.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
             this.dpkEndDate.Size = new System.Drawing.Size(234, 35);
-            this.dpkEndDate.Value = new System.DateTime(2017, 8, 9, 9, 57, 34, 592);
             // 
             // label5
             // 

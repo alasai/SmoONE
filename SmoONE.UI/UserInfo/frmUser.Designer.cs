@@ -34,30 +34,30 @@ namespace SmoONE.UI.UserInfo
             Smobiler.Core.Controls.ToolBarItem toolBarItem2 = new Smobiler.Core.Controls.ToolBarItem();
             this.cameraPortrait = new Smobiler.Core.Controls.Camera();
             this.popSex = new Smobiler.Core.Controls.PopList();
+            this.plPortrait = new Smobiler.Core.Controls.Panel();
+            this.plName = new Smobiler.Core.Controls.Panel();
+            this.plSex = new Smobiler.Core.Controls.Panel();
+            this.plBirthday = new Smobiler.Core.Controls.Panel();
+            this.plEmail = new Smobiler.Core.Controls.Panel();
+            this.btnPwd = new Smobiler.Core.Controls.Button();
+            this.btnExit = new Smobiler.Core.Controls.Button();
             this.menuTitle1 = new SmoONE.UI.Layout.MenuTitle();
             this.spContent = new Smobiler.Core.Controls.Panel();
-            this.plPortrait = new Smobiler.Core.Controls.Panel();
+            this.toolBar = new Smobiler.Core.Controls.ToolBar();
             this.label1 = new Smobiler.Core.Controls.Label();
             this.imgPortrait = new Smobiler.Core.Controls.Image();
             this.btnUp = new Smobiler.Core.Controls.Button();
-            this.plName = new Smobiler.Core.Controls.Panel();
             this.label2 = new Smobiler.Core.Controls.Label();
             this.btnName = new Smobiler.Core.Controls.Button();
             this.btnName1 = new Smobiler.Core.Controls.Button();
-            this.plSex = new Smobiler.Core.Controls.Panel();
             this.label3 = new Smobiler.Core.Controls.Label();
             this.btnSex = new Smobiler.Core.Controls.Button();
             this.btnSex1 = new Smobiler.Core.Controls.Button();
-            this.plBirthday = new Smobiler.Core.Controls.Panel();
             this.label4 = new Smobiler.Core.Controls.Label();
             this.dpkBirthday = new Smobiler.Core.Controls.DatePicker();
-            this.plEmail = new Smobiler.Core.Controls.Panel();
             this.label5 = new Smobiler.Core.Controls.Label();
             this.btnEmail = new Smobiler.Core.Controls.Button();
             this.btnEmail1 = new Smobiler.Core.Controls.Button();
-            this.btnPwd = new Smobiler.Core.Controls.Button();
-            this.btnExit = new Smobiler.Core.Controls.Button();
-            this.toolBar = new Smobiler.Core.Controls.ToolBar();
             // 
             // cameraPortrait
             // 
@@ -69,6 +69,92 @@ namespace SmoONE.UI.UserInfo
             // 
             this.popSex.Name = "popSex";
             this.popSex.Selected += new System.EventHandler(this.popSex_Selected);
+            // 
+            // plPortrait
+            // 
+            this.plPortrait.BackColor = System.Drawing.Color.White;
+            this.plPortrait.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.plPortrait.BorderColor = System.Drawing.Color.LightGray;
+            this.plPortrait.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.label1,
+            this.imgPortrait,
+            this.btnUp});
+            this.plPortrait.Name = "plPortrait";
+            this.plPortrait.Size = new System.Drawing.Size(300, 45);
+            // 
+            // plName
+            // 
+            this.plName.BackColor = System.Drawing.Color.White;
+            this.plName.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
+            this.plName.BorderColor = System.Drawing.Color.LightGray;
+            this.plName.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.label2,
+            this.btnName,
+            this.btnName1});
+            this.plName.Location = new System.Drawing.Point(0, 45);
+            this.plName.Name = "plName";
+            this.plName.Size = new System.Drawing.Size(300, 45);
+            // 
+            // plSex
+            // 
+            this.plSex.BackColor = System.Drawing.Color.White;
+            this.plSex.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
+            this.plSex.BorderColor = System.Drawing.Color.LightGray;
+            this.plSex.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.label3,
+            this.btnSex,
+            this.btnSex1});
+            this.plSex.Location = new System.Drawing.Point(0, 90);
+            this.plSex.Name = "plSex";
+            this.plSex.Size = new System.Drawing.Size(300, 45);
+            // 
+            // plBirthday
+            // 
+            this.plBirthday.BackColor = System.Drawing.Color.White;
+            this.plBirthday.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
+            this.plBirthday.BorderColor = System.Drawing.Color.LightGray;
+            this.plBirthday.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.label4,
+            this.dpkBirthday});
+            this.plBirthday.Location = new System.Drawing.Point(0, 135);
+            this.plBirthday.Name = "plBirthday";
+            this.plBirthday.Size = new System.Drawing.Size(300, 45);
+            // 
+            // plEmail
+            // 
+            this.plEmail.BackColor = System.Drawing.Color.White;
+            this.plEmail.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
+            this.plEmail.BorderColor = System.Drawing.Color.LightGray;
+            this.plEmail.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.label5,
+            this.btnEmail,
+            this.btnEmail1});
+            this.plEmail.Location = new System.Drawing.Point(0, 180);
+            this.plEmail.Name = "plEmail";
+            this.plEmail.Size = new System.Drawing.Size(300, 45);
+            // 
+            // btnPwd
+            // 
+            this.btnPwd.BackColor = System.Drawing.Color.White;
+            this.btnPwd.BorderColor = System.Drawing.Color.LightGray;
+            this.btnPwd.BorderRadius = 0;
+            this.btnPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnPwd.Location = new System.Drawing.Point(0, 235);
+            this.btnPwd.Name = "btnPwd";
+            this.btnPwd.Size = new System.Drawing.Size(300, 35);
+            this.btnPwd.Text = "µÇÂ¼ÃÜÂëÐÞ¸Ä";
+            this.btnPwd.Press += new System.EventHandler(this.btnPwd_Press);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.White;
+            this.btnExit.BorderRadius = 0;
+            this.btnExit.ForeColor = System.Drawing.Color.Red;
+            this.btnExit.Location = new System.Drawing.Point(0, 280);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(300, 35);
+            this.btnExit.Text = "ÍË³ö";
+            this.btnExit.Press += new System.EventHandler(this.btnExit_Press);
             // 
             // menuTitle1
             // 
@@ -96,17 +182,23 @@ namespace SmoONE.UI.UserInfo
             this.spContent.Name = "spContent";
             this.spContent.Size = new System.Drawing.Size(100, 30);
             // 
-            // plPortrait
+            // toolBar
             // 
-            this.plPortrait.BackColor = System.Drawing.Color.White;
-            this.plPortrait.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
-            this.plPortrait.BorderColor = System.Drawing.Color.LightGray;
-            this.plPortrait.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.label1,
-            this.imgPortrait,
-            this.btnUp});
-            this.plPortrait.Name = "plPortrait";
-            this.plPortrait.Size = new System.Drawing.Size(300, 45);
+            this.toolBar.BackColor = System.Drawing.Color.White;
+            this.toolBar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            toolBarItem1.IconID = "work";
+            toolBarItem1.Name = "Work";
+            toolBarItem1.SelectIconID = "work";
+            toolBarItem2.IconID = "me2";
+            toolBarItem2.Name = "Me";
+            toolBarItem2.SelectIconID = "me2";
+            this.toolBar.Items.AddRange(new Smobiler.Core.Controls.ToolBarItem[] {
+            toolBarItem1,
+            toolBarItem2});
+            this.toolBar.Location = new System.Drawing.Point(98, 285);
+            this.toolBar.Name = "toolBar";
+            this.toolBar.Size = new System.Drawing.Size(100, 45);
+            this.toolBar.ToolbarItemClick += new Smobiler.Core.Controls.ToolbarItemClickEventHandler(this.toolBar_ToolbarItemClick);
             // 
             // label1
             // 
@@ -122,7 +214,8 @@ namespace SmoONE.UI.UserInfo
             this.imgPortrait.BorderRadius = 20;
             this.imgPortrait.Location = new System.Drawing.Point(224, 0);
             this.imgPortrait.Name = "imgPortrait";
-            this.imgPortrait.Size = new System.Drawing.Size(41, 41);
+            this.imgPortrait.Size = new System.Drawing.Size(40, 40);
+            this.imgPortrait.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Cover;
             this.imgPortrait.Zooming = true;
             // 
             // btnUp
@@ -137,19 +230,6 @@ namespace SmoONE.UI.UserInfo
             this.btnUp.Size = new System.Drawing.Size(35, 45);
             this.btnUp.Text = ">";
             this.btnUp.Press += new System.EventHandler(this.btnUp_Press);
-            // 
-            // plName
-            // 
-            this.plName.BackColor = System.Drawing.Color.White;
-            this.plName.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
-            this.plName.BorderColor = System.Drawing.Color.LightGray;
-            this.plName.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.label2,
-            this.btnName,
-            this.btnName1});
-            this.plName.Location = new System.Drawing.Point(0, 45);
-            this.plName.Name = "plName";
-            this.plName.Size = new System.Drawing.Size(300, 45);
             // 
             // label2
             // 
@@ -184,19 +264,6 @@ namespace SmoONE.UI.UserInfo
             this.btnName1.Text = ">";
             this.btnName1.Press += new System.EventHandler(this.btnName_Press);
             // 
-            // plSex
-            // 
-            this.plSex.BackColor = System.Drawing.Color.White;
-            this.plSex.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
-            this.plSex.BorderColor = System.Drawing.Color.LightGray;
-            this.plSex.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.label3,
-            this.btnSex,
-            this.btnSex1});
-            this.plSex.Location = new System.Drawing.Point(0, 90);
-            this.plSex.Name = "plSex";
-            this.plSex.Size = new System.Drawing.Size(300, 45);
-            // 
             // label3
             // 
             this.label3.ForeColor = System.Drawing.Color.Gray;
@@ -230,18 +297,6 @@ namespace SmoONE.UI.UserInfo
             this.btnSex1.Text = ">";
             this.btnSex1.Press += new System.EventHandler(this.btnSex_Press);
             // 
-            // plBirthday
-            // 
-            this.plBirthday.BackColor = System.Drawing.Color.White;
-            this.plBirthday.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
-            this.plBirthday.BorderColor = System.Drawing.Color.LightGray;
-            this.plBirthday.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.label4,
-            this.dpkBirthday});
-            this.plBirthday.Location = new System.Drawing.Point(0, 135);
-            this.plBirthday.Name = "plBirthday";
-            this.plBirthday.Size = new System.Drawing.Size(300, 45);
-            // 
             // label4
             // 
             this.label4.ForeColor = System.Drawing.Color.Gray;
@@ -259,19 +314,6 @@ namespace SmoONE.UI.UserInfo
             this.dpkBirthday.Size = new System.Drawing.Size(300, 25);
             this.dpkBirthday.Value = new System.DateTime(2017, 8, 10, 14, 32, 56, 666);
             this.dpkBirthday.ValueChanged += new System.EventHandler(this.dpkBirthday_DateChanged);
-            // 
-            // plEmail
-            // 
-            this.plEmail.BackColor = System.Drawing.Color.White;
-            this.plEmail.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
-            this.plEmail.BorderColor = System.Drawing.Color.LightGray;
-            this.plEmail.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.label5,
-            this.btnEmail,
-            this.btnEmail1});
-            this.plEmail.Location = new System.Drawing.Point(0, 180);
-            this.plEmail.Name = "plEmail";
-            this.plEmail.Size = new System.Drawing.Size(300, 45);
             // 
             // label5
             // 
@@ -305,49 +347,6 @@ namespace SmoONE.UI.UserInfo
             this.btnEmail1.Size = new System.Drawing.Size(35, 45);
             this.btnEmail1.Text = ">";
             this.btnEmail1.Press += new System.EventHandler(this.btnEmail_Press);
-            // 
-            // btnPwd
-            // 
-            this.btnPwd.BackColor = System.Drawing.Color.White;
-            this.btnPwd.BorderColor = System.Drawing.Color.LightGray;
-            this.btnPwd.BorderRadius = 0;
-            this.btnPwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btnPwd.Location = new System.Drawing.Point(0, 235);
-            this.btnPwd.Name = "btnPwd";
-            this.btnPwd.Size = new System.Drawing.Size(300, 35);
-            this.btnPwd.Text = "µÇÂ¼ÃÜÂëÐÞ¸Ä";
-            this.btnPwd.Press += new System.EventHandler(this.btnPwd_Press);
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.White;
-            this.btnExit.BorderRadius = 0;
-            this.btnExit.ForeColor = System.Drawing.Color.Red;
-            this.btnExit.Location = new System.Drawing.Point(0, 280);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(300, 35);
-            this.btnExit.Text = "ÍË³ö";
-            this.btnExit.Press += new System.EventHandler(this.btnExit_Press);
-            // 
-            // toolBar
-            // 
-            this.toolBar.BackColor = System.Drawing.Color.White;
-            this.toolBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            toolBarItem1.IconID = "work";
-            toolBarItem1.Name = "Work";
-            toolBarItem1.SelectIconID = "work";
-            toolBarItem2.IconID = "me2";
-            toolBarItem2.Name = "Me";
-            toolBarItem2.SelectIconID = "me2";
-            this.toolBar.Items.AddRange(new Smobiler.Core.Controls.ToolBarItem[] {
-            toolBarItem1,
-            toolBarItem2});
-            this.toolBar.Location = new System.Drawing.Point(98, 285);
-            this.toolBar.Name = "toolBar";
-            this.toolBar.SelectBackColor = System.Drawing.Color.Transparent;
-            this.toolBar.SelectForeColor = System.Drawing.Color.Black;
-            this.toolBar.Size = new System.Drawing.Size(100, 45);
-            this.toolBar.ToolbarItemClick += new Smobiler.Core.Controls.ToolbarItemClickEventHandler(this.toolBar_ToolbarItemClick);
             // 
             // frmUser
             // 

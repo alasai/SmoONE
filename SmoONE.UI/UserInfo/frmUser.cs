@@ -133,7 +133,6 @@ namespace SmoONE.UI.UserInfo
                 {
                     if (args.Result == ShowResult.Yes)
                     {
-
                         this.Close();
                         //frmLogon frmLogon = new frmLogon();
                         //Show(frmLogon);

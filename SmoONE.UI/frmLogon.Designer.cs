@@ -93,7 +93,6 @@ namespace SmoONE.UI
             this.btnLogon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             this.btnLogon.BorderRadius = 4;
             this.btnLogon.FontSize = 17F;
-            this.btnLogon.ForeColor = System.Drawing.Color.White;
             this.btnLogon.Location = new System.Drawing.Point(15, 265);
             this.btnLogon.Name = "btnLogon";
             this.btnLogon.Size = new System.Drawing.Size(270, 40);

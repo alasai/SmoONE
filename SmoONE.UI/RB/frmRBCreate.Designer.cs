@@ -134,7 +134,7 @@ namespace SmoONE.UI.RB
             this.listRBRowData.Location = new System.Drawing.Point(0, 155);
             this.listRBRowData.Name = "listRBRowData";
             this.listRBRowData.ShowSplitLine = true;
-            this.listRBRowData.Size = new System.Drawing.Size(300, 225);
+            this.listRBRowData.Size = new System.Drawing.Size(300, 250);
             this.listRBRowData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.listRBRowData.TemplateControlName = "frmRBCreateLayout";
             // 
@@ -224,6 +224,7 @@ namespace SmoONE.UI.RB
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
+            this.btnSave.BorderRadius = 4;
             this.btnSave.FontSize = 17F;
             this.btnSave.Location = new System.Drawing.Point(10, 35);
             this.btnSave.Margin = new Smobiler.Core.Controls.Margin(0F, 0F, 10F, 0F);

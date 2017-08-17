@@ -50,7 +50,6 @@ namespace SmoONE.UI.Layout
             // 
             // Check
             // 
-            this.Check.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.Check.DataMember = "RBCHECKED";
             this.Check.DisplayMember = "RBCHECKED";
             this.Check.Location = new System.Drawing.Point(10, 22);
@@ -67,7 +66,7 @@ namespace SmoONE.UI.Layout
             this.imgType.Location = new System.Drawing.Point(25, 7);
             this.imgType.Name = "imgType";
             this.imgType.Size = new System.Drawing.Size(45, 45);
-            this.imgType.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Zoom;
+            this.imgType.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Cover;
             // 
             // lblMoney
             // 
@@ -96,7 +95,6 @@ namespace SmoONE.UI.Layout
             // 
             this.lblnote.DataMember = "ID";
             this.lblnote.DisplayMember = "RBROW_NOTE";
-            this.lblnote.FontSize = 13F;
             this.lblnote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.lblnote.Location = new System.Drawing.Point(150, 0);
             this.lblnote.Name = "lblnote";

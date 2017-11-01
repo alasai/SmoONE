@@ -54,6 +54,7 @@ namespace SmoONE.UI.Layout
             // 
             this.label1.FontSize = 15F;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.label1.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
             this.label1.Location = new System.Drawing.Point(40, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(220, 50);

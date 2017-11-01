@@ -65,7 +65,7 @@ namespace SmoONE.UI.Attendance
                 {
                     if (WorkTime != null)
                     {
-                        this.gps1.TimeOut = 2000;
+                       // this.gps1.TimeOut = 2000;
                         //获取定位信息：经纬度和所处位置
                         if ((ATMainState)Enum.Parse(typeof(ATMainState), enter.ToString()) != ATMainState.统计查看)        //只有进行签到时候才获取定位信息
                         {

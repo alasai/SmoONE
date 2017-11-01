@@ -111,6 +111,12 @@ namespace SmoONE.Application
         /// </summary>
         /// <param name="UserID">用户ID</param>
         List<RB_RType_TemplateDto> GetTemplateByCreateUser(string UserID);
+
+        /// <summary>
+        /// 根据成本中心返回报销单传输对象
+        /// </summary>
+        /// <param name="CCID">成本中心ID</param>
+        List <ReimbursementDto> GetByCCID(string CCID);
         #endregion
 
         #region 操作
@@ -169,7 +175,12 @@ namespace SmoONE.Application
         /// </summary>
         /// <param name="RB_RTT_TemplateID">消费明细类型的模板ID</param>
         ReturnInfo DeleteRB_Type_Template(string RB_RTT_TemplateID);
+
+
+       
+
+
         #endregion
-        
+
     }
 }

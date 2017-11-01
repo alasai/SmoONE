@@ -72,10 +72,11 @@ namespace SmoONE.UI.UserInfo
                             break;
 
                     }
-                    lblTel.Text = U_ID;
+                    lblTelShow .Text = U_ID;
                     lblBirShow.Text = user.U_Birthday.ToString("yyyy/MM/dd");
                     email = user.U_Email;
-                    lblEmail.Text = user.U_Email;
+                    lblEmailShow .Text = user.U_Email;
+                    phoneButton1.PhoneNumber = U_ID;
                 }
                 else
                 {
@@ -113,6 +114,15 @@ namespace SmoONE.UI.UserInfo
         private void tpEmail_Press(object sender, EventArgs e)
         {
             Client.SendEmail("", "", email);
+        }
+        /// <summary>
+        /// ´òµç»°
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void phoneButton1_Press(object sender, EventArgs e)
+        {
+           
         }
     }
 }

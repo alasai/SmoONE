@@ -35,11 +35,12 @@ namespace SmoONE.UI.Attendance
             // gridATTypeDaydata
             // 
             this.gridATTypeDaydata.BackColor = System.Drawing.Color.White;
-            this.gridATTypeDaydata.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gridATTypeDaydata.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridATTypeDaydata.FooterControlName = null;
             this.gridATTypeDaydata.HeaderControlName = null;
             this.gridATTypeDaydata.Location = new System.Drawing.Point(0, 85);
             this.gridATTypeDaydata.Name = "gridATTypeDaydata";
+            this.gridATTypeDaydata.PageSize = 10;
             this.gridATTypeDaydata.ShowSplitLine = true;
             this.gridATTypeDaydata.Size = new System.Drawing.Size(300, 415);
             this.gridATTypeDaydata.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
@@ -61,8 +62,6 @@ namespace SmoONE.UI.Attendance
             this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title1.FontSize = 15F;
-            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title1.Location = new System.Drawing.Point(111, 36);
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(100, 50);
@@ -74,6 +73,7 @@ namespace SmoONE.UI.Attendance
             this.title1,
             this.lblATMonth,
             this.gridATTypeDaydata});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmAttendanceStatMonthTypeDay_KeyDown);
             this.Load += new System.EventHandler(this.frmAttendanceStatMonthTypeDay_Load);
             this.Name = "frmAttendanceStatMonthTypeDay";

@@ -36,12 +36,13 @@ namespace SmoONE.UI.CostCenter
             // gridCCData
             // 
             this.gridCCData.BackColor = System.Drawing.Color.White;
-            this.gridCCData.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gridCCData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridCCData.FooterControlName = null;
             this.gridCCData.HeaderControlName = null;
             this.gridCCData.Location = new System.Drawing.Point(0, 105);
             this.gridCCData.Margin = new Smobiler.Core.Controls.Margin(0F, 20F, 0F, 0F);
             this.gridCCData.Name = "gridCCData";
+            this.gridCCData.PageSize = 10;
             this.gridCCData.ShowSplitLine = true;
             this.gridCCData.Size = new System.Drawing.Size(300, 395);
             this.gridCCData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
@@ -74,8 +75,6 @@ namespace SmoONE.UI.CostCenter
             this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title1.FontSize = 15F;
-            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title1.Location = new System.Drawing.Point(111, 36);
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(100, 50);
@@ -89,6 +88,7 @@ namespace SmoONE.UI.CostCenter
             this.btnCreate,
             this.gridCCData,
             this.lblInfor});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmCostCenter_KeyDown);
             this.Load += new System.EventHandler(this.frmCostCenter_Load);
             this.Name = "frmCostCenter";

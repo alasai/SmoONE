@@ -35,6 +35,14 @@ namespace SmoONE.Domain.IRepository
         bool IsExists(string UserID);
 
         /// <summary>
+        /// 判断该用户ID手势是否正确
+        /// </summary>
+        /// <param name="UserID">用户ID</param>
+        /// <param name="Gestures">手势</param>
+        bool IsGesture(string UserID, String Gestures);
+
+
+        /// <summary>
         /// 根据用户ID返回用户对象
         /// </summary>
         /// <param name="ID">用户ID</param>

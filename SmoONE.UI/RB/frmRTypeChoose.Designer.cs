@@ -38,8 +38,6 @@ namespace SmoONE.UI.RB
             this.title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.title.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title.FontSize = 15F;
-            this.title.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(300, 50);
             this.title.TitleText = "消费类型选择";
@@ -62,6 +60,7 @@ namespace SmoONE.UI.RB
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.title,
             this.listRBRowTypeData});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmRTypeChoose_KeyDown);
             this.Load += new System.EventHandler(this.frmRTypeChoose_Load);
             this.Name = "frmRTypeChoose";

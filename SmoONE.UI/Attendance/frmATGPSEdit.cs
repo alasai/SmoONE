@@ -19,28 +19,6 @@ namespace SmoONE.UI.Attendance
          #endregion
 
         /// <summary>
-        /// 地点微调
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void mapView1_TagClick(object sender, MapViewTagClickEventArgs e)
-        {
-            if ((!e.Tag.Longitude.Equals(Longitude)) & (!e.Tag.Latitude.Equals(Latitude)))
-            {
-                MessageBox.Show("是否确定更改地点？", "地点微调", MessageBoxButtons.YesNo, (Object s, MessageBoxHandlerArgs args) =>
-                {
-                    if (args.Result == Smobiler.Core.Controls.ShowResult.Yes)
-                    {
-                        Longitude = e.Tag.Longitude;
-                        Latitude = e.Tag.Latitude;
-                        addressInfo = e.Tag.Description;
-                        ShowResult = ShowResult.Yes;
-                        
-                    }
-                });
-            }
-        }
-        /// <summary>
         /// 界面加载
         /// </summary>
         /// <param name="sender"></param>
@@ -61,6 +39,28 @@ namespace SmoONE.UI.Attendance
             if (e.KeyCode == KeyCode.Back)
             {
                 Close();
+            }
+        }
+        /// <summary>
+        /// 地点微调
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mapTrimView1_LocationChanged(object sender, MapTrimViewLocationChangedEventArgs e)
+        {
+            if ((!e.Longitude.Equals(Longitude)) & (!e.Latitude.Equals(Latitude)))
+            {
+                MessageBox.Show("是否确定更改地点？", "地点微调", MessageBoxButtons.YesNo, (Object s, MessageBoxHandlerArgs args) =>
+                {
+                    if (args.Result == Smobiler.Core.Controls.ShowResult.Yes)
+                    {
+                        Longitude = e.Longitude;
+                        Latitude = e.Latitude;
+                        addressInfo = e.Description;
+                        ShowResult = ShowResult.Yes;
+
+                    }
+                });
             }
         }
     }

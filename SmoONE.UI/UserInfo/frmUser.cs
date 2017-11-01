@@ -118,6 +118,45 @@ namespace SmoONE.UI.UserInfo
         private void ShowlayoutDialog()
         {
             EditUserInfo.eInfo = eInfo;
+
+            string editLbltxt;
+            if (eInfo == (int)EuserInfo.ÐÞ¸ÄµÇÂ¼ÃÜÂë)
+            {
+                editLbltxt = "ÐÞ¸ÄÃÜÂëÇ°ÇëÌîÐ´Ô­ÃÜÂë";
+            }
+            else
+            {
+                editLbltxt = ((EuserInfo)Enum.ToObject(typeof(EuserInfo), eInfo)).ToString();
+            }
+            EditUserInfo. lblEditInfo.Text = editLbltxt;
+            switch (eInfo)
+            {
+                case (int)EuserInfo.ÐÞ¸ÄêÇ³Æ:
+                    if (((frmUser)(this.Form)).btnName.Text.Trim().Length > 0)
+                    {
+                        EditUserInfo. txtEditInfo.Text = btnName.Text.Trim();
+
+                    }
+                    else
+                    {
+                        EditUserInfo. txtEditInfo.Text = "";
+                    }
+                    break;
+                case (int)EuserInfo.ÐÞ¸ÄÓÊ¼þ:
+                    if (((frmUser)(this.Form)).btnEmail.Text.Trim().Length > 0)
+                    {
+                        EditUserInfo. txtEditInfo.Text = btnEmail.Text.Trim();
+                    }
+                    else
+                    {
+                        EditUserInfo. txtEditInfo.Text = "";
+                    }
+                    break;
+                case (int)EuserInfo.ÐÞ¸ÄµÇÂ¼ÃÜÂë:
+                    EditUserInfo. txtEditInfo.Text = "";
+                    break;
+
+            }
             ShowDialog(EditUserInfo);
         }
         /// <summary>
@@ -179,7 +218,8 @@ namespace SmoONE.UI.UserInfo
 
                 if (user != null)
                 {
-                    imgPortrait.ResourceID = user.U_Portrait;
+                   // imgPortrait.ResourceID = user.U_Portrait;
+                    cameraButton1.ResourceID = user.U_Portrait;
                     btnName.Text = user.U_Name;
                     sex = (Sex)user.U_Sex;
                     switch (sex)
@@ -237,8 +277,12 @@ namespace SmoONE.UI.UserInfo
                 else
                 {
                     e.SaveFile(e.ResourceID + ".png");
-                    imgPortrait.ResourceID = e.ResourceID;
-                    imgPortrait.Refresh();
+                    
+                    //imgPortrait.ResourceID = e.ResourceID;
+                   
+                    //imgPortrait.Refresh();
+                    cameraButton1.ResourceID= e.ResourceID;
+                   
                 }
             }
         }
@@ -258,7 +302,8 @@ namespace SmoONE.UI.UserInfo
                 if (result.IsSuccess == true)
                 {
                     sex = (Sex)Convert.ToInt32(popSex.Selection.Value);
-                    btnSex.Text = popSex.Selection.Text;
+                    //btnSex.Text = popSex.Selection.Text;
+                    GetUser();
                 }
                 else
                 {

@@ -70,6 +70,7 @@ namespace SmoONE.UI.UserInfo
             this.tpPwd1.Location = new System.Drawing.Point(255, 0);
             this.tpPwd1.Name = "tpPwd1";
             this.tpPwd1.Size = new System.Drawing.Size(45, 35);
+            this.tpPwd1.Touchable = true;
             this.tpPwd1.Press += new System.EventHandler(this.tpPwd1_Press);
             // 
             // fontPwd1
@@ -77,7 +78,7 @@ namespace SmoONE.UI.UserInfo
             this.fontPwd1.ForeColor = System.Drawing.Color.Gray;
             this.fontPwd1.Margin = new Smobiler.Core.Controls.Margin(5F, 0F, 0F, 0F);
             this.fontPwd1.Name = "fontPwd1";
-            this.fontPwd1.Padding = new Smobiler.Core.Controls.Padding(5F);
+            this.fontPwd1.Padding = new Smobiler.Core.Controls.Padding(8F);
             this.fontPwd1.ResourceID = "eye-slash";
             this.fontPwd1.Size = new System.Drawing.Size(35, 35);
             // 
@@ -108,6 +109,7 @@ namespace SmoONE.UI.UserInfo
             this.tpPwd2.Location = new System.Drawing.Point(255, 0);
             this.tpPwd2.Name = "tpPwd2";
             this.tpPwd2.Size = new System.Drawing.Size(45, 35);
+            this.tpPwd2.Touchable = true;
             this.tpPwd2.Press += new System.EventHandler(this.tpPwd2_Press);
             // 
             // fontPwd2
@@ -115,7 +117,7 @@ namespace SmoONE.UI.UserInfo
             this.fontPwd2.ForeColor = System.Drawing.Color.Gray;
             this.fontPwd2.Margin = new Smobiler.Core.Controls.Margin(5F, 0F, 0F, 0F);
             this.fontPwd2.Name = "fontPwd2";
-            this.fontPwd2.Padding = new Smobiler.Core.Controls.Padding(5F);
+            this.fontPwd2.Padding = new Smobiler.Core.Controls.Padding(8F);
             this.fontPwd2.ResourceID = "eye-slash";
             this.fontPwd2.Size = new System.Drawing.Size(35, 35);
             // 
@@ -136,7 +138,7 @@ namespace SmoONE.UI.UserInfo
             // 
             this.plPwd2.BackColor = System.Drawing.Color.White;
             this.plPwd2.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
-            this.plPwd2.BorderColor = System.Drawing.Color.LightGray;
+            this.plPwd2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.plPwd2.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.label2,
             this.txtPwd2,
@@ -161,8 +163,6 @@ namespace SmoONE.UI.UserInfo
             this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title1.FontSize = 15F;
-            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title1.Location = new System.Drawing.Point(74, 229);
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(100, 50);
@@ -175,6 +175,7 @@ namespace SmoONE.UI.UserInfo
             this.plPwd2,
             this.btnSave,
             this.title1});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmChangePWD_KeyDown);
             this.Name = "frmChangePWD";
 

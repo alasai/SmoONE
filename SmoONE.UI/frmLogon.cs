@@ -7,6 +7,7 @@ using Smobiler.Core.Controls;
 using SmoONE.CommLib;
 using SmoONE.Domain;
 using SmoONE.UI.UserInfo;
+using SmoONE.DTOs;
 
 namespace SmoONE.UI
 {
@@ -45,7 +46,17 @@ namespace SmoONE.UI
                 {
                     throw new Exception("密码必须为6-12位！");
                 }
-               
+                LoadClientData(MobileServer.ServerID + "user", userID);
+                if (chkRememberPwd.Checked == true)
+                {
+                    //记住密码
+                    LoadClientData(MobileServer.ServerID + "pwd", pwd);
+                }
+                else
+                {
+                    //删除客户端数据
+                    RemoveClientData(MobileServer.ServerID + "pwd", (object s, ClientDataResultHandlerArgs args) => txtPwd.Text = "");
+                }
                 //密码处理,经过加密
                 string encryptPwd = AutofacConfig.userService.Encrypt(DateTime.Now.ToString("yyyyMMddHHmmss") + pwd);
                 ReturnInfo result = AutofacConfig.userService.Login(userID, encryptPwd);
@@ -104,6 +115,7 @@ namespace SmoONE.UI
                 }
 
                 frmVerificationCode frmVerificationCode = new frmVerificationCode();
+                frmVerificationCode.isVerifyLogon = true;
                 frmVerificationCode.Tel = userID;
                 Show(frmVerificationCode);
             }
@@ -112,7 +124,102 @@ namespace SmoONE.UI
                 Toast(ex.Message, ToastLength.SHORT);
             }
         }
+        /// <summary>
+        /// 数据加载
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmLogon_Load(object sender, EventArgs e)
+        {
+            ReadClientData(MobileServer.ServerID + "user", (object s, ClientDataResultHandlerArgs args) =>
+            {
+                try
+                {
+                    if (string.IsNullOrEmpty(args.error))
+                    {
+                        txtTel.Text = args.Value;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            });
+            ReadClientData(MobileServer.ServerID + "pwd", (object s, ClientDataResultHandlerArgs args) =>
+            {
+                if (string.IsNullOrEmpty(args.error))
+                {
+                    txtPwd.Text = args.Value;
+                    if (txtPwd.Text.Length > 0)
+                    {
+                        chkRememberPwd.Checked = true;
+                    }
+                }
+            });
 
 
+        }
+
+        /// <summary>
+        /// 手势验证
+        /// </summary>
+        private void ScreenGestures()
+        {
+            string userID = txtTel.Text.Trim();
+            if (userID.Length <=0) Toast("请输入手机号！", ToastLength.SHORT);
+            UserDetailDto user = AutofacConfig.userService.GetUserByUserID(userID);
+            if (user != null  )
+            {
+                if (string.IsNullOrEmpty(user.U_Gestures) == false)
+                { 
+                this.Client.Pattern.Password = user.U_Gestures;
+                }
+            }
+            else
+            {
+                Toast("用户" + userID + "不存在！", ToastLength.SHORT);
+            }
+
+            if (string.IsNullOrEmpty(this.Client.Pattern.Password) == false)
+            {
+                this.Client.Pattern.VerifyLocal((object s, Smobiler.Core.RPC.PatternLocalVerifiedEventArgs eee) =>
+                {
+                    if (eee.isError == false)
+                    {
+                        //使用模拟验证码登录
+                        ReturnInfo result = AutofacConfig.userService.GesturesLogin(userID, Client.Pattern.Password);
+                        if (result.IsSuccess == true)
+                        {
+                            List<Role> role = AutofacConfig.userService.GetRoleByUserID(userID);
+                            Client.Session["U_ID"] = userID;
+                            Client.Session["Roler"] = role;
+                            //跳转到菜单界面
+                            SmoONE.UI.Work.frmWork frmWork = new SmoONE.UI.Work.frmWork();
+                            Show(frmWork);
+                        }
+                        else
+                        {
+                            Toast(result.ErrorInfo, ToastLength.SHORT);
+                        }
+                    }
+                });
+            }
+
+            else
+            {
+                Toast("您没有手势，请先用密码登录！",ToastLength.SHORT);
+            }
+
+        }
+        /// <summary>
+        /// 手势登录
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Press(object sender, EventArgs e)
+        {
+            ScreenGestures();
+        }
     }
 }

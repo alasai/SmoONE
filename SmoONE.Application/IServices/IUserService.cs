@@ -29,6 +29,13 @@ namespace SmoONE.Application
         ReturnInfo Login(string UserID, String Password);
 
         /// <summary>
+        /// 手势登录
+        /// </summary>
+        /// <param name="UserID">用户ID</param>
+        /// <param name="Gestures">手势</param>
+        ReturnInfo GesturesLogin(string UserID, String Gestures);
+
+        /// <summary>
         /// 用户通过验证码登录
         /// </summary>
         /// <param name="PhoneNumber">电话号码</param>

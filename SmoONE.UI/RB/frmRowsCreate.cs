@@ -54,14 +54,14 @@ namespace SmoONE.UI.RB
                     string TypeName = AutofacConfig.rBService.GetTypeNameByID(row.R_TypeID);
                     title.TitleText = "消费记录";
                     TYPEID = row.R_TypeID;           //消费类型编号
-                    this.btnRBType.Text = TypeName;           //消费类型名称
+                    this.btnRBType.Text = TypeName+ "   > ";           //消费类型名称
                     this.txtMoney.Text = row.R_Amount.ToString();       //消费金额
                     this.txtNote.Text = row.R_Note;                 //消费备注
                 }
                 else
                 {
                     title.TitleText = "消费记录创建";
-                    this.btnRBType.Text = "选择类型";
+                    this.btnRBType.Text = "选择类型"+ "   > ";
                     this.btnDelete.Visible = false;
                     btnSave.Width = 280;
                     btnSave.Left = 10;
@@ -92,10 +92,10 @@ namespace SmoONE.UI.RB
                         string TemplateID = frm.RTTemplaetID;
                         RB_RType_TemplateDto RBTemp = AutofacConfig.rBService.GetTemplateByTemplateID(TemplateID);
                         string RBTypeName = AutofacConfig.rBService.GetTypeNameByID(RBTemp.RB_RTT_TypeID);
-                        this.btnRBModel.Text = "已选择";
+                        this.btnRBModel.Text = "已选择" + "   > ";
                         TYPEID = RBTemp.RB_RTT_TypeID;                //报销类型ID
                         this.txtMoney.Text = RBTemp.RB_RTT_Amount.ToString();          //消费金额
-                        this.btnRBType.Text = RBTypeName;       //报销类型名称
+                        this.btnRBType.Text = RBTypeName + "   > ";       //报销类型名称
                         this.txtNote.Text = RBTemp.RB_RTT_Note;          //消费备注
                     }
                 });
@@ -127,7 +127,7 @@ namespace SmoONE.UI.RB
                             {
                                 string[] types = TYPEIDs.Split(new char[] { '/' });
                                 TYPEID = types[0];       //消费类型编号
-                                this.btnRBType.Text = types[1];               //消费类型名称
+                                this.btnRBType.Text = types[1] + "   > ";               //消费类型名称
                             }
                         }
                     }

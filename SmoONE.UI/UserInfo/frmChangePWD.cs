@@ -74,7 +74,7 @@ namespace SmoONE.UI.UserInfo
             {
                 string pwd1 = txtPwd1.Text.Trim();
                 string pwd2 = txtPwd2.Text.Trim();
-                if (string.IsNullOrEmpty(oldPwd) == false)
+                if (string.IsNullOrEmpty(oldPwd) == true )
                 {
                     throw new Exception("请输入原密码！");
                 }
@@ -99,14 +99,15 @@ namespace SmoONE.UI.UserInfo
                 {
                     throw new Exception("确认密码必须为6-12位！");
                 }
-                if (oldPwd.Equals(pwd2))
-                {
-                    throw new Exception("您输入新密码和原密码密码一致，请重新输入！");
-                }
+               
                 if (oldPwd != null)
                 {
                     //新密码处理,经过加密
                     string encryptPwd = AutofacConfig.userService.Encrypt(pwd2);
+                    if (oldPwd.Equals(encryptPwd))
+                    {
+                        throw new Exception("您输入新密码和原密码密码一致，请重新输入！");
+                    }
                     //更改密码
                     ReturnInfo result = AutofacConfig.userService.ChangePwd(Client.Session["U_ID"].ToString(), oldPwd, encryptPwd);
                     //如果返回true则修改成功，否则弹出错误

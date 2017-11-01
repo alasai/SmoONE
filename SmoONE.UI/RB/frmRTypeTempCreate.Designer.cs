@@ -39,7 +39,6 @@ namespace SmoONE.UI.RB
             this.plRBType = new Smobiler.Core.Controls.Panel();
             this.label4 = new Smobiler.Core.Controls.Label();
             this.btnRBType = new Smobiler.Core.Controls.Button();
-            this.btnRBType1 = new Smobiler.Core.Controls.Button();
             this.plNote = new Smobiler.Core.Controls.Panel();
             this.label6 = new Smobiler.Core.Controls.Label();
             this.txtNote = new Smobiler.Core.Controls.TextBox();
@@ -55,8 +54,6 @@ namespace SmoONE.UI.RB
             this.title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.title.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title.FontSize = 15F;
-            this.title.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title.Location = new System.Drawing.Point(103, 89);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(100, 50);
@@ -107,18 +104,17 @@ namespace SmoONE.UI.RB
             this.txtMoney.KeyboardType = Smobiler.Core.Controls.KeyboardType.Numeric;
             this.txtMoney.Location = new System.Drawing.Point(88, 0);
             this.txtMoney.Name = "txtMoney";
-            this.txtMoney.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 5F, 0F);
-            this.txtMoney.Size = new System.Drawing.Size(168, 35);
+            this.txtMoney.Size = new System.Drawing.Size(182, 35);
             this.txtMoney.WaterMarkText = "0.00";
             // 
             // label3
             // 
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.label3.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
-            this.label3.Location = new System.Drawing.Point(255, 0);
+            this.label3.Location = new System.Drawing.Point(270, 0);
             this.label3.Name = "label3";
-            this.label3.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
-            this.label3.Size = new System.Drawing.Size(45, 35);
+            this.label3.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
+            this.label3.Size = new System.Drawing.Size(30, 35);
             this.label3.Text = "元";
             // 
             // plRBType
@@ -128,8 +124,7 @@ namespace SmoONE.UI.RB
             this.plRBType.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.plRBType.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.label4,
-            this.btnRBType,
-            this.btnRBType1});
+            this.btnRBType});
             this.plRBType.Location = new System.Drawing.Point(0, 45);
             this.plRBType.Name = "plRBType";
             this.plRBType.Size = new System.Drawing.Size(300, 35);
@@ -150,23 +145,10 @@ namespace SmoONE.UI.RB
             this.btnRBType.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.btnRBType.Location = new System.Drawing.Point(88, 0);
             this.btnRBType.Name = "btnRBType";
-            this.btnRBType.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 5F, 0F);
-            this.btnRBType.Size = new System.Drawing.Size(188, 35);
-            this.btnRBType.Text = "选择（必填）";
+            this.btnRBType.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
+            this.btnRBType.Size = new System.Drawing.Size(212, 35);
+            this.btnRBType.Text = "选择（必填）   > ";
             this.btnRBType.Press += new System.EventHandler(this.btnRBType_Press);
-            // 
-            // btnRBType1
-            // 
-            this.btnRBType1.BackColor = System.Drawing.Color.Transparent;
-            this.btnRBType1.BorderRadius = 0;
-            this.btnRBType1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.btnRBType1.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
-            this.btnRBType1.Location = new System.Drawing.Point(275, 0);
-            this.btnRBType1.Name = "btnRBType1";
-            this.btnRBType1.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
-            this.btnRBType1.Size = new System.Drawing.Size(25, 35);
-            this.btnRBType1.Text = ">";
-            this.btnRBType1.Press += new System.EventHandler(this.btnRBType_Press);
             // 
             // plNote
             // 
@@ -197,7 +179,7 @@ namespace SmoONE.UI.RB
             this.txtNote.MaxLength = 200;
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
-            this.txtNote.Padding = new Smobiler.Core.Controls.Padding(0F, 5F, 30F, 0F);
+            this.txtNote.Padding = new Smobiler.Core.Controls.Padding(0F, 5F, 4F, 0F);
             this.txtNote.Size = new System.Drawing.Size(212, 100);
             this.txtNote.WaterMarkText = "（必填）";
             // 
@@ -208,7 +190,7 @@ namespace SmoONE.UI.RB
             this.label1.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.label1.Location = new System.Drawing.Point(0, 190);
             this.label1.Name = "label1";
-            this.label1.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
+            this.label1.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.label1.Size = new System.Drawing.Size(300, 25);
             this.label1.Text = "备注长度不能超过200！";
             // 
@@ -241,7 +223,7 @@ namespace SmoONE.UI.RB
             this.label7.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.label7.Location = new System.Drawing.Point(0, 190);
             this.label7.Name = "label7";
-            this.label7.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
+            this.label7.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.label7.Size = new System.Drawing.Size(300, 25);
             this.label7.Text = "备注长度不能超过200！";
             // 
@@ -270,6 +252,7 @@ namespace SmoONE.UI.RB
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.title,
             this.spContent});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmRTypeTempCreate_KeyDown);
             this.Load += new System.EventHandler(this.frmRTypeTempCreate_Load);
             this.Name = "frmRTypeTempCreate";
@@ -286,7 +269,6 @@ namespace SmoONE.UI.RB
         private Smobiler.Core.Controls.Panel plRBType;
         internal Smobiler.Core.Controls.Label label4;
         internal Smobiler.Core.Controls.Button btnRBType;
-        private Smobiler.Core.Controls.Button btnRBType1;
         private Smobiler.Core.Controls.Panel plNote;
         private Smobiler.Core.Controls.Label label6;
         private Smobiler.Core.Controls.TextBox txtNote;

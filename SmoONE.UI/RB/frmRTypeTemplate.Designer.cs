@@ -40,8 +40,6 @@ namespace SmoONE.UI.RB
             this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title1.FontSize = 15F;
-            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title1.Location = new System.Drawing.Point(87, 108);
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(100, 50);
@@ -69,6 +67,7 @@ namespace SmoONE.UI.RB
             this.listRBModelData.Location = new System.Drawing.Point(17, 262);
             this.listRBModelData.Margin = new Smobiler.Core.Controls.Margin(0F, 20F, 0F, 0F);
             this.listRBModelData.Name = "listRBModelData";
+            this.listRBModelData.PageSize = 10;
             this.listRBModelData.ShowSplitLine = true;
             this.listRBModelData.Size = new System.Drawing.Size(100, 30);
             this.listRBModelData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
@@ -76,7 +75,6 @@ namespace SmoONE.UI.RB
             // 
             // lblInfor
             // 
-            this.lblInfor.BackColor = System.Drawing.Color.White;
             this.lblInfor.ForeColor = System.Drawing.Color.Silver;
             this.lblInfor.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
             this.lblInfor.Location = new System.Drawing.Point(0, 180);
@@ -91,6 +89,7 @@ namespace SmoONE.UI.RB
             this.btnCreate,
             this.listRBModelData,
             this.lblInfor});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmRTypeTemplate_KeyDown);
             this.Load += new System.EventHandler(this.frmRTypeTemplate_Load);
             this.Name = "frmRTypeTemplate";

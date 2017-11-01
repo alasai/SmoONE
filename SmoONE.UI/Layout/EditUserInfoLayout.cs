@@ -23,45 +23,48 @@ namespace SmoONE.UI.Layout
         /// <param name="e"></param>
         private void EditUserInfo_Load(object sender, EventArgs e)
         {
-            string editLbltxt;
-            if (eInfo == (int)EuserInfo.ÐÞ¸ÄµÇÂ¼ÃÜÂë)
-            {
-                editLbltxt = "ÐÞ¸ÄÃÜÂëÇ°ÇëÌîÐ´Ô­ÃÜÂë";
-            }
-            else
-            {
-                editLbltxt = ((EuserInfo)Enum.ToObject(typeof(EuserInfo), eInfo)).ToString();
-            }
-            lblEditInfo.Text = editLbltxt;
-            switch (eInfo)
-            {
-                case (int)EuserInfo.ÐÞ¸ÄêÇ³Æ:
-                    if (((frmUser)(this.Form)).btnName.Text.Trim().Length > 0)
-                    {
-                        txtEditInfo.Text = ((frmUser)(this.Form)).btnName.Text.Trim();
 
-                    }
-                    else
-                    {
-                        txtEditInfo.Text = "";
-                    }
-                    break;
-                case (int)EuserInfo.ÐÞ¸ÄÓÊ¼þ:
-                    if (((frmUser)(this.Form)).btnEmail.Text.Trim().Length > 0)
-                    {
-                        txtEditInfo.Text = ((frmUser)(this.Form)).btnEmail.Text.Trim();
-                    }
-                    else
-                    {
-                        txtEditInfo.Text = "";
-                    }
-                    break;
-                case (int)EuserInfo.ÐÞ¸ÄµÇÂ¼ÃÜÂë:
-                    txtEditInfo.Text = "";
-                    break;
+            //string editLbltxt;
+            //if (eInfo == (int)EuserInfo.ÐÞ¸ÄµÇÂ¼ÃÜÂë)
+            //{
+            //    editLbltxt = "ÐÞ¸ÄÃÜÂëÇ°ÇëÌîÐ´Ô­ÃÜÂë";
+            //}
+            //else
+            //{
+            //    editLbltxt = ((EuserInfo)Enum.ToObject(typeof(EuserInfo), eInfo)).ToString();
+            //}
+            //lblEditInfo.Text = editLbltxt;
+            //switch (eInfo)
+            //{
+            //    case (int)EuserInfo.ÐÞ¸ÄêÇ³Æ:
+            //        if (((frmUser)(this.Form)).btnName.Text.Trim().Length > 0)
+            //        {
+            //            txtEditInfo.Text = ((frmUser)(this.Form)).btnName.Text.Trim();
 
-            }
+            //        }
+            //        else
+            //        {
+            //            txtEditInfo.Text = "";
+            //        }
+            //        break;
+            //    case (int)EuserInfo.ÐÞ¸ÄÓÊ¼þ:
+            //        if (((frmUser)(this.Form)).btnEmail.Text.Trim().Length > 0)
+            //        {
+            //            txtEditInfo.Text = ((frmUser)(this.Form)).btnEmail.Text.Trim();
+            //        }
+            //        else
+            //        {
+            //            txtEditInfo.Text = "";
+            //        }
+            //        break;
+            //    case (int)EuserInfo.ÐÞ¸ÄµÇÂ¼ÃÜÂë:
+            //        txtEditInfo.Text = "";
+            //        break;
+
+            //}
         }
+
+      
         /// <summary>
         /// È¡Ïû²Ù×÷
         /// </summary>
@@ -107,7 +110,10 @@ namespace SmoONE.UI.Layout
                 {
                     frmChangePWD frmChangePWD = new frmChangePWD();
                     frmChangePWD.oldPwd = encryptPwd;
-                    this.Form.Show(frmChangePWD);
+                    this.Form.Show(frmChangePWD, (MobileForm form, object args) =>
+                    {
+                        this.Close();
+                    });
                 }
             }
             else

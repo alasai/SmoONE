@@ -20,20 +20,22 @@ namespace SmoONE.UI.Layout
         {
             try
             {
-                switch (this.Form.Name)
+                switch (this .Form.ToString ())
                 {
-                    case "frmAttendanceStatUser":
+                    case "SmoONE.UI.Attendance.frmAttendanceStatUser":
                           SmoONE.UI.Attendance.frmAttendanceStatMonthTypeDay frm =new SmoONE.UI.Attendance.frmAttendanceStatMonthTypeDay ();
                           frm.atType = ((SmoONE.UI.Attendance.frmAttendanceStatUser)(this.Form)).atType;
                          frm.UserID=lblUser.BindDataValue.ToString ();
                           frm.Daytime = ((SmoONE.UI.Attendance.frmAttendanceStatUser)(this.Form)).atDate;
                         this.Form .Show (frm);
                         break ;
-                    case "frmCheckOrCCTo":
+                    case "SmoONE.UI.UserInfo.frmCheckOrCCTo":
                          ((frmCheckOrCCTo)(this.Form)).userInfo = lblUser.BindDataValue.ToString() + "," + lblUser.BindDisplayValue.ToString() + "," + imgPortrait.BindDataValue.ToString();
                         this.Form.ShowResult = ShowResult.Yes;
                         this.Form.Close();
                         break;
+
+                       
                 }
                
             }

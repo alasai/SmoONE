@@ -89,6 +89,7 @@ namespace SmoONE.Infrastructure.Migrations
                 new Menu { M_MenuID = "Leave", M_Description = "请假", M_Sort = 2, M_IsActive = 1, M_ParentID = "", M_UpdateDate = DateTime.Now, M_Portrait = "Leave" },
                 new Menu { M_MenuID = "Department", M_Description = "部门", M_Sort = 3, M_IsActive = 1, M_ParentID = "", M_UpdateDate = DateTime.Now, M_Portrait = "Department" },
                 new Menu { M_MenuID = "CC", M_Description = "成本中心", M_Sort = 4, M_IsActive = 1, M_ParentID = "", M_UpdateDate = DateTime.Now, M_Portrait = "CC" },
+                new Menu { M_MenuID = "CCFX", M_Description = "成本分析", M_Sort = 5, M_IsActive = 1, M_ParentID = "CC", M_UpdateDate = DateTime.Now, M_Portrait = "CCFX" },
                 new Menu { M_MenuID = "RB_Rows", M_Description = "消费明细", M_Sort = 2, M_IsActive = 1, M_ParentID = "RB", M_UpdateDate = DateTime.Now, M_Portrait = "xiaofeimingxi" },
                 new Menu { M_MenuID = "RB_RType_Template", M_Description = "消费模板", M_Sort = 1, M_IsActive = 1, M_ParentID = "RB", M_UpdateDate = DateTime.Now, M_Portrait = "xiaofeimuban" },
                 new Menu { M_MenuID = "Reimbursement", M_Description = "报销单", M_Sort = 3, M_IsActive = 1, M_ParentID = "RB", M_UpdateDate = DateTime.Now, M_Portrait = "baoxiaodan" },
@@ -124,7 +125,8 @@ namespace SmoONE.Infrastructure.Migrations
                 new RoleMenu { RM_ID = 20, RM_RoleID = "Employee", RM_MenuID = "Attendance" },
                 new RoleMenu { RM_ID = 21, RM_RoleID = "Employee", RM_MenuID = "AttendanceInfo" },
                 new RoleMenu { RM_ID = 22, RM_RoleID = "Employee", RM_MenuID = "MyAttendanceHistory" },
-                new RoleMenu { RM_ID = 23, RM_RoleID = "Employee", RM_MenuID = "AttendanceStatistics" }
+                new RoleMenu { RM_ID = 23, RM_RoleID = "Employee", RM_MenuID = "AttendanceStatistics" },
+                 new RoleMenu { RM_ID = 24, RM_RoleID = "Administrator", RM_MenuID = "CCFX" }
                 );
             //在Department表中添加默认数据
             //context.Departments.AddOrUpdate(

@@ -32,7 +32,7 @@ namespace SmoONE.UI.Layout
             this.Label2 = new Smobiler.Core.Controls.Label();
             this.btnccuser = new Smobiler.Core.Controls.Button();
             this.btnccuser1 = new Smobiler.Core.Controls.Button();
-            this.btncurrentUser = new SmoONE.UI.Layout.ImageButton();
+            this.btncurrentUser = new Smobiler.Core.Controls.ImageButton();
             this.txtCCName = new Smobiler.Core.Controls.TextBox();
             this.btnCancel = new Smobiler.Core.Controls.Button();
             this.btnOK = new Smobiler.Core.Controls.Button();
@@ -90,19 +90,20 @@ namespace SmoONE.UI.Layout
             // 
             // btncurrentUser
             // 
+            this.btncurrentUser.BindDisplayValue = "user";
+            this.btncurrentUser.BindTextMember = "Œ“";
             this.btncurrentUser.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
             this.btncurrentUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.btncurrentUser.FontSize = 8F;
             this.btncurrentUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
-            this.btncurrentUser.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
+            this.btncurrentUser.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             this.btncurrentUser.ImageType = Smobiler.Core.Controls.ImageEx.ImageStyle.FontIcon;
-            this.btncurrentUser.Layout = Smobiler.Core.Controls.LayoutPosition.Relative;
             this.btncurrentUser.Location = new System.Drawing.Point(235, 0);
             this.btncurrentUser.Name = "btncurrentUser";
             this.btncurrentUser.Padding = new Smobiler.Core.Controls.Padding(0F, 2F, 0F, 2F);
-            this.btncurrentUser.ResourceID = "me";
+            this.btncurrentUser.ResourceID = "user";
             this.btncurrentUser.Size = new System.Drawing.Size(35, 35);
-            this.btncurrentUser.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Zoom;
+            this.btncurrentUser.Text = "Œ“";
             this.btncurrentUser.ZIndex = 5;
             this.btncurrentUser.Press += new System.EventHandler(this.btncurrentUser_Press);
             // 
@@ -115,7 +116,7 @@ namespace SmoONE.UI.Layout
             this.txtCCName.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.txtCCName.Location = new System.Drawing.Point(66, 35);
             this.txtCCName.Name = "txtCCName";
-            this.txtCCName.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
+            this.txtCCName.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.txtCCName.Size = new System.Drawing.Size(204, 35);
             this.txtCCName.ZIndex = 8;
             // 
@@ -165,7 +166,7 @@ namespace SmoONE.UI.Layout
         internal Smobiler.Core.Controls.Label Label2;
         internal Smobiler.Core.Controls.Button btnccuser;
         internal Smobiler.Core.Controls.Button btnccuser1;
-        internal SmoONE.UI.Layout.ImageButton btncurrentUser;
+        internal Smobiler.Core.Controls.ImageButton  btncurrentUser;
         internal Smobiler.Core.Controls.TextBox txtCCName;
 
         #endregion

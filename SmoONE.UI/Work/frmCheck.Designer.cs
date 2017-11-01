@@ -32,7 +32,6 @@ namespace SmoONE.UI.Work
         {
             this.segmentedControl1 = new Smobiler.Core.Controls.SegmentedControl();
             this.title1 = new SmoONE.UI.Layout.Title();
-            this.spContent = new Smobiler.Core.Controls.Panel();
             this.tpSearch = new Smobiler.Core.Controls.Panel();
             this.imgSearch = new Smobiler.Core.Controls.Image();
             this.listCheckData = new Smobiler.Core.Controls.ListView();
@@ -40,6 +39,7 @@ namespace SmoONE.UI.Work
             // 
             // segmentedControl1
             // 
+            this.segmentedControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.segmentedControl1.Items = new string[] {
         "待我审批的",
         "我已审批的"};
@@ -56,31 +56,17 @@ namespace SmoONE.UI.Work
             this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title1.FontSize = 15F;
-            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title1.Location = new System.Drawing.Point(108, 12);
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(100, 50);
             this.title1.TitleText = "我审批的";
             // 
-            // spContent
-            // 
-            this.spContent.BackColor = System.Drawing.Color.White;
-            this.spContent.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.segmentedControl1,
-            this.tpSearch,
-            this.listCheckData});
-            this.spContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.spContent.Flex = 10000;
-            this.spContent.Location = new System.Drawing.Point(72, 202);
-            this.spContent.Name = "spContent";
-            this.spContent.Scrollable = true;
-            this.spContent.Size = new System.Drawing.Size(100, 30);
-            // 
             // tpSearch
             // 
+            this.tpSearch.BackColor = System.Drawing.Color.White;
             this.tpSearch.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.imgSearch});
+            this.tpSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.tpSearch.Location = new System.Drawing.Point(250, 55);
             this.tpSearch.Name = "tpSearch";
             this.tpSearch.Size = new System.Drawing.Size(40, 30);
@@ -89,6 +75,7 @@ namespace SmoONE.UI.Work
             // 
             // imgSearch
             // 
+            this.imgSearch.Location = new System.Drawing.Point(250, 0);
             this.imgSearch.Name = "imgSearch";
             this.imgSearch.ResourceID = "search";
             this.imgSearch.Size = new System.Drawing.Size(40, 30);
@@ -96,10 +83,12 @@ namespace SmoONE.UI.Work
             // listCheckData
             // 
             this.listCheckData.BackColor = System.Drawing.Color.White;
+            this.listCheckData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listCheckData.FooterControlName = null;
             this.listCheckData.HeaderControlName = null;
             this.listCheckData.Location = new System.Drawing.Point(0, 85);
             this.listCheckData.Name = "listCheckData";
+            this.listCheckData.PageSize = 10;
             this.listCheckData.ShowSplitLine = true;
             this.listCheckData.Size = new System.Drawing.Size(300, 415);
             this.listCheckData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
@@ -116,7 +105,10 @@ namespace SmoONE.UI.Work
             this.popList1});
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.title1,
-            this.spContent});
+            this.segmentedControl1,
+            this.tpSearch,
+            this.listCheckData});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmCheck_KeyDown);
             this.Load += new System.EventHandler(this.frmCheck_Load);
             this.Name = "frmCheck";
@@ -125,7 +117,6 @@ namespace SmoONE.UI.Work
         #endregion
 
         private Title title1;
-        private Smobiler.Core.Controls.Panel spContent;
         private Smobiler.Core.Controls.SegmentedControl segmentedControl1;
         private Smobiler.Core.Controls.Panel tpSearch;
         private Smobiler.Core.Controls.Image imgSearch;

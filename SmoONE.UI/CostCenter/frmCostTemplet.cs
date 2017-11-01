@@ -49,7 +49,7 @@ namespace SmoONE.UI.CostCenter
             //获取所有成本模板
           List<CC_Type_TemplateDto> listCCTemp=  AutofacConfig.costCenterService.GetAllCCTTemplate();
 
-          gridCCTempletData.Rows.Clear();//清空成本中心模板列表数据
+          gridCCTempletData.Cells .Clear();//清空成本中心模板列表数据
           if (listCCTemp.Count > 0)
           {
               foreach (CC_Type_TemplateDto ccTemp in listCCTemp)

@@ -36,8 +36,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject>Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac">
@@ -64,6 +63,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Smobiler Designer\Library\Smobiler.Core.Controls.Native.dll</HintPath>
     </Reference>
+    <Reference Include="Smobiler.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f1ac7264a7cfc183, processorArchitecture=MSIL" />
     <Reference Include="Smobiler.Utility" />
     <Reference Include="Smobiler.Core" />
     <Reference Include="System" />
@@ -215,6 +215,18 @@
     </Compile>
     <Compile Include="CostCenter\frmCostCenterDetail.Designer.cs">
       <DependentUpon>frmCostCenterDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CostCenter\frmCostCenterFX.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CostCenter\frmCostCenterFX.Designer.cs">
+      <DependentUpon>frmCostCenterFX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CostCenter\frmCostCenterFXDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CostCenter\frmCostCenterFXDetail.Designer.cs">
+      <DependentUpon>frmCostCenterFXDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="CostCenter\frmCostTemplet.cs">
       <SubType>Component</SubType>
@@ -473,6 +485,12 @@
     <Compile Include="Layout\ImageButton.Designer.cs">
       <DependentUpon>ImageButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layout\LeftPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\LeftPage.Designer.cs">
+      <DependentUpon>LeftPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\Title.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -703,6 +721,12 @@
     <EmbeddedResource Include="CostCenter\frmCostCenterDetail.resx">
       <DependentUpon>frmCostCenterDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CostCenter\frmCostCenterFX.resx">
+      <DependentUpon>frmCostCenterFX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CostCenter\frmCostCenterFXDetail.resx">
+      <DependentUpon>frmCostCenterFXDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CostCenter\frmCostTemplet.resx">
       <DependentUpon>frmCostTemplet.cs</DependentUpon>
     </EmbeddedResource>
@@ -829,6 +853,9 @@
     <EmbeddedResource Include="Layout\ImageButton.resx">
       <DependentUpon>ImageButton.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Layout\LeftPage.resx">
+      <DependentUpon>LeftPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Layout\Title.resx">
       <DependentUpon>Title.cs</DependentUpon>
     </EmbeddedResource>
@@ -914,7 +941,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmoONE.Application\SmoONE.Application.csproj">
-      <Project>{a212cad1-9f7a-4ce5-a9cb-123c506f2fb3}</Project>
+      <Project>{8da94acd-80ae-46d7-85c7-1cc2842251a4}</Project>
       <Name>SmoONE.Application</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmoONE.CommLib\SmoONE.CommLib.csproj">

@@ -581,6 +581,14 @@ namespace SmoONE.UI.Department
         /// <param name="e"></param>
         private void btnAll_Click(object sender, EventArgs e)
         {
+            if (checkAll.Checked)
+            {
+                checkAll.Checked = false;
+            }
+            else
+            {
+                checkAll.Checked = true ;
+            }
             Checkall();
         }
         /// <summary>
@@ -708,7 +716,7 @@ namespace SmoONE.UI.Department
                             if (args.Result == Smobiler.Core.Controls .ShowResult.Yes)
                             {
                                 department.Dep_Leader = popLeader.Selection.Value;
-                                btnLeader.Text = popLeader.Selection.Text;
+                                btnLeader.Text = popLeader.Selection.Text + "   > ";
                             }
                         });
                     //}
@@ -716,7 +724,7 @@ namespace SmoONE.UI.Department
                     if (isLeader == false & userdep != null & string.IsNullOrEmpty(userdep.Dep_ID) == true)
                     {
                         department.Dep_Leader = popLeader.Selection.Value;
-                        btnLeader.Text = popLeader.Selection.Text;
+                        btnLeader.Text = popLeader.Selection.Text + "   > ";
                     }
                 }
             }

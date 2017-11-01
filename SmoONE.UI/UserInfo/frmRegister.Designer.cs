@@ -52,6 +52,8 @@ namespace SmoONE.UI.UserInfo
             // plName
             // 
             this.plName.BackColor = System.Drawing.Color.White;
+            this.plName.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
+            this.plName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.plName.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.label1,
             this.txtName});
@@ -72,14 +74,15 @@ namespace SmoONE.UI.UserInfo
             this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.txtName.Location = new System.Drawing.Point(66, 0);
             this.txtName.Name = "txtName";
+            this.txtName.ReturnKeyType = Smobiler.Core.Controls.ReturnKeyType.Done;
             this.txtName.Size = new System.Drawing.Size(234, 35);
             this.txtName.WaterMarkText = "«Î ‰»ÎÍ«≥∆";
             // 
             // plPwd1
             // 
             this.plPwd1.BackColor = System.Drawing.Color.White;
-            this.plPwd1.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
-            this.plPwd1.BorderColor = System.Drawing.Color.LightGray;
+            this.plPwd1.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
+            this.plPwd1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.plPwd1.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.label2,
             this.txtPwd1,
@@ -123,15 +126,15 @@ namespace SmoONE.UI.UserInfo
             this.fontPwd1.ForeColor = System.Drawing.Color.Gray;
             this.fontPwd1.Margin = new Smobiler.Core.Controls.Margin(5F, 0F, 0F, 0F);
             this.fontPwd1.Name = "fontPwd1";
-            this.fontPwd1.Padding = new Smobiler.Core.Controls.Padding(5F);
+            this.fontPwd1.Padding = new Smobiler.Core.Controls.Padding(8F);
             this.fontPwd1.ResourceID = "eye-slash";
             this.fontPwd1.Size = new System.Drawing.Size(35, 35);
             // 
             // plPwd2
             // 
             this.plPwd2.BackColor = System.Drawing.Color.White;
-            this.plPwd2.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
-            this.plPwd2.BorderColor = System.Drawing.Color.LightGray;
+            this.plPwd2.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.plPwd2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.plPwd2.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.label3,
             this.txtPwd2,
@@ -175,7 +178,7 @@ namespace SmoONE.UI.UserInfo
             this.fontPwd2.ForeColor = System.Drawing.Color.Gray;
             this.fontPwd2.Margin = new Smobiler.Core.Controls.Margin(5F, 0F, 0F, 0F);
             this.fontPwd2.Name = "fontPwd2";
-            this.fontPwd2.Padding = new Smobiler.Core.Controls.Padding(5F);
+            this.fontPwd2.Padding = new Smobiler.Core.Controls.Padding(8F);
             this.fontPwd2.ResourceID = "eye-slash";
             this.fontPwd2.Size = new System.Drawing.Size(35, 35);
             // 
@@ -204,7 +207,8 @@ namespace SmoONE.UI.UserInfo
             // 
             this.radioGroup1.BackColor = System.Drawing.Color.White;
             this.radioGroup1.FontSize = 12F;
-            this.radioGroup1.GridLinesColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.radioGroup1.GridLines = true;
+            this.radioGroup1.GridLinesColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.radioGroup1.Location = new System.Drawing.Point(0, 140);
             this.radioGroup1.Name = "radioGroup1";
             this.radioGroup1.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
@@ -242,6 +246,7 @@ namespace SmoONE.UI.UserInfo
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.menuTitle1,
             this.spContent});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.Load += new System.EventHandler(this.frmRegister_Load);
             this.Name = "frmRegister";
 

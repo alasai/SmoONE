@@ -59,6 +59,11 @@ namespace SmoONE.UI.CostCenter
             gridCCData.Rows.Clear();//清空列表数据
             if (listCC.Count > 0)
             {
+                foreach (CCDto cc in listCC)
+                {
+                    UserDetailDto user = AutofacConfig.userService.GetUserByUserID(cc.CC_LiableMan);
+                    cc.CC_LiableMan = user.U_Name;
+                }
                 gridCCData.DataSource = listCC;
                 gridCCData.DataBind();
             }
@@ -105,6 +110,15 @@ namespace SmoONE.UI.CostCenter
                 liableMan = popList1.Selection.Value;
                 CCSearch.ChangeValue(popList1.Selection.Text);
             }
+        }
+        /// <summary>
+        /// 筛选
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tpSearch_Press(object sender, EventArgs e)
+        {
+            ShowDialog(CCSearch);
         }
 
         /// <summary>

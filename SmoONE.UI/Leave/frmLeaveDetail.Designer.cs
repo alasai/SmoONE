@@ -221,8 +221,7 @@ namespace SmoONE.UI.Leave
             // 
             this.nodeStateDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(244)))));
             this.nodeStateDate.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
-            this.nodeStateDate.BorderColor = System.Drawing.Color.LightGray;
-            this.nodeStateDate.FontSize = 16F;
+            this.nodeStateDate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.nodeStateDate.Location = new System.Drawing.Point(0, 320);
             this.nodeStateDate.Name = "nodeStateDate";
             this.nodeStateDate.Size = new System.Drawing.Size(300, 227);
@@ -260,8 +259,6 @@ namespace SmoONE.UI.Leave
             this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title1.FontSize = 15F;
-            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title1.Location = new System.Drawing.Point(111, 36);
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(100, 50);
@@ -283,6 +280,7 @@ namespace SmoONE.UI.Leave
             this.title1,
             this.frmDetailFootbarLayout1,
             this.panel1});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmLeaveDef_KeyDown);
             this.Load += new System.EventHandler(this.frmLeaveDef_Load);
             this.Name = "frmLeaveDetail";

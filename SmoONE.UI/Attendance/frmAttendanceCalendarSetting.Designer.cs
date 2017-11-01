@@ -29,9 +29,9 @@ namespace SmoONE.UI.Attendance
         private void InitializeComponent()
         {
             this.calendar1 = new Smobiler.Core.Controls.Calendar();
-            this.panel1 = new Smobiler.Core.Controls.Panel();
             this.title1 = new SmoONE.UI.Layout.Title();
             this.panel2 = new Smobiler.Core.Controls.Panel();
+            this.panel1 = new Smobiler.Core.Controls.Panel();
             this.lblStartWork = new Smobiler.Core.Controls.Label();
             this.lblRest = new Smobiler.Core.Controls.Label();
             this.btnCDType = new Smobiler.Core.Controls.Button();
@@ -53,6 +53,27 @@ namespace SmoONE.UI.Attendance
             this.calendar1.Size = new System.Drawing.Size(300, 270);
             this.calendar1.DateChanged += new System.EventHandler(this.calendar1_DateChanged);
             // 
+            // title1
+            // 
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
+            this.title1.TitleText = "日历设置";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.calendar1,
+            this.panel1});
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 350);
+            this.panel2.Name = "panel2";
+            this.panel2.Scrollable = true;
+            this.panel2.Size = new System.Drawing.Size(300, 200);
+            // 
             // panel1
             // 
             this.panel1.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
@@ -69,30 +90,9 @@ namespace SmoONE.UI.Attendance
             this.dpStartWork,
             this.dpEndWork});
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 157);
+            this.panel1.Location = new System.Drawing.Point(0, 160);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(300, 250);
-            // 
-            // title1
-            // 
-            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
-            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title1.FontSize = 15F;
-            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.title1.Name = "title1";
-            this.title1.Size = new System.Drawing.Size(100, 50);
-            this.title1.TitleText = "日历设置";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.calendar1,
-            this.panel1});
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 350);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(300, 200);
             // 
             // lblStartWork
             // 
@@ -162,7 +162,7 @@ namespace SmoONE.UI.Attendance
             this.dpPMEndWork.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.dpPMEndWork.Location = new System.Drawing.Point(100, 105);
             this.dpPMEndWork.Name = "dpPMEndWork";
-            this.dpPMEndWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
+            this.dpPMEndWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.dpPMEndWork.Size = new System.Drawing.Size(200, 35);
             this.dpPMEndWork.Value = new System.DateTime(2017, 8, 9, 14, 7, 50, 207);
             this.dpPMEndWork.ValueChanged += new System.EventHandler(this.dpPMEndWork_DatePicked);
@@ -175,7 +175,7 @@ namespace SmoONE.UI.Attendance
             this.dpPMStartWork.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.dpPMStartWork.Location = new System.Drawing.Point(100, 70);
             this.dpPMStartWork.Name = "dpPMStartWork";
-            this.dpPMStartWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
+            this.dpPMStartWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.dpPMStartWork.Size = new System.Drawing.Size(200, 35);
             this.dpPMStartWork.Value = new System.DateTime(2017, 8, 9, 14, 7, 50, 209);
             this.dpPMStartWork.ValueChanged += new System.EventHandler(this.dpPMStartWork_DatePicked);
@@ -188,7 +188,7 @@ namespace SmoONE.UI.Attendance
             this.dpAMEndWork.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.dpAMEndWork.Location = new System.Drawing.Point(100, 35);
             this.dpAMEndWork.Name = "dpAMEndWork";
-            this.dpAMEndWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
+            this.dpAMEndWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.dpAMEndWork.Size = new System.Drawing.Size(200, 35);
             this.dpAMEndWork.Value = new System.DateTime(2017, 8, 9, 14, 7, 50, 212);
             this.dpAMEndWork.ValueChanged += new System.EventHandler(this.dpAMEndWork_DatePicked);
@@ -201,7 +201,7 @@ namespace SmoONE.UI.Attendance
             this.dpAMStartWork.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.dpAMStartWork.Location = new System.Drawing.Point(100, 0);
             this.dpAMStartWork.Name = "dpAMStartWork";
-            this.dpAMStartWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
+            this.dpAMStartWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.dpAMStartWork.Size = new System.Drawing.Size(200, 35);
             this.dpAMStartWork.Value = new System.DateTime(2017, 1, 19, 10, 21, 0, 0);
             this.dpAMStartWork.ValueChanged += new System.EventHandler(this.dpAMStartWork_DatePicked);
@@ -214,7 +214,7 @@ namespace SmoONE.UI.Attendance
             this.dpStartWork.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.dpStartWork.Location = new System.Drawing.Point(100, 0);
             this.dpStartWork.Name = "dpStartWork";
-            this.dpStartWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
+            this.dpStartWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.dpStartWork.Size = new System.Drawing.Size(200, 35);
             this.dpStartWork.Value = new System.DateTime(2017, 8, 9, 14, 7, 50, 216);
             this.dpStartWork.ValueChanged += new System.EventHandler(this.dpStartWork_DatePicked);
@@ -227,7 +227,7 @@ namespace SmoONE.UI.Attendance
             this.dpEndWork.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.dpEndWork.Location = new System.Drawing.Point(100, 35);
             this.dpEndWork.Name = "dpEndWork";
-            this.dpEndWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 30F, 0F);
+            this.dpEndWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.dpEndWork.Size = new System.Drawing.Size(200, 35);
             this.dpEndWork.Value = new System.DateTime(2017, 8, 9, 14, 7, 50, 218);
             this.dpEndWork.ValueChanged += new System.EventHandler(this.dpEndWork_DatePicked);
@@ -237,6 +237,7 @@ namespace SmoONE.UI.Attendance
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.title1,
             this.panel2});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmAttendanceCalendarSetting_KeyDown);
             this.Load += new System.EventHandler(this.frmAttendanceCalendarSetting_Load);
             this.Name = "frmAttendanceCalendarSetting";

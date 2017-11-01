@@ -20,6 +20,7 @@ namespace SmoONE.UI.Layout
         {
             try
             {
+                //如果不是全天旷工则跳转到考勤查看详细，否则不跳转。
                 if (Convert.ToBoolean(lblAbsenteeism.BindDataValue) == false)
                 {
                     SmoONE.UI.Attendance.frmAttendanceMain frmMain = new SmoONE.UI.Attendance.frmAttendanceMain();

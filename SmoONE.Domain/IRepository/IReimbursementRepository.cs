@@ -44,6 +44,7 @@ namespace SmoONE.Domain.IRepository
         /// <param name="UserID">用户ID</param>
         IQueryable<Reimbursement> GetCheckedByCheckUsers(string UserID);
 
+
         /// <summary>
         /// 根据审批用户ID和状态返回已审批报销单传输对象
         /// </summary>
@@ -56,6 +57,13 @@ namespace SmoONE.Domain.IRepository
         /// </summary>
         /// <param name="UserID">用户ID</param>
         IQueryable<Reimbursement> GetByCreateUsers(string UserID);
+
+
+        /// <summary>
+        /// 根据成本中心返回报销单传输对象
+        /// </summary>
+        /// <param name="CCID">成本中心ID</param>
+        IQueryable<Reimbursement> GetByCCID(string CCID);
 
         /// <summary>
         /// 得到最大的报销单ID

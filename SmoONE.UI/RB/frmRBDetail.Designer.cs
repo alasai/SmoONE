@@ -93,8 +93,6 @@ namespace SmoONE.UI.RB
             this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title1.FontSize = 15F;
-            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(300, 50);
             this.title1.TitleText = "±®œ˙œÍ«È";
@@ -301,7 +299,9 @@ namespace SmoONE.UI.RB
             this.listRBRowData.HeaderControlName = null;
             this.listRBRowData.Location = new System.Drawing.Point(0, 192);
             this.listRBRowData.Name = "listRBRowData";
+            this.listRBRowData.ShowSplitLine = true;
             this.listRBRowData.Size = new System.Drawing.Size(300, 153);
+            this.listRBRowData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.listRBRowData.TemplateControlName = "frmRBRowLayout";
             // 
             // frmRBDetail
@@ -310,6 +310,7 @@ namespace SmoONE.UI.RB
             this.title1,
             this.plButton,
             this.spContent});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmRBDetail_KeyDown);
             this.Load += new System.EventHandler(this.frmRBDetail_Load);
             this.Name = "frmRBDetail";

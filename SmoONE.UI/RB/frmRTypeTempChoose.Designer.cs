@@ -40,8 +40,6 @@ namespace SmoONE.UI.RB
             this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title1.FontSize = 15F;
-            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title1.Location = new System.Drawing.Point(59, 80);
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(100, 50);
@@ -56,6 +54,7 @@ namespace SmoONE.UI.RB
             this.listRBModel.HeaderControlName = null;
             this.listRBModel.Location = new System.Drawing.Point(102, 275);
             this.listRBModel.Name = "listRBModel";
+            this.listRBModel.PageSize = 10;
             this.listRBModel.ShowSplitLine = true;
             this.listRBModel.Size = new System.Drawing.Size(100, 30);
             this.listRBModel.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
@@ -63,7 +62,6 @@ namespace SmoONE.UI.RB
             // 
             // lblInfor
             // 
-            this.lblInfor.BackColor = System.Drawing.Color.White;
             this.lblInfor.ForeColor = System.Drawing.Color.Silver;
             this.lblInfor.Location = new System.Drawing.Point(42, 180);
             this.lblInfor.Name = "lblInfor";
@@ -73,7 +71,7 @@ namespace SmoONE.UI.RB
             // 
             // btnCreate
             // 
-            this.btnCreate.BackColor = System.Drawing.Color.White;
+            this.btnCreate.BackColor = System.Drawing.Color.Transparent;
             this.btnCreate.BorderRadius = 0;
             this.btnCreate.FontSize = 15F;
             this.btnCreate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
@@ -92,6 +90,7 @@ namespace SmoONE.UI.RB
             this.listRBModel,
             this.lblInfor,
             this.btnCreate});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmRTypeTempChoose_KeyDown);
             this.Load += new System.EventHandler(this.frmRTypeTempChoose_Load);
             this.Name = "frmRTypeTempChoose";

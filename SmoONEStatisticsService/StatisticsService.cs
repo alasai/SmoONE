@@ -137,10 +137,12 @@ namespace SmoONE.StatisticsService
                 #region 计算模板当天的排班以及补全之前的排班
                 //得到今天所有的模板
                 List<string> ATIDs = _AT_UserLogRepository.GetATIDByDate(DateTime.Now.Date).AsNoTracking().ToList();
+                StringBuilder ATids = new StringBuilder();
                 if (ATIDs != null && ATIDs.Count > 0)
                 {
                     foreach (string ATID in ATIDs)
                     {
+                        ATids.Append(ATID.ToString()+",");  
                         //得到每个模板某天的排班
                         AttendanceScheduling ass = _attendanceSchedulingRepository.GetByATIDandDate(ATID, DateTime.Now.Date).FirstOrDefault();
                         if (ass != null)
@@ -156,6 +158,7 @@ namespace SmoONE.StatisticsService
                             }
                         }
                     }
+                    writestr(ATids.ToString() );
                 }
                 #endregion
 

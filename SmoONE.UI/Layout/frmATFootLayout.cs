@@ -29,12 +29,12 @@ namespace SmoONE.UI.Layout
                                 if (string.IsNullOrEmpty(((SmoONE.UI.Attendance.frmATUser)this.Form).selectUser) == true)
                                 {
 
-                                    ((SmoONE.UI.Attendance.frmATUser)this.Form).selectUser = ((frmATUserLayout)(rows.Control)).lblUser.BindDisplayValue.ToString();
+                                    ((SmoONE.UI.Attendance.frmATUser)this.Form).selectUser = ((frmATUserLayout)(rows.Control)).lblUser.BindDataValue.ToString();
 
                                 }
                                 else
                                 {
-                                    ((SmoONE.UI.Attendance.frmATUser)this.Form).selectUser += "," + ((frmATUserLayout)(rows.Control)).lblUser.BindDisplayValue.ToString();
+                                    ((SmoONE.UI.Attendance.frmATUser)this.Form).selectUser += "," + ((frmATUserLayout)(rows.Control)).lblUser.BindDataValue.ToString();
                                 }
                             }
                         }

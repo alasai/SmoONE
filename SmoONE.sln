@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmoONE.Domain", "SmoONE.Domain\SmoONE.Domain.csproj", "{46CFEC3A-CECE-4CF3-9A9D-75DAFB5168EB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmoONE.Application", "SmoONE.Application\SmoONE.Application.csproj", "{8DA94ACD-80AE-46D7-85C7-1CC2842251A4}"

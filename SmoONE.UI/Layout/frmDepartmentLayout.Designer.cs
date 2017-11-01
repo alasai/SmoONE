@@ -46,12 +46,12 @@ namespace SmoONE.UI.Layout
             // 
             // imgPortrait
             // 
-            this.imgPortrait.BorderRadius = 10;
+            this.imgPortrait.BorderRadius = 18;
             this.imgPortrait.DataMember = "Dep_Icon";
             this.imgPortrait.DisplayMember = "Dep_Icon";
-            this.imgPortrait.Location = new System.Drawing.Point(9, 11);
+            this.imgPortrait.Location = new System.Drawing.Point(8, 10);
             this.imgPortrait.Name = "imgPortrait";
-            this.imgPortrait.Size = new System.Drawing.Size(35, 35);
+            this.imgPortrait.Size = new System.Drawing.Size(36, 36);
             this.imgPortrait.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Cover;
             // 
             // lblId

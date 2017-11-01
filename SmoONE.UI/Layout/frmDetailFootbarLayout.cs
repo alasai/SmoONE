@@ -33,7 +33,7 @@ namespace SmoONE.UI.Layout
         {
             try
             {
-                switch (this .Form .Name )
+                switch (this .Form.ToString () )
                 {
                     case "SmoONE.UI.Leave.frmLeaveDetail":
                         //审批人同意请假
@@ -67,7 +67,7 @@ namespace SmoONE.UI.Layout
         {
             try
             {
-                switch (this.Form.Name)
+                switch (this .Form.ToString ())
                 {
                     case "SmoONE.UI.Leave.frmLeaveDetail":
                         Leave.frmLeaveCreate frmLeaveCreate = new Leave.frmLeaveCreate();

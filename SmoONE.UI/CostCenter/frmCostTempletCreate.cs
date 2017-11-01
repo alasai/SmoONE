@@ -27,14 +27,14 @@ namespace SmoONE.UI.CostCenter
         private int imgCheckLeft = 0;
         private string addAEACheck = "";
         private List<string> listAEAChecks = new List<string>(); //行政审批人
-        private List<SmoONE.UI.Layout.ImageButton> listbtnAEAChecksP = new List<SmoONE.UI.Layout.ImageButton>();//行政审批人头像控件
+        private List<Smobiler .Core .Controls .ImageButton> listbtnAEAChecksP = new List<Smobiler.Core.Controls.ImageButton>();//行政审批人头像控件
         private List<Button> listbtnAEAChecks = new List<Button>();//行政审批人名称控件
 
         private int FCheckTop;//财务审批人top
         private int imgFCheckLeft = 0;
         private string addFCheck = "";
         private List<string> listFCheckers = new List<string>(); //财务审批人
-        private List<SmoONE.UI.Layout.ImageButton> listbtnFCheckersP = new List<SmoONE.UI.Layout.ImageButton>();//财务审批人头像控件
+        private List<Smobiler.Core.Controls.ImageButton> listbtnFCheckersP = new List<Smobiler.Core.Controls.ImageButton>();//财务审批人头像控件
         private List<Button> listbtnFCheckers = new List<Button>();//财务审批人名称控件
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
         #endregion
@@ -166,12 +166,12 @@ namespace SmoONE.UI.CostCenter
                if (AEACheck != null) 
                 {
                     listAEAChecks.Remove(AEACheck.ToString());//删除财务审批人
-                    foreach (ImageButton imgbtnAEACheck in listbtnAEAChecksP)
+                    foreach (Smobiler.Core.Controls.ImageButton imgbtnAEACheck in listbtnAEAChecksP)
                         {
                             if (imgbtnAEACheck.Name.Equals("imgbtnAEACheck" + AEACheck))
                             {
                                 listbtnAEAChecksP.Remove(imgbtnAEACheck);//删除行政审批头像控件
-                                Controls.Remove((MobileControl)imgbtnAEACheck);//删除界面中行政审批头像控件
+                            this.panel1.Controls.Remove((MobileControl)imgbtnAEACheck);//删除界面中行政审批头像控件
                                 break;
                             }
                         }
@@ -180,7 +180,7 @@ namespace SmoONE.UI.CostCenter
                             if (btnAEACheck.Name.Equals("btnAEACheck" + AEACheck))
                             {
                                 listbtnAEAChecks.Remove(btnAEACheck);//删除行政审批名称控件
-                                Controls.Remove((MobileControl)btnAEACheck);//删除界面中行政审批名称控件
+                               this.panel1 . Controls.Remove((MobileControl)btnAEACheck);//删除界面中行政审批名称控件
                                 break;
                             }
                         }
@@ -212,12 +212,12 @@ namespace SmoONE.UI.CostCenter
                 if (FCheck != null) 
                 {
                     listFCheckers.Remove(FCheck.ToString());//删除财务审批人
-                        foreach (ImageButton imgbtnFChecker in listbtnFCheckersP)
+                        foreach (Smobiler.Core.Controls.ImageButton imgbtnFChecker in listbtnFCheckersP)
                         {
                             if (imgbtnFChecker.Name.Equals("imgbtnFCheck" + FCheck))
                             {
                                 listbtnFCheckersP.Remove(imgbtnFChecker);//删除财务审批头像控件
-                                Controls.Remove((MobileControl)imgbtnFChecker);//删除界面中财务审批头像控件
+                            this.panel1.Controls.Remove((MobileControl)imgbtnFChecker);//删除界面中财务审批头像控件
                                 break;
                             }
                           
@@ -227,7 +227,7 @@ namespace SmoONE.UI.CostCenter
                             if (btnFChecker.Name.Equals("btnFCheck" + FCheck))
                             {
                                 listbtnFCheckers.Remove(btnFChecker);//删除财务审批名称控件
-                                Controls.Remove((MobileControl)btnFChecker);//删除界面中财务审批名称控件
+                            this.panel1.Controls.Remove((MobileControl)btnFChecker);//删除界面中财务审批名称控件
                                 break;
                             }
                         }
@@ -252,8 +252,8 @@ namespace SmoONE.UI.CostCenter
                 if (listAEAChecks.Contains(addAEACheck.Split(',')[0]) == false)
                 {
                     listAEAChecks.Add(addAEACheck.Split(',')[0]);
-                    int imgCheckWSize = 35;
-                    ImageButton imgbtn = new ImageButton();
+                    int imgCheckWSize = 34;
+                    Smobiler.Core.Controls.ImageButton imgbtn = new Smobiler.Core.Controls.ImageButton();
                     //if (string.IsNullOrEmpty(addAEACheck.Split(',')[2]) == true)
                     //{
                     //    UserDetailDto user = AutofacConfig.userService.GetUserByUserID(addAEACheck.Split(',')[0]);
@@ -287,15 +287,15 @@ namespace SmoONE.UI.CostCenter
 
                     imgbtn.Width = imgCheckWSize;
                     imgbtn.Height = imgCheckWSize;
-                    imgbtn.ZIndex = (Controls.Count + 1);
+                    imgbtn.ZIndex = (Controls.Count + 1) + 10;
                     imgbtn.ImageType = Smobiler.Core.Controls.ImageEx.ImageStyle.Image;
-                    imgbtn.SizeMode = ImageSizeMode.Stretch;
+                    imgbtn.SizeMode = ImageSizeMode.Zoom;
 
-                    imgbtn.BorderRadius = 12;
+                    imgbtn.ImageBorderRadius  = 12;
                     imgbtn.Name = "imgbtnAEACheck" + addAEACheck.Split(',')[0];
-                    imgbtn.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Stretch;
+                    imgbtn.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Zoom;
                     imgbtn.Tag = addAEACheck.Split(',')[0];
-                    Controls.Add(imgbtn);//界面添加行政审批人头像控件
+                    this.panel1.Controls.Add(imgbtn);//界面添加行政审批人头像控件
                     listbtnAEAChecksP.Add(imgbtn);//添加行政审批人头像控件
                     imgbtn.Press += btnDelCheckClick;//删除行政审批人事件
 
@@ -303,13 +303,13 @@ namespace SmoONE.UI.CostCenter
                     btn.Text = addAEACheck.Split(',')[1];
                     btn.Name = "btnAEACheck" + addAEACheck.Split(',')[0];
                     btn.Width = imgCheckWSize;
-                    btn.Height = 20;
+                    btn.Height = 19;
                     btn.BackColor = System.Drawing.Color.White;
                     btn.ForeColor = System.Drawing.Color.FromArgb(44, 44, 44);
                     btn.FontSize = 10;
                     btn.Tag = addAEACheck.Split(',')[0];
-                    btn.ZIndex = (Controls.Count + 1);
-                    Controls.Add(btn);//界面添加行政审批人名称控件
+                    btn.ZIndex = (Controls.Count + 1) + 10;
+                    this.panel1.Controls.Add(btn);//界面添加行政审批人名称控件
                     listbtnAEAChecks.Add(btn);//添加行政审批人名称控件
                     btn.Press  += btnDelCheckClick;//删除行政审批人事件
 
@@ -332,8 +332,8 @@ namespace SmoONE.UI.CostCenter
                 if (listFCheckers.Contains(addFCheck.Split(',')[0]) == false)
                 {
                     listFCheckers.Add(addFCheck.Split(',')[0]);
-                    int imgFCWSize = 35;
-                    ImageButton imgbtn = new ImageButton();
+                    int imgFCWSize = 34;
+                    Smobiler.Core.Controls.ImageButton imgbtn = new Smobiler.Core.Controls.ImageButton();
                     //if (string.IsNullOrEmpty(addFCheck.Split(',')[2]) == true)
                     //{
                     //    UserDetailDto user = AutofacConfig.userService.GetUserByUserID(addFCheck.Split(',')[0]);
@@ -366,15 +366,15 @@ namespace SmoONE.UI.CostCenter
                     }
                     imgbtn.Width = imgFCWSize;
                     imgbtn.Height = imgFCWSize;
-                    imgbtn.ZIndex = (Controls.Count + 1);
-                    imgbtn.BorderRadius = 12;
+                    imgbtn.ZIndex = (Controls.Count + 1) + 10;
+                    imgbtn.ImageBorderRadius = 12;
                     imgbtn.ImageType = Smobiler.Core.Controls.ImageEx.ImageStyle.Image;
-                    imgbtn.SizeMode = ImageSizeMode.Stretch;
+                    imgbtn.SizeMode = ImageSizeMode.Zoom  ;
 
                     imgbtn.Name = "imgbtnFCheck" + addFCheck.Split(',')[0];
-                    imgbtn.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Stretch;
+                    imgbtn.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Zoom;
                     imgbtn.Tag = addFCheck.Split(',')[0];
-                    Controls.Add(imgbtn);//界面添加财务审批人头像控件
+                    this.panel1.Controls.Add(imgbtn);//界面添加财务审批人头像控件
                     listbtnFCheckersP.Add(imgbtn);//添加财务审批人头像控件
                     imgbtn.Press += btnDelFCheckClick;//删除财务审批人事件
                   
@@ -382,13 +382,13 @@ namespace SmoONE.UI.CostCenter
                     btn.Text = addFCheck.Split(',')[1];
                     btn.Name = "btnFCheck" + addFCheck.Split(',')[0];
                     btn.Width = imgFCWSize;
-                    btn.Height = 20;
+                    btn.Height = 19;
                     btn.BackColor = System.Drawing.Color.White;
                     btn.ForeColor = System.Drawing.Color.FromArgb(44, 44, 44);
                     btn.FontSize = 10;
                     btn.Tag = addFCheck.Split(',')[0];
-                    btn.ZIndex = (Controls.Count + 1);
-                    Controls.Add(btn);//界面添加财务审批人名称控件
+                    btn.ZIndex = (Controls.Count + 1) + 10;
+                    this.panel1.Controls.Add(btn);//界面添加财务审批人名称控件
                     listbtnFCheckers.Add(btn);//添加财务审批人名称控件
                     btn.Press  += btnDelFCheckClick;//删除财务审批人事件
                     
@@ -433,7 +433,7 @@ namespace SmoONE.UI.CostCenter
                                     }
                                 }
                              
-                                foreach (ImageButton imgbtnAEACheck in listbtnAEAChecksP)
+                                foreach (Smobiler.Core.Controls.ImageButton imgbtnAEACheck in listbtnAEAChecksP)
                                 {
                                     if (imgbtnAEACheck.Name.Equals("imgbtnAEACheck" + checkuser))
                                     {
@@ -496,7 +496,7 @@ namespace SmoONE.UI.CostCenter
                                         Height = Height + imgCCToUserHSize;
                                     }
                                 }
-                                foreach (ImageButton imgbtnFCCheck in listbtnFCheckersP)
+                                foreach (Smobiler.Core.Controls.ImageButton imgbtnFCCheck in listbtnFCheckersP)
                                 {
                                     if (imgbtnFCCheck.Name.Equals("imgbtnFCheck" + ccToUser))
                                     {
@@ -534,7 +534,7 @@ namespace SmoONE.UI.CostCenter
             if (popType.Selection != null)
             {
                 type = popType.Selection.Value;
-                btnType.Text = popType.Selection.Text;
+                btnType.Text = popType.Selection.Text + "   > ";
             }
         }
 

@@ -31,7 +31,7 @@ namespace SmoONE.UI.Layout
             this.panel1 = new Smobiler.Core.Controls.Panel();
             this.lblCC_ID = new Smobiler.Core.Controls.Label();
             this.label4 = new Smobiler.Core.Controls.Label();
-            this.label1 = new Smobiler.Core.Controls.Label();
+            this.lblAmount = new Smobiler.Core.Controls.Label();
             this.lblCC_Name = new Smobiler.Core.Controls.Label();
             this.label3 = new Smobiler.Core.Controls.Label();
             this.label2 = new Smobiler.Core.Controls.Label();
@@ -42,7 +42,7 @@ namespace SmoONE.UI.Layout
             this.panel1.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.lblCC_ID,
             this.label4,
-            this.label1,
+            this.lblAmount,
             this.lblCC_Name,
             this.label3,
             this.label2,
@@ -70,19 +70,19 @@ namespace SmoONE.UI.Layout
             this.label4.Location = new System.Drawing.Point(150, 40);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 20);
-            this.label4.Text = "已报销金额：";
+            this.label4.Text = "已报销金额";
             this.label4.ZIndex = 1;
             // 
-            // label1
+            // lblAmount
             // 
-            this.label1.DataMember = "CC_Amount";
-            this.label1.DisplayMember = "CC_Amount";
-            this.label1.FontSize = 12F;
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
-            this.label1.Location = new System.Drawing.Point(75, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 20);
-            this.label1.ZIndex = 1;
+            this.lblAmount.DataMember = "CC_Amount";
+            this.lblAmount.DisplayMember = "CC_Amount";
+            this.lblAmount.FontSize = 12F;
+            this.lblAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
+            this.lblAmount.Location = new System.Drawing.Point(75, 40);
+            this.lblAmount.Name = "lblAmount";
+            this.lblAmount.Size = new System.Drawing.Size(75, 20);
+            this.lblAmount.ZIndex = 1;
             // 
             // lblCC_Name
             // 
@@ -103,7 +103,7 @@ namespace SmoONE.UI.Layout
             this.label3.Name = "label3";
             this.label3.Padding = new Smobiler.Core.Controls.Padding(10F, 0F, 0F, 0F);
             this.label3.Size = new System.Drawing.Size(75, 20);
-            this.label3.Text = "预算金额：";
+            this.label3.Text = "预算金额";
             this.label3.ZIndex = 1;
             // 
             // label2
@@ -145,7 +145,7 @@ namespace SmoONE.UI.Layout
         private Smobiler.Core.Controls.Panel panel1;
         internal Smobiler.Core.Controls.Label lblCC_ID;
         internal Smobiler.Core.Controls.Label label4;
-        internal Smobiler.Core.Controls.Label label1;
+        internal Smobiler.Core.Controls.Label lblAmount;
         internal Smobiler.Core.Controls.Label lblCC_Name;
         internal Smobiler.Core.Controls.Label label3;
         internal Smobiler.Core.Controls.Label label2;

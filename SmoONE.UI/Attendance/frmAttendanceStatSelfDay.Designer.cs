@@ -54,9 +54,12 @@ namespace SmoONE.UI.Attendance
             // gridATdata
             // 
             this.gridATdata.BackColor = System.Drawing.Color.White;
+            this.gridATdata.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
+            this.gridATdata.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.gridATdata.Dock = System.Windows.Forms.DockStyle.Top;
             this.gridATdata.Location = new System.Drawing.Point(0, 85);
             this.gridATdata.Name = "gridATdata";
+            this.gridATdata.PageSize = 10;
             this.gridATdata.ShowSplitLine = true;
             this.gridATdata.Size = new System.Drawing.Size(300, 450);
             this.gridATdata.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
@@ -122,8 +125,6 @@ namespace SmoONE.UI.Attendance
             this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title1.FontSize = 15F;
-            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title1.Location = new System.Drawing.Point(111, 36);
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(100, 50);
@@ -186,6 +187,7 @@ namespace SmoONE.UI.Attendance
             this.title1,
             this.panel1,
             this.gridATdata});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmAttendanceStatSelfDay_KeyDown);
             this.Load += new System.EventHandler(this.frmAttendanceStatSelfDay_Load);
             this.Name = "frmAttendanceStatSelfDay";

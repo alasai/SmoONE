@@ -32,12 +32,15 @@ namespace SmoONE.UI.Work
             if (e.KeyCode == KeyCode.Back)
             {
                 Close();         //关闭当前页面
+            
             }
         }
 
         private void frmCheck_Load(object sender, EventArgs e)
         {
-
+            type = "";
+            state = "";
+            Bind();
         }
         /// <summary>
         /// 选中项更改事件

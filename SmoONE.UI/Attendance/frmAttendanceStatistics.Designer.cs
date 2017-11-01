@@ -51,8 +51,8 @@ namespace SmoONE.UI.Attendance
             this.btnYear = new Smobiler.Core.Controls.Button();
             this.btnMonth = new Smobiler.Core.Controls.Button();
             this.btnCheck = new Smobiler.Core.Controls.Button();
-            this.gridATdata1 = new Smobiler.Core.Controls.ListView();
             this.tabPageView1 = new Smobiler.Core.Controls.TabPageView();
+            this.gridATdata1 = new Smobiler.Core.Controls.ListView();
             // 
             // popListYear
             // 
@@ -102,11 +102,11 @@ namespace SmoONE.UI.Attendance
             popListItem10,
             popListItem11,
             popListItem12});
-            popListGroup2.Title = "请选择月份";
             popListGroup2.Value = null;
             this.popListMonth.Groups.AddRange(new Smobiler.Core.Controls.PopListGroup[] {
             popListGroup2});
             this.popListMonth.Name = "popListMonth";
+            this.popListMonth.Title = "请选择月份";
             this.popListMonth.Selected += new System.EventHandler(this.popListMonth_Selected);
             // 
             // gridATdata
@@ -115,6 +115,7 @@ namespace SmoONE.UI.Attendance
             this.gridATdata.FooterControlName = null;
             this.gridATdata.HeaderControlName = null;
             this.gridATdata.Name = "gridATdata";
+            this.gridATdata.PageSize = 10;
             this.gridATdata.ShowSplitLine = true;
             this.gridATdata.Size = new System.Drawing.Size(300, 360);
             this.gridATdata.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
@@ -125,8 +126,6 @@ namespace SmoONE.UI.Attendance
             this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title1.FontSize = 15F;
-            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title1.Location = new System.Drawing.Point(111, 36);
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(100, 50);
@@ -138,10 +137,12 @@ namespace SmoONE.UI.Attendance
             this.textTabBar1,
             this.btnYear,
             this.btnMonth,
-            this.btnCheck});
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCheck,
+            this.tabPageView1});
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 500);
             this.panel1.Name = "panel1";
+            this.panel1.Scrollable = true;
             this.panel1.Size = new System.Drawing.Size(300, 90);
             // 
             // textTabBar1
@@ -200,24 +201,25 @@ namespace SmoONE.UI.Attendance
             this.btnCheck.Size = new System.Drawing.Size(113, 35);
             this.btnCheck.Press += new System.EventHandler(this.ButCheck_Click);
             // 
+            // tabPageView1
+            // 
+            this.tabPageView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.tabPageView1.Location = new System.Drawing.Point(0, 90);
+            this.tabPageView1.Name = "tabPageView1";
+            this.tabPageView1.Size = new System.Drawing.Size(300, 360);
+            this.tabPageView1.PageIndexChanged += new System.EventHandler(this.tabPageView1_PageIndexChanged);
+            // 
             // gridATdata1
             // 
             this.gridATdata1.BackColor = System.Drawing.Color.White;
             this.gridATdata1.FooterControlName = null;
             this.gridATdata1.HeaderControlName = null;
             this.gridATdata1.Name = "gridATdata1";
+            this.gridATdata1.PageSize = 10;
             this.gridATdata1.ShowSplitLine = true;
             this.gridATdata1.Size = new System.Drawing.Size(300, 360);
             this.gridATdata1.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.gridATdata1.TemplateControlName = "frmAttendanceStatDayLayout";
-            // 
-            // tabPageView1
-            // 
-            this.tabPageView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.tabPageView1.Location = new System.Drawing.Point(0, 140);
-            this.tabPageView1.Name = "tabPageView1";
-            this.tabPageView1.Size = new System.Drawing.Size(300, 360);
-            this.tabPageView1.PageIndexChanged += new System.EventHandler(this.tabPageView1_PageIndexChanged);
             // 
             // frmAttendanceStatistics
             // 
@@ -227,8 +229,8 @@ namespace SmoONE.UI.Attendance
             this.popListMonth});
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.title1,
-            this.panel1,
-            this.tabPageView1});
+            this.panel1});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmAttendanceStatistics_KeyDown);
             this.Load += new System.EventHandler(this.frmAttendanceStatistics_Load);
             this.Name = "frmAttendanceStatistics";

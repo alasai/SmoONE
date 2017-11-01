@@ -9,6 +9,7 @@ using SmoONE.DTOs;
 using SmoONE.UI;
 using SmoONE.CommLib;
 using SmoONE.UI.Layout;
+using SmoONE.UI.CostCenter;
 
 namespace SmoONE.UI.RB
 {
@@ -34,24 +35,24 @@ namespace SmoONE.UI.RB
         {
             try
             {
-                //frmRBCostCenter frmCostCenter = new frmRBCostCenter();
-                //this.Show(frmCostCenter, (MobileForm sender1, object args) =>
-                //{
-                //    try
-                //    {
-                //        if (frmCostCenter.ShowResult == ShowResult.Yes)
-                //        {
-                //            string CCID = frmCostCenter.CCID;
-                //            string[] CCS = CCID.Split(new char[] { '/' });
-                //            RBCC = CCS[0];         //成本中心编号
-                //            this.btnRBCC.Text = CCS[1];           //成本中心名称
-                //        }
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        throw new Exception(ex.Message);
-                //    }
-                //});
+                frmRBCostCenter frmCostCenter = new frmRBCostCenter();
+                this.Show(frmCostCenter, (MobileForm sender1, object args) =>
+                {
+                    try
+                    {
+                        if (frmCostCenter.ShowResult == ShowResult.Yes)
+                        {
+                            string CCID = frmCostCenter.CCID;
+                            string[] CCS = CCID.Split(new char[] { '/' });
+                            RBCC = CCS[0];         //成本中心编号
+                            this.btnRBCC.Text = CCS[1] + "   > ";           //成本中心名称
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
+                });
             }
             catch (Exception ex)
             {
@@ -122,7 +123,7 @@ namespace SmoONE.UI.RB
                 RBDetailDto Reim = AutofacConfig.rBService.GetByID(ID);
                 RBCC = Reim.CC_ID;                //成本中心编号
                 CCDetailDto Cost = AutofacConfig.costCenterService.GetCCByID(Reim.CC_ID);
-                this.btnRBCC.Text = Cost.CC_Name;               //成本中心名称
+                this.btnRBCC.Text = Cost.CC_Name + "   > ";               //成本中心名称
                 this.TxtNote.Text = Reim.RB_Note;                       //备注
                 DataTable rowTable = new DataTable();
                 rowTable.Columns.Add("ID", typeof(System.Int32));                       //消费记录编号

@@ -56,9 +56,10 @@ namespace SmoONE.UI.Attendance
                 switch (btnMode)
                 {
                     case 1:
-                  //  this.gridATdata.TemplateControlName = "frmAttendanceStatisticsLayout";
-                    //获取某月考勤用户数据
-                    List<string> Users = AutofacConfig.attendanceService.GetUserNameByPeriod(Convert.ToDateTime(Year[0] + Month[0]).AddDays(-DateTime.Now.Day + 1), Convert.ToDateTime(Year[0] + Month[0]).AddDays(1 - DateTime.Now.Day).AddMonths(1));
+                        //  this.gridATdata.TemplateControlName = "frmAttendanceStatisticsLayout";
+                        gridATdata.Rows.Clear();    //清除考勤统计列表数据
+                        //获取某月考勤用户数据
+                        List<string> Users = AutofacConfig.attendanceService.GetUserNameByPeriod(Convert.ToDateTime(Year[0] + Month[0]).AddDays(-DateTime.Now.Day + 1), Convert.ToDateTime(Year[0] + Month[0]).AddDays(1 - DateTime.Now.Day).AddMonths(1));
                     if (Users.Count > 0)
                     {
                         table.Columns.Add("ID");                //用户ID
@@ -74,9 +75,13 @@ namespace SmoONE.UI.Attendance
                             MonthlyStatisticsDto Stat = AutofacConfig.attendanceService.GetUserMonthlyStatistics(Row, Convert.ToDateTime(Year[0] + Month[0]));
                             UserDetails UserDetail = new UserDetails();
                             UserDetailDto User = UserDetail.getUser(Row);
-                            table.Rows.Add(User.U_ID, User.U_Portrait, User.U_Name, Stat.MS_AllCount, Stat.MS_InTimeCount, Stat.MS_ComeLateCount, Stat.MS_LeaveEarlyCount, Stat.MS_NoSignInCount + Stat.MS_NoSignOutCount);
-                        }
-                        gridATdata.Rows.Clear();    //清除考勤统计列表数据
+                                if (User != null)
+                                {
+                                    table.Rows.Add(User.U_ID, User.U_Portrait, User.U_Name, Stat.MS_AllCount, Stat.MS_InTimeCount, Stat.MS_ComeLateCount, Stat.MS_LeaveEarlyCount, Stat.MS_NoSignInCount + Stat.MS_NoSignOutCount);
+                                }
+
+                            }
+                       
                         this.gridATdata.DataSource = table;
                         this.gridATdata.DataBind();
                     }
@@ -84,7 +89,8 @@ namespace SmoONE.UI.Attendance
                     break;
                     case 2:
 
-                      //  this.gridATdata.TemplateControlName = "frmAttendanceStatDayLayout";
+                        //  this.gridATdata.TemplateControlName = "frmAttendanceStatDayLayout";
+                        gridATdata1.Rows.Clear();    //清除考勤统计列表数据
                         //获取某月考勤日期
                         List<DateTime> listDate = AutofacConfig.attendanceService.GetDayOfMonthlyStatistics(UserID, Convert.ToDateTime(Year[0] + Month[0]));
                         if (listDate.Count > 0)
@@ -95,7 +101,7 @@ namespace SmoONE.UI.Attendance
                                 string Time = Row.ToString("yyyy年M月d日    dddd", new System.Globalization.CultureInfo("zh-CN"));
                                 table.Rows.Add(Time);
                             }
-                            gridATdata1.Rows.Clear();    //清除考勤统计列表数据
+                           
                             this.gridATdata1.DataSource = table;
                             this.gridATdata1.DataBind();
                             
@@ -121,21 +127,17 @@ namespace SmoONE.UI.Attendance
                 UserID = Client.Session["U_ID"].ToString();
                 this.btnYear.Text = DateTime.Now.Year.ToString() + "年▼";              //年份
                 this.btnMonth.Text = DateTime.Now.Month.ToString() + "月▼";            //月份
+                PopListGroup poli = new PopListGroup();
+                popListYear.Groups.Add(poli);
+                popListYear.Title = "请选择年份";
                 for (int i = DateTime.Now.Year; DateTime.Now.Year - i < 10; i--)        //添加年份选择范围
                 {
-                    PopListItem YearItem = new PopListItem();
-                    YearItem.Text = i.ToString();
-                   // popListYear.Groups.FindByText("请选择年份").AddListItem(YearItem);
-                    if (i == DateTime.Now.Year)
-                    {
-                        popListYear.SetSelections(YearItem);
-                    }
+                    poli.Items.Add(new PopListItem(i.ToString(), i.ToString()));
+
                 }
-                popListMonth.SetSelections(popListMonth.Groups[0].Items[(DateTime.Now.Month - 1)]);
                 btnMode = 1;
                 tabPageView1.Controls.Add(gridATdata);
                 tabPageView1.Controls.Add(gridATdata1);
-
                 Bind();
             }
             catch (Exception ex)

@@ -163,6 +163,16 @@ namespace SmoONE.Application
         }
 
         /// <summary>
+        /// 根据成本中心返回报销单传输对象
+        /// </summary>
+        /// <param name="CCID">成本中心ID</param>
+        public List<ReimbursementDto> GetByCCID(string CCID)
+        {
+            List<ReimbursementDto> temp = Mapper.Map<List<Reimbursement>, List<ReimbursementDto>>(_reimbursementRepository.GetByCCID(CCID).AsNoTracking().ToList());
+            return GetRBDetail(temp);
+        }
+
+        /// <summary>
         /// 根据明细金额计算总金额
         /// </summary>
         /// <param name="UserID">用户ID</param>

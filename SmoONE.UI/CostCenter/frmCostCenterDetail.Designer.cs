@@ -62,21 +62,23 @@ namespace SmoONE.UI.CostCenter
             this.label3,
             this.lblType,
             this.label1,
-            this.label2,
             this.lblStartDate,
+            this.label2,
             this.lblEndDate,
             this.label5,
             this.lblAmount,
+             this.label8,
+            this.lblRBAmount,
             this.label6,
+             this.lblLiableMan,
+              this.label9,
+              this.lblDep,
             this.label7,
-            this.lblLiableMan,
             this.lblTemplate,
-            this.lblDep,
-            this.label9,
+           
             this.lblActive,
             this.label10,
-            this.label8,
-            this.lblRBAmount});
+           });
             this.pContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pContent.Flex = 10000;
             this.pContent.Name = "pContent";
@@ -136,7 +138,7 @@ namespace SmoONE.UI.CostCenter
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.label1.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
             this.label1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.label1.Location = new System.Drawing.Point(0, 100);
@@ -148,7 +150,7 @@ namespace SmoONE.UI.CostCenter
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
+            this.label2.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
             this.label2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.label2.Location = new System.Drawing.Point(0, 135);
@@ -160,7 +162,7 @@ namespace SmoONE.UI.CostCenter
             // lblStartDate
             // 
             this.lblStartDate.BackColor = System.Drawing.Color.White;
-            this.lblStartDate.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.lblStartDate.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
             this.lblStartDate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.lblStartDate.FontSize = 12F;
             this.lblStartDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
@@ -173,7 +175,7 @@ namespace SmoONE.UI.CostCenter
             // lblEndDate
             // 
             this.lblEndDate.BackColor = System.Drawing.Color.White;
-            this.lblEndDate.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
+            this.lblEndDate.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
             this.lblEndDate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.lblEndDate.FontSize = 12F;
             this.lblEndDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
@@ -186,7 +188,7 @@ namespace SmoONE.UI.CostCenter
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.label5.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
             this.label5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.label5.Location = new System.Drawing.Point(0, 180);
@@ -198,7 +200,7 @@ namespace SmoONE.UI.CostCenter
             // lblAmount
             // 
             this.lblAmount.BackColor = System.Drawing.Color.White;
-            this.lblAmount.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.lblAmount.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
             this.lblAmount.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.lblAmount.FontSize = 12F;
             this.lblAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
@@ -211,7 +213,7 @@ namespace SmoONE.UI.CostCenter
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.label6.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
             this.label6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.label6.Location = new System.Drawing.Point(0, 260);
@@ -235,7 +237,7 @@ namespace SmoONE.UI.CostCenter
             // lblLiableMan
             // 
             this.lblLiableMan.BackColor = System.Drawing.Color.White;
-            this.lblLiableMan.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
+            this.lblLiableMan.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
             this.lblLiableMan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.lblLiableMan.FontSize = 12F;
             this.lblLiableMan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
@@ -261,7 +263,7 @@ namespace SmoONE.UI.CostCenter
             // lblDep
             // 
             this.lblDep.BackColor = System.Drawing.Color.White;
-            this.lblDep.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
+            this.lblDep.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
             this.lblDep.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.lblDep.FontSize = 12F;
             this.lblDep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
@@ -274,7 +276,7 @@ namespace SmoONE.UI.CostCenter
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
+            this.label9.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
             this.label9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.label9.Location = new System.Drawing.Point(0, 295);
@@ -311,7 +313,7 @@ namespace SmoONE.UI.CostCenter
             // label8
             // 
             this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
+            this.label8.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
             this.label8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.label8.Location = new System.Drawing.Point(0, 215);
@@ -323,7 +325,7 @@ namespace SmoONE.UI.CostCenter
             // lblRBAmount
             // 
             this.lblRBAmount.BackColor = System.Drawing.Color.White;
-            this.lblRBAmount.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
+            this.lblRBAmount.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
             this.lblRBAmount.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.lblRBAmount.FontSize = 12F;
             this.lblRBAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
@@ -344,7 +346,6 @@ namespace SmoONE.UI.CostCenter
             // 
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             this.btnEdit.FontSize = 17F;
-            this.btnEdit.ForeColor = System.Drawing.Color.White;
             this.btnEdit.Location = new System.Drawing.Point(10, 10);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(134, 35);
@@ -355,7 +356,6 @@ namespace SmoONE.UI.CostCenter
             // 
             this.btnActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             this.btnActive.FontSize = 17F;
-            this.btnActive.ForeColor = System.Drawing.Color.White;
             this.btnActive.Location = new System.Drawing.Point(156, 10);
             this.btnActive.Name = "btnActive";
             this.btnActive.Size = new System.Drawing.Size(134, 35);
@@ -367,8 +367,6 @@ namespace SmoONE.UI.CostCenter
             this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title1.FontSize = 15F;
-            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title1.Location = new System.Drawing.Point(111, 36);
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(100, 50);
@@ -380,6 +378,7 @@ namespace SmoONE.UI.CostCenter
             this.title1,
             this.pDown,
             this.pContent});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmCostCenterDetail_KeyDown);
             this.Load += new System.EventHandler(this.frmCostCenterDetail_Load);
             this.Name = "frmCostCenterDetail";

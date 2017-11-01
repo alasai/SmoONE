@@ -25,9 +25,9 @@ namespace SmoONE.UI.Layout
         {
             try
             {
-                switch (this.Form .Name )
+                switch (this .Form.ToString () )
                 {
-                    case "frmAttendanceStatMonthTypeDay":
+                    case "SmoONE.UI.Attendance.frmAttendanceStatMonthTypeDay":
                         if (string.IsNullOrEmpty(((SmoONE.UI.Attendance.frmAttendanceStatMonthTypeDay)this.Form).atType) == false)
                         {
                             switch ((StatisticsType)Enum.Parse(typeof(StatisticsType), ((SmoONE.UI.Attendance.frmAttendanceStatMonthTypeDay)this.Form).atType))
@@ -46,18 +46,25 @@ namespace SmoONE.UI.Layout
                             }
                         }
                      break;
-                    case "frmAttendanceStatDay":
+                    case "SmoONE.UI.Attendance.frmAttendanceStatDay":
                          SmoONE.UI.Attendance.frmAttendanceMain frmMain1 = new SmoONE.UI.Attendance.frmAttendanceMain();
                         frmMain1.DayTime = lblDay.BindDisplayValue .ToString ();            //选择查看的日期
                         frmMain1.UserID =((SmoONE.UI.Attendance.frmAttendanceStatDay)this.Form ). UserID;             //所查看用户ID
                         frmMain1.enter = (int)Enum.Parse(typeof(ATMainState), ATMainState.统计查看.ToString());
                         this.Form.Show(frmMain1);
                      break;
-                    case "frmAttendanceStatistics":
+                    case "SmoONE.UI.Attendance.frmAttendanceStatistics":
                              SmoONE.UI.Attendance.frmAttendanceStatMan frmMan = new SmoONE.UI.Attendance.frmAttendanceStatMan();
                              frmMan.DayTime =lblDay.BindDisplayValue .ToString ();     //将选择日期，传递到下个页面
                              this.Form .Show(frmMan);
                      break;
+                    case "SmoONE.UI.Attendance.frmAttendanceStatSelfDay":
+                        SmoONE.UI.Attendance.frmAttendanceMain frmMain2 = new SmoONE.UI.Attendance.frmAttendanceMain();
+                        frmMain2.DayTime = lblDay.BindDisplayValue.ToString();            //选择查看的日期
+                        frmMain2.UserID = ((SmoONE.UI.Attendance.frmAttendanceStatSelfDay)this.Form).UserID;             //所查看用户ID
+                        frmMain2.enter = (int)Enum.Parse(typeof(ATMainState), ATMainState.统计查看.ToString());
+                        this.Form.Show(frmMain2);
+                        break;
 
                  }
             }

@@ -28,20 +28,9 @@ namespace SmoONE.UI.Layout
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.plRefuse = new Smobiler.Core.Controls.Panel();
             this.txtReason = new Smobiler.Core.Controls.TextBox();
             this.btnCancel = new Smobiler.Core.Controls.Button();
             this.btnOK = new Smobiler.Core.Controls.Button();
-            // 
-            // plRefuse
-            // 
-            this.plRefuse.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.txtReason,
-            this.btnCancel,
-            this.btnOK});
-            this.plRefuse.Location = new System.Drawing.Point(0, 350);
-            this.plRefuse.Name = "plRefuse";
-            this.plRefuse.Size = new System.Drawing.Size(300, 150);
             // 
             // txtReason
             // 
@@ -51,6 +40,7 @@ namespace SmoONE.UI.Layout
             this.txtReason.MaxLength = 400;
             this.txtReason.Multiline = true;
             this.txtReason.Name = "txtReason";
+            this.txtReason.Padding = new Smobiler.Core.Controls.Padding(0F, 5F, 0F, 0F);
             this.txtReason.Size = new System.Drawing.Size(300, 90);
             this.txtReason.WaterMarkText = "请输入1-200字的拒绝理由";
             // 
@@ -76,14 +66,17 @@ namespace SmoONE.UI.Layout
             // 
             // RefuseDialog
             // 
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.plRefuse});
+            this.txtReason,
+            this.btnCancel,
+            this.btnOK});
+            this.Size = new System.Drawing.Size(300, 150);
             this.Name = "RefuseDialog";
 
         }
         #endregion
 
-        private Smobiler.Core.Controls.Panel plRefuse;
         internal Smobiler.Core.Controls.TextBox txtReason;
         internal Smobiler.Core.Controls.Button btnCancel;
         private Smobiler.Core.Controls.Button btnOK;

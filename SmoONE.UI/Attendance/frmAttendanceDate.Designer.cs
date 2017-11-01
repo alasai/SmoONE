@@ -35,13 +35,36 @@ namespace SmoONE.UI.Attendance
             Smobiler.Core.Controls.RadioButton radioButton5 = new Smobiler.Core.Controls.RadioButton();
             Smobiler.Core.Controls.RadioButton radioButton6 = new Smobiler.Core.Controls.RadioButton();
             Smobiler.Core.Controls.RadioButton radioButton7 = new Smobiler.Core.Controls.RadioButton();
+            this.title1 = new SmoONE.UI.Layout.Title();
+            this.panel1 = new Smobiler.Core.Controls.Panel();
             this.radioDate = new Smobiler.Core.Controls.RadioGroup();
             this.lblADeviation = new Smobiler.Core.Controls.Label();
-            this.title1 = new SmoONE.UI.Layout.Title();
             this.pCalendar = new Smobiler.Core.Controls.Panel();
             this.fontIcon1 = new Smobiler.Core.Controls.FontIcon();
             this.label1 = new Smobiler.Core.Controls.Label();
             this.label2 = new Smobiler.Core.Controls.Label();
+            // 
+            // title1
+            // 
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.Location = new System.Drawing.Point(111, 36);
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
+            this.title1.TitleText = "日期";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.radioDate,
+            this.lblADeviation,
+            this.pCalendar});
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 95);
+            this.panel1.Name = "panel1";
+            this.panel1.Scrollable = true;
+            this.panel1.Size = new System.Drawing.Size(300, 100);
             // 
             // radioDate
             // 
@@ -75,9 +98,7 @@ namespace SmoONE.UI.Attendance
             radioButton5,
             radioButton6,
             radioButton7});
-            this.radioDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.radioDate.Layout = Smobiler.Core.Controls.LayoutPosition.Relative;
-            this.radioDate.Location = new System.Drawing.Point(0, 50);
+            this.radioDate.Location = new System.Drawing.Point(0, 10);
             this.radioDate.MultiSelect = true;
             this.radioDate.Name = "radioDate";
             this.radioDate.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 4F, 0F);
@@ -90,24 +111,12 @@ namespace SmoONE.UI.Attendance
             this.lblADeviation.FontSize = 12F;
             this.lblADeviation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.lblADeviation.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
-            this.lblADeviation.Location = new System.Drawing.Point(0, 340);
+            this.lblADeviation.Location = new System.Drawing.Point(0, 300);
             this.lblADeviation.Name = "lblADeviation";
             this.lblADeviation.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.lblADeviation.Size = new System.Drawing.Size(300, 20);
             this.lblADeviation.Text = "可单独设置某一天的考勤时间";
             this.lblADeviation.ZIndex = 1;
-            // 
-            // title1
-            // 
-            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
-            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title1.FontSize = 15F;
-            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.title1.Location = new System.Drawing.Point(111, 36);
-            this.title1.Name = "title1";
-            this.title1.Size = new System.Drawing.Size(100, 50);
-            this.title1.TitleText = "日期";
             // 
             // pCalendar
             // 
@@ -117,7 +126,7 @@ namespace SmoONE.UI.Attendance
             this.label1,
             this.label2});
             this.pCalendar.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
-            this.pCalendar.Location = new System.Drawing.Point(0, 305);
+            this.pCalendar.Location = new System.Drawing.Point(0, 265);
             this.pCalendar.Name = "pCalendar";
             this.pCalendar.Size = new System.Drawing.Size(307, 35);
             this.pCalendar.Touchable = true;
@@ -151,20 +160,19 @@ namespace SmoONE.UI.Attendance
             // frmAttendanceDate
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.radioDate,
-            this.lblADeviation,
             this.title1,
-            this.pCalendar});
+            this.panel1});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmAttendanceDate_KeyDown);
             this.Load += new System.EventHandler(this.frmAttendanceDate_Load);
             this.Name = "frmAttendanceDate";
 
         }
         #endregion
-
+        private SmoONE.UI.Layout.Title title1;
+        private Smobiler.Core.Controls.Panel panel1;
         private Smobiler.Core.Controls.RadioGroup radioDate;
         private Smobiler.Core.Controls.Label lblADeviation;
-        private SmoONE.UI.Layout.Title title1;
         private Smobiler.Core.Controls.Panel pCalendar;
         private Smobiler.Core.Controls.FontIcon fontIcon1;
         private Smobiler.Core.Controls.Label label1;

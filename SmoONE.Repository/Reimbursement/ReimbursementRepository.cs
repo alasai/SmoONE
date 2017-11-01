@@ -102,6 +102,17 @@ namespace SmoONE.Repository
             return _entities.Where(x => x.RB_CreateUser == UserID).OrderByDescending(o => o.RB_ID).AsNoTracking();
         }
 
+
+        /// <summary>
+        /// 根据成本中心返回报销单传输对象
+        /// </summary>
+        /// <param name="CCID">成本中心ID</param>
+        public IQueryable<Reimbursement> GetByCCID(string CCID)
+        {
+            return _entities.Where(x => x.CC_ID  == CCID).OrderByDescending(o => o.RB_ID).AsNoTracking();
+
+        }
+
         /// <summary>
         /// 得到最大的报销单ID
         /// </summary>

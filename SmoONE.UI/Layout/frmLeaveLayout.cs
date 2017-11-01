@@ -48,9 +48,10 @@ namespace SmoONE.UI.Layout
                         {
                             if (frmLeaveDetail.ShowResult == ShowResult.Yes)
                             {
-                                ((frmCheck)(this.Form)).Bind();
                                 ((frmCheck)(this.Form)).type = "";
                                 ((frmCheck)(this.Form)).state = "";
+                                ((frmCheck)(this.Form)).Bind();
+                               
                             }
                         });
                         break;
@@ -62,9 +63,10 @@ namespace SmoONE.UI.Layout
                         {
                             if (frmRBDetail.ShowResult == ShowResult.Yes)
                             {
-                                ((frmCheck)(this.Form)).Bind();
                                 ((frmCheck)(this.Form)).type = "";
                                 ((frmCheck)(this.Form)).state = "";
+                                ((frmCheck)(this.Form)).Bind();
+                                
                             }
                         });
                         break;

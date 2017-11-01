@@ -210,7 +210,7 @@ namespace SmoONE.UI.Department
                             if (args.Result == Smobiler.Core.Controls .ShowResult.Yes)
                             {
                                 leader = popLeader.Selection.Value;
-                                btnLeader.Text = popLeader.Selection.Text;
+                                btnLeader.Text = popLeader.Selection.Text + "   > ";
                             }
                         });
                     //}
@@ -218,7 +218,7 @@ namespace SmoONE.UI.Department
                    if (isLeader == false & userdep != null & string.IsNullOrEmpty(userdep.Dep_ID) == true )
                    {
                        leader = popLeader.Selection.Value;
-                       btnLeader.Text = popLeader.Selection.Text;
+                       btnLeader.Text = popLeader.Selection.Text + "   > ";
                    }
                 }
             }

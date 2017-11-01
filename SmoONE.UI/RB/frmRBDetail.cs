@@ -122,7 +122,7 @@ namespace SmoONE.UI.RB
                             if (UserID == ReimFinancialChecker)
                             {
                                 btnAgreed.Visible = true;
-                                btnAgreed.Visible = true;
+                                btnRefuse.Visible = true;
                                 btnAgreed.Width = 134;
                                 btnAgreed.Left = 10;
                                 btnRefuse.Width = 134;
@@ -304,7 +304,7 @@ namespace SmoONE.UI.RB
                 {
                     Bind();     //操作成功，刷新页面
                     this.ShowResult = ShowResult.Yes;
-                    Refuse.Close();
+                    //Refuse.Close();
                     this.Form.Toast("审批成功");
                 }
                 else

@@ -77,6 +77,7 @@ namespace SmoONE.UI.Department
             // 
             this.treeDepData.BackColor = System.Drawing.Color.White;
             this.treeDepData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeDepData.Flex = 10;
             this.treeDepData.Location = new System.Drawing.Point(2, 95);
             this.treeDepData.Margin = new Smobiler.Core.Controls.Margin(0F, 20F, 0F, 0F);
             this.treeDepData.Name = "treeDepData";
@@ -88,11 +89,13 @@ namespace SmoONE.UI.Department
             // btnDMode
             // 
             this.btnDMode.BackColor = System.Drawing.Color.White;
+            this.btnDMode.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
+            this.btnDMode.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.btnDMode.BorderRadius = 0;
             this.btnDMode.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnDMode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             this.btnDMode.Name = "btnDMode";
-            this.btnDMode.Size = new System.Drawing.Size(300, 35);
+            this.btnDMode.Size = new System.Drawing.Size(300, 50);
             this.btnDMode.Text = "�㼶չʾ";
             this.btnDMode.Press += new System.EventHandler(this.btnDLayout_Click);
             // 
@@ -101,8 +104,6 @@ namespace SmoONE.UI.Department
             this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title1.FontSize = 15F;
-            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title1.Location = new System.Drawing.Point(111, 36);
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(100, 50);
@@ -117,6 +118,7 @@ namespace SmoONE.UI.Department
             this.lblInfor,
             this.gridDepData,
             this.treeDepData});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmDepartment_KeyDown);
             this.Load += new System.EventHandler(this.frmDepartment_Load);
             this.Name = "frmDepartment";

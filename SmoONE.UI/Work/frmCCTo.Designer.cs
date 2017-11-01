@@ -38,8 +38,6 @@ namespace SmoONE.UI.Work
             this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title1.FontSize = 15F;
-            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title1.Location = new System.Drawing.Point(113, 59);
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(100, 50);
@@ -52,6 +50,7 @@ namespace SmoONE.UI.Work
             this.listCCData.FooterControlName = null;
             this.listCCData.Location = new System.Drawing.Point(82, 144);
             this.listCCData.Name = "listCCData";
+            this.listCCData.PageSize = 10;
             this.listCCData.ShowSplitLine = true;
             this.listCCData.Size = new System.Drawing.Size(100, 30);
             this.listCCData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
@@ -62,6 +61,7 @@ namespace SmoONE.UI.Work
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.title1,
             this.listCCData});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmCCTo_KeyDown);
             this.Load += new System.EventHandler(this.frmCCTo_Load);
             this.Name = "frmCCTo";

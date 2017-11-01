@@ -70,7 +70,8 @@ namespace SmoONE.UI.Attendance
             {
                 List<StatisticsType> listType = new List<StatisticsType>();
                 List<ALDto> listATlog = new List<ALDto>();
-                gridView1.Rows.Clear();
+                listView1.Rows.Clear();
+                listView2.Rows.Clear();
                 StatisticsType stype = (StatisticsType)Enum.Parse(typeof(StatisticsType), Type);
                 listType.Add(stype);
                 listATlog = AutofacConfig.attendanceService.GetAlDtoOfType(UserID, Convert.ToDateTime(Daytime), listType);
@@ -78,7 +79,9 @@ namespace SmoONE.UI.Attendance
                 {
                     case StatisticsType.未签到:
                     case StatisticsType.未签退:
-                        gridView1.TemplateControlName = "frmATStatSelfDetailDayLayout";
+                        listView1.Visible = true;
+                        listView2.Visible = false ;
+                        // listView1.TemplateControlName = "frmATStatSelfDetailDayLayout";
                         if (listATlog.Count > 0)
                         {
                             List<DateTime> listATDate = new List<DateTime>();
@@ -99,14 +102,16 @@ namespace SmoONE.UI.Attendance
                                 string atSignTime = atDate.ToString("yyyy年M月d日    dddd", new System.Globalization.CultureInfo("zh-CN"));
                                 table.Rows.Add(atDate, atSignTime);
                             }
-                            gridView1.DataSource = table;
-                            gridView1.DataBind();
+                            listView1.DataSource = table;
+                            listView1.DataBind();
                         }
                         break;
                     case StatisticsType.准点:
                     case StatisticsType.迟到:
                     case StatisticsType.早退:
-                        gridView1.TemplateControlName = "frmATStatSelfDetailTypeLayout";
+                        listView1.Visible = false ;
+                        listView2.Visible = true ;
+                        //listView1.TemplateControlName = "frmATStatSelfDetailTypeLayout";
                         if (listATlog.Count > 0)
                         {
                             List<ATStatSelfDetail> listATlogStatistics = new List<ATStatSelfDetail>();
@@ -129,8 +134,8 @@ namespace SmoONE.UI.Attendance
                                 atDetail.AL_Position = al.AL_Position;
                                 listATlogStatistics.Add(atDetail);
                             }
-                            gridView1.DataSource = listATlogStatistics;
-                            gridView1.DataBind();
+                            listView2.DataSource = listATlogStatistics;
+                            listView2.DataBind();
                         }
                         break;
                 }

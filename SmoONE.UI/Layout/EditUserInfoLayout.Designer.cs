@@ -95,8 +95,8 @@ namespace SmoONE.UI.Layout
         #endregion
 
         internal Smobiler.Core.Controls.Label lblEditInfo;
-        private Smobiler.Core.Controls.TextBox txtEditInfo;
         private Smobiler.Core.Controls.Button btnCancel;
         private Smobiler.Core.Controls.Button btnOK;
+        internal Smobiler.Core.Controls.TextBox txtEditInfo;
     }
 }

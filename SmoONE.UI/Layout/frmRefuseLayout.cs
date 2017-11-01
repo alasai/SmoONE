@@ -36,7 +36,7 @@ namespace SmoONE.UI.Layout
                 {
                     throw new Exception("请输入拒绝理由！");
                 }
-                switch (this.Form .Name)
+                switch (this .Form.ToString ())
                 {
                     case "SmoONE.UI.Leave.frmLeaveDetail":
                         //审批人驳回请假

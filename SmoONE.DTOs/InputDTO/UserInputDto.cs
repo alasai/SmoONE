@@ -77,5 +77,12 @@ namespace SmoONE.DTOs
         [StringLength(maximumLength: 20, ErrorMessage = "长度不能超过20")]
         [DisplayName("部门")]
         public string U_DepID { get; set; }
+
+        /// <summary>
+        /// 手势
+        /// </summary>
+        [StringLength(maximumLength: 50, ErrorMessage = "长度不能超过50")]
+        [DisplayName("手势")]
+        public string U_Gestures { get; set; }
     }
 }

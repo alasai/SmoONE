@@ -38,8 +38,6 @@ namespace SmoONE.UI.Attendance
             this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title1.FontSize = 15F;
-            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title1.Location = new System.Drawing.Point(111, 36);
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(100, 50);
@@ -72,6 +70,7 @@ namespace SmoONE.UI.Attendance
             this.gridATdata.Dock = System.Windows.Forms.DockStyle.Top;
             this.gridATdata.Location = new System.Drawing.Point(0, 35);
             this.gridATdata.Name = "gridATdata";
+            this.gridATdata.PageSize = 10;
             this.gridATdata.ShowSplitLine = true;
             this.gridATdata.Size = new System.Drawing.Size(300, 415);
             this.gridATdata.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
@@ -82,6 +81,7 @@ namespace SmoONE.UI.Attendance
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.title1,
             this.panel1});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmAttendanceStatDay_KeyDown);
             this.Load += new System.EventHandler(this.frmAttendanceStatDay_Load);
             this.Name = "frmAttendanceStatDay";

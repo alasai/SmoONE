@@ -38,7 +38,6 @@ namespace SmoONE.UI.RB
             this.plRBCC = new Smobiler.Core.Controls.Panel();
             this.Label4 = new Smobiler.Core.Controls.Label();
             this.btnRBCC = new Smobiler.Core.Controls.Button();
-            this.btnRBCC1 = new Smobiler.Core.Controls.Button();
             this.plNote = new Smobiler.Core.Controls.Panel();
             this.lblNote = new Smobiler.Core.Controls.Label();
             this.TxtNote = new Smobiler.Core.Controls.TextBox();
@@ -54,8 +53,6 @@ namespace SmoONE.UI.RB
             // 
             this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
-            this.title1.FontSize = 15F;
-            this.title1.ForeColr = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(300, 50);
             this.title1.TitleText = "报销编辑";
@@ -96,21 +93,21 @@ namespace SmoONE.UI.RB
             // lblRBNO
             // 
             this.lblRBNO.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.lblRBNO.FontSize = 12F;
             this.lblRBNO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.lblRBNO.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.lblRBNO.Location = new System.Drawing.Point(88, 0);
             this.lblRBNO.Name = "lblRBNO";
+            this.lblRBNO.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.lblRBNO.Size = new System.Drawing.Size(213, 35);
             // 
             // plRBCC
             // 
             this.plRBCC.BackColor = System.Drawing.Color.White;
             this.plRBCC.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
-            this.plRBCC.BorderColor = System.Drawing.Color.LightGray;
+            this.plRBCC.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.plRBCC.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.Label4,
-            this.btnRBCC,
-            this.btnRBCC1});
+            this.btnRBCC});
             this.plRBCC.Location = new System.Drawing.Point(0, 45);
             this.plRBCC.Name = "plRBCC";
             this.plRBCC.Size = new System.Drawing.Size(300, 35);
@@ -132,27 +129,16 @@ namespace SmoONE.UI.RB
             this.btnRBCC.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.btnRBCC.Location = new System.Drawing.Point(88, 0);
             this.btnRBCC.Name = "btnRBCC";
-            this.btnRBCC.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 5F, 0F);
-            this.btnRBCC.Size = new System.Drawing.Size(188, 35);
-            this.btnRBCC.Text = "选择（必填）";
+            this.btnRBCC.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
+            this.btnRBCC.Size = new System.Drawing.Size(212, 35);
+            this.btnRBCC.Text = "选择（必填）   > ";
             this.btnRBCC.Press += new System.EventHandler(this.btnRBCC_Press);
-            // 
-            // btnRBCC1
-            // 
-            this.btnRBCC1.BackColor = System.Drawing.Color.Transparent;
-            this.btnRBCC1.BorderRadius = 0;
-            this.btnRBCC1.ForeColor = System.Drawing.Color.Black;
-            this.btnRBCC1.Location = new System.Drawing.Point(276, 0);
-            this.btnRBCC1.Name = "btnRBCC1";
-            this.btnRBCC1.Size = new System.Drawing.Size(25, 35);
-            this.btnRBCC1.Text = ">";
-            this.btnRBCC1.Press += new System.EventHandler(this.btnRBCC_Press);
             // 
             // plNote
             // 
             this.plNote.BackColor = System.Drawing.Color.White;
             this.plNote.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
-            this.plNote.BorderColor = System.Drawing.Color.LightGray;
+            this.plNote.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.plNote.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.lblNote,
             this.TxtNote});
@@ -173,11 +159,10 @@ namespace SmoONE.UI.RB
             // TxtNote
             // 
             this.TxtNote.BackColor = System.Drawing.Color.Transparent;
-            this.TxtNote.FontSize = 12F;
             this.TxtNote.Location = new System.Drawing.Point(88, 0);
             this.TxtNote.Multiline = true;
             this.TxtNote.Name = "TxtNote";
-            this.TxtNote.Padding = new Smobiler.Core.Controls.Padding(0F, 5F, 30F, 0F);
+            this.TxtNote.Padding = new Smobiler.Core.Controls.Padding(0F, 5F, 4F, 0F);
             this.TxtNote.Size = new System.Drawing.Size(212, 100);
             this.TxtNote.WaterMarkText = "（选填）";
             // 
@@ -237,7 +222,9 @@ namespace SmoONE.UI.RB
             this.listRBRowData.HeaderControlName = null;
             this.listRBRowData.Location = new System.Drawing.Point(0, 200);
             this.listRBRowData.Name = "listRBRowData";
+            this.listRBRowData.ShowSplitLine = true;
             this.listRBRowData.Size = new System.Drawing.Size(300, 160);
+            this.listRBRowData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.listRBRowData.TemplateControlName = "frmConsumption1Layout";
             // 
             // btnSave
@@ -258,6 +245,7 @@ namespace SmoONE.UI.RB
             this.title1,
             this.spContent,
             this.btnSave});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmRBEdit_KeyDown);
             this.Load += new System.EventHandler(this.frmRBEdit_Load);
             this.Name = "frmRBEdit";
@@ -273,7 +261,6 @@ namespace SmoONE.UI.RB
         private Smobiler.Core.Controls.Panel plRBCC;
         internal Smobiler.Core.Controls.Label Label4;
         private Smobiler.Core.Controls.Button btnRBCC;
-        private Smobiler.Core.Controls.Button btnRBCC1;
         private Smobiler.Core.Controls.Panel plNote;
         internal Smobiler.Core.Controls.Label lblNote;
         private Smobiler.Core.Controls.TextBox TxtNote;

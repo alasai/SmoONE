@@ -18,17 +18,17 @@ namespace SmoONE.UI
         /// <summary>
         /// 成本中心相关服务的接口
         /// </summary>
-        public ICostCenterService costCenterService;
+        public Application.ICostCenterService costCenterService;
 
         /// <summary>
         /// 部门相关服务的接口
         /// </summary>
-        public IDepartmentService departmentService;
+        public Application.IDepartmentService departmentService;
 
         /// <summary>
         /// 请假单相关服务的接口
         /// </summary>
-        public ILeaveService leaveService;
+        public Application.ILeaveService leaveService;
 
         /// <summary>
         /// 报销单相关服务的接口

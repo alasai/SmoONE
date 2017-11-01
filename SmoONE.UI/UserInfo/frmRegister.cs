@@ -143,7 +143,7 @@ namespace SmoONE.UI.UserInfo
                 string encryptPwd = AutofacConfig.userService.Encrypt(pwd2);
                 ReturnInfo result = AutofacConfig.userService.RegisterByVCode(Tel, encryptPwd, txtName.Text.Trim(), listrole, VCode);
                 //如果返回true则注册成功，否则弹出错误
-                if (result.IsSuccess == true)
+                if (result.IsSuccess == false )
                 {
                     throw new Exception(result.ErrorInfo);
                 }

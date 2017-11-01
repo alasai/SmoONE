@@ -126,10 +126,26 @@ namespace SmoONE.UI.Layout
                 }
             }
 
-            /// <summary>
-            /// 文本水平方式
-            /// </summary>
-            [Browsable(true), Category("Appearance"), DefaultValue(""), Description("设置文本字水平方向")]
+        /// <summary>
+        /// 图像资源颜色
+        /// </summary>
+        [Browsable(true), Category("Appearance"), DefaultValue(""), Description("图像资源颜色")]
+        public System.Drawing.Color IconColor
+        {
+            get
+            {
+                return this.imageEx1.IconColor;
+            }
+            set
+            {
+                this.imageEx1.IconColor = value;
+            }
+        }
+
+        /// <summary>
+        /// 文本水平方式
+        /// </summary>
+        [Browsable(true), Category("Appearance"), DefaultValue(""), Description("设置文本字水平方向")]
             public HorizontalAlignment HorizontalAlignment
             {
                 get

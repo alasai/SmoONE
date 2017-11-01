@@ -63,7 +63,7 @@ namespace SmoONE.UI.CostCenter
             if (popType.Selection != null)
             {
                 type = popType.Selection.Value;
-                btnType.Text = popType.Selection.Text;
+                btnType.Text = popType.Selection.Text + "   > ";
             }
         }
 
@@ -213,7 +213,7 @@ namespace SmoONE.UI.CostCenter
                    if (frm.ShowResult == Smobiler.Core.Controls .ShowResult.Yes)
                    {
                        CTempID = frm.CTempID;
-                       btnTemplate.Text = frm.CTempID;
+                       btnTemplate.Text = frm.CTempID + "   > ";
                    }
                });
         }
@@ -254,7 +254,7 @@ namespace SmoONE.UI.CostCenter
             if (popLiable.Selection != null)
             {
                 liableMan = popLiable.Selection.Value;
-                btnLiableMan.Text = popLiable.Selection.Text;
+                btnLiableMan.Text = popLiable.Selection.Text + "   > ";
                UserDepDto user= AutofacConfig.userService.GetUseDepByUserID(liableMan);
                D_ID = user.Dep_ID;
                lblDep.Text =user.Dep_Name;

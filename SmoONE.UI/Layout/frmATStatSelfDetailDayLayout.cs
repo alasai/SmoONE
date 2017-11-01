@@ -25,23 +25,23 @@ namespace SmoONE.UI.Layout
         {
             try
             {
-                if (string.IsNullOrEmpty(((SmoONE.UI.Attendance.frmAttendanceStatMonthTypeDay)this.Form).atType) == false)
-                {
-                    switch ((StatisticsType)Enum.Parse(typeof(StatisticsType), ((SmoONE.UI.Attendance.frmAttendanceStatMonthTypeDay)this.Form).atType))
-                    {
-                        case StatisticsType.准点:
-                        case StatisticsType.迟到:
-                        case StatisticsType.早退:
-                        case StatisticsType.未签到:
-                        case StatisticsType.未签退:
-                            SmoONE.UI.Attendance.frmAttendanceMain frmMain = new SmoONE.UI.Attendance.frmAttendanceMain();
-                            frmMain.DayTime = lblDay.Text;            //选择查看的日期
-                            frmMain.enter = (int)Enum.Parse(typeof(ATMainState), ATMainState.统计查看.ToString());
-                            frmMain.UserID = ((SmoONE.UI.Attendance.frmAttendanceStatMonthTypeDay)this.Form).UserID;
-                            this.Form.Show(frmMain);
-                            break;
-                    }
-                }
+                //if (string.IsNullOrEmpty(((SmoONE.UI.Attendance.frmAttendanceStatSelfDetail)this.Form).Type ) == false)
+                //{
+                //    switch ((StatisticsType)Enum.Parse(typeof(StatisticsType), ((SmoONE.UI.Attendance.frmAttendanceStatMonthTypeDay)this.Form).atType))
+                //    {
+                //        case StatisticsType.准点:
+                //        case StatisticsType.迟到:
+                //        case StatisticsType.早退:
+                //        case StatisticsType.未签到:
+                //        case StatisticsType.未签退:
+                //            SmoONE.UI.Attendance.frmAttendanceMain frmMain = new SmoONE.UI.Attendance.frmAttendanceMain();
+                //            frmMain.DayTime = lblDay.Text;            //选择查看的日期
+                //            frmMain.enter = (int)Enum.Parse(typeof(ATMainState), ATMainState.统计查看.ToString());
+                //            frmMain.UserID = ((SmoONE.UI.Attendance.frmAttendanceStatMonthTypeDay)this.Form).UserID;
+                //            this.Form.Show(frmMain);
+                //            break;
+                //    }
+                //}
             }
             catch (Exception ex)
             {

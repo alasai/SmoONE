@@ -69,12 +69,12 @@ namespace SmoONE.UI.CostCenter
 
                     imgAEACheckP.Width = imgCheckWSize;
                     imgAEACheckP.Height = imgCheckWSize;
-                    imgAEACheckP.ZIndex = (Controls.Count + 1);
+                    imgAEACheckP.ZIndex = (Controls.Count + 1)+10;
                     imgAEACheckP.BorderRadius = 13;
                     imgAEACheckP.Name = "imgAEACheck" + addAEACheck.Split(',')[0];
                     imgAEACheckP.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Stretch;
                     imgAEACheckP.Left = imgFCheckLeft;
-                    Controls.Add(imgAEACheckP);//界面添加行政审批人头像控件
+                    this.panel1 .Controls.Add(imgAEACheckP);//界面添加行政审批人头像控件
                     listimgAEAChecksP.Add(imgAEACheckP);//添加行政审批人头像控件
 
                     Label lblAEACheckName = new Label();
@@ -85,8 +85,8 @@ namespace SmoONE.UI.CostCenter
                     lblAEACheckName.BackColor = System.Drawing.Color.White;
                     lblAEACheckName.ForeColor = System.Drawing.Color.FromArgb(44, 44, 44);
                     lblAEACheckName.FontSize = 10;
-                    lblAEACheckName.ZIndex = (Controls.Count + 1);
-                    Controls.Add(lblAEACheckName);//界面添加行政审批人名称控件
+                    lblAEACheckName.ZIndex = (Controls.Count + 1) + 10;
+                    this.panel1.Controls.Add(lblAEACheckName);//界面添加行政审批人名称控件
                     listlblAEAChecks.Add(lblAEACheckName);//添加行政审批人名称控件
                 }
 
@@ -130,11 +130,11 @@ namespace SmoONE.UI.CostCenter
 
                     imgFCheckP.Width = imgFCWSize;
                     imgFCheckP.Height = imgFCWSize;
-                    imgFCheckP.ZIndex = (Controls.Count + 1);
+                    imgFCheckP.ZIndex = (Controls.Count + 1) + 10;
                     imgFCheckP.BorderRadius = 13;
                     imgFCheckP.Name = "imgFCheck" + addFCheck.Split(',')[0];
                     imgFCheckP.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Stretch;
-                    Controls.Add(imgFCheckP);//界面添加财务审批人头像控件
+                    this.panel1 .Controls.Add(imgFCheckP);//界面添加财务审批人头像控件
                     listimgFCheckersP.Add(imgFCheckP);//添加财务审批人头像控件
 
                     Label lblFCheckName = new Label();
@@ -145,8 +145,8 @@ namespace SmoONE.UI.CostCenter
                     lblFCheckName.BackColor = System.Drawing.Color.White;
                     lblFCheckName.ForeColor = System.Drawing.Color.FromArgb(44, 44, 44);
                     lblFCheckName.FontSize = 10;
-                    lblFCheckName.ZIndex = (Controls.Count + 1);
-                    Controls.Add(lblFCheckName);//界面添加财务审批人名称控件
+                    lblFCheckName.ZIndex = (Controls.Count + 1) + 10;
+                    this.panel1 .Controls.Add(lblFCheckName);//界面添加财务审批人名称控件
                     listlblFCheckers.Add(lblFCheckName);//添加财务审批人名称控件
                 }
 

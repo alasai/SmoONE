@@ -44,7 +44,7 @@ namespace SmoONE.UI.RB
                             {
                                 string[] types = TYPEIDs.Split(new char[] { '/' });
                                 TYPEID = types[0];               //消费类型编号
-                                this.btnRBType.Text = types[1];  //消费类型名称
+                                this.btnRBType.Text = types[1] + "   > ";  //消费类型名称
                             }
                         }
                     }

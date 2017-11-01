@@ -164,6 +164,62 @@ namespace SmoONE.Application
             return RInfo;
         }
 
+        /// <summary>
+        /// 手势登录
+        /// </summary>
+        /// <param name="UserID">用户ID</param>
+        /// <param name="Gestures">手势</param>
+        public ReturnInfo GesturesLogin(string UserID, String Gestures)
+        {
+            ReturnInfo RInfo = new ReturnInfo();
+            StringBuilder sb = new StringBuilder();
+            try
+            {
+                if (string.IsNullOrEmpty(UserID))
+                {
+                    RInfo.IsSuccess = false;
+                    sb.Append("用户名为空;");
+                }
+                else
+                {
+                    bool UserExists = _userRepository.IsExists(UserID);
+                    if (UserExists)
+                    {
+                        //判断手势是否正确
+                        bool GesturesExists = _userRepository.IsGesture(UserID, Gestures);
+                        if (GesturesExists)
+                        {
+                            RInfo.IsSuccess = true;
+                        }
+                        else
+                        {
+                            RInfo.IsSuccess = false;
+                            sb.Append("手势不正确");
+                        }
+                    }
+                    else
+                    {
+                        RInfo.IsSuccess = false;
+                        sb.Append("该用户不存在");
+                    }
+                }
+                //添加日志
+                Log l = new Log();
+                l.U_ID = UserID;
+                l.L_Result = RInfo.IsSuccess.ToString();
+                l.L_LoginTime = DateTime.Now;
+                AddLog(l);
+            }
+            catch (Exception ex)
+            {
+                RInfo.IsSuccess = false;
+                sb.Append(ex.Message);
+            }
+
+
+            RInfo.ErrorInfo = sb.ToString();
+            return RInfo;
+        }
 
         /// <summary>
         /// 用户通过验证码登录
@@ -636,6 +692,10 @@ namespace SmoONE.Application
                             if (entity.U_Sex != null)
                             {
                                 u.U_Sex =(int)entity.U_Sex;
+                            }
+                            if (entity.U_Gestures  != null)
+                            {
+                                u.U_Gestures = entity.U_Gestures;
                             }
                             #endregion
                             _unitOfWork.RegisterDirty(u);

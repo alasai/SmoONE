@@ -71,5 +71,10 @@ namespace SmoONE.DTOs
         /// 部门名称
         /// </summary>
         public string U_DepName { get; set; }
+
+        /// <summary>
+        /// 手势
+        /// </summary>
+        public string U_Gestures { get; set; }
     }
 }

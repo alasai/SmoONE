@@ -30,7 +30,7 @@ namespace SmoONE.UI.UserInfo
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.title1 = new Title();
+            this.title1 = new SmoONE.UI.Layout.Title();
             this.plTel = new Smobiler.Core.Controls.Panel();
             this.label1 = new Smobiler.Core.Controls.Label();
             this.txtTel = new Smobiler.Core.Controls.TextBox();
@@ -38,6 +38,8 @@ namespace SmoONE.UI.UserInfo
             // 
             // title1
             // 
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
             this.title1.Location = new System.Drawing.Point(27, 86);
             this.title1.Name = "title1";
@@ -48,13 +50,12 @@ namespace SmoONE.UI.UserInfo
             // 
             this.plTel.BackColor = System.Drawing.Color.White;
             this.plTel.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
-            this.plTel.BorderColor = System.Drawing.Color.LightGray;
+            this.plTel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.plTel.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.label1,
             this.txtTel});
             this.plTel.Location = new System.Drawing.Point(0, 60);
             this.plTel.Name = "plTel";
-            this.plTel.Layout = Smobiler.Core.Controls.LayoutPosition.Absolute;
             this.plTel.Size = new System.Drawing.Size(300, 35);
             // 
             // label1
@@ -67,7 +68,7 @@ namespace SmoONE.UI.UserInfo
             // 
             // txtTel
             // 
-            this.txtTel.FontSize = 13F;
+            this.txtTel.BackColor = System.Drawing.Color.Transparent;
             this.txtTel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.txtTel.KeyboardType = Smobiler.Core.Controls.KeyboardType.Numeric;
             this.txtTel.Location = new System.Drawing.Point(66, 0);
@@ -79,7 +80,6 @@ namespace SmoONE.UI.UserInfo
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             this.btnSave.FontSize = 15F;
-            this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(10, 105);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(280, 35);
@@ -92,7 +92,7 @@ namespace SmoONE.UI.UserInfo
             this.title1,
             this.plTel,
             this.btnSave});
-            this.Layout =  Smobiler.Core.Controls.LayoutPosition.Absolute;
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmRegisterTel_KeyDown);
             this.Name = "frmRegisterTel";
 

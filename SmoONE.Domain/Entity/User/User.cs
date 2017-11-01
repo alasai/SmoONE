@@ -111,6 +111,13 @@ namespace SmoONE.Domain
         public DateTime U_CreateDate { get; set; }
 
 
+        /// <summary>
+        /// 手势
+        /// </summary>
+        [StringLength(maximumLength: 50, ErrorMessage = "长度不能超过50")]
+        [DisplayName("手势")]
+        public string U_Gestures { get; set; }
+
         ////新增加的字段
         ///// <summary>
         ///// 是否考勤例外

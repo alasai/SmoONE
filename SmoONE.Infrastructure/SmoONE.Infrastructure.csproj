@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201703060726029_Attendance.Designer.cs">
       <DependentUpon>201703060726029_Attendance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710240738119_AddGestures.cs" />
+    <Compile Include="Migrations\201710240738119_AddGestures.Designer.cs">
+      <DependentUpon>201710240738119_AddGestures.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SmoONEDbContext.cs" />
@@ -88,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703060726029_Attendance.resx">
       <DependentUpon>201703060726029_Attendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710240738119_AddGestures.resx">
+      <DependentUpon>201710240738119_AddGestures.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -35,33 +35,32 @@ namespace SmoONE.UI.UserInfo
             this.cameraPortrait = new Smobiler.Core.Controls.Camera();
             this.popSex = new Smobiler.Core.Controls.PopList();
             this.plPortrait = new Smobiler.Core.Controls.Panel();
+            this.label1 = new Smobiler.Core.Controls.Label();
+            this.imgPortrait = new Smobiler.Core.Controls.Image();
+            this.cameraButton1 = new Smobiler.Core.Controls.CameraButton();
             this.plName = new Smobiler.Core.Controls.Panel();
+            this.label2 = new Smobiler.Core.Controls.Label();
+            this.btnName = new Smobiler.Core.Controls.Button();
+            this.btnName1 = new Smobiler.Core.Controls.Button();
             this.plSex = new Smobiler.Core.Controls.Panel();
+            this.label3 = new Smobiler.Core.Controls.Label();
+            this.btnSex = new Smobiler.Core.Controls.Button();
+            this.btnSex1 = new Smobiler.Core.Controls.Button();
             this.plBirthday = new Smobiler.Core.Controls.Panel();
+            this.label4 = new Smobiler.Core.Controls.Label();
+            this.dpkBirthday = new Smobiler.Core.Controls.DatePicker();
             this.plEmail = new Smobiler.Core.Controls.Panel();
+            this.label5 = new Smobiler.Core.Controls.Label();
+            this.btnEmail = new Smobiler.Core.Controls.Button();
+            this.btnEmail1 = new Smobiler.Core.Controls.Button();
             this.btnPwd = new Smobiler.Core.Controls.Button();
             this.btnExit = new Smobiler.Core.Controls.Button();
             this.menuTitle1 = new SmoONE.UI.Layout.MenuTitle();
             this.spContent = new Smobiler.Core.Controls.Panel();
             this.toolBar = new Smobiler.Core.Controls.ToolBar();
-            this.label1 = new Smobiler.Core.Controls.Label();
-            this.imgPortrait = new Smobiler.Core.Controls.Image();
-            this.btnUp = new Smobiler.Core.Controls.Button();
-            this.label2 = new Smobiler.Core.Controls.Label();
-            this.btnName = new Smobiler.Core.Controls.Button();
-            this.btnName1 = new Smobiler.Core.Controls.Button();
-            this.label3 = new Smobiler.Core.Controls.Label();
-            this.btnSex = new Smobiler.Core.Controls.Button();
-            this.btnSex1 = new Smobiler.Core.Controls.Button();
-            this.label4 = new Smobiler.Core.Controls.Label();
-            this.dpkBirthday = new Smobiler.Core.Controls.DatePicker();
-            this.label5 = new Smobiler.Core.Controls.Label();
-            this.btnEmail = new Smobiler.Core.Controls.Button();
-            this.btnEmail1 = new Smobiler.Core.Controls.Button();
             // 
             // cameraPortrait
             // 
-            this.cameraPortrait.Mode = Smobiler.Core.Controls.CameraMode.CameraAndAlbum;
             this.cameraPortrait.Name = "cameraPortrait";
             this.cameraPortrait.ImageCaptured += new Smobiler.Core.Controls.CameraOnlineCallBackHandler(this.cameraPortrait_ImageCaptured);
             // 
@@ -74,19 +73,51 @@ namespace SmoONE.UI.UserInfo
             // 
             this.plPortrait.BackColor = System.Drawing.Color.White;
             this.plPortrait.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 1F);
-            this.plPortrait.BorderColor = System.Drawing.Color.LightGray;
+            this.plPortrait.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.plPortrait.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.label1,
             this.imgPortrait,
-            this.btnUp});
+            this.cameraButton1});
             this.plPortrait.Name = "plPortrait";
             this.plPortrait.Size = new System.Drawing.Size(300, 45);
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.Name = "label1";
+            this.label1.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.label1.Size = new System.Drawing.Size(265, 45);
+            this.label1.Text = "头像";
+            // 
+            // imgPortrait
+            // 
+            this.imgPortrait.BorderRadius = 20;
+            this.imgPortrait.Location = new System.Drawing.Point(224, 0);
+            this.imgPortrait.Name = "imgPortrait";
+            this.imgPortrait.Size = new System.Drawing.Size(40, 40);
+            this.imgPortrait.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Cover;
+            this.imgPortrait.Visible = false;
+            this.imgPortrait.Zooming = true;
+            // 
+            // cameraButton1
+            // 
+            this.cameraButton1.AllowEdit = true;
+            this.cameraButton1.DataMember = null;
+            this.cameraButton1.DisplayFormat = null;
+            this.cameraButton1.DisplayMember = null;
+            this.cameraButton1.ImageBorderRadius = 18;
+            this.cameraButton1.Location = new System.Drawing.Point(254, 4);
+            this.cameraButton1.Name = "cameraButton1";
+            this.cameraButton1.ResourceID = "Camera";
+            this.cameraButton1.Size = new System.Drawing.Size(36, 36);
+            this.cameraButton1.ImageCaptured += new Smobiler.Core.Controls.CameraOnlineCallBackHandler(this.cameraPortrait_ImageCaptured);
             // 
             // plName
             // 
             this.plName.BackColor = System.Drawing.Color.White;
             this.plName.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
-            this.plName.BorderColor = System.Drawing.Color.LightGray;
+            this.plName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.plName.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.label2,
             this.btnName,
@@ -95,11 +126,44 @@ namespace SmoONE.UI.UserInfo
             this.plName.Name = "plName";
             this.plName.Size = new System.Drawing.Size(300, 45);
             // 
+            // label2
+            // 
+            this.label2.ForeColor = System.Drawing.Color.Gray;
+            this.label2.Name = "label2";
+            this.label2.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.label2.Size = new System.Drawing.Size(265, 20);
+            this.label2.Text = "昵称";
+            // 
+            // btnName
+            // 
+            this.btnName.BackColor = System.Drawing.Color.Transparent;
+            this.btnName.BorderRadius = 0;
+            this.btnName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.btnName.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Left;
+            this.btnName.Location = new System.Drawing.Point(0, 20);
+            this.btnName.Name = "btnName";
+            this.btnName.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.btnName.Size = new System.Drawing.Size(265, 25);
+            this.btnName.Press += new System.EventHandler(this.btnName_Press);
+            // 
+            // btnName1
+            // 
+            this.btnName1.BackColor = System.Drawing.Color.Transparent;
+            this.btnName1.BorderRadius = 0;
+            this.btnName1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.btnName1.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
+            this.btnName1.Location = new System.Drawing.Point(265, 0);
+            this.btnName1.Name = "btnName1";
+            this.btnName1.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
+            this.btnName1.Size = new System.Drawing.Size(35, 45);
+            this.btnName1.Text = ">";
+            this.btnName1.Press += new System.EventHandler(this.btnName_Press);
+            // 
             // plSex
             // 
             this.plSex.BackColor = System.Drawing.Color.White;
             this.plSex.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
-            this.plSex.BorderColor = System.Drawing.Color.LightGray;
+            this.plSex.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.plSex.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.label3,
             this.btnSex,
@@ -108,11 +172,44 @@ namespace SmoONE.UI.UserInfo
             this.plSex.Name = "plSex";
             this.plSex.Size = new System.Drawing.Size(300, 45);
             // 
+            // label3
+            // 
+            this.label3.ForeColor = System.Drawing.Color.Gray;
+            this.label3.Name = "label3";
+            this.label3.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.label3.Size = new System.Drawing.Size(265, 20);
+            this.label3.Text = "性别";
+            // 
+            // btnSex
+            // 
+            this.btnSex.BackColor = System.Drawing.Color.Transparent;
+            this.btnSex.BorderRadius = 0;
+            this.btnSex.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.btnSex.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Left;
+            this.btnSex.Location = new System.Drawing.Point(0, 20);
+            this.btnSex.Name = "btnSex";
+            this.btnSex.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.btnSex.Size = new System.Drawing.Size(265, 25);
+            this.btnSex.Press += new System.EventHandler(this.btnSex_Press);
+            // 
+            // btnSex1
+            // 
+            this.btnSex1.BackColor = System.Drawing.Color.Transparent;
+            this.btnSex1.BorderRadius = 0;
+            this.btnSex1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.btnSex1.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
+            this.btnSex1.Location = new System.Drawing.Point(265, 0);
+            this.btnSex1.Name = "btnSex1";
+            this.btnSex1.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
+            this.btnSex1.Size = new System.Drawing.Size(35, 45);
+            this.btnSex1.Text = ">";
+            this.btnSex1.Press += new System.EventHandler(this.btnSex_Press);
+            // 
             // plBirthday
             // 
             this.plBirthday.BackColor = System.Drawing.Color.White;
             this.plBirthday.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
-            this.plBirthday.BorderColor = System.Drawing.Color.LightGray;
+            this.plBirthday.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.plBirthday.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.label4,
             this.dpkBirthday});
@@ -120,11 +217,30 @@ namespace SmoONE.UI.UserInfo
             this.plBirthday.Name = "plBirthday";
             this.plBirthday.Size = new System.Drawing.Size(300, 45);
             // 
+            // label4
+            // 
+            this.label4.ForeColor = System.Drawing.Color.Gray;
+            this.label4.Name = "label4";
+            this.label4.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.label4.Size = new System.Drawing.Size(300, 20);
+            this.label4.Text = "生日";
+            // 
+            // dpkBirthday
+            // 
+            this.dpkBirthday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.dpkBirthday.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Left;
+            this.dpkBirthday.Location = new System.Drawing.Point(0, 20);
+            this.dpkBirthday.Name = "dpkBirthday";
+            this.dpkBirthday.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 4F, 0F);
+            this.dpkBirthday.Size = new System.Drawing.Size(300, 25);
+            this.dpkBirthday.Value = new System.DateTime(2017, 8, 10, 14, 32, 56, 666);
+            this.dpkBirthday.ValueChanged += new System.EventHandler(this.dpkBirthday_DateChanged);
+            // 
             // plEmail
             // 
             this.plEmail.BackColor = System.Drawing.Color.White;
             this.plEmail.Border = new Smobiler.Core.Controls.Border(0F, 0F, 0F, 1F);
-            this.plEmail.BorderColor = System.Drawing.Color.LightGray;
+            this.plEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.plEmail.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.label5,
             this.btnEmail,
@@ -132,6 +248,39 @@ namespace SmoONE.UI.UserInfo
             this.plEmail.Location = new System.Drawing.Point(0, 180);
             this.plEmail.Name = "plEmail";
             this.plEmail.Size = new System.Drawing.Size(300, 45);
+            // 
+            // label5
+            // 
+            this.label5.ForeColor = System.Drawing.Color.Gray;
+            this.label5.Name = "label5";
+            this.label5.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.label5.Size = new System.Drawing.Size(265, 20);
+            this.label5.Text = "邮件";
+            // 
+            // btnEmail
+            // 
+            this.btnEmail.BackColor = System.Drawing.Color.Transparent;
+            this.btnEmail.BorderRadius = 0;
+            this.btnEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.btnEmail.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Left;
+            this.btnEmail.Location = new System.Drawing.Point(0, 20);
+            this.btnEmail.Name = "btnEmail";
+            this.btnEmail.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
+            this.btnEmail.Size = new System.Drawing.Size(265, 25);
+            this.btnEmail.Press += new System.EventHandler(this.btnEmail_Press);
+            // 
+            // btnEmail1
+            // 
+            this.btnEmail1.BackColor = System.Drawing.Color.Transparent;
+            this.btnEmail1.BorderRadius = 0;
+            this.btnEmail1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.btnEmail1.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
+            this.btnEmail1.Location = new System.Drawing.Point(265, 0);
+            this.btnEmail1.Name = "btnEmail1";
+            this.btnEmail1.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
+            this.btnEmail1.Size = new System.Drawing.Size(35, 45);
+            this.btnEmail1.Text = ">";
+            this.btnEmail1.Press += new System.EventHandler(this.btnEmail_Press);
             // 
             // btnPwd
             // 
@@ -180,12 +329,12 @@ namespace SmoONE.UI.UserInfo
             this.spContent.Location = new System.Drawing.Point(138, 123);
             this.spContent.Margin = new Smobiler.Core.Controls.Margin(0F, 10F, 0F, 0F);
             this.spContent.Name = "spContent";
+            this.spContent.Scrollable = true;
             this.spContent.Size = new System.Drawing.Size(100, 30);
             // 
             // toolBar
             // 
             this.toolBar.BackColor = System.Drawing.Color.White;
-            this.toolBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             toolBarItem1.IconID = "work";
             toolBarItem1.Name = "Work";
             toolBarItem1.SelectIconID = "work";
@@ -197,156 +346,8 @@ namespace SmoONE.UI.UserInfo
             toolBarItem2});
             this.toolBar.Location = new System.Drawing.Point(98, 285);
             this.toolBar.Name = "toolBar";
-            this.toolBar.Size = new System.Drawing.Size(100, 45);
+            this.toolBar.Size = new System.Drawing.Size(100, 50);
             this.toolBar.ToolbarItemClick += new Smobiler.Core.Controls.ToolbarItemClickEventHandler(this.toolBar_ToolbarItemClick);
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Name = "label1";
-            this.label1.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
-            this.label1.Size = new System.Drawing.Size(265, 45);
-            this.label1.Text = "头像";
-            // 
-            // imgPortrait
-            // 
-            this.imgPortrait.BorderRadius = 20;
-            this.imgPortrait.Location = new System.Drawing.Point(224, 0);
-            this.imgPortrait.Name = "imgPortrait";
-            this.imgPortrait.Size = new System.Drawing.Size(40, 40);
-            this.imgPortrait.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Cover;
-            this.imgPortrait.Zooming = true;
-            // 
-            // btnUp
-            // 
-            this.btnUp.BackColor = System.Drawing.Color.Transparent;
-            this.btnUp.BorderRadius = 0;
-            this.btnUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.btnUp.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
-            this.btnUp.Location = new System.Drawing.Point(265, 0);
-            this.btnUp.Name = "btnUp";
-            this.btnUp.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
-            this.btnUp.Size = new System.Drawing.Size(35, 45);
-            this.btnUp.Text = ">";
-            this.btnUp.Press += new System.EventHandler(this.btnUp_Press);
-            // 
-            // label2
-            // 
-            this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Name = "label2";
-            this.label2.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
-            this.label2.Size = new System.Drawing.Size(265, 20);
-            this.label2.Text = "昵称";
-            // 
-            // btnName
-            // 
-            this.btnName.BackColor = System.Drawing.Color.Transparent;
-            this.btnName.BorderRadius = 0;
-            this.btnName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.btnName.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Left;
-            this.btnName.Location = new System.Drawing.Point(0, 20);
-            this.btnName.Name = "btnName";
-            this.btnName.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
-            this.btnName.Size = new System.Drawing.Size(265, 25);
-            this.btnName.Press += new System.EventHandler(this.btnName_Press);
-            // 
-            // btnName1
-            // 
-            this.btnName1.BackColor = System.Drawing.Color.Transparent;
-            this.btnName1.BorderRadius = 0;
-            this.btnName1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.btnName1.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
-            this.btnName1.Location = new System.Drawing.Point(265, 0);
-            this.btnName1.Name = "btnName1";
-            this.btnName1.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
-            this.btnName1.Size = new System.Drawing.Size(35, 45);
-            this.btnName1.Text = ">";
-            this.btnName1.Press += new System.EventHandler(this.btnName_Press);
-            // 
-            // label3
-            // 
-            this.label3.ForeColor = System.Drawing.Color.Gray;
-            this.label3.Name = "label3";
-            this.label3.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
-            this.label3.Size = new System.Drawing.Size(265, 20);
-            this.label3.Text = "性别";
-            // 
-            // btnSex
-            // 
-            this.btnSex.BackColor = System.Drawing.Color.Transparent;
-            this.btnSex.BorderRadius = 0;
-            this.btnSex.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.btnSex.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Left;
-            this.btnSex.Location = new System.Drawing.Point(0, 20);
-            this.btnSex.Name = "btnSex";
-            this.btnSex.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
-            this.btnSex.Size = new System.Drawing.Size(265, 25);
-            this.btnSex.Press += new System.EventHandler(this.btnSex_Press);
-            // 
-            // btnSex1
-            // 
-            this.btnSex1.BackColor = System.Drawing.Color.Transparent;
-            this.btnSex1.BorderRadius = 0;
-            this.btnSex1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.btnSex1.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
-            this.btnSex1.Location = new System.Drawing.Point(265, 0);
-            this.btnSex1.Name = "btnSex1";
-            this.btnSex1.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
-            this.btnSex1.Size = new System.Drawing.Size(35, 45);
-            this.btnSex1.Text = ">";
-            this.btnSex1.Press += new System.EventHandler(this.btnSex_Press);
-            // 
-            // label4
-            // 
-            this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Name = "label4";
-            this.label4.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
-            this.label4.Size = new System.Drawing.Size(300, 20);
-            this.label4.Text = "生日";
-            // 
-            // dpkBirthday
-            // 
-            this.dpkBirthday.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.dpkBirthday.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Left;
-            this.dpkBirthday.Location = new System.Drawing.Point(0, 20);
-            this.dpkBirthday.Name = "dpkBirthday";
-            this.dpkBirthday.Size = new System.Drawing.Size(300, 25);
-            this.dpkBirthday.Value = new System.DateTime(2017, 8, 10, 14, 32, 56, 666);
-            this.dpkBirthday.ValueChanged += new System.EventHandler(this.dpkBirthday_DateChanged);
-            // 
-            // label5
-            // 
-            this.label5.ForeColor = System.Drawing.Color.Gray;
-            this.label5.Name = "label5";
-            this.label5.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
-            this.label5.Size = new System.Drawing.Size(265, 20);
-            this.label5.Text = "邮件";
-            // 
-            // btnEmail
-            // 
-            this.btnEmail.BackColor = System.Drawing.Color.Transparent;
-            this.btnEmail.BorderRadius = 0;
-            this.btnEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.btnEmail.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Left;
-            this.btnEmail.Location = new System.Drawing.Point(0, 20);
-            this.btnEmail.Name = "btnEmail";
-            this.btnEmail.Padding = new Smobiler.Core.Controls.Padding(4F, 0F, 0F, 0F);
-            this.btnEmail.Size = new System.Drawing.Size(265, 25);
-            this.btnEmail.Press += new System.EventHandler(this.btnEmail_Press);
-            // 
-            // btnEmail1
-            // 
-            this.btnEmail1.BackColor = System.Drawing.Color.Transparent;
-            this.btnEmail1.BorderRadius = 0;
-            this.btnEmail1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.btnEmail1.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
-            this.btnEmail1.Location = new System.Drawing.Point(265, 0);
-            this.btnEmail1.Name = "btnEmail1";
-            this.btnEmail1.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
-            this.btnEmail1.Size = new System.Drawing.Size(35, 45);
-            this.btnEmail1.Text = ">";
-            this.btnEmail1.Press += new System.EventHandler(this.btnEmail_Press);
             // 
             // frmUser
             // 
@@ -357,6 +358,7 @@ namespace SmoONE.UI.UserInfo
             this.menuTitle1,
             this.spContent,
             this.toolBar});
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmUser_KeyDown);
             this.Load += new System.EventHandler(this.frmUser_Load);
             this.Name = "frmUser";
@@ -370,7 +372,6 @@ namespace SmoONE.UI.UserInfo
         private Smobiler.Core.Controls.Panel plPortrait;
         private Smobiler.Core.Controls.Label label1;
         private Smobiler.Core.Controls.Image imgPortrait;
-        private Smobiler.Core.Controls.Button btnUp;
         private Smobiler.Core.Controls.Panel plName;
         private Smobiler.Core.Controls.Label label2;
         internal Smobiler.Core.Controls.Button btnName;
@@ -389,5 +390,6 @@ namespace SmoONE.UI.UserInfo
         private Smobiler.Core.Controls.Button btnPwd;
         private Smobiler.Core.Controls.Button btnExit;
         private Smobiler.Core.Controls.ToolBar toolBar;
+        private Smobiler.Core.Controls.CameraButton cameraButton1;
     }
 }

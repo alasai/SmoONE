@@ -27,38 +27,8 @@ namespace SmoONE.UI.Layout
 
             }
         }
-        /// <summary>
-        /// 标题字体大小
-        /// </summary>
-        [Browsable(true), Category("Appearance"), DefaultValue(""), Description("标题字体大小")]
-        public float FontSize
-        {
-            get
-            {
-                return this.label1.FontSize;
-            }
-            set
-            {
-                this.label1.FontSize = value;
 
-            }
-        }
-        /// <summary>
-        /// 标题内容颜色
-        /// </summary>
-        [Browsable(true), Category("Appearance"), DefaultValue(""), Description("文本颜色")]
-        public System.Drawing.Color ForeColr
-        {
-            get
-            {
-                return this.label1.ForeColor;
-            }
-            set
-            {
-                this.label1.ForeColor = value;
-
-            }
-        }
+     
         /// <summary>
         /// 返回
         /// </summary>

@@ -7,6 +7,7 @@ using Smobiler.Core.Controls;
 using SmoONE.UI;
 using SmoONE.Domain;
 using SmoONE.UI.UserInfo;
+using SmoONE.DTOs;
 
 namespace SmoONE.UI.Work
 {
@@ -81,6 +82,11 @@ namespace SmoONE.UI.Work
                         CostCenter.frmCostCenter frmCostCenter = new CostCenter.frmCostCenter();
                         Show(frmCostCenter);
                         break;
+                        //成本中心分析
+                    case "CCFX":
+                        CostCenter.frmCostCenterFX frmCostCenterFX = new CostCenter.frmCostCenterFX();
+                        Show(frmCostCenterFX);
+                        break;
                     //创建成本中心模板
                     case "CC_Type_Template":
                         CostCenter.frmCostTemplet frmCostTemplet = new CostCenter.frmCostTemplet();
@@ -125,7 +131,13 @@ namespace SmoONE.UI.Work
                         break;
                     case "Me":
                         frmUser frm = new frmUser();
-                        this.Show(frm, (MobileForm sender1, object args) => ProcessToolbarFormName(frm.toolbarItemName));
+                        this.Show(frm, (MobileForm sender1, object args) =>
+                        {
+                            ProcessToolbarFormName(frm.toolbarItemName);
+                            UI.Layout.LeftPage lp = this.Drawer as UI.Layout.LeftPage;
+                            lp.getUser();
+                        }
+                        );
                         break;
                 }
             }
@@ -142,6 +154,7 @@ namespace SmoONE.UI.Work
         private void toolBar1_ToolbarItemClick(object sender, ToolbarClickEventArgs e)
         {
             ProcessToolbarFormName(e.Name);
+            
         }
         /// <summary>
         /// 手机自带回退按钮事件
@@ -181,6 +194,7 @@ namespace SmoONE.UI.Work
             MenuGroupDict = new Dictionary<string, IconMenuViewGroup>();
             //获取菜单
             MenuGroup();
+           CreateScreenGestures();
         }
         /// <summary>
         ///获取菜单
@@ -239,6 +253,74 @@ namespace SmoONE.UI.Work
         {
             frmCCTo frmCCTo = new frmCCTo();
             Show(frmCCTo);
+        }
+
+
+        /// <summary>
+        /// 创建手势
+        /// </summary>
+        /// <remarks></remarks>
+        private void CreateScreenGestures()
+        {
+           
+            UserDetailDto user = AutofacConfig.userService.GetUserByUserID(Client.Session["U_ID"].ToString());
+            if (user != null)
+            {
+                if (string.IsNullOrEmpty(user.U_Gestures) == false)
+                {
+                    this.Client.Pattern.Password = user.U_Gestures;
+                }
+            }
+            else
+            {
+                Toast("用户" + Client.Session["U_ID"].ToString() + "不存在！", ToastLength.SHORT);
+            }
+
+
+            if (string .IsNullOrEmpty (this.Client.Pattern.Password ) == true || string.IsNullOrWhiteSpace(this.Client.Pattern.Password) == true)
+            {
+                this.Client.Pattern.Create((object s1, Smobiler.Core.RPC .PatternCreatedEventArgs ee) =>
+                {
+                    if (ee.isError == true)
+                    {
+                        Toast (ee.error,ToastLength.SHORT);
+                    }
+                    else
+                    {
+                        if (string.IsNullOrWhiteSpace(ee.Password) == false)
+                        {
+                            try
+                            {
+                                this.Client.Pattern.Password = ee.Password;
+                                //数据库赋值
+                                UserInputDto upuser = new UserInputDto();
+                                upuser.U_ID = Client.Session["U_ID"].ToString();
+                                upuser.U_Gestures = Client.Pattern.Password;
+                                CommLib.ReturnInfo result = AutofacConfig.userService.UpdateUser(upuser);
+                                if (result.IsSuccess == false )
+                                {
+                                    Toast(result.ErrorInfo, ToastLength.SHORT);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
+
+                        }
+                    }
+                });
+            }
+           
+        }
+        /// <summary>
+        /// 显示侧边栏
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void title1_ImagePress(object sender, EventArgs e)
+        {
+            OpenDrawer();
         }
     }
 }

@@ -108,7 +108,7 @@ namespace SmoONE.UI.RB
                             string CCID = frmCostCenter.CCID;         //  CCID的值为成本中心编号/名称
                             string[] CCS = CCID.Split(new char[] { '/' });
                             RBCC = CCS[0];                       //成本中心编号              
-                            this.btnRBCC.Text = CCS[1];          //成本中心名称
+                            this.btnRBCC.Text = CCS[1]+ "   > ";          //成本中心名称
                         }
                     }
                     catch (Exception ex)

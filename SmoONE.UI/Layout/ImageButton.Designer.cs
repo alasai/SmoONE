@@ -46,15 +46,16 @@ namespace SmoONE.UI.Layout
             // 
             // imageEx1
             // 
+            this.imageEx1.BindDisplayValue = null;
             this.imageEx1.BorderRadius = 10;
             this.imageEx1.DataMember = null;
             this.imageEx1.DisplayMember = null;
             this.imageEx1.Flex = 6;
-            this.imageEx1.ImageType = Smobiler.Core.Controls.ImageEx.ImageStyle.Image;
             this.imageEx1.Name = "imageEx1";
             this.imageEx1.ResourceID = null;
+           
             this.imageEx1.Size = new System.Drawing.Size(0, 0);
-            this.imageEx1.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Stretch;
+            this.imageEx1.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Cover;
             // 
             // label1
             // 

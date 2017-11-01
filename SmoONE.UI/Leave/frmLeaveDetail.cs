@@ -130,15 +130,20 @@ namespace SmoONE.UI.Leave
                             break;
                         case (int)L_Status.已拒绝:
                             lblStateNote.Text = "已审批（拒绝）";
+                            frmDetailFootbarLayout1.btnAgreed.Visible = false;
+                            frmDetailFootbarLayout1.btnRefuse.Visible = false;
 
                             //如果是当前用户是请假条的创建用户，则显示编辑按钮，否则不显示。
                             if (Client.Session["U_ID"].ToString().Equals(leave.L_CreateUser))
                             {
-                                frmDetailFootbarLayout1.btnAgreed.Visible = false;
-                                frmDetailFootbarLayout1.btnRefuse.Visible = false;
+                               
                                 frmDetailFootbarLayout1.btnEdit.Visible = true;
                                 frmDetailFootbarLayout1.btnEdit.Width = 280;
                                 frmDetailFootbarLayout1.btnEdit.Left = 10;
+                            }
+                            else
+                            {
+                                frmDetailFootbarLayout1.btnEdit.Visible = false ;
                             }
                           
                             break;
@@ -192,7 +197,7 @@ namespace SmoONE.UI.Leave
                 nodeItem.Date = leave.L_CreateDate.ToString ();
                 nodeItem.TextColor = System.Drawing.Color.FromArgb(45, 45, 45);
                 nodeItem.SubTextColor = System.Drawing.Color.FromArgb(236, 163, 56);
-                //nodeItem.DateColor = System.Drawing.Color.FromArgb(145, 145, 145);
+                nodeItem.DateColor = System.Drawing.Color.FromArgb(145, 145, 145);
                 nodeStateDate.Items.Add(nodeItem);//动态添加节点
             }
             switch (leave.L_Status)
@@ -205,6 +210,7 @@ namespace SmoONE.UI.Leave
                         {
                             NodeViewItem nodeItem2 = new NodeViewItem();
                             nodeItem2.FontIcon = "circle";
+
                             UserDetailDto checkUser = userDetails.getUser(cUser);
                             if (checkUser != null)
                               {
@@ -244,7 +250,7 @@ namespace SmoONE.UI.Leave
                             nodeItem3.Date = leave.L_UpdateDate.ToString ();
                             nodeItem3.TextColor = System.Drawing.Color.FromArgb(45, 45, 45);
                             nodeItem3.SubTextColor = System.Drawing.Color.FromArgb(143, 187, 78);
-                            //nodeItem3.DateColor = System.Drawing.Color.FromArgb(145, 145, 145);
+                            nodeItem3.DateColor = System.Drawing.Color.FromArgb(145, 145, 145);
                             nodeStateDate.Items.Add(nodeItem3);
                         }
                      
@@ -252,7 +258,7 @@ namespace SmoONE.UI.Leave
                     break;
                 case (int)L_Status.已拒绝:
                     NodeViewItem nodeItem4 = new NodeViewItem();
-                    nodeItem4.FontIcon = "jujue";
+                    nodeItem4.FontIcon = "circle";
                     UserDetailDto checkUser2 = userDetails.getUser(leave.L_CurrantCheck);
                     if (checkUser2 != null)
                     {
@@ -269,7 +275,7 @@ namespace SmoONE.UI.Leave
                         nodeItem4.Date = leave.L_UpdateDate.ToString ();
                         nodeItem4.TextColor = System.Drawing.Color.FromArgb(45, 45, 45);
                         nodeItem4.SubTextColor = System.Drawing.Color.FromArgb(244, 64, 69);
-                        //nodeItem4.DateColor = System.Drawing.Color.FromArgb(145, 145, 145);
+                        nodeItem4.DateColor = System.Drawing.Color.FromArgb(145, 145, 145);
                         nodeStateDate.Items.Add(nodeItem4);
                      }
                     break;

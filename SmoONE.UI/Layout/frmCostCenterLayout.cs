@@ -43,8 +43,16 @@ namespace SmoONE.UI.Layout
                 this.Form.ShowResult = ShowResult.Yes;
                 this.Form.Close();
             }
+            else if (this.Form.ToString() == "SmoONE.UI.CostCenter.frmCostCenterFX")
+            {
+                string CCID = lblCC_ID.BindDataValue.ToString();
+                //跳转到成本中心详细界面
+                SmoONE.UI.CostCenter.frmCostCenterFXDetail frm = new SmoONE.UI.CostCenter.frmCostCenterFXDetail();
+                frm.CCID = CCID;
+                frm.CC_Amount = Convert.ToDecimal(lblAmount.BindDataValue);
+                this.Form.Show(frm);
+            }
         }
-
       
     }
 }

@@ -9,12 +9,14 @@ namespace SmoONE.UI.Layout
         private void btnCancel_Press(object sender, EventArgs e)
         {
             //((frmRBDetail)(this.Form)).refuseDialog.Close();
+            this.Close();
         }
 
         private void btnOK_Press(object sender, EventArgs e)
         {
             ((frmRBDetail)(this.Form)).lblReason.Text = txtReason.Text;
             ((frmRBDetail)(this.Form)).SureRefuse();    //提交拒绝操作到数据库
+            this .Close();
         }
     }
 }

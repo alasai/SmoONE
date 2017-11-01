@@ -144,7 +144,7 @@ namespace SmoONE.UI.Leave
             if (popType.Selection != null)
             {
                 type = popType.Selection.Value;
-                btnType.Text = popType.Selection.Text;
+                btnType.Text = popType.Selection.Text + "   > ";
             }
         }
 
@@ -323,11 +323,11 @@ namespace SmoONE.UI.Leave
                                 }
                                 else
                                 {
-
+                                    //pCheck2.Controls.Remove(imgbtnAddCheck);
+                                    //pCheck2.Controls.Add(imgbtnAddCheck);
                                     addCheckUser = Check;
                                     addCheckusers();
-                                    pCheck2.Controls.Remove(imgbtnAddCheck);
-                                    pCheck2.Controls.Add(imgbtnAddCheck);
+                                    
                                 }
                             }
                         }
@@ -362,10 +362,11 @@ namespace SmoONE.UI.Leave
                             }
                             else
                             {
+                                //pCCTo2.Controls.Remove(imgbtnAddCCTo);
+                                //pCCTo2.Controls.Add(imgbtnAddCCTo);
                                 addCCUser = CCToUser;
                                 addCCTousers();
-                                pCCTo2.Controls.Remove(imgbtnAddCCTo);
-                                pCCTo2.Controls.Add(imgbtnAddCCTo);
+                               
                             }
                         }
                     }
@@ -424,6 +425,7 @@ namespace SmoONE.UI.Leave
                     lbl.BackColor = System.Drawing.Color.White;
                     lbl.ForeColor = System.Drawing.Color.FromArgb(44, 44, 44);
                     lbl.FontSize = 10;
+                    lbl.Padding = new Padding(0,0,0,3);
                     plCheckMan.Tag = addCheckUser.Split(',')[0];
                     listplCheckUsersP.Add(plCheckMan);//添加审批人名称控件
                     plCheckMan.Press += btnDelCheckClick;//删除审批人事件
@@ -453,6 +455,7 @@ namespace SmoONE.UI.Leave
             lbl.Width = 35;
             lbl.Left = 0;
             lbl.Top = 35;
+            lbl.Padding = new Padding(0, 0, 0, 3);
             plCCToMan.Controls.AddRange(new MobileControl[] { img, lbl });
 
             if (addCCUser.Trim().Length > 0 & listCCToUsers.Count <= 4)
@@ -586,6 +589,7 @@ namespace SmoONE.UI.Leave
                 }
                 else
                 {
+                   imgbtnAddCheck.Left =45* (listCheckUsers.Count+1);
                     imgbtnAddCheck.Visible = true;
                 }
             }
@@ -606,6 +610,7 @@ namespace SmoONE.UI.Leave
                 }
                 else
                 {
+                    imgbtnAddCCTo.Left = 45 *(listCCToUsers.Count+1);
                     imgbtnAddCCTo.Visible = true;
                 }
             }

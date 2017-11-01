@@ -30,14 +30,18 @@ namespace SmoONE.UI.UserInfo
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.title1 = new   Title();
+            this.title1 = new SmoONE.UI.Layout.Title();
             this.textBox1 = new Smobiler.Core.Controls.TextBox();
             this.label1 = new Smobiler.Core.Controls.Label();
             this.listUserData = new Smobiler.Core.Controls.ListView();
             // 
             // title1
             // 
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
             this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            
+            
             this.title1.Location = new System.Drawing.Point(74, 53);
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(100, 50);
@@ -45,7 +49,6 @@ namespace SmoONE.UI.UserInfo
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.BorderRadius = 2;
             this.textBox1.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
             this.textBox1.Location = new System.Drawing.Point(13, 59);
@@ -79,7 +82,7 @@ namespace SmoONE.UI.UserInfo
             this.textBox1,
             this.label1,
             this.listUserData});
-            this.Layout =  Smobiler.Core.Controls.LayoutPosition.Absolute;
+            this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmCheckOrCCTo_KeyDown);
             this.Load += new System.EventHandler(this.frmCheckOrCCTo_Load);
             this.Name = "frmCheckOrCCTo";

@@ -262,7 +262,7 @@ namespace SmoONE.UI.Work
         /// <remarks></remarks>
         private void CreateScreenGestures()
         {
-           
+            this.Client.Pattern.Password = null;
             UserDetailDto user = AutofacConfig.userService.GetUserByUserID(Client.Session["U_ID"].ToString());
             if (user != null)
             {

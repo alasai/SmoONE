@@ -589,9 +589,25 @@ namespace SmoONE.UI.Leave
                 }
                 else
                 {
-                   imgbtnAddCheck.Left =45* (listCheckUsers.Count+1);
+
+                    switch (listCheckUsers.Count)
+                    {
+                        case 1:
+                            imgbtnAddCheck.Left = 70;
+                            break;
+                        case 2:
+                            imgbtnAddCheck.Left = 120;
+                            break;
+                        case 3:
+                            imgbtnAddCheck.Left = 180;
+                            break;
+                    }
                     imgbtnAddCheck.Visible = true;
                 }
+            }
+            else
+            {
+                imgbtnAddCheck.Left = 0;
             }
         }
 
@@ -610,9 +626,26 @@ namespace SmoONE.UI.Leave
                 }
                 else
                 {
-                    imgbtnAddCCTo.Left = 45 *(listCCToUsers.Count+1);
+                    switch  (listCCToUsers.Count)
+                        {
+                        case 1:
+                            imgbtnAddCCTo.Left = 70;
+                            break;
+                        case 2:
+                            imgbtnAddCCTo.Left = 120;
+                            break;
+                        case 3:
+                            imgbtnAddCCTo.Left = 180;
+                            break;
+                      }
+                   
+                    
                     imgbtnAddCCTo.Visible = true;
                 }
+            }
+            else
+            {
+                imgbtnAddCCTo.Left = 0;
             }
         }
         

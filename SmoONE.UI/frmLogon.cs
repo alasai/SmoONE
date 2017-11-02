@@ -166,6 +166,7 @@ namespace SmoONE.UI
         /// </summary>
         private void ScreenGestures()
         {
+            this.Client.Pattern.Password = null;
             string userID = txtTel.Text.Trim();
             if (userID.Length <=0) Toast("ÇëÊäÈëÊÖ»úºÅ£¡", ToastLength.SHORT);
             UserDetailDto user = AutofacConfig.userService.GetUserByUserID(userID);

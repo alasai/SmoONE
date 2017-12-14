@@ -381,8 +381,8 @@ namespace SmoONE.UI.Work
                 foreach (PopListItem poitem in popList1.Selections)
                 {
 
-                    type = (popList1.Selection.Value.ToString()).Split('-')[0].ToString();
-                    state = (popList1.Selection.Value.ToString()).Split('-')[1].ToString();
+                    type = (popList1.Selection.Value.ToString()).Split('/')[0].ToString();
+                    state = (popList1.Selection.Value.ToString()).Split('/')[1].ToString();
                 }
                 GetCheckData();
             }
@@ -421,10 +421,10 @@ namespace SmoONE.UI.Work
                         {
                             if (rowli["ParentID"].ToString().Equals(Grow["GroupID"].ToString()))
                             {
-                                poli.AddListItem(rowli["PopItemName"].ToString(), rowli["ParentID"].ToString() + "-" + rowli["Status"].ToString());
+                                poli.AddListItem(rowli["PopItemName"].ToString(), rowli["ParentID"].ToString() + "/" + rowli["Status"].ToString());
                                 if (type.Trim().Length > 0 & state.Trim().Length > 0)
                                 {
-                                    if ((type.Trim() + "-" + state.Trim()).Equals(rowli["ParentID"].ToString() + "-" + rowli["Status"].ToString()))
+                                    if ((type.Trim() + "/" + state.Trim()).Equals(rowli["ParentID"].ToString() + "/" + rowli["Status"].ToString()))
                                     {
                                         popList1.SetSelections(poli.Items[(poli.Items.Count - 1)]);
                                     }

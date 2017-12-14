@@ -36,8 +36,8 @@ namespace SmoONE.UI.RB
             this.plNote = new Smobiler.Core.Controls.Panel();
             this.lblNote = new Smobiler.Core.Controls.Label();
             this.TxtNote = new Smobiler.Core.Controls.TextBox();
-            this.listRBRowData = new Smobiler.Core.Controls.ListView();
             this.title1 = new SmoONE.UI.Layout.Title();
+            this.listRBRowData = new Smobiler.Core.Controls.ListView();
             this.spContent = new Smobiler.Core.Controls.Panel();
             this.plButton = new Smobiler.Core.Controls.Panel();
             this.plAll = new Smobiler.Core.Controls.Panel();
@@ -113,6 +113,17 @@ namespace SmoONE.UI.RB
             this.TxtNote.Size = new System.Drawing.Size(212, 100);
             this.TxtNote.WaterMarkText = "（选填）";
             // 
+            // title1
+            // 
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.listRBRowData});
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(300, 50);
+            this.title1.TitleText = "报销创建";
+            // 
             // listRBRowData
             // 
             this.listRBRowData.BackColor = System.Drawing.Color.White;
@@ -120,27 +131,19 @@ namespace SmoONE.UI.RB
             this.listRBRowData.HeaderControlName = null;
             this.listRBRowData.Location = new System.Drawing.Point(0, 155);
             this.listRBRowData.Name = "listRBRowData";
+            this.listRBRowData.PageSizeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
+            this.listRBRowData.PageSizeTextSize = 11F;
             this.listRBRowData.ShowSplitLine = true;
             this.listRBRowData.Size = new System.Drawing.Size(300, 250);
             this.listRBRowData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.listRBRowData.TemplateControlName = "frmRBCreateLayout";
-            // 
-            // title1
-            // 
-            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
-            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.title1.Name = "title1";
-            this.title1.Size = new System.Drawing.Size(300, 50);
-            this.title1.TitleText = "报销创建";
             // 
             // spContent
             // 
             this.spContent.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.plRBCC,
             this.plNote,
-            this.listRBRowData,
-            this.plButton});
+            this.listRBRowData});
             this.spContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.spContent.Flex = 10000;
             this.spContent.Location = new System.Drawing.Point(0, 60);
@@ -222,7 +225,8 @@ namespace SmoONE.UI.RB
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.title1,
-            this.spContent});
+            this.spContent,
+            this.plButton});
             this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmRBCreate_KeyDown);
             this.Load += new System.EventHandler(this.frmRBCreate_Load);

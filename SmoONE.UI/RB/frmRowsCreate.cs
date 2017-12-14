@@ -199,7 +199,7 @@ namespace SmoONE.UI.RB
                     {
                         this.ShowResult = ShowResult.Yes;
                         this.Close();
-                        Toast("消费记录提交成功！");
+                        Toast("消费记录提交成功！",ToastLength.SHORT);
                     }
                     else
                     {
@@ -221,18 +221,24 @@ namespace SmoONE.UI.RB
         {
             try
             {
-                int RID = Convert.ToInt32(ID);
-                ReturnInfo r = AutofacConfig.rBService.DeleteRB_Rows(RID);
-                if (r.IsSuccess == true)
+                MessageBox.Show("是否确定删除消费记录？", MessageBoxButtons.YesNo, (Object s1, MessageBoxHandlerArgs args1) =>
                 {
-                    this.ShowResult = ShowResult.Yes;
-                    this.Close();
-                    Toast("您已成功删除消费记录");
-                }
-                else
-                {
-                    throw new Exception(r.ErrorInfo);
-                }
+                    if (args1.Result == Smobiler.Core.Controls.ShowResult.Yes)
+                    {
+                        int RID = Convert.ToInt32(ID);
+                        ReturnInfo r = AutofacConfig.rBService.DeleteRB_Rows(RID);
+                        if (r.IsSuccess == true)
+                        {
+                            this.ShowResult = ShowResult.Yes;
+                            this.Close();
+                            Toast("您已成功删除消费记录");
+                        }
+                        else
+                        {
+                            throw new Exception(r.ErrorInfo);
+                        }
+                    }
+                });
             }
             catch (Exception ex)
             {

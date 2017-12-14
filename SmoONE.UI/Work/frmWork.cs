@@ -36,6 +36,7 @@ namespace SmoONE.UI.Work
         private void iconMenuData_ItemPress(object sender, IconMenuViewItemPressEventArgs e)
         {
             MenuItem(e.Item.ID);
+           
         }
         /// <summary>
         /// 菜单点击事件方法
@@ -321,6 +322,40 @@ namespace SmoONE.UI.Work
         private void title1_ImagePress(object sender, EventArgs e)
         {
             OpenDrawer();
+        }
+        /// <summary>
+        /// action事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmWork_ActionButtonPress(object sender, ActionButtonPressEventArgs e)
+        {
+            try
+            {
+                switch (e.Index )
+                {
+                    //创建请假
+                    case 0:
+                        Leave.frmLeaveCreate frmLeaveCreate = new Leave.frmLeaveCreate();
+                        Show(frmLeaveCreate);
+                        break;
+                    //创建消费记录
+                    case 1:
+                        RB.frmRBRows frmRBRows = new RB.frmRBRows();
+                        Show(frmRBRows);
+                        break;
+                    //创建报销
+                    case 2:
+                        RB.frmRBCreate frmRBCreate = new RB.frmRBCreate();
+                        Show(frmRBCreate);
+                        break;                   
+                  
+                }
+            }
+            catch(Exception ex)
+            {
+                Toast(ex.Message, ToastLength.SHORT);
+            }
         }
     }
 }

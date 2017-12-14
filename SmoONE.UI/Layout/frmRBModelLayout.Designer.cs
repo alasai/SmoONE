@@ -28,11 +28,20 @@ namespace SmoONE.UI.Layout
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
+            this.swipeView1 = new Smobiler.Core.Controls.SwipeView();
             this.plContent = new Smobiler.Core.Controls.Panel();
             this.imgType = new Smobiler.Core.Controls.Image();
             this.lblRT_Type = new Smobiler.Core.Controls.Label();
             this.lblRT_Money = new Smobiler.Core.Controls.Label();
             this.lblnote = new Smobiler.Core.Controls.Label();
+            // 
+            // swipeView1
+            // 
+            this.swipeView1.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.plContent});
+            this.swipeView1.Name = "swipeView1";
+            this.swipeView1.RightControlName = "SwipeDeleteControl";
+            this.swipeView1.Size = new System.Drawing.Size(300, 60);
             // 
             // plContent
             // 
@@ -88,12 +97,13 @@ namespace SmoONE.UI.Layout
             // frmRBModelLayout
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.plContent});
-            this.Size = new System.Drawing.Size(0, 60);
+            this.swipeView1});
+            this.Size = new System.Drawing.Size(300, 60);
             this.Name = "frmRBModelLayout";
 
         }
         #endregion
+        private Smobiler.Core.Controls.SwipeView swipeView1;
         private Smobiler.Core.Controls.Panel plContent;
         internal Smobiler.Core.Controls.Image imgType;
         private Smobiler.Core.Controls.Label lblRT_Type;

@@ -28,11 +28,20 @@ namespace SmoONE.UI.Layout
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
+            this.swipeView1 = new Smobiler.Core.Controls.SwipeView();
             this.plContent = new Smobiler.Core.Controls.Panel();
             this.imgType = new Smobiler.Core.Controls.Image();
             this.lblMoney = new Smobiler.Core.Controls.Label();
             this.lbldate = new Smobiler.Core.Controls.Label();
             this.lblnote = new Smobiler.Core.Controls.Label();
+            // 
+            // swipeView1
+            // 
+            this.swipeView1.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.plContent});
+            this.swipeView1.Name = "swipeView1";
+            this.swipeView1.RightControlName = "SwipeDeleteControl";
+            this.swipeView1.Size = new System.Drawing.Size(300, 60);
             // 
             // plContent
             // 
@@ -53,7 +62,6 @@ namespace SmoONE.UI.Layout
             this.imgType.Location = new System.Drawing.Point(5, 7);
             this.imgType.Name = "imgType";
             this.imgType.Size = new System.Drawing.Size(45, 45);
-            this.imgType.SizeMode = Smobiler.Core.Controls.ImageSizeMode.Zoom;
             // 
             // lblMoney
             // 
@@ -81,7 +89,6 @@ namespace SmoONE.UI.Layout
             // 
             this.lblnote.DataMember = "RBROW_NOTE";
             this.lblnote.DisplayMember = "RBROW_NOTE";
-            this.lblnote.FontSize = 13F;
             this.lblnote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.lblnote.Location = new System.Drawing.Point(150, 0);
             this.lblnote.Name = "lblnote";
@@ -92,7 +99,7 @@ namespace SmoONE.UI.Layout
             // frmConsumptionLayout
             // 
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.plContent});
+            this.swipeView1});
             this.Size = new System.Drawing.Size(0, 60);
             this.Name = "frmConsumptionLayout";
 
@@ -103,5 +110,6 @@ namespace SmoONE.UI.Layout
         internal Smobiler.Core.Controls.Label lblMoney;
         internal Smobiler.Core.Controls.Label lbldate;
         internal Smobiler.Core.Controls.Label lblnote;
+        public Smobiler.Core.Controls.SwipeView swipeView1;
     }
 }

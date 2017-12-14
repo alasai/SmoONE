@@ -32,6 +32,9 @@ namespace SmoONE.UI.Work
         {
             Smobiler.Core.Controls.ToolBarItem toolBarItem1 = new Smobiler.Core.Controls.ToolBarItem();
             Smobiler.Core.Controls.ToolBarItem toolBarItem2 = new Smobiler.Core.Controls.ToolBarItem();
+            Smobiler.Core.Controls.ActionButtonItem actionButtonItem1 = new Smobiler.Core.Controls.ActionButtonItem();
+            Smobiler.Core.Controls.ActionButtonItem actionButtonItem2 = new Smobiler.Core.Controls.ActionButtonItem();
+            Smobiler.Core.Controls.ActionButtonItem actionButtonItem3 = new Smobiler.Core.Controls.ActionButtonItem();
             this.title1 = new Smobiler.Core.Controls.Title();
             this.toolBar1 = new Smobiler.Core.Controls.ToolBar();
             this.spContent = new Smobiler.Core.Controls.Panel();
@@ -45,7 +48,7 @@ namespace SmoONE.UI.Work
             this.plChaoSong = new Smobiler.Core.Controls.Panel();
             this.image4 = new Smobiler.Core.Controls.Image();
             this.label3 = new Smobiler.Core.Controls.Label();
-            this.weiXin1 = new Smobiler.Core.Controls.Native.WeiXin();
+            this.swipeView1 = new Smobiler.Core.Controls.SwipeView();
             // 
             // title1
             // 
@@ -65,6 +68,7 @@ namespace SmoONE.UI.Work
             this.toolBar1.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
             this.toolBar1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             toolBarItem1.IconID = "work2";
+            toolBarItem1.MessageText = "2";
             toolBarItem1.Name = "Work";
             toolBarItem1.SelectIconID = "work2";
             toolBarItem2.IconID = "me";
@@ -74,6 +78,8 @@ namespace SmoONE.UI.Work
             toolBarItem1,
             toolBarItem2});
             this.toolBar1.Location = new System.Drawing.Point(91, 373);
+            this.toolBar1.MessageFontSize = 10;
+            this.toolBar1.MessageForeColor = System.Drawing.Color.White;
             this.toolBar1.Name = "toolBar1";
             this.toolBar1.Size = new System.Drawing.Size(100, 50);
             this.toolBar1.ToolbarItemClick += new Smobiler.Core.Controls.ToolbarItemClickEventHandler(this.toolBar1_ToolbarItemClick);
@@ -191,14 +197,37 @@ namespace SmoONE.UI.Work
             this.label3.Size = new System.Drawing.Size(75, 34);
             this.label3.Text = "抄送我的";
             // 
-            // weiXin1
+            // swipeView1
             // 
-            this.weiXin1.Name = "weiXin1";
+            this.swipeView1.Name = "swipeView1";
+            this.swipeView1.Size = new System.Drawing.Size(0, 0);
             // 
             // frmWork
             // 
-            this.Components.AddRange(new Smobiler.Core.Controls.MobileComponent[] {
-            this.weiXin1});
+            this.ActionButton.AutoInactive = false;
+            this.ActionButton.Enabled = true;
+            this.ActionButton.ImageSize = 24;
+            actionButtonItem1.ButtonCorlor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(206)))), ((int)(((byte)(248)))));
+            actionButtonItem1.ImageType = Smobiler.Core.Controls.ActionButtonImageType.Image;
+            actionButtonItem1.ResourceID = "action1";
+            actionButtonItem1.Text = "请假";
+            actionButtonItem1.TextForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            actionButtonItem2.ButtonCorlor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(231)))), ((int)(((byte)(171)))));
+            actionButtonItem2.ImageType = Smobiler.Core.Controls.ActionButtonImageType.Image;
+            actionButtonItem2.ResourceID = "action2";
+            actionButtonItem2.Text = "消费明细";
+            actionButtonItem2.TextForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            actionButtonItem3.ButtonCorlor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
+            actionButtonItem3.ImageType = Smobiler.Core.Controls.ActionButtonImageType.Image;
+            actionButtonItem3.ResourceID = "action3";
+            actionButtonItem3.Text = "报销";
+            actionButtonItem3.TextForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.ActionButton.Items.AddRange(new Smobiler.Core.Controls.ActionButtonItem[] {
+            actionButtonItem1,
+            actionButtonItem2,
+            actionButtonItem3});
+            this.ActionButton.MainButton.ButtonCorlor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(187)))), ((int)(((byte)(255)))));
+            this.ActionButton.OffsetY = 50;
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.title1,
             this.toolBar1,
@@ -206,6 +235,7 @@ namespace SmoONE.UI.Work
             this.DrawerName = "SmoONE.UI.Layout.LeftPage";
             this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmWork_KeyDown);
+            this.ActionButtonPress += new Smobiler.Core.Controls.ActionButtonPressEventHandler(this.frmWork_ActionButtonPress);
             this.Load += new System.EventHandler(this.frmWork_Load);
             this.Name = "frmWork";
 
@@ -224,6 +254,6 @@ namespace SmoONE.UI.Work
         private Smobiler.Core.Controls.Image image4;
         private Smobiler.Core.Controls.Label label3;
         private Smobiler.Core.Controls.ImageButton imgbtnShenPi;
-        private Smobiler.Core.Controls.Native.WeiXin weiXin1;
+        private Smobiler.Core.Controls.SwipeView swipeView1;
     }
 }

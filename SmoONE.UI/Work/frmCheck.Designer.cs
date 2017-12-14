@@ -89,6 +89,8 @@ namespace SmoONE.UI.Work
             this.listCheckData.Location = new System.Drawing.Point(0, 85);
             this.listCheckData.Name = "listCheckData";
             this.listCheckData.PageSize = 10;
+            this.listCheckData.PageSizeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
+            this.listCheckData.PageSizeTextSize = 11F;
             this.listCheckData.ShowSplitLine = true;
             this.listCheckData.Size = new System.Drawing.Size(300, 415);
             this.listCheckData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));

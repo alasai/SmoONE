@@ -31,7 +31,9 @@ namespace SmoONE.UI.Layout
         private void plExit_Press(object sender, EventArgs e)
         {
             //this.Client.Exit();
-            this.Form .Close();
+            //this.Form .Close();
+            this.Client.ReStart();
+            
         }
         /// <summary>
         /// Êý¾Ý¼ÓÔØ

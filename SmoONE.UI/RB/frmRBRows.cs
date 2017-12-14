@@ -57,6 +57,8 @@ namespace SmoONE.UI.RB
                 Toast(ex.Message);
             }
         }
+
+       
         /// <summary>
         /// 手机自带回退按钮事件
         /// </summary>
@@ -69,6 +71,15 @@ namespace SmoONE.UI.RB
                 this.Close();             //关闭当前页面
             }
         }
+        /// <summary>
+        /// 删除列表行项
+        /// </summary>
+        /// <param name="row"></param>
+        internal void RemoveRow(ListViewRow row)
+        {
+            this.listRBRowData.Rows.Remove(row);
+        }
+
         /// <summary>
         /// 初始化事件
         /// </summary>

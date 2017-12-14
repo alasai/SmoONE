@@ -54,6 +54,15 @@ namespace SmoONE.UI.RB
             Bind();      //加载数据
         }
         /// <summary>
+        /// 删除行项
+        /// </summary>
+        /// <param name="row"></param>
+        internal void RemoveRow(ListViewRow row)
+        {
+            this.listRBModelData.Rows.Remove(row);
+        }
+      
+        /// <summary>
         /// 初始化方法
         /// </summary>
         /// <remarks></remarks>

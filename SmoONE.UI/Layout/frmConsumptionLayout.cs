@@ -8,6 +8,19 @@ namespace SmoONE.UI.Layout
     partial class frmConsumptionLayout : Smobiler.Core.Controls.MobileUserControl
     {
         /// <summary>
+        /// 编号
+        /// </summary>
+        internal string NO
+        {
+            get
+            {
+                return this.lblMoney.BindDataValue.ToString();
+            }
+
+        }
+
+      
+        /// <summary>
         /// 查看消费记录详情
         /// </summary>
         /// <param name="sender"></param>
@@ -24,6 +37,7 @@ namespace SmoONE.UI.Layout
                     {
                         ((frmRBRows)(this.Form)).Bind();//重新加载数据
                     }
+                    
                 });
             }
             catch (Exception ex)
@@ -31,5 +45,6 @@ namespace SmoONE.UI.Layout
                 this.Form.Toast(ex.Message);
             }
         }
+
     }
 }

@@ -81,6 +81,8 @@ namespace SmoONE.UI.Layout
         /// <param name="e"></param>
         private void btnOK_Press(object sender, EventArgs e)
         {
+            try
+            {
             string errinfo;
             if (eInfo == (int)EuserInfo.ÐÞ¸ÄµÇÂ¼ÃÜÂë)
             {
@@ -141,6 +143,11 @@ namespace SmoONE.UI.Layout
                     this.Close();
                     ((frmUser)(this.Form)).GetUser();
                 }
+            }
+            }
+            catch(Exception ex)
+            {
+                Toast(ex.Message, ToastLength.SHORT);
             }
         }
     }

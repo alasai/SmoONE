@@ -28,12 +28,12 @@ namespace SmoONE.UI.Attendance
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Smobiler.Core.Controls.PopListGroup popListGroup1 = new Smobiler.Core.Controls.PopListGroup();
-            Smobiler.Core.Controls.PopListItem popListItem1 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem2 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem3 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem4 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem5 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListGroup popListGroup3 = new Smobiler.Core.Controls.PopListGroup();
+            Smobiler.Core.Controls.PopListItem popListItem11 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem12 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem13 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem14 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem15 = new Smobiler.Core.Controls.PopListItem();
             this.gps1 = new Smobiler.Core.Controls.GPS();
             this.popList1 = new Smobiler.Core.Controls.PopList();
             this.btnSave = new Smobiler.Core.Controls.Button();
@@ -62,10 +62,10 @@ namespace SmoONE.UI.Attendance
             this.dpAMStartWork = new Smobiler.Core.Controls.DatePicker();
             this.dpAMEndWork = new Smobiler.Core.Controls.DatePicker();
             this.pAddress = new Smobiler.Core.Controls.Panel();
+            this.lblAddress = new Smobiler.Core.Controls.Label();
             this.title1 = new SmoONE.UI.Layout.Title();
             this.pPost = new Smobiler.Core.Controls.Panel();
             this.panel1 = new Smobiler.Core.Controls.Panel();
-            this.lblAddress = new Smobiler.Core.Controls.Label();
             // 
             // gps1
             // 
@@ -76,30 +76,30 @@ namespace SmoONE.UI.Attendance
             // 
             // popList1
             // 
-            popListItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            popListItem1.Text = "300米";
-            popListItem1.Value = "300";
-            popListItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            popListItem2.Text = "500米";
-            popListItem2.Value = "500";
-            popListItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            popListItem3.Text = "800米";
-            popListItem3.Value = "800";
-            popListItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            popListItem4.Text = "1000米";
-            popListItem4.Value = "1000";
-            popListItem5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            popListItem5.Text = "自定义（300~5000）米";
-            popListItem5.Value = "definition";
-            popListGroup1.Items.AddRange(new Smobiler.Core.Controls.PopListItem[] {
-            popListItem1,
-            popListItem2,
-            popListItem3,
-            popListItem4,
-            popListItem5});
-            popListGroup1.Value = null;
+            popListItem11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem11.Text = "300米";
+            popListItem11.Value = "300";
+            popListItem12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem12.Text = "500米";
+            popListItem12.Value = "500";
+            popListItem13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem13.Text = "800米";
+            popListItem13.Value = "800";
+            popListItem14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem14.Text = "1000米";
+            popListItem14.Value = "1000";
+            popListItem15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem15.Text = "自定义（300~5000）米";
+            popListItem15.Value = "definition";
+            popListGroup3.Items.AddRange(new Smobiler.Core.Controls.PopListItem[] {
+            popListItem11,
+            popListItem12,
+            popListItem13,
+            popListItem14,
+            popListItem15});
+            popListGroup3.Value = null;
             this.popList1.Groups.AddRange(new Smobiler.Core.Controls.PopListGroup[] {
-            popListGroup1});
+            popListGroup3});
             this.popList1.Name = "popList1";
             // 
             // btnSave
@@ -452,6 +452,17 @@ namespace SmoONE.UI.Attendance
             this.pAddress.Touchable = true;
             this.pAddress.Press += new System.EventHandler(this.btnAddress1_Click);
             // 
+            // lblAddress
+            // 
+            this.lblAddress.BackColor = System.Drawing.Color.White;
+            this.lblAddress.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.lblAddress.FontSize = 12F;
+            this.lblAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Padding = new Smobiler.Core.Controls.Padding(0F, 5F, 2F, 0F);
+            this.lblAddress.Size = new System.Drawing.Size(150, 80);
+            this.lblAddress.VerticalAlignment = Smobiler.Core.Controls.VerticalAlignment.Top;
+            // 
             // title1
             // 
             this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
@@ -507,20 +518,8 @@ namespace SmoONE.UI.Attendance
             this.panel1.Scrollable = true;
             this.panel1.Size = new System.Drawing.Size(300, 20);
             // 
-            // lblAddress
-            // 
-            this.lblAddress.BackColor = System.Drawing.Color.White;
-            this.lblAddress.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.lblAddress.FontSize = 12F;
-            this.lblAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Padding = new Smobiler.Core.Controls.Padding(0F, 5F, 2F, 0F);
-            this.lblAddress.Size = new System.Drawing.Size(150, 80);
-            this.lblAddress.VerticalAlignment = Smobiler.Core.Controls.VerticalAlignment.Top;
-            // 
             // frmAttendanceCreate
             // 
-            this.BackColor = System.Drawing.Color.Transparent;
             this.Components.AddRange(new Smobiler.Core.Controls.MobileComponent[] {
             this.gps1,
             this.popList1});

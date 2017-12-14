@@ -47,7 +47,7 @@ namespace SmoONE.UI.Layout
             this.Label13});
             this.plPerson.Location = new System.Drawing.Point(0, 195);
             this.plPerson.Name = "plPerson";
-            this.plPerson.Size = new System.Drawing.Size(300, 40);
+            this.plPerson.Size = new System.Drawing.Size(260, 40);
             this.plPerson.Touchable = true;
             this.plPerson.Press += new System.EventHandler(this.plPerson_Press);
             // 
@@ -75,7 +75,7 @@ namespace SmoONE.UI.Layout
             this.fontIcon2});
             this.plExit.Location = new System.Drawing.Point(0, 235);
             this.plExit.Name = "plExit";
-            this.plExit.Size = new System.Drawing.Size(300, 40);
+            this.plExit.Size = new System.Drawing.Size(260, 40);
             this.plExit.Touchable = true;
             this.plExit.Press += new System.EventHandler(this.plExit_Press);
             // 
@@ -108,7 +108,7 @@ namespace SmoONE.UI.Layout
             // imgPortrait
             // 
             this.imgPortrait.BorderRadius = 40;
-            this.imgPortrait.Location = new System.Drawing.Point(100, 45);
+            this.imgPortrait.Location = new System.Drawing.Point(90, 45);
             this.imgPortrait.Name = "imgPortrait";
             this.imgPortrait.ResourceID = "6";
             this.imgPortrait.Size = new System.Drawing.Size(80, 80);
@@ -121,7 +121,7 @@ namespace SmoONE.UI.Layout
             this.lblName.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
             this.lblName.Location = new System.Drawing.Point(0, 125);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(280, 35);
+            this.lblName.Size = new System.Drawing.Size(260, 35);
             // 
             // lblPhone
             // 
@@ -130,7 +130,7 @@ namespace SmoONE.UI.Layout
             this.lblPhone.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Center;
             this.lblPhone.Location = new System.Drawing.Point(0, 160);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(280, 35);
+            this.lblPhone.Size = new System.Drawing.Size(260, 35);
             // 
             // LeftPage
             // 
@@ -140,7 +140,7 @@ namespace SmoONE.UI.Layout
             this.plExit,
             this.panel1});
             this.Flex = 1;
-            this.Size = new System.Drawing.Size(280, 0);
+            this.Size = new System.Drawing.Size(260, 0);
             this.Load += new System.EventHandler(this.LeftPage_Load);
             this.Name = "LeftPage";
 

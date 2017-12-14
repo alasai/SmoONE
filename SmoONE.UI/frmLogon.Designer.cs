@@ -180,6 +180,7 @@ namespace SmoONE.UI
             this.chkRememberPwd.Location = new System.Drawing.Point(19, 265);
             this.chkRememberPwd.Name = "chkRememberPwd";
             this.chkRememberPwd.Size = new System.Drawing.Size(20, 20);
+            this.chkRememberPwd.Style = Smobiler.Core.Controls.CheckBoxStyle.Circular;
             this.chkRememberPwd.TintColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             // 
             // label4

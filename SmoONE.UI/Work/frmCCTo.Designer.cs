@@ -51,6 +51,8 @@ namespace SmoONE.UI.Work
             this.listCCData.Location = new System.Drawing.Point(82, 144);
             this.listCCData.Name = "listCCData";
             this.listCCData.PageSize = 10;
+            this.listCCData.PageSizeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
+            this.listCCData.PageSizeTextSize = 11F;
             this.listCCData.ShowSplitLine = true;
             this.listCCData.Size = new System.Drawing.Size(100, 30);
             this.listCCData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));

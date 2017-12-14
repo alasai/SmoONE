@@ -136,17 +136,23 @@ namespace SmoONE.UI.RB
         {
             try
             {
-                ReturnInfo r = AutofacConfig.rBService.DeleteRB_Type_Template(ID);
-                if (r.IsSuccess == true)
+                MessageBox.Show("是否确定删除消费模板？", MessageBoxButtons.YesNo, (Object s1, MessageBoxHandlerArgs args1) =>
                 {
-                    this.ShowResult = ShowResult.Yes;
-                    this.Close();
-                    Toast("删除消费模板成功");
-                }
-                else
-                {
-                    throw new Exception(r.ErrorInfo);
-                }
+                    if (args1.Result == Smobiler.Core.Controls.ShowResult.Yes)
+                    {
+                        ReturnInfo r = AutofacConfig.rBService.DeleteRB_Type_Template(ID);
+                        if (r.IsSuccess == true)
+                        {
+                            this.ShowResult = ShowResult.Yes;
+                            this.Close();
+                            Toast("删除消费模板成功");
+                        }
+                        else
+                        {
+                            throw new Exception(r.ErrorInfo);
+                        }
+                    }
+                });
             }
             catch (Exception ex)
             {

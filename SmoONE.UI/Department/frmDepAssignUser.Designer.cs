@@ -74,8 +74,10 @@ namespace SmoONE.UI.Department
             this.gridUserData.Location = new System.Drawing.Point(0, 170);
             this.gridUserData.Name = "gridUserData";
             this.gridUserData.PageSize = 10;
+            this.gridUserData.PageSizeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
+            this.gridUserData.PageSizeTextSize = 11F;
             this.gridUserData.ShowSplitLine = true;
-            this.gridUserData.Size = new System.Drawing.Size(300, 195);
+            this.gridUserData.Size = new System.Drawing.Size(300, 226);
             this.gridUserData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.gridUserData.TemplateControlName = "frmDepAssignUserLayout";
             // 

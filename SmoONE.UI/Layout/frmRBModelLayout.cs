@@ -11,6 +11,8 @@ namespace SmoONE.UI.Layout
     //[System.ComponentModel.ToolboxItem(true)]
     partial class frmRBModelLayout : Smobiler.Core.Controls.MobileUserControl
     {
+        
+
         /// <summary>
         /// 选中模板，将模板编号传递到上个页面
         /// </summary>
@@ -20,6 +22,7 @@ namespace SmoONE.UI.Layout
         {
             try
             {
+                
                 if (this.Form.ToString() == "SmoONE.UI.RB.frmRTypeTempChoose")
                 {
                     ((frmRTypeTempChoose)(this.Form)).RTTemplaetID = lblRT_Money.BindDataValue.ToString();
@@ -29,12 +32,13 @@ namespace SmoONE.UI.Layout
                 else if (this.Form.ToString() == "SmoONE.UI.RB.frmRTypeTemplate")
                 {
                     frmRTypeTempCreate frm = new frmRTypeTempCreate();              //进入模板创建或者详情页面
-                    frm.ID = lblRT_Money.BindDataValue.ToString(); ;
+                    frm.ID = lblRT_Money.BindDataValue.ToString(); 
                     this.Form.Show(frm, (MobileForm sender1, object args) =>
                     {
                         if (frm.ShowResult == ShowResult.Yes)
                         {
                             ((frmRTypeTemplate)(this.Form)).Bind();            //重新加载数据
+                           
                         }
                     });
                 }
@@ -43,6 +47,20 @@ namespace SmoONE.UI.Layout
             {
                 this.Form.Toast(ex.Message);
             }
+        }
+
+       
+
+        /// <summary>
+        /// 编号
+        /// </summary>
+        internal string NO
+        {
+            get
+            {
+                return   this.lblRT_Money.BindDataValue.ToString();
+            }
+            
         }
     }
 }

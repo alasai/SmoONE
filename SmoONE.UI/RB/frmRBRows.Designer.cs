@@ -67,6 +67,8 @@ namespace SmoONE.UI.RB
             this.listRBRowData.Margin = new Smobiler.Core.Controls.Margin(0F, 20F, 0F, 0F);
             this.listRBRowData.Name = "listRBRowData";
             this.listRBRowData.PageSize = 10;
+            this.listRBRowData.PageSizeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
+            this.listRBRowData.PageSizeTextSize = 11F;
             this.listRBRowData.ShowSplitLine = true;
             this.listRBRowData.Size = new System.Drawing.Size(300, 30);
             this.listRBRowData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
@@ -84,6 +86,8 @@ namespace SmoONE.UI.RB
             // 
             // frmRBRows
             // 
+            this.ActionButton.MainButton.ButtonCorlor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ActionButton.MainButton.ResourceID = "plus";
             this.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.title1,
             this.btnCreate,

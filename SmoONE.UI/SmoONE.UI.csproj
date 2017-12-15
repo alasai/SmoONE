@@ -491,6 +491,12 @@
     <Compile Include="Layout\LeftPage.Designer.cs">
       <DependentUpon>LeftPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layout\SwipeDeleteControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\SwipeDeleteControl.Designer.cs">
+      <DependentUpon>SwipeDeleteControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\Title.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -855,6 +861,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\LeftPage.resx">
       <DependentUpon>LeftPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\SwipeDeleteControl.resx">
+      <DependentUpon>SwipeDeleteControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\Title.resx">
       <DependentUpon>Title.cs</DependentUpon>

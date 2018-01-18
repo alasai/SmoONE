@@ -366,7 +366,7 @@ namespace SmoONE.UI.CostCenter
                             foreach (Image imgAEACheckP in listimgAEAChecksP)
                             {
 
-                                this.Controls.Remove((Image)imgAEACheckP);
+                                this.panel1.Controls.Remove((Image)imgAEACheckP);
                             }
                         }
                         if (listlblAEAChecks.Count > 0)
@@ -375,7 +375,7 @@ namespace SmoONE.UI.CostCenter
                             {
 
 
-                                this.Controls.Remove((Label)lblAEACheckName);
+                                this.panel1.Controls.Remove((Label)lblAEACheckName);
                             }
                         }
                         listAEAChecks.Clear();
@@ -389,14 +389,14 @@ namespace SmoONE.UI.CostCenter
                             foreach (Image imgFCheckP in listimgFCheckersP)
                             {
 
-                                this.Controls.Remove((Image)imgFCheckP);
+                                this.panel1.Controls.Remove((Image)imgFCheckP);
                             }
                         }
                         if (listlblFCheckers.Count > 0)
                         {
                             foreach (Label lblFCheckName in listlblFCheckers)
                             {
-                                this.Controls.Remove((Label)lblFCheckName);
+                                this.panel1.Controls.Remove((Label)lblFCheckName);
                             }
                         }
                         listFCheckers.Clear();

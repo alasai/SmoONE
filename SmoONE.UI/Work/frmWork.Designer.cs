@@ -233,6 +233,7 @@ namespace SmoONE.UI.Work
             this.toolBar1,
             this.spContent});
             this.DrawerName = "SmoONE.UI.Layout.LeftPage";
+            this.DrawerWidth = 260;
             this.Orientation = Smobiler.Core.Controls.FormOrientation.Portrait;
             this.KeyDown += new Smobiler.Core.Controls.KeyDownEventHandler(this.frmWork_KeyDown);
             this.ActionButtonPress += new Smobiler.Core.Controls.ActionButtonPressEventHandler(this.frmWork_ActionButtonPress);

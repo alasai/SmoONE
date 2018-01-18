@@ -3,6 +3,7 @@ using SmoONE.Application;
 using SmoONE.Domain.IRepository;
 using SmoONE.Infrastructure;
 using SmoONE.Repository;
+using SmoONE.Repository.Contact;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,16 @@ namespace SmoONE.UI
         public IAttendanceService attendanceService;
 
         /// <summary>
+        /// 联系人相关服务的接口
+        /// </summary>
+        public Application.IServices.IContactService contactService;
+
+        /// <summary>
+        /// 联系人群组相关服务的接口
+        /// </summary>
+        public Application.IServices.ICGroupService cGroupService;
+
+        /// <summary>
         /// Ioc容器
         /// </summary>
         private ContainerBuilder containerBuilder;
@@ -75,7 +86,8 @@ namespace SmoONE.UI
             containerBuilder.RegisterType<RoleRepository>().As<IRoleRepository>().InstancePerDependency();
             containerBuilder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerDependency();
             containerBuilder.RegisterType<UserRoleRepository>().As<IUserRoleRepository>().InstancePerDependency();
-            containerBuilder.RegisterType<ValidateCodeRepository>().As<IValidateCodeRepository>().InstancePerDependency();
+            containerBuilder.RegisterType<ContactRepository>().As<IContactRepository>().InstancePerDependency();
+
 
             containerBuilder.RegisterType<AT_CustomDateRepository>().As<IAT_CustomDateRepository>().InstancePerDependency();
             containerBuilder.RegisterType<AttendanceLogRepository>().As<IAttendanceLogRepository>().InstancePerDependency();
@@ -86,12 +98,18 @@ namespace SmoONE.UI
             containerBuilder.RegisterType<AT_UserLogRepository>().As<IAT_UserLogRepository>().InstancePerDependency();
             containerBuilder.RegisterType<MonthlyResultRepository>().As<IMonthlyResultRepository>().InstancePerDependency();
 
+            containerBuilder.RegisterType<CGroupRepository>().As<ICGroupRepository>().InstancePerDependency();
+            containerBuilder.RegisterType<ValidateCodeRepository>().As<IValidateCodeRepository>().InstancePerDependency();
+
             containerBuilder.RegisterType<CostCenterService>().As<ICostCenterService>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<DepartmentService>().As<IDepartmentService>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<LeaveService>().As<ILeaveService>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<ReimbursementService>().As<IReimbursementService>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<AttendanceService>().As<IAttendanceService>().InstancePerLifetimeScope();
+
+            containerBuilder.RegisterType<Application.Services.ContactService>().As<Application.IServices.IContactService>().InstancePerLifetimeScope();
+            containerBuilder.RegisterType<Application.Services.CGroupService >().As<Application.IServices.ICGroupService >().InstancePerLifetimeScope();
         }
 
         /// <summary>
@@ -111,6 +129,8 @@ namespace SmoONE.UI
             this.rBService = container.Resolve<IReimbursementService>();
             this.userService = container.Resolve<IUserService>();
             this.attendanceService = container.Resolve<IAttendanceService>();
+            this.contactService  = container.Resolve<Application.IServices.IContactService>();
+            this.cGroupService  = container.Resolve<Application.IServices.ICGroupService>();
         }
     }
 }

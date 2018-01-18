@@ -63,6 +63,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Smobiler Designer\Library\Smobiler.Core.Controls.Native.dll</HintPath>
     </Reference>
+    <Reference Include="Smobiler.Core.Controls.RongIM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0da07b02a250b91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\Smobiler.Core.Controls.RongIM.dll</HintPath>
+    </Reference>
     <Reference Include="Smobiler.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f1ac7264a7cfc183, processorArchitecture=MSIL" />
     <Reference Include="Smobiler.Utility" />
     <Reference Include="Smobiler.Core" />
@@ -281,11 +285,35 @@
       <DependentUpon>frmDepAssignUser.cs</DependentUpon>
     </Compile>
     <Compile Include="EuserInfo.cs" />
+    <Compile Include="FileUp\frmFile.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FileUp\frmFile.Designer.cs">
+      <DependentUpon>frmFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FileUp\frmFileDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FileUp\frmFileDetail.Designer.cs">
+      <DependentUpon>frmFileDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogon.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="frmLogon.Designer.cs">
       <DependentUpon>frmLogon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Im\frmAddConcentOrGroup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Im\frmAddConcentOrGroup.Designer.cs">
+      <DependentUpon>frmAddConcentOrGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Im\frmConcent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Im\frmConcent.Designer.cs">
+      <DependentUpon>frmConcent.cs</DependentUpon>
     </Compile>
     <Compile Include="Layout\CheckOrCC.cs">
       <SubType>Component</SubType>
@@ -298,6 +326,18 @@
     </Compile>
     <Compile Include="Layout\EditUserInfoLayout.Designer.cs">
       <DependentUpon>EditUserInfoLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmAddUser1Layout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmAddUser1Layout.Designer.cs">
+      <DependentUpon>frmAddUser1Layout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmAddUserLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmAddUserLayout.Designer.cs">
+      <DependentUpon>frmAddUserLayout.cs</DependentUpon>
     </Compile>
     <Compile Include="Layout\frmATFootLayout.cs">
       <SubType>Component</SubType>
@@ -437,6 +477,24 @@
     <Compile Include="Layout\frmDetailFootbarLayout.Designer.cs">
       <DependentUpon>frmDetailFootbarLayout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layout\frmFileUpLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmFileUpLayout.Designer.cs">
+      <DependentUpon>frmFileUpLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmFileUpLayout1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmFileUpLayout1.Designer.cs">
+      <DependentUpon>frmFileUpLayout1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmGroupLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmGroupLayout.Designer.cs">
+      <DependentUpon>frmGroupLayout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\frmLeaveLayout.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -478,6 +536,12 @@
     </Compile>
     <Compile Include="Layout\frmUserLayout.Designer.cs">
       <DependentUpon>frmUserLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmUserLayout1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmUserLayout1.Designer.cs">
+      <DependentUpon>frmUserLayout1.cs</DependentUpon>
     </Compile>
     <Compile Include="Layout\ImageButton.cs">
       <SubType>Component</SubType>
@@ -757,14 +821,32 @@
     <EmbeddedResource Include="Department\frmDepAssignUser.resx">
       <DependentUpon>frmDepAssignUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FileUp\frmFile.resx">
+      <DependentUpon>frmFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileUp\frmFileDetail.resx">
+      <DependentUpon>frmFileDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogon.resx">
       <DependentUpon>frmLogon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Im\frmAddConcentOrGroup.resx">
+      <DependentUpon>frmAddConcentOrGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Im\frmConcent.resx">
+      <DependentUpon>frmConcent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\CheckOrCC.resx">
       <DependentUpon>CheckOrCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\EditUserInfoLayout.resx">
       <DependentUpon>EditUserInfoLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmAddUser1Layout.resx">
+      <DependentUpon>frmAddUser1Layout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmAddUserLayout.resx">
+      <DependentUpon>frmAddUserLayout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\frmATFootLayout.resx">
       <DependentUpon>frmATFootLayout.cs</DependentUpon>
@@ -835,6 +917,15 @@
     <EmbeddedResource Include="Layout\frmDetailFootbarLayout.resx">
       <DependentUpon>frmDetailFootbarLayout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmFileUpLayout.resx">
+      <DependentUpon>frmFileUpLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmFileUpLayout1.resx">
+      <DependentUpon>frmFileUpLayout1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmGroupLayout.resx">
+      <DependentUpon>frmGroupLayout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Layout\frmLeaveLayout.resx">
       <DependentUpon>frmLeaveLayout.cs</DependentUpon>
     </EmbeddedResource>
@@ -855,6 +946,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\frmUserLayout.resx">
       <DependentUpon>frmUserLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmUserLayout1.resx">
+      <DependentUpon>frmUserLayout1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\ImageButton.resx">
       <DependentUpon>ImageButton.cs</DependentUpon>

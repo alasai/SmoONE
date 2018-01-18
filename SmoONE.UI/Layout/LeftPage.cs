@@ -14,6 +14,7 @@ namespace SmoONE.UI.Layout
     {
         #region "definition"
         AutofacConfig AutofacConfig = new AutofacConfig();//µ˜”√≈‰÷√¿‡
+       
         #endregion
 
         /// <summary>
@@ -32,6 +33,7 @@ namespace SmoONE.UI.Layout
         {
             //this.Client.Exit();
             //this.Form .Close();
+       
             this.Client.ReStart();
             
         }

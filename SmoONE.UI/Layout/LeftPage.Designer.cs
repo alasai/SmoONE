@@ -41,6 +41,7 @@ namespace SmoONE.UI.Layout
             // 
             // plPerson
             // 
+            this.plPerson.BackColor = System.Drawing.Color.White;
             this.plPerson.BorderColor = System.Drawing.Color.White;
             this.plPerson.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.fontIcon1,
@@ -69,6 +70,7 @@ namespace SmoONE.UI.Layout
             // 
             // plExit
             // 
+            this.plExit.BackColor = System.Drawing.Color.White;
             this.plExit.BorderColor = System.Drawing.Color.White;
             this.plExit.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
             this.Label10,

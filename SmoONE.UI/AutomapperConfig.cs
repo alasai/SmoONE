@@ -24,6 +24,8 @@ namespace SmoONE.UI
             Mapper.CreateMap<RBInputDto, SmoONE.Domain.Reimbursement>();
             Mapper.CreateMap<RBRTTInputDto, SmoONE.Domain.RB_RType_Template>();
             Mapper.CreateMap<UserInputDto, SmoONE.Domain.User>();
+            Mapper.CreateMap<ContactInputDto, SmoONE.Domain.Contact >();
+            Mapper.CreateMap<CGroupInputDto, SmoONE.Domain.CGroup >();
             //考勤新加
             //名称相同的,会自动匹配映射,但是名称不同的,需要手动配置(比如L_CreateUser→U_ID)
             Mapper.CreateMap<ALInputDto, SmoONE.Domain.AttendanceLog>()
@@ -56,6 +58,8 @@ namespace SmoONE.UI
             Mapper.CreateMap<SmoONE.Domain.User, UserDepDto>().ForMember(dto => dto.Dep_ID, (map) => map.MapFrom(m => m.U_DepID));
             Mapper.CreateMap<SmoONE.Domain.User, UserDetailDto>();
             Mapper.CreateMap<SmoONE.Domain.User, UserDto>();
+            Mapper.CreateMap<SmoONE.Domain.Contact, ContactDto>();
+            Mapper.CreateMap<SmoONE.Domain.CGroup, CGroupDto>();
 
             //考勤新加
             Mapper.CreateMap<SmoONE.Domain.AttendanceLog, ALDto>();

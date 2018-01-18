@@ -34,8 +34,6 @@ namespace SmoONE.UI.Layout
                         this.Form.ShowResult = ShowResult.Yes;
                         this.Form.Close();
                         break;
-
-                       
                 }
                
             }

@@ -42,7 +42,6 @@ namespace SmoONE.UI.Leave
             this.Label5 = new Smobiler.Core.Controls.Label();
             this.txtReason = new Smobiler.Core.Controls.TextBox();
             this.lblImg = new Smobiler.Core.Controls.Label();
-            this.imgL = new Smobiler.Core.Controls.Image();
             this.Label9 = new Smobiler.Core.Controls.Label();
             this.btnupPhoto = new Smobiler.Core.Controls.Button();
             this.btndelPhoto = new Smobiler.Core.Controls.Button();
@@ -55,6 +54,8 @@ namespace SmoONE.UI.Leave
             this.pCCTo2 = new Smobiler.Core.Controls.Panel();
             this.imgbtnAddCCTo = new SmoONE.UI.Layout.ImageButton();
             this.btnSave = new Smobiler.Core.Controls.Button();
+            this.panel1 = new Smobiler.Core.Controls.Panel();
+            this.imgL = new Smobiler.Core.Controls.Image();
             this.title1 = new SmoONE.UI.Layout.Title();
             // 
             // popType
@@ -81,7 +82,6 @@ namespace SmoONE.UI.Leave
             this.Label5,
             this.txtReason,
             this.lblImg,
-            this.imgL,
             this.Label9,
             this.btnupPhoto,
             this.btndelPhoto,
@@ -91,7 +91,8 @@ namespace SmoONE.UI.Leave
             this.lblCCTo,
             this.lblCCTo1,
             this.pCCTo2,
-            this.btnSave});
+            this.btnSave,
+            this.panel1});
             this.pContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pContent.Flex = 10000;
             this.pContent.Location = new System.Drawing.Point(0, 50);
@@ -253,16 +254,6 @@ namespace SmoONE.UI.Leave
             this.lblImg.VerticalAlignment = Smobiler.Core.Controls.VerticalAlignment.Top;
             this.lblImg.ZIndex = 12;
             // 
-            // imgL
-            // 
-            this.imgL.BackColor = System.Drawing.Color.White;
-            this.imgL.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
-            this.imgL.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.imgL.Location = new System.Drawing.Point(66, 270);
-            this.imgL.Name = "imgL";
-            this.imgL.Size = new System.Drawing.Size(235, 50);
-            this.imgL.ZIndex = 13;
-            // 
             // Label9
             // 
             this.Label9.BackColor = System.Drawing.Color.White;
@@ -423,6 +414,26 @@ namespace SmoONE.UI.Leave
             this.btnSave.Text = "提交";
             this.btnSave.Press += new System.EventHandler(this.btnSave_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Border = new Smobiler.Core.Controls.Border(0F, 1F, 0F, 0F);
+            this.panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.panel1.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.imgL});
+            this.panel1.Location = new System.Drawing.Point(66, 270);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(235, 50);
+            // 
+            // imgL
+            // 
+            this.imgL.BackColor = System.Drawing.Color.White;
+            this.imgL.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.imgL.Margin = new Smobiler.Core.Controls.Margin(0F, 1F, 0F, 0F);
+            this.imgL.Name = "imgL";
+            this.imgL.Size = new System.Drawing.Size(235, 48);
+            this.imgL.ZIndex = 13;
+            // 
             // title1
             // 
             this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
@@ -463,7 +474,6 @@ namespace SmoONE.UI.Leave
         internal Smobiler.Core.Controls.Label Label5;
         internal Smobiler.Core.Controls.TextBox txtReason;
         internal Smobiler.Core.Controls.Label lblImg;
-        internal Smobiler.Core.Controls.Image imgL;
         internal Smobiler.Core.Controls.Label Label9;
         internal Smobiler.Core.Controls.Button btnupPhoto;
         internal Smobiler.Core.Controls.Button btndelPhoto;
@@ -477,5 +487,7 @@ namespace SmoONE.UI.Leave
         private Layout.ImageButton imgbtnAddCheck;
         private Layout.ImageButton imgbtnAddCCTo;
         private Smobiler.Core.Controls.Button btnSave;
+        private Smobiler.Core.Controls.Panel panel1;
+        internal Smobiler.Core.Controls.Image imgL;
     }
 }

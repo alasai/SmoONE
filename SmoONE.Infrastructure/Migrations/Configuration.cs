@@ -99,7 +99,9 @@ namespace SmoONE.Infrastructure.Migrations
                 new Menu { M_MenuID = "AttendanceManagement", M_Description = "考勤管理", M_Sort = 1, M_IsActive = 1, M_ParentID = "Attendance", M_UpdateDate = DateTime.Now, M_Portrait = "kaoqinguanli" },
                 new Menu { M_MenuID = "AttendanceInfo", M_Description = "考勤", M_Sort = 2, M_IsActive = 1, M_ParentID = "Attendance", M_UpdateDate = DateTime.Now, M_Portrait = "kaoqin" },
                 new Menu { M_MenuID = "MyAttendanceHistory", M_Description = "我的考勤", M_Sort = 3, M_IsActive = 1, M_ParentID = "Attendance", M_UpdateDate = DateTime.Now, M_Portrait = "wodekaoqinlishi" },
-                new Menu { M_MenuID = "AttendanceStatistics", M_Description = "考勤统计", M_Sort = 4, M_IsActive = 1, M_ParentID = "Attendance", M_UpdateDate = DateTime.Now, M_Portrait = "kaoqintongji" }
+                new Menu { M_MenuID = "AttendanceStatistics", M_Description = "考勤统计", M_Sort = 4, M_IsActive = 1, M_ParentID = "Attendance", M_UpdateDate = DateTime.Now, M_Portrait = "kaoqintongji" },
+                new Menu { M_MenuID = "IM", M_Description = "IM", M_Sort = 1, M_IsActive = 1, M_ParentID = "", M_UpdateDate = DateTime.Now, M_Portrait = "IM"},
+                new Menu { M_MenuID = "FileUp", M_Description = "文件上传", M_Sort = 2, M_IsActive = 1, M_ParentID = "", M_UpdateDate = DateTime.Now, M_Portrait = "FileUp" }
                 );
             //在RoleMenu表中添加默认数据
             context.RoleMenus.AddOrUpdate(
@@ -126,7 +128,11 @@ namespace SmoONE.Infrastructure.Migrations
                 new RoleMenu { RM_ID = 21, RM_RoleID = "Employee", RM_MenuID = "AttendanceInfo" },
                 new RoleMenu { RM_ID = 22, RM_RoleID = "Employee", RM_MenuID = "MyAttendanceHistory" },
                 new RoleMenu { RM_ID = 23, RM_RoleID = "Employee", RM_MenuID = "AttendanceStatistics" },
-                 new RoleMenu { RM_ID = 24, RM_RoleID = "Administrator", RM_MenuID = "CCFX" }
+                new RoleMenu { RM_ID = 24, RM_RoleID = "Administrator", RM_MenuID = "CCFX" },
+                new RoleMenu { RM_ID = 25, RM_RoleID = "Administrator", RM_MenuID = "IM" },
+                new RoleMenu { RM_ID = 26, RM_RoleID = "Administrator", RM_MenuID = "FileUp" },
+                new RoleMenu { RM_ID = 27, RM_RoleID = "Employee", RM_MenuID = "IM" },
+                new RoleMenu { RM_ID = 28, RM_RoleID = "Employee", RM_MenuID = "FileUp" }
                 );
             //在Department表中添加默认数据
             //context.Departments.AddOrUpdate(

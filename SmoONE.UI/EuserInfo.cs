@@ -26,5 +26,16 @@ namespace SmoONE.UI
        /// </summary>
        修改登录密码 =3,
     }
-
+    public enum ConcentState
+    {
+        /// <summary>
+        /// 联系人
+        /// </summary>
+        Concent = 1,
+        /// <summary>
+        /// 群组
+        /// </summary>
+        Group = 2,
+       
+    }
 }

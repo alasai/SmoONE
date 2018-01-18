@@ -58,7 +58,17 @@ namespace SmoONE.UI.RB
             }
         }
 
-       
+        ///// <summary>
+        ///// 关闭行项侧滑
+        ///// </summary>
+        //public void CloseRowSwipe()
+        //{
+        //    foreach (ListViewRow Row in listRBRowData.Rows)
+        //    {                
+        //        Layout.frmConsumptionLayout RBRowsLayout = Row.Control as Layout.frmConsumptionLayout;
+        //        RBRowsLayout.swipeView1 .Close ();
+        //    }
+        //}
         /// <summary>
         /// 手机自带回退按钮事件
         /// </summary>

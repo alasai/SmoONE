@@ -131,6 +131,9 @@ namespace SmoONE.UI
         /// <param name="e"></param>
         private void frmLogon_Load(object sender, EventArgs e)
         {
+            Smobiler.Core.Controls.RongIM.IM im = new Smobiler.Core.Controls.RongIM.IM();
+            this.Components.Add(im);
+            im.Logout();
             ReadClientData(MobileServer.ServerID + "user", (object s, ClientDataResultHandlerArgs args) =>
             {
                 try
@@ -222,5 +225,6 @@ namespace SmoONE.UI
         {
             ScreenGestures();
         }
+
     }
 }

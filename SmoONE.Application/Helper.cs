@@ -66,6 +66,8 @@ namespace SmoONE.Application
             return sb.ToString();
         }
 
+
+
         /// <summary>
         /// 产生部分表的主键ID
         /// </summary>
@@ -95,6 +97,34 @@ namespace SmoONE.Application
             {
                 sb.Append("001");
             }
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// 产生部分表的主键ID
+        /// </summary>
+        /// <param name="Head">自定义的ID开头</param>
+        /// <param name="MaxID">当前表中的最大ID</param>
+        public static string GenerateID2(string Head, string MaxID)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Head);
+            if (string.IsNullOrEmpty(MaxID))
+            {
+                sb.Append("000001");
+            }
+            else 
+            {
+                int HeadLength = Head.Length;
+                int MinuteMax = int.Parse(MaxID.Substring(HeadLength, 6));
+                string NowMax = (MinuteMax + 1).ToString();
+                for (int i = NowMax.Length; i < 6; i++)
+                {
+                    sb.Append("0");
+                }
+                sb.Append((MinuteMax + 1).ToString());
+            }
+            
             return sb.ToString();
         }
 
@@ -499,8 +529,36 @@ namespace SmoONE.Application
             }            
             return sb;
         }
+        /// <summary>
+        /// 群组验证
+        /// </summary>
+        /// <param name="entity">群组对象</param>
+        public static string ValidateCGroupInputDto(CGroupInputDto entity)
+        {
+            //基础验证
+            StringBuilder sb = BasicValidate<CGroupInputDto>(entity);
+            if (entity.G_NAME  == null)
+            {
+                sb.Append("群组名称不能为空.");
+            }
 
+            return sb.ToString();
+        }
+        /// <summary>
+        /// 联系人验证
+        /// </summary>
+        /// <param name="entity">联系人对象</param>
+        public static string ValidateContactInputDto(ContactInputDto  entity)
+        {
+            //基础验证
+            StringBuilder sb = BasicValidate<ContactInputDto>(entity);
+            if (entity.C_USER == null)
+            {
+                sb.Append("联系人不能为空.");
+            }
 
+            return sb.ToString();
+        }
         private static string DealName(string ShortName)
         {
             switch (ShortName)

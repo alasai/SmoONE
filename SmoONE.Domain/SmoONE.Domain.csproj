@@ -55,6 +55,8 @@
     <Compile Include="Entity\Attendance\AttendanceLog.cs" />
     <Compile Include="Entity\Attendance\AttendanceTemplate.cs" />
     <Compile Include="Entity\Attendance\AT_CustomDate.cs" />
+    <Compile Include="Entity\Contact\CGroup.cs" />
+    <Compile Include="Entity\Contact\Contact.cs" />
     <Compile Include="Entity\CostCenter\CC_Type_Template.cs" />
     <Compile Include="Entity\CostCenter\CostCenter.cs" />
     <Compile Include="Entity\CostCenter\CostCenter_Type.cs" />
@@ -80,6 +82,8 @@
     <Compile Include="IRepository\IAT_CustomDateRepository.cs" />
     <Compile Include="IRepository\IAT_UserLogRepository.cs" />
     <Compile Include="IRepository\ICC_Type_TemplateRepository.cs" />
+    <Compile Include="IRepository\ICGroupRepository.cs" />
+    <Compile Include="IRepository\IContactRepository.cs" />
     <Compile Include="IRepository\ICostCenterRepository.cs" />
     <Compile Include="IRepository\ICostCenter_TypeRepository.cs" />
     <Compile Include="IRepository\IDailyStatisticsRepository.cs" />
@@ -114,6 +118,7 @@
       <Name>SmoONE.DTOs</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

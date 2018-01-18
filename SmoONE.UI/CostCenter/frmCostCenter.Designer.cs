@@ -43,6 +43,8 @@ namespace SmoONE.UI.CostCenter
             this.gridCCData.Margin = new Smobiler.Core.Controls.Margin(0F, 20F, 0F, 0F);
             this.gridCCData.Name = "gridCCData";
             this.gridCCData.PageSize = 10;
+            this.gridCCData.PageSizeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
+            this.gridCCData.PageSizeTextSize = 11F;
             this.gridCCData.ShowSplitLine = true;
             this.gridCCData.Size = new System.Drawing.Size(300, 395);
             this.gridCCData.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));

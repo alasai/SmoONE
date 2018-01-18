@@ -28,12 +28,12 @@ namespace SmoONE.UI.Attendance
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Smobiler.Core.Controls.PopListGroup popListGroup3 = new Smobiler.Core.Controls.PopListGroup();
-            Smobiler.Core.Controls.PopListItem popListItem11 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem12 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem13 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem14 = new Smobiler.Core.Controls.PopListItem();
-            Smobiler.Core.Controls.PopListItem popListItem15 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListGroup popListGroup1 = new Smobiler.Core.Controls.PopListGroup();
+            Smobiler.Core.Controls.PopListItem popListItem1 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem2 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem3 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem4 = new Smobiler.Core.Controls.PopListItem();
+            Smobiler.Core.Controls.PopListItem popListItem5 = new Smobiler.Core.Controls.PopListItem();
             this.gps1 = new Smobiler.Core.Controls.GPS();
             this.popList1 = new Smobiler.Core.Controls.PopList();
             this.btnSave = new Smobiler.Core.Controls.Button();
@@ -76,30 +76,30 @@ namespace SmoONE.UI.Attendance
             // 
             // popList1
             // 
-            popListItem11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            popListItem11.Text = "300米";
-            popListItem11.Value = "300";
-            popListItem12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            popListItem12.Text = "500米";
-            popListItem12.Value = "500";
-            popListItem13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            popListItem13.Text = "800米";
-            popListItem13.Value = "800";
-            popListItem14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            popListItem14.Text = "1000米";
-            popListItem14.Value = "1000";
-            popListItem15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            popListItem15.Text = "自定义（300~5000）米";
-            popListItem15.Value = "definition";
-            popListGroup3.Items.AddRange(new Smobiler.Core.Controls.PopListItem[] {
-            popListItem11,
-            popListItem12,
-            popListItem13,
-            popListItem14,
-            popListItem15});
-            popListGroup3.Value = null;
+            popListItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem1.Text = "300米";
+            popListItem1.Value = "300";
+            popListItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem2.Text = "500米";
+            popListItem2.Value = "500";
+            popListItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem3.Text = "800米";
+            popListItem3.Value = "800";
+            popListItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem4.Text = "1000米";
+            popListItem4.Value = "1000";
+            popListItem5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            popListItem5.Text = "自定义（300~5000）米";
+            popListItem5.Value = "definition";
+            popListGroup1.Items.AddRange(new Smobiler.Core.Controls.PopListItem[] {
+            popListItem1,
+            popListItem2,
+            popListItem3,
+            popListItem4,
+            popListItem5});
+            popListGroup1.Value = null;
             this.popList1.Groups.AddRange(new Smobiler.Core.Controls.PopListGroup[] {
-            popListGroup3});
+            popListGroup1});
             this.popList1.Name = "popList1";
             // 
             // btnSave

@@ -29,9 +29,9 @@ namespace SmoONE.UI.Attendance
         private void InitializeComponent()
         {
             this.calendar1 = new Smobiler.Core.Controls.Calendar();
+            this.panel1 = new Smobiler.Core.Controls.Panel();
             this.title1 = new SmoONE.UI.Layout.Title();
             this.panel2 = new Smobiler.Core.Controls.Panel();
-            this.panel1 = new Smobiler.Core.Controls.Panel();
             this.lblStartWork = new Smobiler.Core.Controls.Label();
             this.lblRest = new Smobiler.Core.Controls.Label();
             this.btnCDType = new Smobiler.Core.Controls.Button();
@@ -53,27 +53,6 @@ namespace SmoONE.UI.Attendance
             this.calendar1.Size = new System.Drawing.Size(300, 270);
             this.calendar1.DateChanged += new System.EventHandler(this.calendar1_DateChanged);
             // 
-            // title1
-            // 
-            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
-            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
-            
-            this.title1.Name = "title1";
-            this.title1.Size = new System.Drawing.Size(100, 50);
-            this.title1.TitleText = "日历设置";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
-            this.calendar1,
-            this.panel1});
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 350);
-            this.panel2.Name = "panel2";
-            this.panel2.Scrollable = true;
-            this.panel2.Size = new System.Drawing.Size(300, 200);
-            // 
             // panel1
             // 
             this.panel1.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
@@ -93,6 +72,25 @@ namespace SmoONE.UI.Attendance
             this.panel1.Location = new System.Drawing.Point(0, 160);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(300, 250);
+            // 
+            // title1
+            // 
+            this.title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.title1.Direction = Smobiler.Core.Controls.LayoutDirection.Row;
+            this.title1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(100, 50);
+            this.title1.TitleText = "日历设置";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.AddRange(new Smobiler.Core.Controls.MobileControl[] {
+            this.calendar1,
+            this.panel1});
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 350);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(300, 200);
             // 
             // lblStartWork
             // 
@@ -161,6 +159,7 @@ namespace SmoONE.UI.Attendance
             this.dpPMEndWork.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.dpPMEndWork.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.dpPMEndWork.Location = new System.Drawing.Point(100, 105);
+            this.dpPMEndWork.Mode = Smobiler.Core.Controls.DatePickerMode.Time;
             this.dpPMEndWork.Name = "dpPMEndWork";
             this.dpPMEndWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.dpPMEndWork.Size = new System.Drawing.Size(200, 35);
@@ -174,6 +173,7 @@ namespace SmoONE.UI.Attendance
             this.dpPMStartWork.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.dpPMStartWork.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.dpPMStartWork.Location = new System.Drawing.Point(100, 70);
+            this.dpPMStartWork.Mode = Smobiler.Core.Controls.DatePickerMode.Time;
             this.dpPMStartWork.Name = "dpPMStartWork";
             this.dpPMStartWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.dpPMStartWork.Size = new System.Drawing.Size(200, 35);
@@ -187,6 +187,7 @@ namespace SmoONE.UI.Attendance
             this.dpAMEndWork.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.dpAMEndWork.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.dpAMEndWork.Location = new System.Drawing.Point(100, 35);
+            this.dpAMEndWork.Mode = Smobiler.Core.Controls.DatePickerMode.Time;
             this.dpAMEndWork.Name = "dpAMEndWork";
             this.dpAMEndWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.dpAMEndWork.Size = new System.Drawing.Size(200, 35);
@@ -200,6 +201,7 @@ namespace SmoONE.UI.Attendance
             this.dpAMStartWork.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.dpAMStartWork.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.dpAMStartWork.Location = new System.Drawing.Point(100, 0);
+            this.dpAMStartWork.Mode = Smobiler.Core.Controls.DatePickerMode.Time;
             this.dpAMStartWork.Name = "dpAMStartWork";
             this.dpAMStartWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.dpAMStartWork.Size = new System.Drawing.Size(200, 35);
@@ -213,6 +215,7 @@ namespace SmoONE.UI.Attendance
             this.dpStartWork.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.dpStartWork.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.dpStartWork.Location = new System.Drawing.Point(100, 0);
+            this.dpStartWork.Mode = Smobiler.Core.Controls.DatePickerMode.Time;
             this.dpStartWork.Name = "dpStartWork";
             this.dpStartWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.dpStartWork.Size = new System.Drawing.Size(200, 35);
@@ -226,6 +229,7 @@ namespace SmoONE.UI.Attendance
             this.dpEndWork.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.dpEndWork.HorizontalAlignment = Smobiler.Core.Controls.HorizontalAlignment.Right;
             this.dpEndWork.Location = new System.Drawing.Point(100, 35);
+            this.dpEndWork.Mode = Smobiler.Core.Controls.DatePickerMode.Time;
             this.dpEndWork.Name = "dpEndWork";
             this.dpEndWork.Padding = new Smobiler.Core.Controls.Padding(0F, 0F, 4F, 0F);
             this.dpEndWork.Size = new System.Drawing.Size(200, 35);

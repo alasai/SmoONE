@@ -48,7 +48,6 @@ namespace SmoONE.UI.Work
             this.segmentedControl1.SegmentedBorderRadius = 4;
             this.segmentedControl1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             this.segmentedControl1.Size = new System.Drawing.Size(280, 35);
-            this.segmentedControl1.UnSelectedColor = System.Drawing.Color.White;
             this.segmentedControl1.SelectedIndexChanged += new System.EventHandler(this.segmentedControl1_SelectedIndexChanged);
             // 
             // title1

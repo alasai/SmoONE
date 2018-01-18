@@ -28,6 +28,7 @@ namespace SmoONE.UI.Work
         private DateTime toasttime;//toast时间
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
         #endregion
+
         /// <summary>
         /// IconMenuDate点击事件
         /// </summary>
@@ -56,7 +57,8 @@ namespace SmoONE.UI.Work
                     //创建请假
                     case "Leave":
                         Leave.frmLeaveCreate frmLeaveCreate = new Leave.frmLeaveCreate();
-                        Show(frmLeaveCreate);
+                        //请假创建界面添加侧滑关闭功能，在Show中将设置moveClose为True
+                        Show(frmLeaveCreate,true);
                         break;
                     //创建报销
                     case "Reimbursement":
@@ -113,6 +115,16 @@ namespace SmoONE.UI.Work
                     case "AttendanceStatistics":
                         Attendance.frmAttendanceStatistics frmAttendanceStatistics = new Attendance.frmAttendanceStatistics();
                         Show(frmAttendanceStatistics);
+                        break;
+                    //IM
+                    case "IM":
+                        SmoONE.UI.Im.frmConcent frmConcent = new SmoONE.UI.Im.frmConcent();
+                        Show(frmConcent);
+                        break;
+                    //文件上传
+                    case "FileUp":
+                        SmoONE.UI.FileUp.frmFile frmFile = new SmoONE.UI.FileUp.frmFile ();
+                        Show(frmFile);
                         break;
                 }
             }
@@ -176,7 +188,6 @@ namespace SmoONE.UI.Work
         {
             if (toasttime.AddSeconds(3) >= DateTime.Now)
             {
-
                 this.Client.Exit();
             }
             else
@@ -192,6 +203,8 @@ namespace SmoONE.UI.Work
         /// <param name="e"></param>
         private void frmWork_Load(object sender, EventArgs e)
         {
+           
+          //  this.DrawerWidth = (int)Math.Floor(260 * (float)((this.Client.ScreenSize.Width / this.Client.ScreenDensity) / this.Width));
             MenuGroupDict = new Dictionary<string, IconMenuViewGroup>();
             //获取菜单
             MenuGroup();

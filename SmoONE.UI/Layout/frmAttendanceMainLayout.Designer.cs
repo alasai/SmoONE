@@ -54,7 +54,6 @@ namespace SmoONE.UI.Layout
             // 
             // imgUser
             // 
-            this.imgUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             this.imgUser.BorderRadius = 2;
             this.imgUser.DataMember = "ID";
             this.imgUser.DisplayMember = "Picture";

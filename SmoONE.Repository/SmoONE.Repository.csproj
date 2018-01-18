@@ -55,6 +55,8 @@
     <Compile Include="Attendance\AT_CustomDateRepository.cs" />
     <Compile Include="Attendance\AT_UserLogRepository.cs" />
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="Contact\CGroupRepository.cs" />
+    <Compile Include="Contact\ContactRepository.cs" />
     <Compile Include="CostCenter\CC_Type_TemplateRepository.cs" />
     <Compile Include="CostCenter\CostCenterRepository.cs" />
     <Compile Include="CostCenter\CostCenter_TypeRepository.cs" />

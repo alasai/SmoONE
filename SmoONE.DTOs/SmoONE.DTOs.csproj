@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InputDTO\ContactInputDto.cs" />
+    <Compile Include="InputDTO\CGroupInputDto.cs" />
+    <Compile Include="OutputDTO\CGroupDto.cs" />
+    <Compile Include="OutputDTO\ContactDto.cs" />
     <Compile Include="OutputDTO\MonthlyResultDto.cs" />
     <Compile Include="OutputDTO\DailyStatisticsDto.cs" />
     <Compile Include="Enum\AttendanceType.cs" />

@@ -61,7 +61,17 @@ namespace SmoONE.UI.RB
         {
             this.listRBModelData.Rows.Remove(row);
         }
-      
+        ///// <summary>
+        ///// 关闭行项侧滑
+        ///// </summary>
+        //public void CloseRowSwipe()
+        //{
+        //    foreach (ListViewRow Row in listRBModelData.Rows)
+        //    {
+        //        Layout.frmRBModelLayout RBModeLayout = Row.Control as Layout.frmRBModelLayout;
+        //        RBModeLayout.CloseSwipe();
+        //    }
+        //}
         /// <summary>
         /// 初始化方法
         /// </summary>

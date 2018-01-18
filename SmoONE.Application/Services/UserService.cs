@@ -907,7 +907,7 @@ namespace SmoONE.Application
                     //发送的号码
                     req.RecNum = PhoneNumber;
                     //短信模板ID
-                    req.SmsTemplateCode = "*****";
+                    req.SmsTemplateCode = "****";
                     //服务器返回的执行结果
                     AlibabaAliqinFcSmsNumSendResponse rsp = client.Execute(req);                    
                     if (rsp.IsError==false)
